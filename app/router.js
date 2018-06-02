@@ -1,10 +1,13 @@
 import React from 'react'
-import { Image } from 'react-native'
 import { createStackNavigator, createBottomTabNavigator, createDrawerNavigator } from 'react-navigation'
-import Home from '../screens/home'
-import SideMenu from '../screens/sideMenu'
+import { Image } from 'react-native'
+import Home from './screens/home'
+import Profile from './screens/profile'
+import SideMenu from './screens/sideMenu'
 
-const stackNavigator = createStackNavigator({
+// MARK: - StackNavigator
+
+const homeNavigator = createStackNavigator({
     Home: { 
         screen: Home,
         navigationOptions: ({ navigation }) => ({
@@ -16,22 +19,38 @@ const stackNavigator = createStackNavigator({
     },
 })
 
+const profileNavigator = createStackNavigator({
+    Profile: { 
+        screen: Profile,
+        navigationOptions: ({ navigation }) => ({
+            title: `React Native Boilerplate`,
+            headerTintColor: "white",
+            headerStyle: { backgroundColor: '#34495e', },
+            headerTitleStyle: { fontSize: 18, },
+          }),
+    },
+})
+
+// MARK: - TabNavigator
+
 const tabNavigator = createBottomTabNavigator({
-    Tab: { 
-        screen: stackNavigator,
+    HomeTab: { 
+        screen: homeNavigator,
         navigationOptions: {
             title: 'Home',
             tabBarIcon: <Image/>,
             },
         },
-    Tab2: { 
-        screen: stackNavigator,
+    ProfileTab: { 
+        screen: profileNavigator,
         navigationOptions: {
-            title: 'Home2',
+            title: 'Profile',
             tabBarIcon: <Image/>,
             },
         },
 })
+
+// MARK: - DrawerNavigator
 
 export default createDrawerNavigator({
     TabNavigator: { screen: tabNavigator },
