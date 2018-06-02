@@ -2,6 +2,8 @@ import { Asset } from 'expo';
 
 export const images = {
   menu: require('./menu.png'),
+  home: require('./home.png'),
+  user: require('./user.png'),
 }
 
 var imgs = []

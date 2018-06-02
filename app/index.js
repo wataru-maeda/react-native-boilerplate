@@ -7,22 +7,15 @@ import * as Assets from '../assets'
 
 export default class App extends Component {
     state = {
-        fontLoaded: false,
-        imageLoaded: false,
+        load: false,
     }
   
     componentWillMount() {
-      this._loadAssetAsync();
-    }
-  
-    async _loadAssetAsync() {
-        const { imageAssets, fontAssets } = Assets
-        await Promise.all([...imageAssets, ...fontAssets]);
-        this.setState({ imageLoaded: true, fontLoaded: true });
+      Assets.loadAssets().then(() => this.setState({ load: true }))
     }
   
     render() {
-      if (!this.state.imageLoaded) return <View />;
+      if (!this.state.load) return <View />;
       return (
         <Provider store={store}>
             <Router />
