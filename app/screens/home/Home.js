@@ -6,7 +6,7 @@ export default class Home extends React.Component {
         return (
             <View style={styles.container}>
                 <StatusBar barStyle={'light-content'}/>
-                <Text>Welcome Home</Text>
+                <Text style={styles.text}>Welcome Home</Text>
             </View>
         );
     }
@@ -18,5 +18,8 @@ const styles = {
         backgroundColor: 'white',
         justifyContent: 'center', 
         alignItems: 'center',
+    },
+    text: {
+        fontSize: 24,
     }
 }

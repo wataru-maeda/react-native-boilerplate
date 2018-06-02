@@ -11,10 +11,13 @@ const homeNavigator = createStackNavigator({
     Home: { 
         screen: Home,
         navigationOptions: ({ navigation }) => ({
-            title: `React Native Boilerplate`,
+            title: `Boilerplate`,
             headerTintColor: "white",
             headerStyle: { backgroundColor: '#34495e', },
-            headerTitleStyle: { fontSize: 18, },
+            headerTitleStyle: {
+                fontSize: 24,
+                fontFamily: 'Baskerville',
+            },
           }),
     },
 })
@@ -23,10 +26,13 @@ const profileNavigator = createStackNavigator({
     Profile: { 
         screen: Profile,
         navigationOptions: ({ navigation }) => ({
-            title: `React Native Boilerplate`,
+            title: `Boilerplate`,
             headerTintColor: "white",
             headerStyle: { backgroundColor: '#34495e', },
-            headerTitleStyle: { fontSize: 18, },
+            headerTitleStyle: {
+                fontSize: 24,
+                fontFamily: 'Baskerville',
+            },
           }),
     },
 })
