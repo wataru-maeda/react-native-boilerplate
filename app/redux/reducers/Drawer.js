@@ -1,7 +1,7 @@
 import * as types from '../types';
 
 const initialState = {
-  isConnected: false,
+  show: false,
 };
 
 export default (state = initialState, action) => {

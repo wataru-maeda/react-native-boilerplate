@@ -1,9 +1,12 @@
 import React from 'react'
 import { createStackNavigator, createBottomTabNavigator, createDrawerNavigator } from 'react-navigation'
-import { Image } from 'react-native'
-import Home from './screens/home'
-import Profile from './screens/profile'
-import SideMenu from './screens/sideMenu'
+import { Image, TouchableOpacity } from 'react-native'
+import Home from '../screens/home'
+import Profile from '../screens/profile'
+import SideMenu from '../screens/sideMenu'
+import { images } from '../../assets'
+import Menu from './Menu'
+import Tab from './Tab'
 
 // MARK: - StackNavigator
 
@@ -18,6 +21,7 @@ const homeNavigator = createStackNavigator({
                 fontSize: 24,
                 fontFamily: 'Baskerville',
             },
+            headerLeft : <Menu navigation={navigation}/>,
           }),
     },
 })
@@ -44,14 +48,14 @@ const tabNavigator = createBottomTabNavigator({
         screen: homeNavigator,
         navigationOptions: {
             title: 'Home',
-            tabBarIcon: <Image/>,
-            },
+            tabBarIcon: <Tab source={images.home} />,
         },
+    },
     ProfileTab: { 
         screen: profileNavigator,
         navigationOptions: {
             title: 'Profile',
-            tabBarIcon: <Image/>,
+            tabBarIcon: <Tab source={images.user} />,
             },
         },
 })

@@ -4,12 +4,12 @@ import store from '../store';
 // MARK - Accessors
 
 export const toggleDrawer = () => {
-    const state = getDrawerStatus();
+    const status = getDrawerStatus();
     setDrawerStatus(!status);
   };
 
 export const setDrawerStatus = status => {
-    store.dispatch(storeDrawerkStatus(isConnected));
+    store.dispatch(storeDrawerStatus(status));
 };
 
 export const getDrawerStatus = () => {
@@ -19,7 +19,7 @@ export const getDrawerStatus = () => {
 
 // MARK - Actions
 
-const storeDrawerkStatus = status => {
+const storeDrawerStatus = status => {
   return dispatch => {
     dispatch({
       type: types.DRAWER_TOGGLE_STATUS,
