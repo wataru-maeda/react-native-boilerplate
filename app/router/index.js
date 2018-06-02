@@ -1,26 +1,45 @@
 import React from 'react'
 import { Image } from 'react-native'
-import { StackNavigator, TabNavigator } from 'react-navigation'
+import { createStackNavigator, createBottomTabNavigator, createDrawerNavigator } from 'react-navigation'
 import Home from '../screens/home'
+import SideMenu from '../screens/sideMenu'
 
-const navigator = StackNavigator({
+const stackNavigator = createStackNavigator({
     Home: { 
         screen: Home,
         navigationOptions: ({ navigation }) => ({
-            title: `News Feeds`,
-            headerTintColor: "#fff",
+            title: `React Native Boilerplate`,
+            headerTintColor: "white",
             headerStyle: { backgroundColor: '#34495e', },
             headerTitleStyle: { fontSize: 18, },
           }),
     },
 })
 
-export default TabNavigator({
+const tabNavigator = createBottomTabNavigator({
     Tab: { 
-        screen:  navigator,
+        screen: stackNavigator,
         navigationOptions: {
-            title: 'Tech',
+            title: 'Home',
+            tabBarIcon: <Image/>,
+            },
+        },
+    Tab2: { 
+        screen: stackNavigator,
+        navigationOptions: {
+            title: 'Home2',
             tabBarIcon: <Image/>,
             },
         },
 })
+
+export default createDrawerNavigator({
+    TabNavigator: { screen: tabNavigator },
+    SideMenu: { screen: SideMenu },
+  },
+  {
+    contentComponent: SideMenu,
+    drawerOpenRoute: 'drawerOpen',
+    drawerCloseRoute: 'drawerClose',
+    drawerToggleRoute: 'drawerToggle',
+  });

@@ -1,12 +1,11 @@
 import React, { Component } from 'react'
-import { Text, View, StatusBar } from 'react-native'
+import { Text, View } from 'react-native'
 
-export default class Home extends React.Component {
+export default class SideMenu extends React.Component {
     render() {
         return (
             <View style={styles.container}>
-                <StatusBar barStyle={'light-content'}/>
-                <Text>Welcome Home</Text>
+                <Text>Side Menu</Text>
             </View>
         );
     }
