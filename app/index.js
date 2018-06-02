@@ -16,8 +16,8 @@ export default class App extends Component {
     }
   
     async _loadAssetAsync() {
-        const { cachedImages, cachedFonts } = Assets
-        await Promise.all([...cachedImages, ...cachedFonts]);
+        const { imageAssets, fontAssets } = Assets
+        await Promise.all([...imageAssets, ...fontAssets]);
         this.setState({ imageLoaded: true, fontLoaded: true });
     }
   
