@@ -44,20 +44,43 @@ const profileNavigator = createStackNavigator({
 // MARK: - TabNavigator
 
 const tabNavigator = createBottomTabNavigator({
-    HomeTab: { 
+    HomeTab: {
         screen: homeNavigator,
-        navigationOptions: {
-            title: 'Home',
-            tabBarIcon: <Tab source={images.home} />,
-        },
+        navigationOptions: { title: 'Home' },
     },
-    ProfileTab: { 
+    ProfileTab: {
         screen: profileNavigator,
-        navigationOptions: {
-            title: 'Profile',
-            tabBarIcon: <Tab source={images.user} />,
+        navigationOptions: { title: 'Profile' },
+    },
+}, {
+    navigationOptions: ({ navigation }) => ({
+        tabBarIcon: ({ focused, tintColor }) => {
+            var source;
+            switch (navigation.state.routeName) {
+                case 'HomeTab':
+                    source = images.home;
+                    break
+                case 'ProfileTab':
+                    source = images.user;
+                    break
+                default: break;
+            }
+            return <Tab source={source} focused={focused}/>;
+        },
+        initialRouteName: 'Home',
+        tabBarOptions: {
+            activeTintColor: 'orange',
+            inactiveTintColor: 'gray',
+            style: {
+                // backgroundColor: 'white',
+                // borderTopColor: '#gray',
+                // borderTopWidth: 1,
+                // paddingBottom: 5,
+                // paddingTop: 5,
             },
         },
+        swipeEnabled: false,
+      }),
 })
 
 // MARK: - DrawerNavigator
