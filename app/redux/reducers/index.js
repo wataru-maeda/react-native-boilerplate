@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux'
-import FeedManager from './feedManager'
+import Drawer from './Drawer'
 export default combineReducers({
-    FeedManager,
+    Drawer,
 })

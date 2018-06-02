@@ -1,9 +1,7 @@
 import React from 'react'
 import { Provider } from 'react-redux'
 import Router from './router'
-import ConfigureStore from './redux/store'
-
-const store = ConfigureStore()
+import store from './redux/store'
 
 export default () => (
     <Provider store={store}>

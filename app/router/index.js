@@ -1,6 +1,6 @@
 import React from 'react'
+import { Image } from 'react-native'
 import { StackNavigator, TabNavigator } from 'react-navigation'
-import { Icon } from 'native-base'
 import Home from '../screens/home'
 
 const navigator = StackNavigator({
@@ -20,7 +20,7 @@ export default TabNavigator({
         screen:  navigator,
         navigationOptions: {
             title: 'Tech',
-            tabBarIcon: <Icon name='ios-contact'/>,
+            tabBarIcon: <Image/>,
             },
         },
 })

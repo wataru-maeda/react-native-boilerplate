@@ -1,40 +1,22 @@
-import React from 'react';
-import { Text, View, FlatList, Alert } from 'react-native';
-import styles from './styles'
+import React, { Component } from 'react'
+import { Text, View, StatusBar } from 'react-native'
 
-// component
-import FeedListItem from '../../components/FeedListItem'
-
-// redux
-import { connect } from 'react-redux'
-import { updateTechFeeds, updateAppleFeeds } from '../../redux/actions/feedManager'
-
-class Home extends React.Component {
-
-    componentWillMount() {
-        const {dispatch} = this.props
-        dispatch(updateAppleFeeds())
-    }
-
+export default class Home extends React.Component {
     render() {
-        const { feeds } = this.props
         return (
             <View style={styles.container}>
-                <FlatList
-                data={feeds}
-                keyExtractor={(feed, index)=>feed.title}
-                renderItem={this.renderRow}/>
+                <StatusBar barStyle={'light-content'}/>
+                <Text>Hello React-Native-Boilerplate!</Text>
             </View>
         );
     }
-
-    renderRow = (feed) => (
-        <FeedListItem feed={feed} onPress={(url)=>{ Alert.alert(url) }}/>
-    )
 }
 
-const mapStateToProps = state => {
-    return { feeds: state.FeedManager.feeds, }
+const styles = {
+    container: {
+        flex: 1,
+        backgroundColor: 'white',
+        justifyContent: 'center', 
+        alignItems: 'center',
+    }
 }
-
-export default connect(mapStateToProps)(Home)
