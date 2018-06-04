@@ -1,3 +1,4 @@
+import React from 'react'
 import { createStackNavigator, createBottomTabNavigator, createDrawerNavigator } from 'react-navigation'
 import Home from '../screens/home'
 import Profile from '../screens/profile'

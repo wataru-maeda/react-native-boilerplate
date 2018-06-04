@@ -1,8 +1,8 @@
-import * as types from '../types';
+import * as types from '../types'
 
 const initialState = {
-  show: false,
-};
+  show: false
+}
 
 export default (state = initialState, action) => {
   switch (action.type) {
@@ -10,9 +10,9 @@ export default (state = initialState, action) => {
       return {
         ...state,
         status: types.DRAWER_TOGGLE_STATUS,
-        show: action.payload,
-      };
+        show: action.payload
+      }
     default:
-      return state;
+      return state
   }
-};
+}

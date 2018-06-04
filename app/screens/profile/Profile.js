@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Text, View } from 'react-native'
 
 export default class Profile extends Component {
-  render() {
+  render () {
     return (
       <View style={styles.container}>
         <Text style={styles.text}> Hello Profile </Text>
@@ -12,13 +12,13 @@ export default class Profile extends Component {
 }
 
 const styles = {
-    container: {
-        flex: 1,
-        backgroundColor: 'white',
-        justifyContent: 'center', 
-        alignItems: 'center',
-    },
-    text: {
-      fontSize: 24,
+  container: {
+    flex: 1,
+    backgroundColor: 'white',
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  text: {
+    fontSize: 24
   }
 }
