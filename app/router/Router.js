@@ -7,6 +7,7 @@ import {
 import Home from '../screens/home';
 import Profile from '../screens/profile';
 import SideMenu from '../screens/sideMenu';
+import colors from '../constants/Colors';
 import { images } from '../../assets';
 import Menu from './Menu';
 import Tab from './Tab';
@@ -19,7 +20,7 @@ const homeNavigator = createStackNavigator({
     navigationOptions: ({ navigation }) => ({
       title: `Boilerplate`,
       headerTintColor: 'white',
-      headerStyle: { backgroundColor: '#34495e' },
+      headerStyle: { backgroundColor: colors.$darkGray },
       headerTitleStyle: {
         fontSize: 24,
         fontFamily: 'Baskerville',
@@ -35,7 +36,7 @@ const profileNavigator = createStackNavigator({
     navigationOptions: ({ navigation }) => ({
       title: `Boilerplate`,
       headerTintColor: 'white',
-      headerStyle: { backgroundColor: '#34495e' },
+      headerStyle: { backgroundColor: colors.$darkGray },
       headerTitleStyle: {
         fontSize: 24,
         fontFamily: 'Baskerville',
@@ -75,7 +76,7 @@ const tabNavigator = createBottomTabNavigator(
       },
       initialRouteName: 'Home',
       tabBarOptions: {
-        activeTintColor: 'orange',
+        activeTintColor: colors.$orange,
         inactiveTintColor: 'gray',
         style: {
           // backgroundColor: 'white',
