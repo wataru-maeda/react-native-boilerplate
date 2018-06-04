@@ -3,7 +3,7 @@ import { View } from 'react-native';
 import { Provider } from 'react-redux';
 import Router from './router';
 import store from './redux/store';
-import * as Assets from '../assets';
+import { loadAssets } from './utils/AssetsLoader';
 
 export default class App extends Component {
   state = {
@@ -11,7 +11,7 @@ export default class App extends Component {
   };
 
   componentWillMount() {
-    Assets.loadAssets().then(() => this.setState({ load: true }));
+    loadAssets().then(() => this.setState({ load: true }));
   }
 
   render() {

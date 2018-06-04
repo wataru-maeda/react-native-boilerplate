@@ -1,7 +1,2 @@
-import { images, imageAssets } from './images';
-import { fontAssets } from './fonts';
+import { images } from './images';
 export { images };
-
-export const loadAssets = async () => {
-  await Promise.all([...imageAssets, ...fontAssets]);
-};
