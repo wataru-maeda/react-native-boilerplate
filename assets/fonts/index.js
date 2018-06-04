@@ -1,18 +1,18 @@
-import { Font } from 'expo'
+import { Font } from 'expo';
 
 const fonts = [
-    {
-        Panton: require('./Panton-BlackCaps.otf'),
-    },
-    {
-        PantonItalic: require('./Panton-BlackitalicCaps.otf'),
-    },
-    {
-        PantonLight: require('./Panton-LightCaps.otf'),
-    },
-    {
-        PantonLightItaic: require('./Panton-LightitalicCaps.otf'),
-    },
-]
+  {
+    Panton: require('./Panton-BlackCaps.otf'),
+  },
+  {
+    PantonItalic: require('./Panton-BlackitalicCaps.otf'),
+  },
+  {
+    PantonLight: require('./Panton-LightCaps.otf'),
+  },
+  {
+    PantonLightItaic: require('./Panton-LightitalicCaps.otf'),
+  },
+];
 
-export const fontAssets = fonts.map(font => Font.loadAsync(font))
+export const fontAssets = fonts.map(font => Font.loadAsync(font));

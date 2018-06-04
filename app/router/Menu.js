@@ -1,16 +1,16 @@
-import React from 'react'
-import { Image, TouchableOpacity } from 'react-native'
-import { images } from '../../assets'
+import React from 'react';
+import { Image, TouchableOpacity } from 'react-native';
+import { DrawerActions } from 'react-navigation';
+import { images } from '../../assets';
 // import * as DrawerActions from '../redux/actions/DrawerActions';
-import { DrawerActions } from 'react-navigation'
 
 export default navigation => {
   return (
     <TouchableOpacity onPress={() => console.log('hello')}>
-      <Image source={images.menu} style={styles.icon}/>
+      <Image source={images.menu} style={styles.icon} />
     </TouchableOpacity>
-  )
-}
+  );
+};
 
 const styles = {
   icon: {
@@ -19,6 +19,6 @@ const styles = {
     width: 24,
     height: 24,
     tintColor: 'white',
-    resizeMode: 'contain'
-  }
-}
+    resizeMode: 'contain',
+  },
+};

@@ -1,13 +1,13 @@
-import React, { Component } from 'react'
-import { Text, View } from 'react-native'
+import React, { Component } from 'react';
+import { Text, View } from 'react-native';
 
 export default class Profile extends Component {
-  render () {
+  render() {
     return (
       <View style={styles.container}>
         <Text style={styles.text}> Hello Profile </Text>
       </View>
-    )
+    );
   }
 }
 
@@ -16,9 +16,9 @@ const styles = {
     flex: 1,
     backgroundColor: 'white',
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
   },
   text: {
-    fontSize: 24
-  }
-}
+    fontSize: 24,
+  },
+};
