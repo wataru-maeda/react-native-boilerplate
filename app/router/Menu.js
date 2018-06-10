@@ -2,7 +2,6 @@ import React from 'react';
 import { Image, TouchableOpacity } from 'react-native';
 import { DrawerActions } from 'react-navigation';
 import { images } from '../../assets';
-// import * as DrawerActions from '../redux/actions/DrawerActions';
 
 export default ({ navigation }) => {
   return (

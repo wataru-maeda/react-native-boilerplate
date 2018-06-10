@@ -20,5 +20,6 @@ const styles = {
   },
   text: {
     fontSize: 24,
+    fontFamily: 'Baskerville',
   },
 };

@@ -1,11 +1,17 @@
 import React, { Component } from 'react';
-import { Text, View } from 'react-native';
+import { Text, View, TouchableOpacity } from 'react-native';
+import { DrawerActions } from 'react-navigation';
+import colors from '../../constants/Colors';
 
 export default class SideMenu extends Component {
   render() {
+    const { navigation } = this.props;
     return (
       <View style={styles.container}>
-        <Text>Side Menu</Text>
+        <Text style={styles.text}>Side Menu</Text>
+        <TouchableOpacity onPress={() => navigation.dispatch(DrawerActions.closeDrawer())}>
+          <Text style={styles.button}>Close</Text>
+        </TouchableOpacity>
       </View>
     );
   }
@@ -17,5 +23,14 @@ const styles = {
     backgroundColor: 'white',
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  text: {
+    fontSize: 24,
+    fontFamily: 'Baskerville',
+  },
+  button: {
+    margin: 16,
+    color: colors.orange,
+    fontSize: 16,
   },
 };

@@ -20,10 +20,9 @@ const homeNavigator = createStackNavigator({
     navigationOptions: ({ navigation }) => ({
       title: `Boilerplate`,
       headerTintColor: 'white',
-      headerStyle: { backgroundColor: colors.$darkGray },
+      headerStyle: { backgroundColor: colors.darkGray },
       headerTitleStyle: {
-        fontSize: 24,
-        fontFamily: 'Baskerville',
+        fontSize: 18,
       },
       headerLeft: <Menu navigation={navigation} />,
     }),
@@ -36,10 +35,9 @@ const profileNavigator = createStackNavigator({
     navigationOptions: ({ navigation }) => ({
       title: `Boilerplate`,
       headerTintColor: 'white',
-      headerStyle: { backgroundColor: colors.$darkGray },
+      headerStyle: { backgroundColor: colors.darkGray },
       headerTitleStyle: {
-        fontSize: 24,
-        fontFamily: 'Baskerville',
+        fontSize: 18,
       },
       headerLeft: <Menu navigation={navigation} />,
     }),
@@ -77,7 +75,7 @@ const tabNavigator = createBottomTabNavigator(
       },
       initialRouteName: 'Home',
       tabBarOptions: {
-        activeTintColor: colors.$orange,
+        activeTintColor: colors.orange,
         inactiveTintColor: 'gray',
         style: {
           // backgroundColor: 'white',
@@ -100,8 +98,5 @@ export default createDrawerNavigator(
   },
   {
     contentComponent: SideMenu,
-    drawerOpenRoute: 'drawerOpen',
-    drawerCloseRoute: 'drawerClose',
-    drawerToggleRoute: 'drawerToggle',
   }
 );
