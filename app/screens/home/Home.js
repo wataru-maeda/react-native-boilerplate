@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, StatusBar, Button } from 'react-native';
+import { Text, View, StatusBar } from 'react-native';
 
 export default class Home extends Component {
   render() {

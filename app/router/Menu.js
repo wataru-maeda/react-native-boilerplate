@@ -4,7 +4,7 @@ import { DrawerActions } from 'react-navigation';
 import { images } from '../../assets';
 // import * as DrawerActions from '../redux/actions/DrawerActions';
 
-export default navigation => {
+export default ({ navigation }) => {
   return (
     <TouchableOpacity onPress={() => navigation.dispatch(DrawerActions.openDrawer())}>
       <Image source={images.menu} style={styles.icon} />

@@ -41,6 +41,7 @@ const profileNavigator = createStackNavigator({
         fontSize: 24,
         fontFamily: 'Baskerville',
       },
+      headerLeft: <Menu navigation={navigation} />,
     }),
   },
 });
