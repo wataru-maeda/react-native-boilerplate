@@ -1,7 +1,13 @@
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
 import promiseMiddleware from 'redux-promise-middleware';
+import { createLogger } from 'redux-logger';
 import thunk from 'redux-thunk';
-import reduces from './reducers';
-const middleware = applyMiddleware(promiseMiddleware(), thunk);
+import reducers from './reducers';
 
-export default createStore(reduces, middleware);
+const middlewares = [promiseMiddleware(), thunk];
+
+if (__DEV__) { // eslint-disable-line
+  middlewares.push(createLogger());
+}
+
+export default createStore(reducers, undefined, compose(applyMiddleware(...middlewares)));
