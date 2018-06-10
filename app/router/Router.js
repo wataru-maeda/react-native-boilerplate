@@ -96,7 +96,6 @@ const tabNavigator = createBottomTabNavigator(
 export default createDrawerNavigator(
   {
     TabNavigator: { screen: tabNavigator },
-    SideMenu: { screen: SideMenu },
   },
   {
     contentComponent: SideMenu,

@@ -6,7 +6,7 @@ import { images } from '../../assets';
 
 export default navigation => {
   return (
-    <TouchableOpacity onPress={() => console.log('hello')}>
+    <TouchableOpacity onPress={() => navigation.dispatch(DrawerActions.openDrawer())}>
       <Image source={images.menu} style={styles.icon} />
     </TouchableOpacity>
   );

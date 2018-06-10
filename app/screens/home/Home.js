@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { Text, View, StatusBar } from 'react-native';
+import { Text, View, StatusBar, Button } from 'react-native';
 
-export default class Home extends React.Component {
+export default class Home extends Component {
   render() {
     return (
       <View style={styles.container}>
