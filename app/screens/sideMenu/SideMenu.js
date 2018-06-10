@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Text, View, TouchableOpacity } from 'react-native';
 import { DrawerActions } from 'react-navigation';
-import colors from '../../constants/Colors';
+import * as theme from '../../constants/Theme';
 
 export default class SideMenu extends Component {
   render() {
@@ -30,7 +30,7 @@ const styles = {
   },
   button: {
     margin: 16,
-    color: colors.orange,
+    color: theme.colors.orange,
     fontSize: 16,
   },
 };
