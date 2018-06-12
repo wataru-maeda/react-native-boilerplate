@@ -1,6 +1,6 @@
 # React Native Boilerplate
 
-<img src='https://github.com/WataruMaeda/react-native-boilerplate/blob/master/assets/demo/demo.gif' width='32%'> <img src='https://github.com/WataruMaeda/react-native-boilerplate/blob/master/assets/demo/demo.png' width='32%'> <img src='https://github.com/WataruMaeda/react-native-boilerplate/blob/master/assets/demo/demo2.png' width='32%'>
+<img src='https://github.com/WataruMaeda/react-native-boilerplate/blob/master/assets/demo/demo.png' width='32%'> <img src='https://github.com/WataruMaeda/react-native-boilerplate/blob/master/assets/demo/demo2.png' width='32%'> <img src='https://github.com/WataruMaeda/react-native-boilerplate/blob/master/assets/demo/demo3.gif' width='32%'> 
 
 - [Expo link](https://expo.io/@wataru/react-native-boilerplate)
 
