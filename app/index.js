@@ -3,7 +3,7 @@ import { View } from 'react-native';
 import { Provider } from 'react-redux';
 import Router from './router';
 import store from './redux/store';
-import { loadAssets } from './utils/AssetsLoader';
+import * as assets from '../assets';
 
 export default class App extends Component {
   state = {
@@ -23,3 +23,7 @@ export default class App extends Component {
     );
   }
 }
+
+const loadAssets = async () => {
+  await Promise.all([...assets.imageAssets, ...assets.fontAssets]);
+};

@@ -1,6 +1,6 @@
 import { Font } from 'expo';
 
-const fonts = [
+export const fonts = [
   {
     Panton: require('./Panton-BlackCaps.otf'),
   },

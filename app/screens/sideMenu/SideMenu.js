@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Text, View, TouchableOpacity } from 'react-native';
 import { DrawerActions } from 'react-navigation';
-import * as theme from '../../constants/Theme';
+import * as theme from '../../utils/Theme';
 
 export default class SideMenu extends Component {
   render() {

@@ -7,7 +7,7 @@ import {
 import Home from '../screens/home';
 import Profile from '../screens/profile';
 import SideMenu from '../screens/sideMenu';
-import * as theme from '../constants/Theme';
+import * as theme from '../utils/Theme';
 import { images } from '../../assets';
 import Menu from './Menu';
 import Tab from './Tab';

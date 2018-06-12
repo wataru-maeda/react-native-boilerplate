@@ -1,6 +1,6 @@
 import React from 'react';
 import { Image } from 'react-native';
-import * as theme from '../constants/Theme';
+import * as theme from '../utils/Theme';
 
 export default ({ source, focused }) => (
   <Image
