@@ -1,1 +1,1 @@
-export const DRAWER_TOGGLE_STATUS = 'DRAWER_TOGGLE_STATUS';
+export const USER_NAME = 'USER_NAME';

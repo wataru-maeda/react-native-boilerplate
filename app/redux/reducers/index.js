@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import Drawer from './Drawer';
+import User from './User';
 export default combineReducers({
-  Drawer,
+  user: User,
 });

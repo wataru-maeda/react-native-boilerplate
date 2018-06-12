@@ -1,16 +1,16 @@
 import * as types from '../types';
 
 const initialState = {
-  show: false,
+  name: false,
 };
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case types.DRAWER_TOGGLE_STATUS:
+    case types.USER_NAME:
       return {
         ...state,
-        status: types.DRAWER_TOGGLE_STATUS,
-        show: action.payload,
+        status: types.USER_NAME,
+        name: action.payload,
       };
     default:
       return state;
