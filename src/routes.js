@@ -86,12 +86,11 @@ const tabNavigator = createBottomTabNavigator(
   }
 )
 
-// const drawerNavigator = createDrawerNavigator({
-//     TabNavigator: { screen: tabNavigator },
-//   }, {
-//     contentComponent: <View />,
-//   }
-// )
+const drawerNavigator = createDrawerNavigator({
+    TabNavigator: { screen: tabNavigator },
+  }, {
+    // contentComponent: <View />,
+  }
+)
 
-
-export default createAppContainer(tabNavigator)
+export default createAppContainer(drawerNavigator)
