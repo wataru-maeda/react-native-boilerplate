@@ -89,7 +89,7 @@ const tabNavigator = createBottomTabNavigator(
 const drawerNavigator = createDrawerNavigator({
     TabNavigator: { screen: tabNavigator },
   }, {
-    // contentComponent: <View />,
+    contentComponent: Home,
   }
 )
 
