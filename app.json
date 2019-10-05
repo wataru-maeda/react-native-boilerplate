@@ -1,16 +1,19 @@
 {
   "expo": {
     "name": "react-native-boilerplate",
-    "description": "This project is really great.",
     "slug": "react-native-boilerplate",
     "privacy": "public",
-    "sdkVersion": "27.0.0",
-    "platforms": ["ios", "android"],
+    "sdkVersion": "35.0.0",
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
+    "icon": "./assets/icon.png",
     "splash": {
-      "image": "./assets/images/splash.png",
+      "image": "./assets/splash.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
