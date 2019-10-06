@@ -9,7 +9,7 @@ const styles = {
   root: {
     flex: 1,
     flexDirection: 'column',
-    paddingHorizontal: 20,
+    paddingHorizontal: 10,
     paddingVertical: 40,
   },
   head: {
