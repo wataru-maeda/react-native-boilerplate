@@ -4,12 +4,10 @@ import { createBottomTabNavigator } from 'react-navigation-tabs'
 import FontIcon from 'react-native-vector-icons/FontAwesome5'
 import { colors } from '../../styles/theme'
 
-// navigators
-import homeNavigator from '../navigations/home.navigation'
-import profileNavigator from '../navigations/profile.navigation'
+// stack navigators
+import { homeNavigator, profileNavigator } from './stacks'
 
-const tabNavigator = createBottomTabNavigator(
-  {
+const tabNavigator = createBottomTabNavigator({
     HomeTab: {
       screen: homeNavigator,
       navigationOptions: { title: 'Home' },

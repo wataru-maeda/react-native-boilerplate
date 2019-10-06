@@ -1,8 +1,8 @@
 import { createDrawerNavigator } from 'react-navigation-drawer'
-import DrawerMenu from './DrawerMenu'
+import DrawerMenu from '../subviews/DrawerMenu'
 
 // tab navigators
-import tabNavigator from '../tabs/tabs.navigation'
+import tabNavigator from './tabs'
 
 const drawerNavigator = createDrawerNavigator(
   {
