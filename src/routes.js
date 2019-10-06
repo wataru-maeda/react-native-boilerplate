@@ -4,6 +4,7 @@ import { createAppContainer } from 'react-navigation'
 import { createStackNavigator } from 'react-navigation-stack'
 import { createBottomTabNavigator } from 'react-navigation-tabs'
 import { createDrawerNavigator } from 'react-navigation-drawer'
+import FontIcon from 'react-native-vector-icons/FontAwesome5'
 import Home from './scenes/home'
 import Profile from './scenes/profile'
 import { colors } from './styles/theme'
@@ -26,7 +27,7 @@ const homeNavigator = createStackNavigator({
 })
 
 const profileNavigator = createStackNavigator({
-  Home: {
+  Profile: {
     screen: Profile,
     navigationOptions: props => ({
       title: `Boilerplate`,
@@ -54,25 +55,36 @@ const tabNavigator = createBottomTabNavigator(
     },
   },
   {
-    navigationOptions: ({ navigation }) => ({
+    defaultNavigationOptions: ({ navigation }) => ({
       tabBarIcon: ({ focused, tintColor }) => {
-        var source;
-        switch (navigation.state.routeName) {
+        const { routeName } = navigation.state
+        switch (routeName) {
           case 'HomeTab':
-            source = images.home;
-            break;
+            return (
+              <FontIcon
+                name="home"
+                color={focused ? colors.lightPurple : colors.gray}
+                size={20}
+                solid
+              />
+            )
           case 'ProfileTab':
-            source = images.user;
-            break;
+            return (
+              <FontIcon
+                name="home"
+                color={focused ? colors.lightPurple : colors.gray}
+                size={20}
+                solid
+              />
+            )
           default:
-            break;
+            return <View />
         }
-        return <View source={source} focused={focused} />;
       },
       initialRouteName: 'Home',
       tabBarOptions: {
-        activeTintColor: colors.darkPurple,
-        inactiveTintColor: 'gray',
+        activeTintColor: colors.lightPurple,
+        inactiveTintColor: colors.gray,
         style: {
           // backgroundColor: 'white',
           // borderTopColor: 'gray',
