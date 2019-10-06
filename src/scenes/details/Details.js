@@ -18,18 +18,19 @@ const styles = StyleSheet.create({
   },
 })
 
-class Home extends Component {
+class Profile extends Component {
   render() {
     const { navigation } = this.props
+    const { from } = navigation.state.params
     return (
       <View style={styles.root}>
-        <Text style={styles.title}>Home</Text>
+        <Text style={styles.title}>{`Details (from ${from})`}</Text>
         <Button
-          title="Go to Details"
+          title="Go Back"
           color="white"
           backgroundColor={colors.pink}
           onPress={() => {
-            navigation.navigate('Details', { from: 'Home' })
+            navigation.goBack()
           }}
         />
       </View>
@@ -37,12 +38,12 @@ class Home extends Component {
   }
 }
 
-Home.propTypes = {
+Profile.propTypes = {
   navigation: PropTypes.object,
 }
 
-Home.defaultProps = {
+Profile.defaultProps = {
   navigation: {},
 }
 
-export default Home
+export default Profile

@@ -5,6 +5,7 @@ import { TouchableOpacity, Text } from 'react-native'
 const styles = {
   root: {
     paddingVertical: 8,
+    paddingHorizontal: 16,
     borderRadius: 5,
   },
   text: {
