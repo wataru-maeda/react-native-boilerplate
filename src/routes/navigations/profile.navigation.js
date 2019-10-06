@@ -1,13 +1,14 @@
 import React from 'react'
-import { View } from 'react-native'
 import { createStackNavigator } from 'react-navigation-stack'
+import { DrawerActions } from 'react-navigation-drawer'
+import FontIcon from 'react-native-vector-icons/FontAwesome5'
 import Profile from '../../scenes/profile'
 import { colors } from '../../styles/theme'
 
 const profileNavigator = createStackNavigator({
   Profile: {
     screen: Profile,
-    navigationOptions: props => ({
+    navigationOptions: ({ navigation }) => ({
       title: `Boilerplate`,
       headerTintColor: 'white',
       headerStyle: {
@@ -16,7 +17,17 @@ const profileNavigator = createStackNavigator({
       headerTitleStyle: {
         fontSize: 18,
       },
-      headerLeft: <View {...props} />,
+      headerLeft: (
+        <FontIcon.Button
+          name="bars"
+          color="white"
+          backgroundColor="transparent"
+          onPress={() => {
+            navigation.dispatch(DrawerActions.openDrawer())
+          }}
+          style={{ paddingLeft: 15 }}
+        />
+      )
     }),
   },
 })

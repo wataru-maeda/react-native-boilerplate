@@ -1,13 +1,14 @@
 import React from 'react'
-import { View } from 'react-native'
 import { createStackNavigator } from 'react-navigation-stack'
+import { DrawerActions } from 'react-navigation-drawer'
+import FontIcon from 'react-native-vector-icons/FontAwesome5'
 import Home from '../../scenes/home'
 import { colors } from '../../styles/theme'
 
 const homeNavigator = createStackNavigator({
   Home: {
     screen: Home,
-    navigationOptions: props => ({
+    navigationOptions: ({ navigation }) => ({
       title: `Boilerplate`,
       headerTintColor: 'white',
       headerStyle: {
@@ -16,7 +17,17 @@ const homeNavigator = createStackNavigator({
       headerTitleStyle: {
         fontSize: 18,
       },
-      headerLeft: <View {...props} />,
+      headerLeft: (
+        <FontIcon.Button
+          name="bars"
+          color="white"
+          backgroundColor="transparent"
+          onPress={() => {
+            navigation.dispatch(DrawerActions.openDrawer())
+          }}
+          style={{ paddingLeft: 15 }}
+        />
+      )
     }),
   },
 })
