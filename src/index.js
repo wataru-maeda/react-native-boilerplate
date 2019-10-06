@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { View } from 'react-native'
 import { Provider } from 'react-redux'
 import store from './utils/store'
-import Router from './routes/routes'
+import Router from './routes'
 
 // assets
 import { imageAssets } from './styles/images'

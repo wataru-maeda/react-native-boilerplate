@@ -1,2 +1,4 @@
-import routes from './routes'
-export default routes
+import { createAppContainer } from 'react-navigation'
+import drawerNavigator from './navigator/drawer'
+
+export default createAppContainer(drawerNavigator)
