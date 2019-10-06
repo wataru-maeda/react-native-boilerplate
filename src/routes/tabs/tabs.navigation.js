@@ -1,47 +1,12 @@
 import React from 'react'
 import { View } from 'react-native'
-import { createAppContainer } from 'react-navigation'
-import { createStackNavigator } from 'react-navigation-stack'
 import { createBottomTabNavigator } from 'react-navigation-tabs'
-import { createDrawerNavigator } from 'react-navigation-drawer'
 import FontIcon from 'react-native-vector-icons/FontAwesome5'
-import Home from './scenes/home'
-import Profile from './scenes/profile'
-import { colors } from './styles/theme'
+import { colors } from '../../styles/theme'
 
-const homeNavigator = createStackNavigator({
-  Home: {
-    screen: Home,
-    navigationOptions: props => ({
-      title: `Boilerplate`,
-      headerTintColor: 'white',
-      headerStyle: {
-        backgroundColor: colors.darkPurple
-      },
-      headerTitleStyle: {
-        fontSize: 18,
-      },
-      headerLeft: <View {...props} />,
-    }),
-  },
-})
-
-const profileNavigator = createStackNavigator({
-  Profile: {
-    screen: Profile,
-    navigationOptions: props => ({
-      title: `Boilerplate`,
-      headerTintColor: 'white',
-      headerStyle: {
-        backgroundColor: colors.darkPurple
-      },
-      headerTitleStyle: {
-        fontSize: 18,
-      },
-      headerLeft: <View {...props} />,
-    }),
-  },
-})
+// navigators
+import homeNavigator from '../navigations/home.navigation'
+import profileNavigator from '../navigations/profile.navigation'
 
 const tabNavigator = createBottomTabNavigator(
   {
@@ -71,7 +36,7 @@ const tabNavigator = createBottomTabNavigator(
           case 'ProfileTab':
             return (
               <FontIcon
-                name="home"
+                name="user"
                 color={focused ? colors.lightPurple : colors.gray}
                 size={20}
                 solid
@@ -98,11 +63,4 @@ const tabNavigator = createBottomTabNavigator(
   }
 )
 
-const drawerNavigator = createDrawerNavigator({
-    TabNavigator: { screen: tabNavigator },
-  }, {
-    contentComponent: Home,
-  }
-)
-
-export default createAppContainer(drawerNavigator)
+export default tabNavigator
