@@ -27,7 +27,7 @@ class Home extends Component {
         <Button
           title="Go to Details"
           color="white"
-          backgroundColor={colors.pink}
+          backgroundColor={colors.lightPurple}
           onPress={() => {
             navigation.navigate('Details', { from: 'Home' })
           }}

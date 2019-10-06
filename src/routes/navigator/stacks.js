@@ -1,11 +1,12 @@
 import React from 'react'
+import { Image } from 'react-native'
 import { createStackNavigator } from 'react-navigation-stack'
 import { DrawerActions } from 'react-navigation-drawer'
 import FontIcon from 'react-native-vector-icons/FontAwesome5'
 import Home from '../../scenes/home'
 import Profile from '../../scenes/profile'
 import Details from '../../scenes/details'
-import { colors } from '../../styles'
+import { colors, images } from '../../styles'
 
 const renderDrawerButton = (navigation) => (
   <FontIcon.Button
@@ -19,15 +20,23 @@ const renderDrawerButton = (navigation) => (
   />
 )
 
+const renderLogo = () => (
+  <Image
+    source={images.logo_sm}
+    style={{ width: 32, height: 32 }}
+  />
+)
+
 export const homeNavigator = createStackNavigator({
   Home: {
     screen: Home,
     navigationOptions: ({ navigation }) => ({
-      title: `Boilerplate`,
+      title: `Home`,
       headerTintColor: 'white',
       headerStyle: { backgroundColor: colors.darkPurple },
       headerTitleStyle: { fontSize: 18 },
-      headerLeft: renderDrawerButton(navigation)
+      headerLeft: renderDrawerButton(navigation),
+      headerTitle: renderLogo()
     }),
   },
   Details: {
@@ -45,11 +54,12 @@ export const profileNavigator = createStackNavigator({
   Profile: {
     screen: Profile,
     navigationOptions: ({ navigation }) => ({
-      title: `Boilerplate`,
+      title: `Profile`,
       headerTintColor: 'white',
       headerStyle: { backgroundColor: colors.darkPurple },
       headerTitleStyle: { fontSize: 18 },
-      headerLeft: renderDrawerButton(navigation)
+      headerLeft: renderDrawerButton(navigation),
+      headerTitle: renderLogo()
     }),
   },
   Details: {
