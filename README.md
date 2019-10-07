@@ -1,14 +1,28 @@
-# React Native Boilerplate
 
-<img src='https://github.com/WataruMaeda/react-native-boilerplate/blob/master/assets/demo/demo.png' width='32%'> <img src='https://github.com/WataruMaeda/react-native-boilerplate/blob/master/assets/demo/demo2.png' width='32%'> <img src='https://github.com/WataruMaeda/react-native-boilerplate/blob/master/assets/demo/demo3.gif' width='32%'> 
+<img src='https://github.com/WataruMaeda/react-native-boilerplate/blob/master/assets/images/logo-lg.png' width='60'> 
+
+# react native boilerplate 
+
+<img src='https://github.com/WataruMaeda/react-native-boilerplate/blob/master/readme.assets/1.png' width='31%'> <img src='https://github.com/WataruMaeda/react-native-boilerplate/blob/master/readme.assets/2.png' width='31%'> <img src='https://github.com/WataruMaeda/react-native-boilerplate/blob/master/readme.assets/3.png' width='31%'> 
 
 - [Expo link](https://expo.io/@wataru/react-native-boilerplate)
 
-## Features
-- [x] Redux setup
-- [x] StackNavigation, TabNavigation, DrawerNavigation setup
-- [x] Applied ESLint settings
-- [x] Assets preloading function
+## About
+
+We spend a large amount of time to setup a project; changing file structure, installing libraries, create resusable components and so on. The purpose of using the project is to minimize the redundant effort to setup a project from scratch. In the boilerplate, it contains only commonly-used libraries and the all setup done for you. 
+
+## What's included
+
+#### Navigation
+
+Navigation setup done. At the default, you can see 3 navigations; stack, tab and drawer. As you see the [code](https://github.com/WataruMaeda/react-native-boilerplate/tree/master/src/routes/navigator), files are separated by a navigation type. If you dont need a drawer navigation for example, you can remove drawer file and replace the import status [here](https://github.com/WataruMaeda/react-native-boilerplate/blob/master/src/routes/routes.js#L5) to tab.
+
+#### Authentication
+
+- Redux
+- React navigation (StackNavigation, TabNavigation, DrawerNavigation)
+- Assets preloading (Images and fonts)
+- FontAwsome
 
 ## Libraries in the boilerplate
 
