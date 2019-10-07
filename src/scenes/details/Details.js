@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View, StatusBar } from 'react-native'
 import Button from '../../components/Button'
 import { colors } from '../../styles'
 
@@ -24,6 +24,7 @@ class Profile extends Component {
     const { from } = navigation.state.params
     return (
       <View style={styles.root}>
+        <StatusBar barStyle="light-content" />
         <Text style={styles.title}>{`Details (from ${from})`}</Text>
         <Button
           title="Go Back"

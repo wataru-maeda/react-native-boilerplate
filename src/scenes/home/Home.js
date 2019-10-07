@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View, StatusBar } from 'react-native'
 import Button from '../../components/Button'
 import { colors } from '../../styles'
 
@@ -23,6 +23,7 @@ class Home extends Component {
     const { navigation } = this.props
     return (
       <View style={styles.root}>
+        <StatusBar barStyle="light-content" />
         <Text style={styles.title}>Home</Text>
         <Button
           title="Go to Details"

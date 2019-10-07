@@ -31,7 +31,7 @@ export const homeNavigator = createStackNavigator({
   Home: {
     screen: Home,
     navigationOptions: ({ navigation }) => ({
-      title: `Home`,
+      title: 'Home',
       headerTintColor: 'white',
       headerStyle: { backgroundColor: colors.darkPurple },
       headerTitleStyle: { fontSize: 18 },
@@ -42,7 +42,7 @@ export const homeNavigator = createStackNavigator({
   Details: {
     screen: Details,
     navigationOptions: () => ({
-      title: `Details`,
+      title: 'Details',
       headerTintColor: 'white',
       headerStyle: { backgroundColor: colors.darkPurple },
       headerTitleStyle: { fontSize: 18 },
@@ -54,7 +54,7 @@ export const profileNavigator = createStackNavigator({
   Profile: {
     screen: Profile,
     navigationOptions: ({ navigation }) => ({
-      title: `Profile`,
+      title: 'Profile',
       headerTintColor: 'white',
       headerStyle: { backgroundColor: colors.darkPurple },
       headerTitleStyle: { fontSize: 18 },
@@ -65,7 +65,7 @@ export const profileNavigator = createStackNavigator({
   Details: {
     screen: Details,
     navigationOptions: () => ({
-      title: `Details`,
+      title: 'Details',
       headerTintColor: 'white',
       headerStyle: { backgroundColor: colors.darkPurple },
       headerTitleStyle: { fontSize: 18 },
