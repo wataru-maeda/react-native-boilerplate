@@ -15,16 +15,14 @@ const initialState = {
 // Actions
 // ------------------------------------
 
-export const authenticate = () => dispatch => {
-  auth.onAuthStateChanged(me => dispatch({
-    type: LOGGED_IN,
-    loggedIn: (me && me.emailVerified && me.displayName) || false,
-    me: me || {},
-    checked: true,
-  }))
-}
+// TODO: check the user's login state
+export const authenticate = () => dispatch => dispatch({
+  type: LOGGED_IN,
+  loggedIn: true,
+  checked: true,
+})
 
-const saveMe = me => dispatch => dispatch({
+export const saveMe = me => dispatch => dispatch({
   type: SAVE_ME,
   me,
 })
@@ -37,11 +35,11 @@ export const actions = {
 // ------------------------------------
 // Action Handlers
 // ------------------------------------
+
 const ACTION_HANDLERS = {
-  [LOGGED_IN]: (state, { loggedIn, me, checked }) => ({
+  [LOGGED_IN]: (state, { loggedIn, checked }) => ({
     ...state,
     loggedIn,
-    me,
     checked,
   }),
   [SAVE_ME]: (state, { me }) => ({
