@@ -1,7 +1,5 @@
 
-<img src='https://github.com/WataruMaeda/react-native-boilerplate/blob/master/assets/images/logo-lg.png' width='60'> 
-
-# react native boilerplate 
+<img src='https://github.com/WataruMaeda/react-native-boilerplate/blob/update-readme/readme.assets/banner.svg' width='400'> 
 
 <img src='https://github.com/WataruMaeda/react-native-boilerplate/blob/master/readme.assets/1.png' width='31%'> <img src='https://github.com/WataruMaeda/react-native-boilerplate/blob/master/readme.assets/2.png' width='31%'> <img src='https://github.com/WataruMaeda/react-native-boilerplate/blob/master/readme.assets/3.png' width='31%'> 
 
@@ -15,7 +13,7 @@ We spend a large amount of time to setup a project; changing file structure, ins
 
 #### Navigation
 
-Navigation setup done. At the default, you can see 3 navigations; stack, tab and drawer. As you see the [code](https://github.com/WataruMaeda/react-native-boilerplate/tree/master/src/routes/navigator), files are separated by a navigation type. If you dont need a drawer navigation for example, you can remove drawer file and replace the import status [here](https://github.com/WataruMaeda/react-native-boilerplate/blob/master/src/routes/routes.js#L5) to tab.
+At the default, you can see 3 type of navigations; stack, tab and drawer. Here in the [code](https://github.com/WataruMaeda/react-native-boilerplate/tree/master/src/routes/navigator), files are separated by the navigation types. If you don't need a drawer navigation for example, you can remove drawer file and replace the import status [here](https://github.com/WataruMaeda/react-native-boilerplate/blob/master/src/routes/routes.js#L5) to tab.
 
 #### Authentication
 
