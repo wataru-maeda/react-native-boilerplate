@@ -49,7 +49,8 @@ Images, icons and fonts are controlled under [style](https://github.com/WataruMa
  "slug": "your-app-name",
 ```
 3. `yarn install` or `npm install`
-4. Open the project in `expo` -> run
+4. If you haven't setup expo, please follow the [instruction](https://expo.io/learn) to complete setup
+5. In terminal, `expo start`
 
 ## Licence
 
