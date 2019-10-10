@@ -1,6 +1,8 @@
 
 <img src='https://github.com/WataruMaeda/react-native-boilerplate/blob/update-readme/readme.assets/banner.svg' width='400'> 
 
+<img src='https://github.com/WataruMaeda/react-native-boilerplate/blob/update-readme/readme.assets/demo.gif' width='32%'> 
+
 - [Expo link](https://expo.io/@wataru/react-native-boilerplate)
 
 ## About
