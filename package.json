@@ -62,10 +62,9 @@
     }
   },
   "lint-staged": {
-    "*.{js,jsx,css}": [
+    "*.{js,jsx}": [
       "pretty-quick --staged",
-      "jest --bail --findRelatedTests",
-      "git add"
+      "jest --bail --findRelatedTests"
     ]
   } 
 }
