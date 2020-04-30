@@ -50,10 +50,8 @@ It's very important to keep code clean to maintain readability and productivity.
 
 ## How to Use
 
-1. Download zip
+1. Download zip or click "Use this template"
 2. Update `app.json`
-   or
-3. Click "Use this template" button
 
 ```
  "name": "your-app-name",
