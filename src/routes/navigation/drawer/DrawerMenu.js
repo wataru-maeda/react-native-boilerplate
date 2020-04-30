@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { View, Text } from 'react-native'
+import { View, SafeAreaView, Text } from 'react-native'
 import { DrawerActions } from 'react-navigation-drawer'
 import FontIcon from 'react-native-vector-icons/FontAwesome5'
 import { colors } from 'theme'
@@ -10,7 +10,6 @@ const styles = {
     flex: 1,
     flexDirection: 'column',
     paddingHorizontal: 10,
-    paddingVertical: 40,
   },
   head: {
     flexDirection: 'row',
@@ -25,7 +24,7 @@ const styles = {
 }
 
 const DrawerMenu = ({ navigation }) => (
-  <View style={styles.root}>
+  <SafeAreaView style={styles.root}>
     <View style={styles.head}>
       <FontIcon.Button
         name="times"
@@ -40,7 +39,7 @@ const DrawerMenu = ({ navigation }) => (
     <View style={styles.main}>
       <Text>Drawer Menu</Text>
     </View>
-  </View>
+  </SafeAreaView>
 )
 
 DrawerMenu.propTypes = {
