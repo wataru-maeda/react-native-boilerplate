@@ -6,6 +6,4 @@ export const images = {
 }
 
 // image preloading
-var imgs = []
-Object.keys(images).forEach(key => imgs.push(images[key]))
-export const imageAssets = imgs.map(img => Asset.fromModule(img).downloadAsync())
+export const imageAssets = Object.keys(images).map(key => Asset.fromModule(images[key]).downloadAsync())

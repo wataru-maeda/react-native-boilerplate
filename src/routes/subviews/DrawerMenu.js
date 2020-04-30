@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { View, Text } from 'react-native'
 import { DrawerActions } from 'react-navigation-drawer'
 import FontIcon from 'react-native-vector-icons/FontAwesome5'
-import { colors } from '../../styles'
+import { colors } from 'theme'
 
 const styles = {
   root: {

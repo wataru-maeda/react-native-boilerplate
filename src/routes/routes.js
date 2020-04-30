@@ -1,55 +1,48 @@
-import React, { Component } from 'react'
+import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
-import { Text } from 'react-native'
 import { createAppContainer } from 'react-navigation'
+import { Text } from 'react-native'
+import Connector from 'utils/connector'
+
+// navigation
 import drawerNavigator from './navigator/drawer'
-import Connector from '../utils/connector'
+const Main = createAppContainer(drawerNavigator)
 
-class Routes extends Component {
-  componentWillMount() {
-    // authentication
-    const { actions } = this.props
+const Routes = ({ actions, checked, loggedIn }) => {
+  useEffect(() => {
     actions.authenticate()
-  }
+  }, [])
 
-  render() {
-    const { checked, loggedIn } = this.props
-    if (!checked) return <Text>Loading...</Text>
+  // TODO: switch router by loggedIn state
+  console.log('[##] loggedIn', loggedIn)
 
-    // TODO: switch router by loggedIn state
-    console.log('[##] loggedIn', loggedIn)
-
-    const Router = createAppContainer(drawerNavigator)
-    return <Router />
-  }
+  // rendering
+  if (!checked) return <Text>Loading...</Text>
+  return <Main />
 }
 
-const ConnectedRoutes = props => (
+Routes.propTypes = {
+  actions: PropTypes.shape({}),
+  checked: PropTypes.bool,
+  loggedIn: PropTypes.bool,
+}
+
+Routes.defaultProps = {
+  actions: {},
+  checked: false,
+  loggedIn: false,
+}
+
+export default props => (
   <Connector>
     {
-      ({ actions, state: { app: { loggedIn, checked } } }) => (
+      ({ actions, state: { app } }) => (
         <Routes
-          checked={checked}
-          loggedIn={loggedIn}
           actions={actions.app}
+          {...app}
           {...props}
         />
       )
     }
   </Connector>
 )
-
-Routes.propTypes = {
-  checked: PropTypes.bool,
-  loggedIn: PropTypes.bool,
-  actions: PropTypes.object,
-}
-
-Routes.defaultProps = {
-  checked: false,
-  loggedIn: false,
-  actions: {},
-}
-
-export default ConnectedRoutes
-

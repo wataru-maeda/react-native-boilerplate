@@ -2,7 +2,7 @@ import React from 'react'
 import { View } from 'react-native'
 import { createBottomTabNavigator } from 'react-navigation-tabs'
 import FontIcon from 'react-native-vector-icons/FontAwesome5'
-import { colors } from '../../styles'
+import { colors } from 'theme'
 
 // stack navigators
 import { homeNavigator, profileNavigator } from './stacks'

@@ -5,8 +5,8 @@ import store from './utils/store'
 import Router from './routes'
 
 // assets
-import { imageAssets } from './styles/images'
-import { fontAssets } from './styles/fonts'
+import { imageAssets } from 'theme/images'
+import { fontAssets } from 'theme/fonts'
 
 class index extends Component {
   state = {
