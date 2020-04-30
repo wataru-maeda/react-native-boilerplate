@@ -14,7 +14,6 @@ const Routes = ({ actions, checked, loggedIn }) => {
   // TODO: switch router by loggedIn state
   console.log('[##] loggedIn', loggedIn)
 
-  console.log('[##] test')
   // rendering
   if (!checked) return <Text>Loading...</Text>
   return <Main />
