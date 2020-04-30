@@ -7,7 +7,8 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "eject": "expo eject",
-    "lint": "eslint src/ --fix"
+    "lint": "eslint src/ --fix",
+    "test": "jest"
   },
   "dependencies": {
     "axios": "^0.19.0",
@@ -52,11 +53,13 @@
     "eslint-plugin-react": "^7.19.0",
     "eslint-plugin-react-hooks": "^2.5.1",
     "husky": "^4.2.5",
+    "jest-expo": "^37.0.0",
     "lint-staged": "^10.2.0",
     "mem": ">=4.0.0",
     "minimist": ">=1.2.3",
     "prettier": "^2.0.5",
     "pretty-quick": "^2.0.1",
+    "react-test-renderer": "^16.13.1",
     "ws": ">=3.3.1"
   },
   "prettier": {
@@ -71,10 +74,17 @@
       "pre-commit": "lint-staged"
     }
   },
+  "jest": {
+    "preset": "jest-expo",
+    "transformIgnorePatterns": [
+      "node_modules/(?!(jest-)?react-native|react-clone-referenced-element|@react-native-community|expo(nent)?|@expo(nent)?/.*|react-navigation|@react-navigation/.*|@unimodules/.*|unimodules|sentry-expo|native-base|@sentry/.*)"
+    ]
+  },
   "lint-staged": {
     "*.{js,jsx}": [
       "pretty-quick --staged",
       "yarn lint",
+      "yarn test",
       "git add"
     ]
   }
