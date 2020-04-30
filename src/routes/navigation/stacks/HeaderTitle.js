@@ -1,6 +1,6 @@
 import React from 'react'
-import { StyleSheet } from 'react-native'
-import Svg from 'components/Svg'
+import { StyleSheet, Image } from 'react-native'
+import { images } from 'theme'
 
 const styles = StyleSheet.create({
   logo: {
@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
   },
 })
 
-const HeaderTitle = () => <Svg name="logo" style={styles.logo} />
+const HeaderTitle = () => <Image source={images.logo_sm} style={styles.logo} />
 
 HeaderTitle.propTypes = {}
 HeaderTitle.defaultProps = {}
