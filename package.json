@@ -8,7 +8,7 @@
     "web": "expo start --web",
     "eject": "expo eject",
     "lint": "eslint src/ --fix",
-    "test": "jest --no-cache"
+    "test": "jest --passWithNoTests"
   },
   "dependencies": {
     "axios": "^0.19.0",
