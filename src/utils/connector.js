@@ -57,7 +57,8 @@ const mapDispatchToProps = (dispatch) => {
 Connector.propTypes = {
   state: PropTypes.shape({}).isRequired,
   actions: PropTypes.shape({}).isRequired,
-  children: PropTypes.shape({}).isRequired,
+  children: PropTypes.oneOfType([PropTypes.shape({}), PropTypes.func])
+    .isRequired,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Connector)
