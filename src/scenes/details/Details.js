@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import { StyleSheet, Text, View, StatusBar } from 'react-native'
 import Button from 'components/Button'
@@ -18,33 +18,30 @@ const styles = StyleSheet.create({
   },
 })
 
-class Profile extends Component {
-  render() {
-    const { navigation } = this.props
-    const { from } = navigation.state.params
-    return (
-      <View style={styles.root}>
-        <StatusBar barStyle="light-content" />
-        <Text style={styles.title}>{`Details (from ${from})`}</Text>
-        <Button
-          title="Go Back"
-          color="white"
-          backgroundColor={colors.pink}
-          onPress={() => {
-            navigation.goBack()
-          }}
-        />
-      </View>
-    )
-  }
+const Details = ({ navigation }) => {
+  const { from } = navigation.state.params
+  return (
+    <View style={styles.root}>
+      <StatusBar barStyle="light-content" />
+      <Text style={styles.title}>{`Details (from ${from})`}</Text>
+      <Button
+        title="Go Back"
+        color="white"
+        backgroundColor={colors.pink}
+        onPress={() => {
+          navigation.goBack()
+        }}
+      />
+    </View>
+  )
 }
 
-Profile.propTypes = {
-  navigation: PropTypes.object,
+Details.propTypes = {
+  navigation: PropTypes.shape({}),
 }
 
-Profile.defaultProps = {
+Details.defaultProps = {
   navigation: {},
 }
 
-export default Profile
+export default Details
