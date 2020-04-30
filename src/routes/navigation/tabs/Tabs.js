@@ -2,24 +2,26 @@ import React from 'react'
 import { View } from 'react-native'
 import { createBottomTabNavigator } from 'react-navigation-tabs'
 import FontIcon from 'react-native-vector-icons/FontAwesome5'
-import { colors } from '../../styles'
+import { colors } from 'theme'
 
 // stack navigators
-import { homeNavigator, profileNavigator } from './stacks'
+import { HomeNavigator, ProfileNavigator } from '../stacks'
 
-const tabNavigator = createBottomTabNavigator({
+const TabNavigator = createBottomTabNavigator(
+  {
     HomeTab: {
-      screen: homeNavigator,
+      screen: HomeNavigator,
       navigationOptions: { title: 'Home' },
     },
     ProfileTab: {
-      screen: profileNavigator,
+      screen: ProfileNavigator,
       navigationOptions: { title: 'Profile' },
     },
   },
   {
     defaultNavigationOptions: ({ navigation }) => ({
-      tabBarIcon: ({ focused, tintColor }) => {
+      // eslint-disable-next-line react/prop-types
+      tabBarIcon: ({ focused }) => {
         const { routeName } = navigation.state
         switch (routeName) {
           case 'HomeTab':
@@ -58,7 +60,7 @@ const tabNavigator = createBottomTabNavigator({
       },
       swipeEnabled: false,
     }),
-  }
+  },
 )
 
-export default tabNavigator
+export default TabNavigator

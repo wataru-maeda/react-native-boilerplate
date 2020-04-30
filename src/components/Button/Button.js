@@ -11,7 +11,7 @@ const styles = {
   text: {
     textAlign: 'center',
     fontSize: 16,
-  }
+  },
 }
 
 const Button = ({
@@ -36,15 +36,15 @@ const Button = ({
 }
 
 Button.propTypes = {
-  title: PropTypes.any,
-  width: PropTypes.any,
-  height: PropTypes.any,
+  title: PropTypes.string,
+  width: PropTypes.string,
+  height: PropTypes.string,
   color: PropTypes.string,
   backgroundColor: PropTypes.string,
   onPress: PropTypes.func,
-  children: PropTypes.any,
-  textStyle: PropTypes.object,
-  style: PropTypes.object,
+  children: PropTypes.string,
+  textStyle: PropTypes.shape({}),
+  style: PropTypes.shape({}),
 }
 
 Button.defaultProps = {

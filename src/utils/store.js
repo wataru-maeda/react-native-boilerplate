@@ -3,9 +3,9 @@ import {
 } from 'redux'
 import thunk from 'redux-thunk'
 import logger from 'redux-logger'
-import app from '../modules/app.module'
+import app from 'modules/app.module'
 
-const analytics = () => next => (action) => {
+const analytics = () => (next) => (action) => {
   window.dataLayer = window.dataLayer || []
   window.dataLayer.push({
     event: action.type,
