@@ -20,8 +20,6 @@ const App = () => {
     setDidLoad(true)
   }
 
-  console.log('[##] test')
-
   // lifecycle
   useEffect(() => {
     handleLoadAssets()
