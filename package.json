@@ -1,5 +1,6 @@
 {
   "main": "node_modules/expo/AppEntry.js",
+  "private": true,
   "scripts": {
     "start": "expo start",
     "android": "expo start --android",
@@ -37,10 +38,34 @@
   "devDependencies": {
     "babel-plugin-module-resolver": "^4.0.0",
     "babel-preset-expo": "^8.1.0",
-    "minimist": ">=1.2.3",
     "braces": ">=2.3.1",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-prettier": "^3.1.3",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.0",
     "mem": ">=4.0.0",
+    "minimist": ">=1.2.3",
+    "prettier": "^2.0.5",
+    "pretty-quick": "^2.0.1",
     "ws": ">=3.3.1"
   },
-  "private": true
+  "prettier": {
+    "trailingComma": "all",
+    "tabWidth": 2,
+    "semi": false,
+    "singleQuote": true,
+    "bracketSpacing": true
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx,css}": [
+      "pretty-quick --staged",
+      "jest --bail --findRelatedTests",
+      "git add"
+    ]
+  } 
 }
