@@ -16,13 +16,13 @@ const initialState = {
 // ------------------------------------
 
 // TODO: check the user's login state
-export const authenticate = () => dispatch => dispatch({
+export const authenticate = () => (dispatch) => dispatch({
   type: LOGGED_IN,
   loggedIn: true,
   checked: true,
 })
 
-export const saveMe = me => dispatch => dispatch({
+export const saveMe = (me) => (dispatch) => dispatch({
   type: SAVE_ME,
   me,
 })

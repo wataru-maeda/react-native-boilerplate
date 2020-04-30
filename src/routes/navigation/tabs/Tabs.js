@@ -7,7 +7,8 @@ import { colors } from 'theme'
 // stack navigators
 import { HomeNavigator, ProfileNavigator } from '../stacks'
 
-const TabNavigator = createBottomTabNavigator({
+const TabNavigator = createBottomTabNavigator(
+  {
     HomeTab: {
       screen: HomeNavigator,
       navigationOptions: { title: 'Home' },
@@ -19,7 +20,8 @@ const TabNavigator = createBottomTabNavigator({
   },
   {
     defaultNavigationOptions: ({ navigation }) => ({
-      tabBarIcon: ({ focused, tintColor }) => {
+      // eslint-disable-next-line react/prop-types
+      tabBarIcon: ({ focused }) => {
         const { routeName } = navigation.state
         switch (routeName) {
           case 'HomeTab':
@@ -58,7 +60,7 @@ const TabNavigator = createBottomTabNavigator({
       },
       swipeEnabled: false,
     }),
-  }
+  },
 )
 
 export default TabNavigator

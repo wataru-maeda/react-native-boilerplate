@@ -35,7 +35,7 @@ class Connector extends Component {
   }
 }
 
-const mapStateToProps = state => ({ state })
+const mapStateToProps = (state) => ({ state })
 const mapDispatchToProps = (dispatch) => {
   const actionList = [
     // label: String, value: Object
@@ -44,17 +44,20 @@ const mapDispatchToProps = (dispatch) => {
   ]
 
   return {
-    actions: actionList.reduce((prev, cur) => ({
-      ...prev,
-      [cur.label]: bindActionCreators(cur.value, dispatch),
-    }), {}),
+    actions: actionList.reduce(
+      (prev, cur) => ({
+        ...prev,
+        [cur.label]: bindActionCreators(cur.value, dispatch),
+      }),
+      {},
+    ),
   }
 }
 
 Connector.propTypes = {
-  state: PropTypes.any.isRequired,
-  actions: PropTypes.any.isRequired,
-  children: PropTypes.any.isRequired,
+  state: PropTypes.shape({}).isRequired,
+  actions: PropTypes.shape({}).isRequired,
+  children: PropTypes.shape({}).isRequired,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Connector)

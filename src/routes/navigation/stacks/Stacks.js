@@ -10,7 +10,7 @@ import HeaderTitle from './HeaderTitle'
 const navigationProps = {
   headerTintColor: 'white',
   headerStyle: { backgroundColor: colors.darkPurple },
-  headerTitleStyle: { fontSize: 18 }, 
+  headerTitleStyle: { fontSize: 18 },
 }
 
 export const HomeNavigator = createStackNavigator({
@@ -50,4 +50,3 @@ export const ProfileNavigator = createStackNavigator({
     }),
   },
 })
-

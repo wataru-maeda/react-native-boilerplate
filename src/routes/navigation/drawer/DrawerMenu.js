@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import { View, Text } from 'react-native'
 import { DrawerActions } from 'react-navigation-drawer'
@@ -24,31 +24,35 @@ const styles = {
   },
 }
 
-export class DrawerMenu extends Component {
-  render() {
-    const { navigation } = this.props
-    return (
-      <View style={styles.root}>
-        <View style={styles.head}>
-          <FontIcon.Button
-            name="times"
-            size={20}
-            color={colors.gray}
-            backgroundColor="white"
-            onPress={() => {
-              navigation.dispatch(DrawerActions.closeDrawer())
-            }}
-          />
-        </View>
-        <View style={styles.main}>
-          <Text>Drawer Menu</Text>
-        </View>
-      </View>
-    )
-  }
+const DrawerMenu = ({ navigation }) => (
+  <View style={styles.root}>
+    <View style={styles.head}>
+      <FontIcon.Button
+        name="times"
+        size={20}
+        color={colors.gray}
+        backgroundColor="white"
+        onPress={() => {
+          navigation.dispatch(DrawerActions.closeDrawer())
+        }}
+      />
+    </View>
+    <View style={styles.main}>
+      <Text>Drawer Menu</Text>
+    </View>
+  </View>
+)
+
+DrawerMenu.propTypes = {
+  navigation: PropTypes.shape({
+    dispatch: PropTypes.func,
+  }),
 }
 
-DrawerMenu.propTypes = {}
-DrawerMenu.defaultProps = {}
+DrawerMenu.defaultProps = {
+  navigation: {
+    dispatch: () => null,
+  },
+}
 
 export default DrawerMenu

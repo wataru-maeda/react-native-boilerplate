@@ -1,6 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { StyleSheet, Text, View, StatusBar } from 'react-native'
+import {
+  StyleSheet, Text, View, StatusBar,
+} from 'react-native'
 import Button from 'components/Button'
 import { colors } from 'theme'
 
@@ -34,11 +36,11 @@ const Profile = ({ navigation }) => (
 )
 
 Profile.propTypes = {
-  navigation: PropTypes.shape({}),
+  navigation: PropTypes.shape({ navigate: PropTypes.func }),
 }
 
 Profile.defaultProps = {
-  navigation: {},
+  navigation: { navigate: () => null },
 }
 
 export default Profile

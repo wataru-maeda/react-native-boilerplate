@@ -6,7 +6,7 @@ import FontIcon from 'react-native-vector-icons/FontAwesome5'
 
 const styles = StyleSheet.create({
   button: {
-    paddingLeft: 15
+    paddingLeft: 15,
   },
 })
 
@@ -23,11 +23,13 @@ const HeaderLeft = ({ navigation }) => (
 )
 
 HeaderLeft.propTypes = {
-  navigation: PropTypes.shape({}),
+  navigation: PropTypes.shape({
+    dispatch: PropTypes.func,
+  }),
 }
 
 HeaderLeft.defaultProps = {
-  navigation: {},
+  navigation: { dispatch: () => null },
 }
 
 export default HeaderLeft

@@ -1,6 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { StyleSheet, Text, View, StatusBar } from 'react-native'
+import {
+  StyleSheet, Text, View, StatusBar,
+} from 'react-native'
 import Button from 'components/Button'
 import { colors } from 'theme'
 
@@ -37,11 +39,25 @@ const Details = ({ navigation }) => {
 }
 
 Details.propTypes = {
-  navigation: PropTypes.shape({}),
+  navigation: PropTypes.shape({
+    state: PropTypes.shape({
+      params: PropTypes.shape({
+        from: PropTypes.string,
+      }),
+    }),
+    goBack: PropTypes.func,
+  }),
 }
 
 Details.defaultProps = {
-  navigation: {},
+  navigation: {
+    state: {
+      params: {
+        from: '',
+      },
+    },
+    goBack: () => null,
+  },
 }
 
 export default Details

@@ -20,27 +20,25 @@ const Routes = ({ actions, checked, loggedIn }) => {
 }
 
 Routes.propTypes = {
-  actions: PropTypes.shape({}),
+  actions: PropTypes.shape({
+    authenticate: PropTypes.func,
+  }),
   checked: PropTypes.bool,
   loggedIn: PropTypes.bool,
 }
 
 Routes.defaultProps = {
-  actions: {},
+  actions: {
+    authenticate: () => null,
+  },
   checked: false,
   loggedIn: false,
 }
 
-export default props => (
+export default (props) => (
   <Connector>
-    {
-      ({ actions, state: { app } }) => (
-        <Routes
-          actions={actions.app}
-          {...app}
-          {...props}
-        />
-      )
-    }
+    {({ actions, state: { app } }) => (
+      <Routes actions={actions.app} {...app} {...props} />
+    )}
   </Connector>
 )
