@@ -37,6 +37,7 @@
   "devDependencies": {
     "babel-plugin-module-resolver": "^4.0.0",
     "babel-preset-expo": "^8.1.0",
+    "minimist": ">=1.2.3",
     "braces": ">=2.3.1",
     "mem": ">=4.0.0",
     "ws": ">=3.3.1"
