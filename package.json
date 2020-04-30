@@ -11,7 +11,9 @@
     "axios": "^0.19.0",
     "expo": "^36.0.0",
     "expo-asset": "~8.0.0",
+    "expo-cli": "^3.20.0",
     "expo-font": "~8.0.0",
+    "global": "^4.4.0",
     "moment": "^2.24.0",
     "prop-types": "^15.7.2",
     "react": "16.9.0",
@@ -34,8 +36,8 @@
   },
   "devDependencies": {
     "babel-preset-expo": "^8.0.0",
-    "mem": ">=4.0.0",
     "braces": ">=2.3.1",
+    "mem": ">=4.0.0",
     "ws": ">=3.3.1"
   },
   "private": true
