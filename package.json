@@ -7,8 +7,8 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "eject": "expo eject",
-    "lint": "eslint src/ --fix",
-    "test": "jest --passWithNoTests"
+    "lint": "node_modules/.bin/eslint src/ --fix src/ --fix",
+    "test": "node_modules/.bin/jest --passWithNoTests"
   },
   "dependencies": {
     "axios": "^0.19.0",
