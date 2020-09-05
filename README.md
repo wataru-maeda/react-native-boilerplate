@@ -1,6 +1,6 @@
-<img src='https://github.com/WataruMaeda/react-native-boilerplate/blob/master/readme.assets/banner.svg' width='400'>
+<img src='https://github.com/WataruMaeda/react-native-boilerplate/blob/master/__DELELE_ME__/banner.svg' width='400'>
 
-<img src='https://github.com/WataruMaeda/react-native-boilerplate/blob/master/readme.assets/demo.gif' width='32%'>
+<img src='https://github.com/WataruMaeda/react-native-boilerplate/blob/master/__DELELE_ME__/demo.gif' width='32%'>
 
 - [Expo link](https://expo.io/@wataru/react-native-boilerplate)
 
