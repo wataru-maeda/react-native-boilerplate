@@ -84,8 +84,7 @@
     "*.{js,jsx}": [
       "pretty-quick --staged",
       "yarn lint",
-      "yarn test",
-      "git add"
+      "yarn test"
     ]
   }
 }
