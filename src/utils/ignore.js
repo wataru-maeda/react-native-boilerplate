@@ -1,5 +1,3 @@
-import { YellowBox } from 'react-native'
+import { LogBox } from 'react-native'
 
-YellowBox.ignoreWarnings([
-  'Remote debugger',
-])
+LogBox.ignoreLogs(['Remote debugger'])
