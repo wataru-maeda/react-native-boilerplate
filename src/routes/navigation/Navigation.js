@@ -1,4 +1,9 @@
-import { createAppContainer } from 'react-navigation'
+import React from 'react'
+import { NavigationContainer } from '@react-navigation/native'
 import DrawerNavigator from './drawer'
 
-export default createAppContainer(DrawerNavigator)
+export default () => (
+  <NavigationContainer>
+    <DrawerNavigator />
+  </NavigationContainer>
+)

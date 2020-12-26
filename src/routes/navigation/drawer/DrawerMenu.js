@@ -1,7 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { View, SafeAreaView, Text } from 'react-native'
-import { DrawerActions } from 'react-navigation-drawer'
+
+import { DrawerActions } from '@react-navigation/native'
 import FontIcon from 'react-native-vector-icons/FontAwesome5'
 import { colors } from 'theme'
 
@@ -23,7 +24,7 @@ const styles = {
   },
 }
 
-const DrawerMenu = ({ navigation }) => (
+const DrawerMenu = (props) => (
   <SafeAreaView style={styles.root}>
     <View style={styles.head}>
       <FontIcon.Button
@@ -32,7 +33,7 @@ const DrawerMenu = ({ navigation }) => (
         color={colors.gray}
         backgroundColor="white"
         onPress={() => {
-          navigation.dispatch(DrawerActions.closeDrawer())
+          props.navigation.dispatch(DrawerActions.closeDrawer())
         }}
       />
     </View>

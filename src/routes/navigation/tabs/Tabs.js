@@ -1,30 +1,21 @@
 import React from 'react'
 import { View } from 'react-native'
-import { createBottomTabNavigator } from 'react-navigation-tabs'
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import FontIcon from 'react-native-vector-icons/FontAwesome5'
 import { colors } from 'theme'
 
 // stack navigators
 import { HomeNavigator, ProfileNavigator } from '../stacks'
 
-const TabNavigator = createBottomTabNavigator(
-  {
-    HomeTab: {
-      screen: HomeNavigator,
-      navigationOptions: { title: 'Home' },
-    },
-    ProfileTab: {
-      screen: ProfileNavigator,
-      navigationOptions: { title: 'Profile' },
-    },
-  },
-  {
-    defaultNavigationOptions: ({ navigation }) => ({
+const Tab = createBottomTabNavigator()
+
+const TabNavigator = () => (
+  <Tab.Navigator
+    screenOptions={({ route }) => ({
       // eslint-disable-next-line react/prop-types
       tabBarIcon: ({ focused }) => {
-        const { routeName } = navigation.state
-        switch (routeName) {
-          case 'HomeTab':
+        switch (route.name) {
+          case 'Home':
             return (
               <FontIcon
                 name="home"
@@ -33,7 +24,7 @@ const TabNavigator = createBottomTabNavigator(
                 solid
               />
             )
-          case 'ProfileTab':
+          case 'Profile':
             return (
               <FontIcon
                 name="user"
@@ -46,21 +37,24 @@ const TabNavigator = createBottomTabNavigator(
             return <View />
         }
       },
-      initialRouteName: 'Home',
-      tabBarOptions: {
-        activeTintColor: colors.lightPurple,
-        inactiveTintColor: colors.gray,
-        style: {
-          // backgroundColor: 'white',
-          // borderTopColor: 'gray',
-          // borderTopWidth: 1,
-          // paddingBottom: 5,
-          // paddingTop: 5,
-        },
+    })}
+    tabBarOptions={{
+      activeTintColor: colors.lightPurple,
+      inactiveTintColor: colors.gray,
+      style: {
+        // backgroundColor: 'white',
+        // borderTopColor: 'gray',
+        // borderTopWidth: 1,
+        // paddingBottom: 5,
+        // paddingTop: 5,
       },
-      swipeEnabled: false,
-    }),
-  },
+    }}
+    initialRouteName="Home"
+    swipeEnabled={false}
+  >
+    <Tab.Screen name="Home" component={HomeNavigator} />
+    <Tab.Screen name="Profile" component={ProfileNavigator} />
+  </Tab.Navigator>
 )
 
 export default TabNavigator
