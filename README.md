@@ -37,7 +37,7 @@ It's very important to keep code clean to maintain readability and productivity.
 ## Libraries
 
 - [expo](https://github.com/expo/expo)
-- [react-navigation 4.x](https://github.com/react-navigation/react-navigation)
+- [react-navigation 5.x](https://github.com/react-navigation/react-navigation)
 - [redux](https://github.com/reduxjs/redux)
 - [redux-logger](https://github.com/LogRocket/redux-logger)
 - [redux-thunk](https://github.com/reduxjs/redux-thunk)
