@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { DrawerActions } from 'react-navigation-drawer'
 import { StyleSheet } from 'react-native'
 import FontIcon from 'react-native-vector-icons/FontAwesome5'
 
@@ -16,7 +15,7 @@ const HeaderLeft = ({ navigation }) => (
     color="white"
     backgroundColor="transparent"
     onPress={() => {
-      navigation.dispatch(DrawerActions.openDrawer())
+      navigation.openDrawer()
     }}
     style={styles.button}
   />
@@ -24,12 +23,12 @@ const HeaderLeft = ({ navigation }) => (
 
 HeaderLeft.propTypes = {
   navigation: PropTypes.shape({
-    dispatch: PropTypes.func,
+    openDrawer: PropTypes.func,
   }),
 }
 
 HeaderLeft.defaultProps = {
-  navigation: { dispatch: () => null },
+  navigation: { openDrawer: () => null },
 }
 
 export default HeaderLeft

@@ -2,8 +2,6 @@ import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { Text } from 'react-native'
 import Connector from 'utils/connector'
-
-// navigation
 import Main from './navigation'
 
 const Routes = ({ actions, checked, loggedIn }) => {
