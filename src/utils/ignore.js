@@ -1,3 +1,4 @@
 import { LogBox } from 'react-native'
 
-LogBox.ignoreLogs(['Remote debugger'])
+// eslint-disable-next-line no-unused-expressions
+LogBox?.ignoreLogs(['Remote debugger'])
