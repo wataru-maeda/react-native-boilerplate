@@ -20,7 +20,8 @@ If your app requires authorization, you need to implement login, signup function
 
 #### Redux
 
-Redux can contain global state of the app. This is very useful but on the other hand, it takes time to setup if you are not familiar with it. In the boilerplate, you see [module file](https://github.com/WataruMaeda/react-native-boilerplate/blob/master/src/modules/app.module.js) which contains actions, reducer and store in a file. To connect with actions and state from component, you need to call [connector](https://github.com/WataruMaeda/react-native-boilerplate/blob/master/src/utils/connector.js). You can use actions and state from props. Here is an [example](https://github.com/WataruMaeda/react-native-boilerplate/blob/master/src/routes/Routes.js#L10-L15). To combine reducer, first you can add another module file then import in connector like this [code](https://github.com/WataruMaeda/react-native-boilerplate/blob/master/src/utils/connector.js#L41-L42). Lastly import module in [store](https://github.com/WataruMaeda/react-native-boilerplate/blob/master/src/utils/store.js#L21) as well.
+We are using [Redux Toolkit](https://redux-toolkit.js.org/) to simplify the redux setup and minimize boilerplates. 
+Redux can contain global state of the app. This is very useful but on the other hand, it takes time to setup if you are not familiar with it. In the boilerplate, you see [slices file](https://github.com/WataruMaeda/react-native-boilerplate/blob/master/src/slices/app.slice.js) which contains actions and reducers in a file. Please follow the [quick start tutorials](https://redux-toolkit.js.org/tutorials/quick-start) to see how store is setup; and how to use Redux state and actions in React Components.
 
 #### Assets
 
@@ -39,8 +40,8 @@ It's very important to keep code clean to maintain readability and productivity.
 - [expo](https://github.com/expo/expo)
 - [react-navigation 5.x](https://github.com/react-navigation/react-navigation)
 - [redux](https://github.com/reduxjs/redux)
+- [redux-toolkit](https://redux-toolkit.js.org/)
 - [redux-logger](https://github.com/LogRocket/redux-logger)
-- [redux-thunk](https://github.com/reduxjs/redux-thunk)
 - [moment](https://github.com/moment/moment)
 - [axios](https://github.com/axios/axios)
 - [react-native-vector-icons](https://github.com/oblador/react-native-vector-icons)

@@ -1,38 +1,25 @@
 import {
-  createStore, applyMiddleware, compose, combineReducers,
-} from 'redux'
-import thunk from 'redux-thunk'
+  configureStore,
+  combineReducers,
+  getDefaultMiddleware,
+} from '@reduxjs/toolkit'
 import logger from 'redux-logger'
-import app from 'modules/app.module'
+import appReducer from 'slices/app.slice'
 
-const analytics = () => (next) => (action) => {
-  window.dataLayer = window.dataLayer || []
-  window.dataLayer.push({
-    event: action.type,
-    payload: action.payload,
-  })
+const rootReducer = combineReducers({
+  app: appReducer,
+  // add more reducers
+})
 
-  return next(action)
-}
+const defaultMiddleware = getDefaultMiddleware({
+  serializableCheck: false,
+  immutableCheck: false,
+})
 
-// Redux store config
-const configureStore = (initialState = {}) => {
-  const reducers = combineReducers({
-    app,
-  })
-
-  // Middleware and store enhancers
-  const middlewares = [
-    thunk,
-    process.env.NODE_ENV !== 'production' && logger,
-    analytics,
-  ].filter(Boolean)
-  const enhancer = compose(applyMiddleware(...middlewares))
-  const store = createStore(reducers, initialState, enhancer)
-
-  return store
-}
-
-const store = configureStore()
+const store = configureStore({
+  reducer: rootReducer,
+  // eslint-disable-next-line no-undef
+  middleware: __DEV__ ? defaultMiddleware.concat(logger) : defaultMiddleware,
+})
 
 export default store
