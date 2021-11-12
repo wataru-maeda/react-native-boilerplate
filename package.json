@@ -17,7 +17,7 @@
     "@react-navigation/native": "^5.8.10",
     "@react-navigation/stack": "^5.12.8",
     "@reduxjs/toolkit": "^1.5.1",
-    "axios": "^0.21.1",
+    "axios": "^0.21.2",
     "expo": "^43.0.0",
     "expo-asset": "~8.4.3",
     "expo-cli": "^4.11.0",
