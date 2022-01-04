@@ -17,13 +17,12 @@ const Navigator = () => {
   // TODO: switch router by loggedIn state
   console.log('[##] loggedIn', loggedIn)
 
-  // rendering
-  if (!checked) return <Text>Loading...</Text>
-
-  return (
+  return checked ? (
     <NavigationContainer>
       <DrawerNavigator />
     </NavigationContainer>
+  ) : (
+    <Text>Loading...</Text>
   )
 }
 
