@@ -6,7 +6,7 @@ import { authenticate } from 'slices/app.slice'
 
 import DrawerNavigator from './Drawer'
 
-const Routes = () => {
+const Navigator = () => {
   const { checked, loggedIn } = useSelector((state) => state.app)
   const dispatch = useDispatch()
 
@@ -27,4 +27,4 @@ const Routes = () => {
   )
 }
 
-export default Routes
+export default Navigator
