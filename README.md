@@ -8,6 +8,14 @@
 
 We spend a large amount of time to setup a project; changing file structure, installing libraries, create reusable components and so on. The purpose of using the project is to minimize the redundant effort to setup a project from scratch. In the boilerplate, it contains only commonly-used libraries and the all setup done for you.
 
+## Environment
+
+- Node: 16.x
+- Yarn: 1.22.x
+- expo/expo-cli: 5.0.3
+
+If you'd like to use old version of node i.e. 14.x, please remove yarn.lock before running yarn install
+
 ## What's included
 
 #### Navigation
