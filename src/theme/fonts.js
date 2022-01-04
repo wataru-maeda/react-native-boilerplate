@@ -1,18 +1,7 @@
 import * as Font from 'expo-font'
 
-export const fonts = {
-  openSan: {
-    regular: 'openSans_regular',
-    regularItalic: 'openSans_regular_italic',
-    semiBold: 'openSans_semiBold',
-    semiBoldItalic: 'openSans_semiBold_italic',
-    bold: 'openSans_bold',
-    boldItalic: 'openSans_bold_italic',
-  },
-}
-
 // fonts preloading
-export const fontsAll = [
+export const fontAssets = [
   {
     openSans_regular: require('../../assets/fonts/OpenSans-Regular.ttf'),
   },
@@ -31,6 +20,17 @@ export const fontsAll = [
   {
     openSans_bold_italic: require('../../assets/fonts/OpenSans-BoldItalic.ttf'),
   },
-]
+].map((x) => Font.loadAsync(x))
 
-export const fontAssets = fontsAll.map((x) => Font.loadAsync(x))
+const fonts = {
+  openSan: {
+    regular: 'openSans_regular',
+    regularItalic: 'openSans_regular_italic',
+    semiBold: 'openSans_semiBold',
+    semiBoldItalic: 'openSans_semiBold_italic',
+    bold: 'openSans_bold',
+    boldItalic: 'openSans_bold_italic',
+  },
+}
+
+export default fonts
