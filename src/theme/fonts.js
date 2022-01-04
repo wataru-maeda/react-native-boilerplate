@@ -32,4 +32,5 @@ export const fontsAll = [
     openSans_bold_italic: require('../../assets/fonts/OpenSans-BoldItalic.ttf'),
   },
 ]
+
 export const fontAssets = fontsAll.map((x) => Font.loadAsync(x))
