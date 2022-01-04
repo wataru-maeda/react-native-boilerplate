@@ -24,7 +24,7 @@ const styles = {
   },
 }
 
-const DrawerMenu = (props) => (
+const DrawerMenu = ({ navigation }) => (
   <SafeAreaView style={styles.root}>
     <View style={styles.head}>
       <FontIcon.Button
@@ -33,7 +33,7 @@ const DrawerMenu = (props) => (
         color={colors.gray}
         backgroundColor="white"
         onPress={() => {
-          props.navigation.dispatch(DrawerActions.closeDrawer())
+          navigation.dispatch(DrawerActions.closeDrawer())
         }}
       />
     </View>

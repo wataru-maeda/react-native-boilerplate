@@ -1,10 +1,12 @@
 import React, { useEffect } from 'react'
+import { NavigationContainer } from '@react-navigation/native'
 import { Text } from 'react-native'
 import { useSelector, useDispatch } from 'react-redux'
 import { authenticate } from 'slices/app.slice'
-import Main from './navigation'
 
-const Routes = () => {
+import DrawerNavigator from './Drawer'
+
+const Navigator = () => {
   const { checked, loggedIn } = useSelector((state) => state.app)
   const dispatch = useDispatch()
 
@@ -15,9 +17,13 @@ const Routes = () => {
   // TODO: switch router by loggedIn state
   console.log('[##] loggedIn', loggedIn)
 
-  // rendering
-  if (!checked) return <Text>Loading...</Text>
-  return <Main />
+  return checked ? (
+    <NavigationContainer>
+      <DrawerNavigator />
+    </NavigationContainer>
+  ) : (
+    <Text>Loading...</Text>
+  )
 }
 
-export default Routes
+export default Navigator

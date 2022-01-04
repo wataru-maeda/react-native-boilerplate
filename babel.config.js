@@ -8,13 +8,14 @@ module.exports = (api) => {
         {
           alias: {
             components: './src/components',
-            scenes: './src/scenes',
+            pages: './src/pages',
             theme: './src/theme',
             utils: './src/utils',
             slices: './src/slices',
           },
         },
       ],
+      'react-native-reanimated/plugin',
     ],
   }
 }

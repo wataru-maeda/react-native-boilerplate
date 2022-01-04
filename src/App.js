@@ -7,30 +7,27 @@ import 'utils/ignore'
 // assets
 import { imageAssets } from 'theme/images'
 import { fontAssets } from 'theme/fonts'
-import Router from './routes'
+import Navigator from './navigator'
 
 const App = () => {
-  // state
   const [didLoad, setDidLoad] = useState(false)
 
-  // handler
+  // assets preloading
   const handleLoadAssets = async () => {
-    // assets preloading
     await Promise.all([...imageAssets, ...fontAssets])
     setDidLoad(true)
   }
 
-  // lifecycle
   useEffect(() => {
     handleLoadAssets()
   }, [])
 
-  // rendering
-  if (!didLoad) return <View />
-  return (
+  return didLoad ? (
     <Provider store={store}>
-      <Router />
+      <Navigator />
     </Provider>
+  ) : (
+    <View />
   )
 }
 
