@@ -41,7 +41,7 @@ If your project structure become complicated and has a lot of nested folders, yo
 
 It's very important to keep code clean to maintain readability and productivity. In the boilerplate, Eslint, Prettier and Jest configuration are done. It's continuously checking and format your code while you coding (Please enable "Format on Save" option if you prefer to format code after save change). After you submit changes, pre commit script will run to handle checking and formatting your code, run test. If the 3 steps are passed, you will be able to push the change.
 
-### Automated-deployment with github action
+#### Automated-deployment with github action
 
 Once you complete your implementation, you may need to publish your package to share to the QA team. The boilerplate already setup automated deployment with [expo-github-action](https://github.com/expo/expo-github-action). Once you push changes to the **main** branch, github action handle deployment; publish the package to your expo account. You can check the deployment configuration [here](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/.github/workflows/main.yml). 
 
