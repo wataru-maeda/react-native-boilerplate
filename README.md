@@ -43,7 +43,7 @@ It's very important to keep code clean to maintain readability and productivity.
 
 ### Automated-deployment with github action
 
-Once you complete your implementation, you may need to publish your package to share to the QA team. The boilerplate already setup automated deployment with [expo-github-action](https://github.com/expo/expo-github-action). Once you push changes to the main branch, github action handle deployment and publish to your expo account. You can check the deployment configuration [here](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/.github/workflows/main.yml). 
+Once you complete your implementation, you may need to publish your package to share to the QA team. The boilerplate already setup automated deployment with [expo-github-action](https://github.com/expo/expo-github-action). Once you push changes to the **main** branch, github action handle deployment; publish the package to your expo account. You can check the deployment configuration [here](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/.github/workflows/main.yml). 
 
 To connect to your expo account, Read the [readme page](https://github.com/expo/expo-github-action#configuration-options) for instruction. You'll need to generate a token. Then setup token in your github repo Settings > Secrets > Actions. Add action secret named "EXPO_TOKEN". That's it!
 
