@@ -21,4 +21,4 @@ jobs:
           expo-password: ${{ secrets.EXPO_CLI_PASSWORD }}
       - run: yarn policies set-version 1.22.17
       - run: yarn install --frozen-lockfile
-      - run: expo publish --no-wait --non-interactive
+      - run: expo publish --non-interactive
