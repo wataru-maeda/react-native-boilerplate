@@ -88,6 +88,7 @@ Expo provides a popular set of vector icons. Please search icons from [here](htt
  "name": "{your-project-name}",
  "slug": "{your-project-name}",
  ...
+ # 👇 replace with yours project id or comment out
  "extra": {
     "eas": {
       "projectId": "{your-expo-project-id}"
