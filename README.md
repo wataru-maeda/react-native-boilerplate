@@ -50,7 +50,7 @@ It's very important to keep code clean to maintain readability and productivity.
 
 Once you complete your implementation, you may need to publish your package to share to the QA team. The boilerplate already setup automated deployment with [expo-github-action](https://github.com/expo/expo-github-action). Once you push changes to the **main** branch, github action handle deployment; publish the package to your expo account. You can check the deployment configuration [here](https://github.com/wataru-maeda/react-native-boilerplate/blob/doc/readme/.github/workflows/test.yml). 
 
-To connect to your expo account, Read the [readme page](https://github.com/expo/expo-github-action#configuration-options) for instructions. You'll need to generate a token. Then setup token in your github repo Settings > Secrets > Actions. Add action secret named "EXPO_TOKEN". That's it!
+To connect to your expo account, Read the [readme page](https://github.com/expo/expo-github-action) for instructions. You'll need to generate a token. Then setup token in your github repo Settings > Secrets > Actions. Add action secret named "EXPO_TOKEN". That's it!
 
 ## Want native code?
 
@@ -59,6 +59,11 @@ You can run `npx expo prebuild` in the project root to generate ios and android 
 ## Libraries
 
 - [expo v49](https://docs.expo.dev/versions/v49.0.0)
+- [expo-asset](https://docs.expo.dev/versions/latest/sdk/asset/)
+- [expo-font](https://docs.expo.dev/versions/latest/sdk/font/)
+- [expo-image](https://docs.expo.dev/versions/latest/sdk/image/)
+- [expo-splash-screen](https://docs.expo.dev/versions/latest/sdk/splash-screen/)
+- [expo-status-bar](https://docs.expo.dev/versions/latest/sdk/status-bar/)
 - [react-navigation 6.x](https://github.com/react-navigation/react-navigation)
 - [redux-toolkit](https://redux-toolkit.js.org/)
 - [redux-logger](https://github.com/LogRocket/redux-logger)
@@ -84,7 +89,7 @@ Expo provides a popular set of vector icons. Please search icons from [here](htt
  "slug": "your-app-name",
 ```
 
-3. `yarn install` or `npm install`
+3. `npm install` or `yarn install`
 4. If you haven't setup expo, please follow the [instruction](https://expo.io/learn) to complete setup
 5. In the terminal, `npm run start` or `yarn run start`
 
