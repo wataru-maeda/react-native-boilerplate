@@ -5,7 +5,8 @@
 
 <img src='https://github.com/wataru-maeda/react-native-boilerplate/blob/main/__DELELE_ME__/demo.gif' width='32%'>
 
-Demo - [iOS](exp://u.expo.dev/update/970da301-8c6d-44da-b273-662f033ecb1f) | [Android](exp://u.expo.dev/update/facf7c40-7aed-4908-b107-550db321ea2c)
+
+- [Demo](https://expo.dev/%40wataru/react-native-boilerplate?serviceType=eas&distribution=expo-go&scheme=exp%2Breact-native-boilerplate&channel=main&sdkVersion=49.0.0)
 
 ## About
 
