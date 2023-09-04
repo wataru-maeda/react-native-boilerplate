@@ -29,7 +29,7 @@ If your app requires authorization, you need to implement login, signup function
 #### Redux
 
 We are using [Redux Toolkit](https://redux-toolkit.js.org/) to simplify the redux setup. 
-Redux can contain the global state of the app. This is very useful but on the other hand, it takes time to setup if you are not familiar with it. In the boilerplate, you see [module file](https://github.com/wataru-maeda/react-native-boilerplate/blob/doc/readme/src/modules/app.module.ts) which contains actions and reducers in a file. Please follow the [quick start tutorials](https://redux-toolkit.js.org/tutorials/quick-start) to see how store is setup; and how to use Redux state and actions in React Components.
+Redux can contain the global state of the app. This is very useful but on the other hand, it takes time to setup if you are not familiar with it. In the boilerplate, you see [module file](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/src/modules/app.module.ts) which contains actions and reducers in a file. Please follow the [quick start tutorials](https://redux-toolkit.js.org/tutorials/quick-start) to see how store is setup; and how to use Redux state and actions in React Components.
 
 #### Assets
 
@@ -37,7 +37,7 @@ Images, icons and fonts are controlled under [theme](https://github.com/wataru-m
 
 #### Absolute path
 
-If your project structure becomes complicated and has a lot of nested folders, you will have problems with relative paths. In the boilerplate, you can use absolute paths. You write a simple import statement i.e. 'components/Button'. No more ../../../components/Button. The configuration is written in [babel.config.js](https://github.com/wataru-maeda/react-native-boilerplate/blob/doc/readme/babel.config.js) and [tsconfig.json](https://github.com/wataru-maeda/react-native-boilerplate/blob/doc/readme/tsconfig.json).
+If your project structure becomes complicated and has a lot of nested folders, you will have problems with relative paths. In the boilerplate, you can use absolute paths. You write a simple import statement i.e. 'components/Button'. No more ../../../components/Button. The configuration is written in [babel.config.js](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/babel.config.js) and [tsconfig.json](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/tsconfig.json).
 
 #### Environment Variables
 
@@ -54,7 +54,7 @@ It's very important to keep code clean to maintain readability and productivity.
 
 #### Create previews on PR [CD]
 
-Once you complete your work, you may want to share the preview with the QA team. The boilerplate automate the distribution process. When you create PR or merged in  the **main** branch, it create preview channel in your expo account. You do not need to run eas command everytime PR created. You can check the CD configuration [here](https://github.com/wataru-maeda/react-native-boilerplate/blob/doc/readme/.github/workflows/preview.yml). For the CD process, we use [expo-github-action](https://github.com/expo/expo-github-action).
+Once you complete your work, you may want to share the preview with the QA team. The boilerplate automate the distribution process. When you create PR or merged in  the **main** branch, it create preview channel in your expo account. You do not need to run eas command everytime PR created. You can check the CD configuration [here](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/.github/workflows/preview.yml). For the CD process, we use [expo-github-action](https://github.com/expo/expo-github-action).
 
 To spin up CD workflow, you'll need to create `EXPO_TOKEN` in expo account and add it in your github repo Settings > Secrets > Actions. Please read the [readme page](https://github.com/expo/expo-github-action#configuration-options) for more instructions.
 
