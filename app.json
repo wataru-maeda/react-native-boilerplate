@@ -2,26 +2,40 @@
   "expo": {
     "name": "react-native-boilerplate",
     "slug": "react-native-boilerplate",
-    "privacy": "public",
-    "platforms": ["ios", "android", "web"],
+    "privacy": "unlisted",
     "version": "1.0.0",
+    "platforms": ["ios", "android", "web"],
     "orientation": "portrait",
-    "icon": "./assets/images/logo-sm.png",
+    "icon": "./assets/images/logo-lg.png",
+    "userInterfaceStyle": "light",
     "splash": {
       "image": "./assets/images/splash.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
-    "updates": {
-      "fallbackToCacheTimeout": 0
-    },
     "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true
     },
-    "packagerOpts": {
-      "config": "metro.config.js",
-      "sourceExts": ["js", "jsx", "svg", "ts", "tsx"]
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/images/logo-sm.png",
+        "backgroundColor": "#ffffff"
+      }
+    },
+    "web": {
+      "favicon": "./assets/images/logo-sm.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "18adc0d0-eb1d-11e9-8009-d524ed5cc4a7"
+      }
+    },
+    "updates": {
+      "url": "https://u.expo.dev/18adc0d0-eb1d-11e9-8009-d524ed5cc4a7"
+    },
+    "runtimeVersion": {
+      "policy": "sdkVersion"
     }
   }
 }

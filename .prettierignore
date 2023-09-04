@@ -1,4 +1,7 @@
-package.json
-package-lock.json
-babel.config.js
+build
+coverage
+node_modules
+src/config.js
 README.md
+tsconfig.json
+tsconfig.build.json
