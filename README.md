@@ -48,11 +48,11 @@ You may want to switch environment variables based on the development stage. If 
 
 If you'd like to know more about dynamic configuration, please check the [page](https://docs.expo.dev/workflow/configuration/#dynamic-configuration).
 
-#### Code formatting, fixing and testing on pre-commit (CI)
+#### Code formatting, fixing and testing on pre-commit [CI]
 
 It's very important to keep code clean to maintain readability and productivity. In the boilerplate, Eslint, Prettier and Jest configurations are done. It's continuously checking and formatting your code while you coding (Please enable "Format on Save" option if you prefer to format code after saving change). After you submit changes, pre-commit script will run to handle checking and formatting your code, run test. If the 3 steps are passed, you will be able to push the change.
 
-#### Create previews on PRs (CD)
+#### Create previews on PR [CD]
 
 Once you complete your work, you may want to share the preview with the QA team. The boilerplate automate the distribution process. When you create PR or merged in  the **main** branch, it create preview channel in your expo account. You do not need to run eas command everytime PR created. You can check the CD configuration [here](https://github.com/wataru-maeda/react-native-boilerplate/blob/doc/readme/.github/workflows/preview.yml). For the CD process, we use [expo-github-action](https://github.com/expo/expo-github-action).
 
