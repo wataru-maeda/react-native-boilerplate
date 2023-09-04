@@ -20,7 +20,7 @@ We spend a large amount of time to setup a project; changing file structure, ins
 
 #### Navigation
 
-At default, you can see 3 types of navigation; stack, tab, and drawer. Here in the [code](https://github.com/wataru-maeda/react-native-boilerplate/tree/main/src/navigator), files are separated by the navigation types. If you don't need drawer navigation for example, you can the remove drawer file and replace the import status [here](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/src/navigator/Navigator.tsx#L5) to tab or stack navigator.
+At default, you can see [3 types of navigation](https://github.com/wataru-maeda/react-native-boilerplate/tree/main/src/navigator); stack, tab, and drawer. The files are separated by the navigation types. If you don't need drawer navigation for example, you can the remove drawer file and replace the import [here](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/src/navigator/Navigator.tsx#L5) to tab or stack navigator.
 
 #### Authentication
 
@@ -33,7 +33,7 @@ Redux can contain the global state of the app. This is very useful but on the ot
 
 #### Assets
 
-Images, icons and fonts are controlled under [theme](https://github.com/wataru-maeda/react-native-boilerplate/tree/doc/readme/src/theme). If you add new assets, you need to import the new assets in each file to access the assets from the theme. Also, assets preloading is implemented as well. You can also use svg file in the boilerplate. All the assets are ready to use by importing the theme.
+Images, icons and fonts are controlled under [theme](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/src/theme). If you add new assets, you need to import the new assets in each file to access the assets from the theme. Also, assets preloading is implemented as well. You can also use svg file in the boilerplate. All the assets are ready to use by importing the theme.
 
 #### Absolute path
 
@@ -106,8 +106,7 @@ Expo provides a popular set of vector icons. Please search icons from [here](htt
 ```
 
 3. `npm install` or `yarn install`
-4. If you haven't setup expo, please follow the [instruction](https://expo.io/learn) to complete setup
-5. In the terminal, `npm run start` or `yarn run start`
+4. In the terminal, `npm run start` or `yarn run start`
 
 ## Licence
 
