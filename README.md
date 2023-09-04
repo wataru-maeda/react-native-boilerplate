@@ -1,4 +1,4 @@
-<img src='https://github.com/wataru-maeda/react-native-boilerplate/blob/main/__DELELE_ME__/banner.svg' width='400'>
+<img src='https://github.com/wataru-maeda/react-native-boilerplate/blob/main/__DELELE_ME__/banner.png' width='400'>
 
 <img src='https://github.com/wataru-maeda/react-native-boilerplate/blob/main/__DELELE_ME__/demo.gif' width='32%'>
 
@@ -88,6 +88,7 @@ Expo provides a popular set of vector icons. Please search icons from [here](htt
  "name": "{your-project-name}",
  "slug": "{your-project-name}",
  ...
+ # 👇 replace with yours project id or comment out
  "extra": {
     "eas": {
       "projectId": "{your-expo-project-id}"
