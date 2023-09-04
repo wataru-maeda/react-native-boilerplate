@@ -1,8 +1,8 @@
 {
   "expo": {
-    "name": "react-native-boilerplate",
-    "slug": "react-native-boilerplate",
-    "privacy": "public",
+    "name": "your-app-name",
+    "slug": "your-app-name",
+    "privacy": "unlisted",
     "version": "1.0.0",
     "platforms": ["ios", "android", "web"],
     "orientation": "portrait",
@@ -26,16 +26,16 @@
     "web": {
       "favicon": "./assets/images/logo-sm.png"
     },
-    "extra": {
-      "eas": {
-        "projectId": "18adc0d0-eb1d-11e9-8009-d524ed5cc4a7"
-      }
-    },
+    // "extra": {
+    //   "eas": {
+    //     "projectId": "YOUR-PROJECT-ID"
+    //   }
+    // },
+    // "updates": {
+    //   "url": "https://u.expo.dev/YOUR-PROJECT-ID"
+    // },
     "runtimeVersion": {
       "policy": "sdkVersion"
-    },
-    "updates": {
-      "url": "https://u.expo.dev/18adc0d0-eb1d-11e9-8009-d524ed5cc4a7"
     }
   }
 }
