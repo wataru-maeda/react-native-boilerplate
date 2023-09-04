@@ -7,6 +7,9 @@ export default ({ config }: ConfigContext): ExpoConfig => {
       ...config,
       slug: `DEV - ${config.slug}`,
       name: `DEV - ${config.name}`,
+      updates: {
+        url: 'https://u.expo.dev/YOUR-DEV-PROJECT-ID',
+      },
       ios: {
         ...config.ios,
         bundleIdentifier: 'com.yourcompany.yourappname-dev',
@@ -30,9 +33,6 @@ export default ({ config }: ConfigContext): ExpoConfig => {
     ...config,
     slug: config.slug ?? '',
     name: config.name ?? '',
-    updates: {
-      url: 'https://u.expo.dev/18adc0d0-eb1d-11e9-8009-d524ed5cc4a7',
-    },
     ios: {
       ...config.ios,
       bundleIdentifier: 'com.yourcompany.yourappname',
@@ -45,9 +45,6 @@ export default ({ config }: ConfigContext): ExpoConfig => {
     },
     extra: {
       ...config.extra,
-      eas: {
-        projectId: '18adc0d0-eb1d-11e9-8009-d524ed5cc4a7'
-      },
       env: 'prod',
     },
   };

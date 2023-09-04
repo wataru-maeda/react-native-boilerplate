@@ -1,4 +1,4 @@
-<img src='https://github.com/wataru-maeda/react-native-boilerplate/blob/doc/readme/__DELELE_ME__/banner.png' width='500'>
+<img src='https://github.com/wataru-maeda/react-native-boilerplate/blob/main/__DELELE_ME__/banner.svg' width='400'>
 
 <img src='https://github.com/wataru-maeda/react-native-boilerplate/blob/main/__DELELE_ME__/demo.gif' width='32%'>
 
@@ -9,7 +9,6 @@ We spend a large amount of time to setup a project; changing file structure, ins
 ## Environment
 
 - Node: 16.x
-- expo-cli: 6.3.10
 
 ## What's included
 
@@ -23,7 +22,7 @@ If your app requires authorization, you need to implement login, signup function
 
 #### Redux
 
-We are using [Redux Toolkit](https://redux-toolkit.js.org/) to simplify the redux setup and minimize boilerplates. 
+We are using [Redux Toolkit](https://redux-toolkit.js.org/) to simplify the redux setup. 
 Redux can contain the global state of the app. This is very useful but on the other hand, it takes time to setup if you are not familiar with it. In the boilerplate, you see [module file](https://github.com/wataru-maeda/react-native-boilerplate/blob/doc/readme/src/modules/app.module.ts) which contains actions and reducers in a file. Please follow the [quick start tutorials](https://redux-toolkit.js.org/tutorials/quick-start) to see how store is setup; and how to use Redux state and actions in React Components.
 
 #### Assets
@@ -34,18 +33,18 @@ Images, icons and fonts are controlled under [theme](https://github.com/wataru-m
 
 If your project structure becomes complicated and has a lot of nested folders, you will have problems with relative paths. In the boilerplate, you can use absolute paths. You write a simple import statement i.e. 'components/Button'. No more ../../../components/Button. The configuration is written in [babel.config.js](https://github.com/wataru-maeda/react-native-boilerplate/blob/doc/readme/babel.config.js) and [tsconfig.json](https://github.com/wataru-maeda/react-native-boilerplate/blob/doc/readme/tsconfig.json).
 
+#### Environment Variables
+
+You may want to switch environment variables based on the development stage. If you want to add `dev` environment for example, 
+1. Add a new script `APP_ENV=dev npx expo start -c` in [scripts](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/package.json#L9)
+2. Add dev configuration in app.config.ts ([example](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/app.config.ts#L12))
+3. Populate the environment variables in [config.ts](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/src/utils/config.ts#L5)
+
+If you'd like to know more about dynamic configuration, please check the [page](https://docs.expo.dev/workflow/configuration/#dynamic-configuration).
+
 #### Code formatting, fixing and testing on pre-commit
 
 It's very important to keep code clean to maintain readability and productivity. In the boilerplate, Eslint, Prettier and Jest configurations are done. It's continuously checking and formatting your code while you coding (Please enable "Format on Save" option if you prefer to format code after saving change). After you submit changes, pre-commit script will run to handle checking and formatting your code, run test. If the 3 steps are passed, you will be able to push the change.
-
-#### Environment Variables
-
-You may want to switch environments based on the development stage. There are 3 steps to setup a new environment. 
-1. Run expo with `APP_ENV=yourenv` in [scripts](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/package.json#L9)
-2. Dynamically change environment variables based on `process.env.APP_ENV` in [app.config.ts](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/app.config.ts#L12)
-3. Populate the variables in [config.ts](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/src/utils/config.ts#L5)
-
-If you'd like to know more about dynamic configuration, please check the [page](https://docs.expo.dev/workflow/configuration/#dynamic-configuration).
 
 #### Automated-deployment with github action
 
@@ -53,9 +52,13 @@ Once you complete your implementation, you may need to publish your package to s
 
 To connect to your expo account, Read the [readme page](https://github.com/expo/expo-github-action#configuration-options) for instructions. You'll need to generate a token. Then setup token in your github repo Settings > Secrets > Actions. Add action secret named "EXPO_TOKEN". That's it!
 
+## Want native code?
+
+You can run `npx expo prebuild` in the project root to generate ios and android native code. Please check the [page](https://docs.expo.dev/workflow/prebuild/) for more details. 
+
 ## Libraries
 
-- [expo v48](https://docs.expo.dev/versions/v48.0.0)
+- [expo v49](https://docs.expo.dev/versions/v49.0.0)
 - [react-navigation 6.x](https://github.com/react-navigation/react-navigation)
 - [redux-toolkit](https://redux-toolkit.js.org/)
 - [redux-logger](https://github.com/LogRocket/redux-logger)
