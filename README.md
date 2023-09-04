@@ -20,7 +20,7 @@ We spend a large amount of time to setup a project; changing file structure, ins
 
 #### Navigation
 
-At default, you can see [3 types of navigation](https://github.com/wataru-maeda/react-native-boilerplate/tree/main/src/navigator); stack, tab, and drawer. The files are separated by the navigation types. If you don't need drawer navigation for example, you can the remove drawer file and replace the import [here](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/src/navigator/Navigator.tsx#L5) to tab or stack navigator.
+At default, you can see [3 types of navigation](https://github.com/wataru-maeda/react-native-boilerplate/tree/main/src/navigator); stack, tab, and drawer. The files are separated by the navigation types. If you don't need drawer navigation for example, you can remove the drawer file and replace [here](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/src/navigator/Navigator.tsx#L5) with tab or stack navigator.
 
 #### Authentication
 
@@ -28,8 +28,9 @@ If your app requires authorization, you need to implement login, signup function
 
 #### Redux
 
-We are using [Redux Toolkit](https://redux-toolkit.js.org/) to simplify the redux setup. 
-Redux can contain the global state of the app. This is very useful but on the other hand, it takes time to setup if you are not familiar with it. In the boilerplate, you see [module file](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/src/modules/app.module.ts) which contains actions and reducers in a file. Please follow the [quick start tutorials](https://redux-toolkit.js.org/tutorials/quick-start) to see how store is setup; and how to use Redux state and actions in React Components.
+We are using [redux toolkit](https://redux-toolkit.js.org/) to simplify redux configuration. Redux can contain the global state of the app. In the boilerplate, all of the redux modules are placed in the [module folder](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/src/modules). The module file contain ***actions, reducers and hook***. You can check in the [app module](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/src/modules/app.module.ts) file. Here is a [example](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/src/navigator/Navigator.tsx#L8) how to use the module.
+
+If you want to add a new module, copy and paste the app module in the module directory first. Rename it. Then import the module in the [store](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/src/utils/store.ts#L9) file, that't it. If you need more instruction, please follow the [quick start tutorials](https://redux-toolkit.js.org/tutorials/quick-start) to see how store is setup; and how to use Redux state and actions in React Components.
 
 #### Assets
 
