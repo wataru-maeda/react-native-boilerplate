@@ -1,0 +1,53 @@
+name: Preview
+
+on:
+  push:
+    branches:
+      - main
+      - 'releases/**'
+  pull_request:
+    branches:
+      - '*'
+
+jobs:
+  update:
+    name: Publish Preview Channel
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check for EXPO_TOKEN
+        run: |
+          if [ -z "${{ secrets.EXPO_TOKEN }}" ]; then
+            echo "You must provide an EXPO_TOKEN secret linked to this project's Expo account in this repo's secrets. Learn more: https://docs.expo.dev/eas-update/github-actions"
+            exit 1
+          fi
+
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Setup Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: 16.x
+          cache: npm
+
+      - name: Setup Expo
+        uses: expo/expo-github-action@v7
+        with:
+          expo-version: latest
+          eas-version: latest
+          token: ${{ secrets.EXPO_TOKEN }}
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Get branch name
+        id: branch-name
+        uses: tj-actions/branch-names@v7
+
+      - name: EAS update
+        if: github.event_name == 'pull_request'
+        run: eas update --branch ${{ steps.branch-name.outputs.current_branch }} --message "${{ github.event.pull_request.title }}"
+
+      - name: EAS update
+        if: github.event_name == 'push'
+        run: eas update --branch ${{ steps.branch-name.outputs.current_branch }} --message "${{ github.event.head_commit.message }}"
