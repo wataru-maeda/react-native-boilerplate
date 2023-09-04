@@ -14,11 +14,11 @@ We spend a large amount of time to setup a project; changing file structure, ins
 
 #### Navigation
 
-At default, you can see 3 types of navigation; stack, tab, and drawer. Here in the [code](https://github.com/wataru-maeda/react-native-boilerplate/tree/main/src/navigator), files are separated by the navigation types. If you don't need drawer navigation for example, you can the remove drawer file and replace the import status [here](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/src/navigator/Navigator.tsx#L8) to tab or stack navigator.
+At default, you can see 3 types of navigation; stack, tab, and drawer. Here in the [code](https://github.com/wataru-maeda/react-native-boilerplate/tree/main/src/navigator), files are separated by the navigation types. If you don't need drawer navigation for example, you can the remove drawer file and replace the import status [here](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/src/navigator/Navigator.tsx#L5) to tab or stack navigator.
 
 #### Authentication
 
-If your app requires authorization, you need to implement login, signup function. After the user login or logout, the navigation flow should be different. In this case, the route should be switched by the login status. In the [navigator](https://github.com/wataru-maeda/react-native-boilerplate/blob/doc/readme/src/navigator/Navigator.tsx#L15), you can set the different navigation changed by login status.
+If your app requires authorization, you need to implement login, signup function. After the user login or logout, the navigation flow should be different. In this case, the route should be switched by the login status. In the [navigator](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/src/navigator/Navigator.tsx#L17-L22), you can set the different navigation changed by login status.
 
 #### Redux
 
@@ -36,9 +36,9 @@ If your project structure becomes complicated and has a lot of nested folders, y
 #### Environment Variables
 
 You may want to switch environment variables based on the development stage. If you want to add `dev` environment for example, 
-1. Add a new script `APP_ENV=dev npx expo start -c` in [scripts](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/package.json#L9)
-2. Add dev configuration in app.config.ts ([example](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/app.config.ts#L12))
-3. Populate the environment variables in [config.ts](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/src/utils/config.ts#L5)
+- Add a new script `APP_ENV=dev npx expo start -c` in [scripts](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/package.json#L9)
+- Add dev configuration in app.config.ts ([example](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/app.config.ts#L12))
+- Populate the environment variables in [config.ts](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/src/utils/config.ts#L5)
 
 If you'd like to know more about dynamic configuration, please check the [page](https://docs.expo.dev/workflow/configuration/#dynamic-configuration).
 
