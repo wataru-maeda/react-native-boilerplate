@@ -20,7 +20,7 @@ We spend a large amount of time to setup a project; changing file structure, ins
 
 #### Navigation
 
-At default, you can see 3 types of navigation; stack, tab, and drawer. Here in the [code](https://github.com/wataru-maeda/react-native-boilerplate/tree/main/src/navigator), files are separated by the navigation types. If you don't need drawer navigation for example, you can the remove drawer file and replace the import status [here](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/src/navigator/Navigator.tsx#L5) to tab or stack navigator.
+At default, you can see [3 types of navigation](https://github.com/wataru-maeda/react-native-boilerplate/tree/main/src/navigator); stack, tab, and drawer. The files are separated by the navigation types. If you don't need drawer navigation for example, you can remove the drawer file and replace [here](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/src/navigator/Navigator.tsx#L5) with tab or stack navigator.
 
 #### Authentication
 
@@ -28,16 +28,17 @@ If your app requires authorization, you need to implement login, signup function
 
 #### Redux
 
-We are using [Redux Toolkit](https://redux-toolkit.js.org/) to simplify the redux setup. 
-Redux can contain the global state of the app. This is very useful but on the other hand, it takes time to setup if you are not familiar with it. In the boilerplate, you see [module file](https://github.com/wataru-maeda/react-native-boilerplate/blob/doc/readme/src/modules/app.module.ts) which contains actions and reducers in a file. Please follow the [quick start tutorials](https://redux-toolkit.js.org/tutorials/quick-start) to see how store is setup; and how to use Redux state and actions in React Components.
+We are using [redux toolkit](https://redux-toolkit.js.org/) to simplify redux configuration. Redux can contain the global state of the app. In the boilerplate, all of the redux modules are placed in the [module folder](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/src/modules). The module file contain ***actions, reducers and hook***. You can check in the [app module](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/src/modules/app.module.ts) file. Here is a [example](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/src/navigator/Navigator.tsx#L8) how to use the module.
+
+If you want to add a new module, copy and paste the app module in the module directory first. Rename it. Then import the module in the [store](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/src/utils/store.ts#L9) file, that't it. If you need more instruction, please follow the [quick start tutorials](https://redux-toolkit.js.org/tutorials/quick-start) to see how store is setup; and how to use Redux state and actions in React Components.
 
 #### Assets
 
-Images, icons and fonts are controlled under [theme](https://github.com/wataru-maeda/react-native-boilerplate/tree/doc/readme/src/theme). If you add new assets, you need to import the new assets in each file to access the assets from the theme. Also, assets preloading is implemented as well. You can also use svg file in the boilerplate. All the assets are ready to use by importing the theme.
+Images, icons and fonts are controlled under [theme](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/src/theme). If you add new assets, you need to import the new assets in each file to access the assets from the theme. Also, assets preloading is implemented as well. You can also use svg file in the boilerplate. All the assets are ready to use by importing the theme.
 
 #### Absolute path
 
-If your project structure becomes complicated and has a lot of nested folders, you will have problems with relative paths. In the boilerplate, you can use absolute paths. You write a simple import statement i.e. 'components/Button'. No more ../../../components/Button. The configuration is written in [babel.config.js](https://github.com/wataru-maeda/react-native-boilerplate/blob/doc/readme/babel.config.js) and [tsconfig.json](https://github.com/wataru-maeda/react-native-boilerplate/blob/doc/readme/tsconfig.json).
+If your project structure becomes complicated and has a lot of nested folders, you will have problems with relative paths. In the boilerplate, you can use absolute paths. You write a simple import statement i.e. 'components/Button'. No more ../../../components/Button. The configuration is written in [babel.config.js](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/babel.config.js) and [tsconfig.json](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/tsconfig.json).
 
 #### Environment Variables
 
@@ -54,7 +55,7 @@ It's very important to keep code clean to maintain readability and productivity.
 
 #### Create previews on PR [CD]
 
-Once you complete your work, you may want to share the preview with the QA team. The boilerplate automate the distribution process. When you create PR or merged in  the **main** branch, it create preview channel in your expo account. You do not need to run eas command everytime PR created. You can check the CD configuration [here](https://github.com/wataru-maeda/react-native-boilerplate/blob/doc/readme/.github/workflows/preview.yml). For the CD process, we use [expo-github-action](https://github.com/expo/expo-github-action).
+Once you complete your work, you may want to share the preview with the QA team. The boilerplate automate the distribution process. When you create PR or merged in  the **main** branch, it create preview channel in your expo account. You do not need to run eas command everytime PR created. You can check the CD configuration [here](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/.github/workflows/preview.yml). For the CD process, we use [expo-github-action](https://github.com/expo/expo-github-action).
 
 To spin up CD workflow, you'll need to create `EXPO_TOKEN` in expo account and add it in your github repo Settings > Secrets > Actions. Please read the [readme page](https://github.com/expo/expo-github-action#configuration-options) for more instructions.
 
@@ -106,8 +107,7 @@ Expo provides a popular set of vector icons. Please search icons from [here](htt
 ```
 
 3. `npm install` or `yarn install`
-4. If you haven't setup expo, please follow the [instruction](https://expo.io/learn) to complete setup
-5. In the terminal, `npm run start` or `yarn run start`
+4. In the terminal, `npm run start` or `yarn run start`
 
 ## Licence
 
