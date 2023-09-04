@@ -85,8 +85,17 @@ Expo provides a popular set of vector icons. Please search icons from [here](htt
 2. Update `app.json`
 
 ```
- "name": "your-app-name",
- "slug": "your-app-name",
+ "name": "{your-project-name}",
+ "slug": "{your-project-name}",
+ ...
+ "extra": {
+    "eas": {
+      "projectId": "{your-expo-project-id}"
+    }
+  },
+  "updates": {
+    "url": "https://u.expo.dev/{your-expo-project-id}"
+  },
 ```
 
 3. `npm install` or `yarn install`
