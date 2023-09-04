@@ -5,6 +5,8 @@
 
 <img src='https://github.com/wataru-maeda/react-native-boilerplate/blob/main/__DELELE_ME__/demo.gif' width='32%'>
 
+- [iOS](exp://u.expo.dev/update/970da301-8c6d-44da-b273-662f033ecb1f) | [Android](exp://u.expo.dev/update/facf7c40-7aed-4908-b107-550db321ea2c)
+
 ## About
 
 We spend a large amount of time to setup a project; changing file structure, installing libraries, creating reusable components, and so on. The purpose of using the project is to minimize the redundant effort to setup a project from scratch. In the boilerplate, it contains only commonly-used libraries and the all setup is done for you.
