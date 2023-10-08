@@ -16,7 +16,7 @@ Say goodbye to time-consuming setup tasks like restructuring files, installing l
 
 - Node: 16.x
 
-## Getting Started
+## Quick Start
 
 1. Download zip or click "Use this template"
 2. Update `app.json`
@@ -36,8 +36,8 @@ Say goodbye to time-consuming setup tasks like restructuring files, installing l
   },
 ```
 
-3. `npm install` or `yarn install`
-4. In the terminal, `npm run start` or `yarn run start`
+3. Install packages with `npm install` or `yarn install`
+4. Spin up dev environment with `npm run start` or `yarn run start`
 
 ## What's included
 
