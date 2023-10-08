@@ -2,7 +2,7 @@ import React from 'react';
 import { SafeAreaView, Text, View, StyleSheet } from 'react-native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import TabNavigator from '../tab/Tab';
-import { DrawerParamList, DrawerNameList } from './Drawer.typeDefs';
+import { DrawerParamList } from './Drawer.typeDefs';
 
 const Drawer = createDrawerNavigator<DrawerParamList>();
 
@@ -27,10 +27,10 @@ const drawerContents = () => (
 function DrawerNavigator() {
   return (
     <Drawer.Navigator
-      initialRouteName={DrawerNameList.main}
+      initialRouteName="MainDrawer"
       screenOptions={{ headerShown: false }}
       drawerContent={drawerContents}>
-      <Drawer.Screen name={DrawerNameList.main} component={TabNavigator} />
+      <Drawer.Screen name="MainDrawer" component={TabNavigator} />
     </Drawer.Navigator>
   );
 }

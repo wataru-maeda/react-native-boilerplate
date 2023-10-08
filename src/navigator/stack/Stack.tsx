@@ -1,12 +1,14 @@
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { StackNameList, StackParamList } from './Stack.typDefs';
-import { MainDrawerProps } from '../drawer/Drawer.typeDefs';
+import { StackParamList } from './Stack.typeDefs';
+import { DrawerProps } from '../drawer/Drawer.typeDefs';
+import { StackHeaderLeft, StackHeaderTitle } from './components';
 import { colors } from '@theme';
+
+// views
 import Home from '@views/Home';
 import Details from '@views/Details';
 import Profile from '@views/Profile';
-import { StackHeaderLeft, StackHeaderTitle } from './components';
 
 const Stack = createNativeStackNavigator<StackParamList>();
 
@@ -16,12 +18,12 @@ const navigationProps = {
   headerTitleStyle: { fontSize: 18 },
 };
 
-export function HomeStackNavigator({ navigation }: MainDrawerProps) {
+export function HomeStackNavigator({ navigation }: DrawerProps) {
   return (
     <Stack.Navigator screenOptions={navigationProps}>
       <Stack.Screen
         component={Home}
-        name={StackNameList.home}
+        name="HomeStack"
         options={{
           title: 'Home',
           headerTitle: () => <StackHeaderTitle />,
@@ -31,7 +33,7 @@ export function HomeStackNavigator({ navigation }: MainDrawerProps) {
       />
       <Stack.Screen
         component={Details}
-        name={StackNameList.details}
+        name="DetailsStack"
         options={{
           title: 'Details',
           headerTitle: () => <StackHeaderTitle />,
@@ -42,12 +44,12 @@ export function HomeStackNavigator({ navigation }: MainDrawerProps) {
   );
 }
 
-export function ProfileStackNavigator({ navigation }: MainDrawerProps) {
+export function ProfileStackNavigator({ navigation }: DrawerProps) {
   return (
     <Stack.Navigator screenOptions={navigationProps}>
       <Stack.Screen
         component={Profile}
-        name={StackNameList.profile}
+        name="ProfileStack"
         options={{
           title: 'Profile',
           headerTitle: () => <StackHeaderTitle />,
@@ -57,7 +59,7 @@ export function ProfileStackNavigator({ navigation }: MainDrawerProps) {
       />
       <Stack.Screen
         component={Details}
-        name={StackNameList.details}
+        name="DetailsStack"
         options={{
           title: 'Details',
           headerTitle: () => <StackHeaderTitle />,

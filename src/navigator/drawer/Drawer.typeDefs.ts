@@ -1,14 +1,8 @@
 import { DrawerScreenProps } from '@react-navigation/drawer';
 
-export enum DrawerNameList {
-  main = 'MainDrawer',
-  // add more...
-}
-
 export type DrawerParamList = {
-  [DrawerNameList.main]: undefined;
-  // add more...
+  MainDrawer: undefined;
+  // add more drawer params...
 };
 
-export type MainDrawerProps = DrawerScreenProps<DrawerParamList, DrawerNameList.main>;
-// add more...
+export type DrawerProps = DrawerScreenProps<DrawerParamList, keyof DrawerParamList>;
