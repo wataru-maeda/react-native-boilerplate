@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text, View, StyleSheet, StatusBar } from 'react-native';
 import Button from '@components/Button';
-import { HomeStackProps, StackNameList } from '@navigator/stack/Stack.typDefs';
+import { StackProps } from '@navigator/stack';
 import { colors } from '@theme';
 
 const styles = StyleSheet.create({
@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
   },
 });
 
-export default function Home({ navigation }: HomeStackProps) {
+export default function Home({ navigation }: StackProps) {
   return (
     <View style={styles.root}>
       <StatusBar barStyle="light-content" />
@@ -39,7 +39,7 @@ export default function Home({ navigation }: HomeStackProps) {
         titleStyle={styles.buttonTitle}
         style={styles.button}
         onPress={() => {
-          navigation.navigate(StackNameList.details, { from: 'Home' });
+          navigation.navigate('DetailsStack', { from: 'Home' });
         }}
       />
     </View>

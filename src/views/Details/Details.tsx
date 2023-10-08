@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text, View, StyleSheet, StatusBar } from 'react-native';
 import Button from '@components/Button';
-import { DetailsStackProps } from '@navigator/stack/Stack.typDefs';
+import { StackProps } from '@navigator/stack';
 import { colors } from '@theme';
 
 const styles = StyleSheet.create({
@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
   },
 });
 
-export default function Details({ navigation, route }: DetailsStackProps) {
+export default function Details({ navigation, route }: StackProps) {
   const { from } = route.params;
   return (
     <View style={styles.root}>
