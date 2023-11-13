@@ -14,7 +14,7 @@ Say goodbye to time-consuming setup tasks like restructuring files, installing l
 
 ## Environment
 
-- Node: 16.x
+- Node: 20.x
 
 ## Quick Start
 
