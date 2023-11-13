@@ -14,7 +14,7 @@ Say goodbye to time-consuming setup tasks like restructuring files, installing l
 
 ## Environment
 
-- Node: 16.x
+- Node: 20.x
 
 ## Quick Start
 
@@ -41,15 +41,15 @@ Say goodbye to time-consuming setup tasks like restructuring files, installing l
 
 ## What's included
 
-#### Navigation
+### Navigation
 
 By default, you'll find [3 types of navigation](https://github.com/wataru-maeda/react-native-boilerplate/tree/main/src/navigator) in the project: stack, tab, and drawer. These navigation types have their corresponding files organized in the project structure. If, for instance, you don't require drawer navigation, you can simply remove the drawer file. Additionally, you can easily make the necessary adjustment by replacing the navigation type [here](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/src/navigator/Navigator.tsx#L5) with either tab or stack navigation.
 
-#### Authentication
+### Authentication
 
 If your app requires authorization, it's essential to implement login and signup functionality. The navigation flow should vary based on the user's login or logout status. In the [navigator](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/src/navigator/Navigator.tsx#L17-L22), you can configure distinct navigation routes depending on the user's login status.
 
-#### Redux
+### Redux
 
 We've simplified the Redux configuration in this project using [Redux Toolkit](https://redux-toolkit.js.org/), which efficiently manages the global state of the app. All Redux modules can be found in the [module folder](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/src/modules). Each module file contains **actions, reducers, and hooks**. For a practical example of how to use a module, you can refer to the [app module](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/src/modules/app.module.ts) file. 
 
@@ -57,19 +57,19 @@ If you need to create a new module, start by duplicating the app module and givi
 
 For more detailed instructions, you can follow the [quick start tutorials](https://redux-toolkit.js.org/tutorials/quick-start), which provide guidance on setting up the store and utilizing Redux state and actions within React components.
 
-#### Assets
+### Assets
 
 Assets such as images, icons, and fonts are centrally managed in the [theme](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/src/theme) section of the project. When you introduce new assets, it's important to import them into the respective files where you intend to use them, enabling easy access to these resources through the theme.
 
 Additionally, we've implemented asset preloading in the boilerplate to enhance performance. Furthermore, you have the flexibility to utilize SVG files in your project. All assets are readily available for use by importing them from the theme.
 
-#### Absolute path
+### Absolute path
 
 Managing complex project structures with nested folders can often lead to issues with relative paths. However, in this boilerplate, we've simplified things by enabling the use of absolute paths. Now, instead of writing lengthy and error-prone relative paths like '../../../components/Button', you can simply use 'components/Button' in your import statements.
 
 This configuration is set up in both [babel.config.js](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/babel.config.js) and [tsconfig.json](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/tsconfig.json), making it easy to work with absolute paths throughout your project.
 
-#### Environment Variables
+### Environment Variables
 
 To switch between different development environments, such as adding a 'dev' environment, follow these steps:
 
@@ -81,7 +81,7 @@ To switch between different development environments, such as adding a 'dev' env
 
 For more details on dynamic configuration, you can refer to the [Expo documentation page](https://docs.expo.dev/workflow/configuration/#dynamic-configuration).
 
-#### Code formatting, fixing and testing on pre-commit [CI]
+### Code formatting, fixing and testing on pre-commit [CI]
 
 Maintaining clean code is crucial for readability and productivity. In this boilerplate, we've set up configurations for Eslint, Prettier, and Jest to help you achieve just that. Here's how it works:
 
@@ -91,7 +91,7 @@ Maintaining clean code is crucial for readability and productivity. In this boil
 
 3. If all three steps (code checking, formatting, and testing) pass successfully, you'll be able to push your changes with confidence, knowing that your code is clean and reliable.
 
-#### Create previews on PR [CD]
+### Create previews on PR [CD]
 
 When you've completed your work and need to share a preview with the QA team, our boilerplate automates the distribution process for you. Here's how it works:
 
