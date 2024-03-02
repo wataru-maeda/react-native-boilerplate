@@ -7,9 +7,9 @@ export const images: { [key: string]: ReturnType<typeof require> } = {
 };
 
 // preload images
-console.log('[##] imageAssets', images);
-const imageAssets = Object.keys(images).map(key => {
-  return Asset.fromModule(images[key]).downloadAsync();
-});
+const preloadImages = () =>
+  Object.keys(images).map(key => {
+    return Asset.fromModule(images[key]).downloadAsync();
+  });
 
-export const loadImages = async () => Promise.all(imageAssets);
+export const loadImages = async () => Promise.all(preloadImages());

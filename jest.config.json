@@ -18,6 +18,9 @@
     },
     {
       "preset": "jest-expo/android"
+    },
+    {
+      "preset": "jest-expo/web"
     }
   ]
 }
