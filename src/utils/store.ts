@@ -1,6 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
-import logger from 'redux-logger';
-import app from '@modules/app.module';
+import app from '@modules/app/app.slice';
 import config from '@utils/config';
 
 const store = configureStore({
@@ -8,8 +7,7 @@ const store = configureStore({
     app,
     // add more store ...
   },
-  middleware: getDefaultMiddleware =>
-    config.env === 'dev' ? getDefaultMiddleware().concat(logger) : getDefaultMiddleware(),
+  middleware: getDefaultMiddleware => getDefaultMiddleware(),
   devTools: config.env === 'dev',
 });
 

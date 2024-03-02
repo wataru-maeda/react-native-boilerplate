@@ -5,6 +5,7 @@
   "scripts": {
     "ci": "watchman watch-del-all && rm -rf node_modules && npm install",
     "start": "watchman watch-del-all && APP_ENV=prod npx expo start -c",
+    "start:dev": "watchman watch-del-all && APP_ENV=dev npx expo start -c",
     "android": "APP_ENV=prod npx expo start --android",
     "ios": "APP_ENV=prod npx expo start --ios",
     "web": "APP_ENV=prod npx expo start --web",
@@ -39,7 +40,8 @@
     "react-native-screens": "~3.29.0",
     "react-native-web": "~0.19.9",
     "react-redux": "^8.1.3",
-    "redux-logger": "^3.0.6"
+    "redux-logger": "^3.0.6",
+    "@react-native-async-storage/async-storage": "1.21.0"
   },
   "devDependencies": {
     "@babel/core": "^7.23.3",

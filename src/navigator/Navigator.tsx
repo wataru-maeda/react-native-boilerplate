@@ -1,14 +1,57 @@
 import { useEffect } from 'react';
 import { View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import { useAppModule } from '@modules/app.module';
+import * as SplashScreen from 'expo-splash-screen';
+import { useAppSlice, useAppService, IUser } from '@modules/app';
 import DrawerNavigator from './drawer';
+import { loadImages, loadFonts } from '@theme';
+import { useDataPersist, DataPersistKeys } from '@hooks';
+
+// keep the splash screen visible while we fetch resources
+SplashScreen.preventAutoHideAsync();
 
 function Navigator() {
-  const { dispatch, checked, loggedIn, loadUser } = useAppModule();
+  const { getUser } = useAppService();
+  const { dispatch, checked, loggedIn, setUser, setLoggedIn } = useAppSlice();
+  const { setPersistData, getPersistData } = useDataPersist();
+
+  /**
+   * preload assets and user data
+   */
+  const preload = async () => {
+    try {
+      // preload assets
+      await Promise.all([loadImages(), loadFonts()]);
+
+      // fetch user data (fake promise function to simulate async function)
+      const user = await getUser();
+
+      // store user data to redux
+      dispatch(setUser(user));
+      dispatch(setLoggedIn(!!user));
+
+      // store user data to persistent storage (async storage)
+      if (user) setPersistData<IUser>(DataPersistKeys.USER, user);
+      SplashScreen.hideAsync();
+    } catch (err) {
+      console.log('[##] preload error:', err);
+
+      // if preload failed, try to get user data from persistent storage
+      getPersistData<IUser>(DataPersistKeys.USER)
+        .then(user => {
+          if (user) {
+            dispatch(setUser(user));
+            dispatch(setLoggedIn(!!user));
+          }
+        })
+        .finally(() => {
+          SplashScreen.hideAsync();
+        });
+    }
+  };
 
   useEffect(() => {
-    dispatch(loadUser());
+    preload();
   }, []);
 
   // TODO: switch router by loggedIn status

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Text, View, StyleSheet, StatusBar } from 'react-native';
-import GradientButton from '@components/GradientButton';
+import Button from '@components/Button';
 import { StackProps } from '@navigator/stack';
 import { colors } from '@theme';
 
@@ -34,18 +34,11 @@ export default function Home({ navigation }: StackProps) {
     <View style={styles.root}>
       <StatusBar barStyle="light-content" />
       <Text style={styles.title}>Home</Text>
-      <GradientButton
+      <Button
         title="Go to Details"
         titleStyle={styles.buttonTitle}
         style={styles.button}
-        gradientBackgroundProps={{
-          colors: [colors.purple, colors.pink],
-          start: { x: 0, y: 1 },
-          end: { x: 0.8, y: 0 },
-        }}
-        onPress={() => {
-          navigation.navigate('DetailsStack', { from: 'Home' });
-        }}
+        onPress={() => navigation.navigate('DetailsStack', { from: 'Home' })}
       />
     </View>
   );
