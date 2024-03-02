@@ -1,8 +1,7 @@
 import {
-  TouchableOpacity,
+  Pressable,
   Text,
   ActivityIndicator,
-  TouchableOpacityProps,
   GestureResponderEvent,
   ImageSourcePropType,
   StyleProp,
@@ -14,12 +13,11 @@ import { colors } from '@theme';
 
 export interface ButtonProps
   extends Omit<
-    TouchableOpacityProps,
+    Pressable['props'], // Use Pressable['props'] instead of TouchableOpacityProps
     | 'title'
     | 'image'
     | 'imageStyle'
     | 'titleStyle'
-    | 'onPress'
     | 'onPress'
     | 'onLongPress'
     | 'isLoading'
@@ -40,7 +38,6 @@ function Button({
   titleStyle,
   image,
   style,
-  activeOpacity,
   disabled,
   isLoading,
   loaderColor = colors.white,
@@ -50,16 +47,12 @@ function Button({
 }: ButtonProps) {
   const opacityStyle = { opacity: disabled ? 0.6 : 1 };
   return (
-    <TouchableOpacity
-      style={[opacityStyle, style]}
-      activeOpacity={activeOpacity ?? 0.2}
-      disabled={disabled ?? isLoading}
-      {...others}>
-      {children && children}
+    <Pressable style={[opacityStyle, style]} disabled={disabled || isLoading} {...others}>
+      {children}
       {isLoading && <ActivityIndicator size="small" color={loaderColor} />}
       {!isLoading && image && <Image source={image} style={imageStyle} />}
       {!isLoading && title && <Text style={titleStyle}>{title}</Text>}
-    </TouchableOpacity>
+    </Pressable>
   );
 }
 

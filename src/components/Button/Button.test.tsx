@@ -5,7 +5,6 @@ import Button from './Button';
 describe('<Button />', () => {
   it('has 1 child', () => {
     const tree = renderer.create(<Button title="Test button" />).toJSON();
-    // console.log('[##] tree', tree);
     expect(tree?.children.length).toBe(1);
   });
 });

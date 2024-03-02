@@ -5,7 +5,14 @@
   ],
   "moduleFileExtensions": ["ts", "tsx", "js", "jsx", "json", "node"],
   "collectCoverage": true,
-  "collectCoverageFrom": ["**/*.{js,jsx}"],
+  "collectCoverageFrom": [
+    "**/*.{js,jsx}",
+    "!**/coverage/**",
+    "!**/node_modules/**",
+    "!**/babel.config.js",
+    "!**/jest.setup.js"
+  ],
+  "coverageReporters": ["text-summary"],
   "projects": [
     {
       "preset": "jest-expo/ios"
