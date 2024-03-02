@@ -1,35 +1,40 @@
-name: Preview
+name: CI - APP Preview
 
 on:
-  push:
-    branches:
-      - main
-      - 'releases/**'
   pull_request:
-    branches:
-      - '*'
+    branches: ['*']
+  push:
+    branches: ['dev', 'staging', 'main', 'release/**']
 
 jobs:
   update:
     name: Publish Preview Channel
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [20.x]
     steps:
+      # Check for EXPO_TOKEN
       - name: Check for EXPO_TOKEN
         run: |
           if [ -z "${{ secrets.EXPO_TOKEN }}" ]; then
-            echo "You must provide an EXPO_TOKEN secret linked to this project's Expo account in this repo's secrets. Learn more: https://docs.expo.dev/eas-update/github-actions"
+            echo "You must provide an EXPO_TOKEN secret linked to this project's Expo account in this repo's secrets."
             exit 1
           fi
 
+      # checkout the repository
       - name: Checkout repository
         uses: actions/checkout@v2
 
+      # setup node
       - name: Setup Node
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
-          node-version: 20.x
+          cache-dependency-path: package-lock.json
+          node-version: ${{ matrix.node-version }}
           cache: npm
 
+      # setup expo
       - name: Setup Expo
         uses: expo/expo-github-action@v7
         with:
@@ -37,17 +42,25 @@ jobs:
           eas-version: latest
           token: ${{ secrets.EXPO_TOKEN }}
 
+      # install dependencies
       - name: Install dependencies
         run: npm ci
 
+      # get branch name
       - name: Get branch name
         id: branch-name
         uses: tj-actions/branch-names@v7
 
+      # eas update (PR)
       - name: EAS update
         if: github.event_name == 'pull_request'
         run: eas update --branch ${{ steps.branch-name.outputs.current_branch }} --message "${{ github.event.pull_request.title }}"
+        env:
+          APP_ENV: dev
 
+      # eas update (PUSH)
       - name: EAS update
         if: github.event_name == 'push'
         run: eas update --branch ${{ steps.branch-name.outputs.current_branch }} --message "${{ github.event.head_commit.message }}"
+        env:
+          APP_ENV: dev
