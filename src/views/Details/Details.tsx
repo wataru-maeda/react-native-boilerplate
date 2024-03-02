@@ -40,12 +40,12 @@ export default function Details({ navigation, route }: StackProps) {
         title="Go back to Home"
         titleStyle={styles.buttonTitle}
         style={styles.button}
-        onPress={() => navigation.goBack()}
         gradientBackgroundProps={{
           colors: [colors.purple, colors.pink],
           start: { x: 0, y: 1 },
           end: { x: 0.8, y: 0 },
         }}
+        onPress={() => navigation.goBack()}
       />
     </View>
   );
