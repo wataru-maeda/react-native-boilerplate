@@ -32,6 +32,8 @@ function Navigator() {
 
       // store user data to persistent storage (async storage)
       if (user) setPersistData<IUser>(DataPersistKeys.USER, user);
+
+      // hide splash screen
       SplashScreen.hideAsync();
     } catch (err) {
       console.log('[##] preload error:', err);
@@ -45,6 +47,7 @@ function Navigator() {
           }
         })
         .finally(() => {
+          // hide splash screen
           SplashScreen.hideAsync();
         });
     }
