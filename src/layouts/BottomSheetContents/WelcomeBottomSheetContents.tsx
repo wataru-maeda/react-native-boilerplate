@@ -50,8 +50,8 @@ export function WelcomeBottomSheetContents() {
     <View style={styles.root}>
       <Text style={styles.title}>🎉 Congratulations! </Text>
       <Text style={styles.subtitle}>
-        You have successfully set up the React Native Boilerplate project in the{' '}
-        <Text style={{ fontFamily: fonts.openSan.bold }}>{` ${config.env} `}</Text>environment.
+        You have successfully spin up the React Native Boilerplate project in the
+        <Text style={{ fontFamily: fonts.openSan.bold }}>{` ${config.ENV} `}</Text>environment.
       </Text>
       <Text style={styles.subtitle}>
         {`Your foundational setup is now complete, paving the way for seamless development and innovation. \n\nHappy coding!`}

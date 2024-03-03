@@ -1,5 +1,4 @@
 import { ExpoConfig, ConfigContext } from 'expo/config';
-import { Config, defaultConfig } from '@utils/config';
 
 export default ({ config: expoConfig }: ConfigContext): ExpoConfig => {
   let name = '';
@@ -7,7 +6,6 @@ export default ({ config: expoConfig }: ConfigContext): ExpoConfig => {
   let projectId = '';
   let ios = { bundleIdentifier: '', buildNumber: '' };
   let android = { package: '', versionCode: 1 };
-  let config: Config = defaultConfig;
 
   /**
    * dev configuration
@@ -23,10 +21,6 @@ export default ({ config: expoConfig }: ConfigContext): ExpoConfig => {
     android = {
       package: 'com.yourcompany.yourappname.dev',
       versionCode: 1,
-    };
-    config = {
-      env: 'dev',
-      apiUrl: 'https://api.dev.example.com',
     };
   }
 
@@ -45,24 +39,12 @@ export default ({ config: expoConfig }: ConfigContext): ExpoConfig => {
       package: 'com.yourcompany.yourappname',
       versionCode: 1,
     };
-    config = {
-      env: 'prod',
-      apiUrl: 'https://api.example.com',
-    };
   }
 
   // switch expo configuration based on environment
-  switch (process.env.APP_ENV) {
-    case 'dev':
-      setDevConfig();
-      break;
-    case 'prod':
-      setProdConfig();
-      break;
-    default:
-      setDevConfig();
-      break;
-  }
+  const targetEnv = process.env.NODE_ENV;
+  if (targetEnv === 'production') setProdConfig();
+  else setDevConfig();
 
   const envConfig: ExpoConfig = {
     ...expoConfig,
@@ -82,7 +64,6 @@ export default ({ config: expoConfig }: ConfigContext): ExpoConfig => {
     extra: {
       ...expoConfig.extra,
       eas: { projectId },
-      config,
     },
   };
 
