@@ -22,31 +22,39 @@ Say goodbye to time-consuming setup tasks like restructuring files, installing l
 ## What's included
 
 ### Navigation
- - [3 types of navigation](https://github.com/wataru-maeda/react-native-boilerplate/tree/main/src/navigator) in the project: stack, tab, and drawer.
- - These navigation types have their corresponding files organized in the project structure.
- - If, for instance, you don't require drawer navigation, you can simply remove the drawer file. Additionally, you can easily make the necessary adjustment by replacing the navigation type [here](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/src/navigator/Navigator.tsx#L5) with either tab or stack navigation.
 
-### Authentication
-- If your app requires authorization, it's essential to implement login and signup functionality. The navigation flow should vary based on the user's login or logout status.
-- In the [navigator](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/src/navigator/Navigator.tsx#L17-L22), you can configure distinct navigation routes depending on the user's login status.
+- Utilizes `react-navigation v5` for stack, tab, and drawer navigation configurations as the default setup.
+- Flexibility in modifying navigation styles. For adjustments to the navigation style, refer to the implementation details in [Stack.tsx](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/src/navigator/stack/Stack.tsx), [Drawer.tsx](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/src/navigator/drawer/Drawer.tsx), and [Tab.tsx](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/src/navigator/tab/Tab.tsx).
+- Simplified navigation structure customization:
+  - To omit a navigation type, such as drawer navigation, simply remove the corresponding drawer file. Alterations to the navigation type can be effortlessly made by substituting the navigation configuration in [Navigator.tsx](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/src/navigator/Navigator.tsx#L5) with your preferred choice between tab or stack navigation.
+- Dynamic navigation switching based on user status:
+  - Integration of login and signup functionality is crucial for apps requiring user authentication. The navigation scheme should adapt according to the user's authentication status.
+  - The [navigator](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/src/navigator/Navigator.tsx#L17-L22) allows for the configuration of distinct navigation paths contingent on whether the user is logged in or not.
 
 ### Redux
-- We've simplified the Redux configuration in this project using [Redux Toolkit](https://redux-toolkit.js.org/), which efficiently manages the global state of the app.
-- All Redux modules can be found in the [module folder](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/src/modules).
-- The project setup `redux hook` which you can easily read/write each state. For a practical example of how to use a module, you can refer to the [app.slice.ts](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/src/modules/app/app.slice.ts) file. 
-- If you need to create a new module, start by duplicating the app.slice.ts and giving it a new name in the module directory. After that, import the module in the [store](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/src/utils/store.ts#L8) file—simple as that.
+
+- Redux Hooks are pre-configured for immediate use.
+  - Learn how to set up Redux Hooks by reviewing [app.slice.ts](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/src/modules/app/app.slice.ts).
+  - Discover the application of Redux Hooks in [Navigator.tsx](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/src/navigator/Navigator.tsx#L18).
+- Access all Redux modules within the [modules folder](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/src/modules).
+- The boilerplate includes Redux Hooks integration for straightforward state management. For an illustration of module utilization, refer to [app.slice.ts](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/src/modules/app/app.slice.ts).
+- To create a new module, replicate [app.slice.ts](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/src/modules/app/app.slice.ts), rename it appropriately within the modules directory, and subsequently incorporate the module into the [store](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/src/utils/store.ts#L9). The process is designed to be straightforward and efficient.
 
 ### Assets
-- Assets such as images, icons, and fonts are centrally managed in the [theme](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/src/theme) section of the project. When you introduce new assets, it's important to import them into the respective files where you intend to use them, enabling easy access to these resources through the theme.
-- Additionally, we've implemented asset preloading in the boilerplate to enhance performance. Furthermore, you have the flexibility to utilize SVG files in your project. All assets are readily available for use by importing them from the theme.
 
-### Absolute path
-- Managing complex project structures with nested folders can often lead to issues with relative paths. However, in this boilerplate, we've simplified things by enabling the use of absolute paths. Now, instead of writing lengthy and error-prone relative paths like '../../../components/Button', you can simply use 'components/Button' in your import statements.
-- This configuration is set up in both [babel.config.js](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/babel.config.js) and [tsconfig.json](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/tsconfig.json), making it easy to work with absolute paths throughout your project.
+- This project centralizes the management of assets, including images, icons, and fonts, within the [theme directory](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/src/theme). For seamless integration of new assets, ensure their importation into the designated files where they will be utilized. This approach facilitates streamlined access to all assets via the theme structure.
+- To further optimize performance, asset preloading has been incorporated into the boilerplate. This setup also supports the use of SVG files, offering extensive flexibility in managing visual resources. Assets are made effortlessly accessible for implementation across the project by importing them directly from the theme.
+
+### Absolute Paths
+
+- Navigating through complex project architectures with deeply nested folders often complicates the use of relative paths, potentially leading to errors. To alleviate this issue, our boilerplate simplifies the development process by facilitating the use of absolute paths. This means you can replace convoluted relative paths like `../../../components/Button` with straightforward references such as `components/Button` in your import statements.
+- The implementation for this feature is configured within both the [babel.config.js](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/babel.config.js) and [tsconfig.json](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/tsconfig.json) files. These configurations ensure a hassle-free experience in utilizing absolute paths across your project, enhancing clarity and reducing the likelihood of path-related errors.
 
 ### Environment Variables
-- You can set environment variables in [.env.development](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/.env.development), [.env.production](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/.env.production), [.env.test](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/.env.test)
-- For `development`, you can run `npm run start:dev`. For prodiction, you can run `npm run start`
+
+- Environment variables can be defined within the respective files for different deployment stages: [.env.development](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/.env.development) for development settings, [.env.production](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/.env.production) for production configurations, and [.env.test](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/.env.test) for test environments.
+- To initiate the project in a development environment, execute `npm run start:dev`. Conversely, for launching the project in a production setting, use `npm run start`.
+- It is imperative to avoid storing sensitive information, such as private keys, within variables prefixed by `EXPO_PUBLIC_`. For comprehensive guidelines on securely managing sensitive data, refer to the recommendations provided in [storing sensitive info](https://reactnative.dev/docs/security#storing-sensitive-info).
 
 1. Add a new script in your [package.json](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/package.json#L9) with the command `APP_ENV=dev npx expo start -c`.
 
