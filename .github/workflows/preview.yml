@@ -53,14 +53,26 @@ jobs:
 
       # eas update (PR)
       - name: EAS update
-        if: github.event_name == 'pull_request'
+        if: github.event_name == 'pull_request' && steps.branch-name.outputs.current_branch != 'main'
         run: eas update --branch ${{ steps.branch-name.outputs.current_branch }} --message "${{ github.event.pull_request.title }}"
         env:
           NODE_ENV: development
 
+      - name: EAS update
+        if: github.event_name == 'pull_request' && steps.branch-name.outputs.current_branch == 'main'
+        run: eas update --branch ${{ steps.branch-name.outputs.current_branch }} --message "${{ github.event.pull_request.title }}"
+        env:
+          NODE_ENV: production
+
       # eas update (PUSH)
       - name: EAS update
-        if: github.event_name == 'push'
+        if: github.event_name == 'push' && steps.branch-name.outputs.current_branch != 'main'
         run: eas update --branch ${{ steps.branch-name.outputs.current_branch }} --message "${{ github.event.head_commit.message }}"
         env:
           NODE_ENV: development
+
+      - name: EAS update
+        if: github.event_name == 'push' && steps.branch-name.outputs.current_branch == 'main'
+        run: eas update --branch ${{ steps.branch-name.outputs.current_branch }} --message "${{ github.event.head_commit.message }}"
+        env:
+          NODE_ENV: production
