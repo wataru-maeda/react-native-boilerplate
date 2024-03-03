@@ -19,7 +19,7 @@ export default ({ config: expoConfig }: ConfigContext): ExpoConfig => {
       buildNumber: '1.0.0',
     };
     android = {
-      package: 'com.watarumaeda.react-native-boilerplate.dev',
+      package: 'com.watarumaeda.react_native_boilerplate.dev',
       versionCode: 1,
     };
   }
@@ -36,7 +36,7 @@ export default ({ config: expoConfig }: ConfigContext): ExpoConfig => {
       buildNumber: '1.0.0',
     };
     android = {
-      package: 'com.watarumaeda.react-native-boilerplate',
+      package: 'com.watarumaeda.react_native_boilerplate',
       versionCode: 1,
     };
   }
