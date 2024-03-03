@@ -3,6 +3,7 @@ import { Text, View, StyleSheet, StatusBar } from 'react-native';
 import GradientButton from '@components/GradientButton';
 import { StackProps } from '@navigator/stack';
 import { colors } from '@theme';
+import { windowWidth } from '@utils/deviceInfo';
 
 const styles = StyleSheet.create({
   root: {
@@ -24,8 +25,9 @@ const styles = StyleSheet.create({
   button: {
     paddingVertical: 8,
     paddingHorizontal: 16,
-    borderRadius: 5,
-    backgroundColor: colors.pink,
+    borderRadius: 22,
+    height: 44,
+    width: windowWidth / 2,
   },
 });
 

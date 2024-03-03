@@ -3,6 +3,7 @@ import { Text, View, StyleSheet, StatusBar } from 'react-native';
 import Button from '@components/Button';
 import { StackProps } from '@navigator/stack';
 import { colors } from '@theme';
+import { windowWidth } from '@utils/deviceInfo';
 
 const styles = StyleSheet.create({
   root: {
@@ -24,7 +25,9 @@ const styles = StyleSheet.create({
   button: {
     paddingVertical: 8,
     paddingHorizontal: 16,
-    borderRadius: 5,
+    borderRadius: 22,
+    height: 44,
+    width: windowWidth / 2,
     backgroundColor: colors.lightPurple,
   },
 });

@@ -1,19 +1,31 @@
 import {
   Pressable,
+  PressableProps,
   Text,
   ActivityIndicator,
   GestureResponderEvent,
   ImageSourcePropType,
   StyleProp,
+  ViewStyle,
   ImageStyle,
   TextStyle,
+  StyleSheet,
 } from 'react-native';
 import Image from '../Image';
 import { colors } from '@theme';
 
+const styles = StyleSheet.create({
+  root: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+});
+
 export interface ButtonProps
   extends Omit<
-    Pressable['props'], // Use Pressable['props'] instead of TouchableOpacityProps
+    PressableProps,
     | 'title'
     | 'image'
     | 'imageStyle'
@@ -22,6 +34,7 @@ export interface ButtonProps
     | 'onLongPress'
     | 'isLoading'
     | 'loaderColor'
+    | 'style'
   > {
   title?: string;
   image?: ImageSourcePropType;
@@ -31,6 +44,8 @@ export interface ButtonProps
   onLongPress?: (event: GestureResponderEvent) => void;
   isLoading?: boolean;
   loaderColor?: string;
+  children?: React.ReactNode;
+  style?: StyleProp<ViewStyle>;
 }
 
 function Button({
@@ -47,7 +62,10 @@ function Button({
 }: ButtonProps) {
   const opacityStyle = { opacity: disabled ? 0.6 : 1 };
   return (
-    <Pressable style={[opacityStyle, style]} disabled={disabled || isLoading} {...others}>
+    <Pressable
+      style={[styles.root, opacityStyle, style]}
+      disabled={disabled ?? isLoading}
+      {...others}>
       {children}
       {isLoading && <ActivityIndicator size="small" color={loaderColor} />}
       {!isLoading && image && <Image source={image} style={imageStyle} />}
