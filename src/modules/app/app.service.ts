@@ -7,7 +7,6 @@ export function useAppService() {
   async function getUser(): Promise<IUser> {
     try {
       await new Promise(resolve => setTimeout(resolve, 500));
-      return Promise.reject(err);
       return { name: 'test user', email: 'testuserr@test.com' };
     } catch (err) {
       return Promise.reject(err);

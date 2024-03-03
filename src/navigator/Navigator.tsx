@@ -3,6 +3,8 @@ import { View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import * as SplashScreen from 'expo-splash-screen';
 import { useAppSlice, useAppService, IUser } from '@modules/app';
+import BottomSheet from '@components/BottomSheet';
+import { WelcomeBottomSheetContents } from '@layouts/BottomSheetContents';
 import DrawerNavigator from './drawer';
 import { loadImages, loadFonts } from '@theme';
 import { useDataPersist, DataPersistKeys } from '@hooks';
@@ -61,9 +63,14 @@ function Navigator() {
   console.log('[##] loggedIn', loggedIn);
 
   return checked && loggedIn ? (
-    <NavigationContainer>
-      <DrawerNavigator />
-    </NavigationContainer>
+    <>
+      <NavigationContainer>
+        <DrawerNavigator />
+      </NavigationContainer>
+      <BottomSheet isOpen initialOpen>
+        <WelcomeBottomSheetContents />
+      </BottomSheet>
+    </>
   ) : (
     <View />
   );
