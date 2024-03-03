@@ -2,6 +2,7 @@
   "expo": {
     "name": "react-native-boilerplate",
     "slug": "react-native-boilerplate",
+    "owner": "wataru",
     "privacy": "unlisted",
     "version": "1.0.0",
     "platforms": ["ios", "android", "web"],

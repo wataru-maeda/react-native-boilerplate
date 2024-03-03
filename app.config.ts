@@ -12,14 +12,14 @@ export default ({ config: expoConfig }: ConfigContext): ExpoConfig => {
    */
   function setDevConfig() {
     name = `DEV - ${expoConfig.name}`;
-    slug = 'your-expo-slug';
-    projectId = 'your-expo-id';
+    slug = 'react-native-boilerplate-dev';
+    projectId = '3a2f44a2-b2cb-4445-91e0-5e41dad0b0c4';
     ios = {
-      bundleIdentifier: 'com.yourcompany.yourappname-dev',
+      bundleIdentifier: 'com.watarumaeda.react-native-boilerplate-dev',
       buildNumber: '1.0.0',
     };
     android = {
-      package: 'com.yourcompany.yourappname.dev',
+      package: 'com.watarumaeda.react-native-boilerplate.dev',
       versionCode: 1,
     };
   }
@@ -29,14 +29,14 @@ export default ({ config: expoConfig }: ConfigContext): ExpoConfig => {
    */
   function setProdConfig() {
     name = expoConfig.name ?? '';
-    slug = 'your-expo-slug';
-    projectId = 'your-expo-id';
+    slug = 'react-native-boilerplate';
+    projectId = '18adc0d0-eb1d-11e9-8009-d524ed5cc4a7';
     ios = {
-      bundleIdentifier: 'com.yourcompany.yourappname',
+      bundleIdentifier: 'com.watarumaeda.react-native-boilerplate',
       buildNumber: '1.0.0',
     };
     android = {
-      package: 'com.yourcompany.yourappname',
+      package: 'com.watarumaeda.react-native-boilerplate',
       versionCode: 1,
     };
   }
