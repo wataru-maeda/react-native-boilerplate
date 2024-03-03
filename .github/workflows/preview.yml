@@ -56,11 +56,11 @@ jobs:
         if: github.event_name == 'pull_request'
         run: eas update --branch ${{ steps.branch-name.outputs.current_branch }} --message "${{ github.event.pull_request.title }}"
         env:
-          APP_ENV: dev
+          NODE_ENV: development
 
       # eas update (PUSH)
       - name: EAS update
         if: github.event_name == 'push'
         run: eas update --branch ${{ steps.branch-name.outputs.current_branch }} --message "${{ github.event.head_commit.message }}"
         env:
-          APP_ENV: dev
+          NODE_ENV: development
