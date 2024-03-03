@@ -13,9 +13,6 @@ jobs:
     strategy:
       matrix:
         node-version: [20.x]
-    defaults:
-      run:
-        working-directory: ./app
     steps:
       # checkout the repository
       - name: Checkout repository
