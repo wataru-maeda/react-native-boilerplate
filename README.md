@@ -6,7 +6,7 @@
 <img src='https://github.com/wataru-maeda/react-native-boilerplate/blob/main/__DELELE_ME__/demo.gif' width='32%'>
 
 
-- [Demo](https://expo.dev/%40wataru/react-native-boilerplate?serviceType=eas&distribution=expo-go&scheme=exp%2Breact-native-boilerplate&channel=main&sdkVersion=49.0.0)
+- [Demo](https://expo.dev/%40wataru/react-native-boilerplate?serviceType=eas&distribution=expo-go&scheme=exp%2Breact-native-boilerplate&channel=main&sdkVersion=50.0.0)
 
 ## About
 
@@ -24,6 +24,7 @@ Say goodbye to time-consuming setup tasks like restructuring files, installing l
 ```
  "name": "{your-project-name}",
  "slug": "{your-project-name}",
+ "owner": "{your-owner-name}",
  ...
  # 👇 Please comment out the following lines or replace them with your project ID
  "extra": {

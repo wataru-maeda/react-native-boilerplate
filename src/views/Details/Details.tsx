@@ -1,9 +1,7 @@
-import React from 'react';
 import { Text, View, StyleSheet, StatusBar } from 'react-native';
 import GradientButton from '@components/GradientButton';
 import { StackProps } from '@navigator/stack';
 import { colors } from '@theme';
-import { windowWidth } from '@utils/deviceInfo';
 
 const styles = StyleSheet.create({
   root: {
@@ -27,7 +25,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     borderRadius: 22,
     height: 44,
-    width: windowWidth / 2,
+    width: '50%',
   },
 });
 

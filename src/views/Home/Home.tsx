@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
     borderRadius: 22,
     backgroundColor: colors.lightPurple,
     height: 44,
-    width: windowWidth / 2,
+    width: '50%',
   },
 });
 
