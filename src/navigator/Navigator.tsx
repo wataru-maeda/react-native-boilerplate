@@ -8,6 +8,7 @@ import { WelcomeBottomSheetContents } from '@layouts/BottomSheetContents';
 import DrawerNavigator from './drawer';
 import { loadImages, loadFonts } from '@theme';
 import { useDataPersist, DataPersistKeys } from '@hooks';
+import { isWeb } from '@utils/deviceInfo';
 
 // keep the splash screen visible while we fetch resources
 SplashScreen.preventAutoHideAsync();
@@ -67,9 +68,11 @@ function Navigator() {
       <NavigationContainer>
         <DrawerNavigator />
       </NavigationContainer>
-      <BottomSheet isOpen initialOpen>
-        <WelcomeBottomSheetContents />
-      </BottomSheet>
+      {!isWeb && (
+        <BottomSheet isOpen initialOpen>
+          <WelcomeBottomSheetContents />
+        </BottomSheet>
+      )}
     </>
   ) : (
     <View />

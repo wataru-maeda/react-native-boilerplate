@@ -3,7 +3,7 @@ import Constants from 'expo-constants';
 
 export const { width: windowWidth, height: windowHeight } = Dimensions.get('window');
 
-export const { version, ios, android, extra } = Constants?.expoConfig ?? {};
+export const { version, ios, android } = Constants?.expoConfig ?? {};
 
 export const os = Platform.OS;
 export const isWeb = Platform.OS === 'web';

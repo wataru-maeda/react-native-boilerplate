@@ -7,7 +7,7 @@ export type Config = {
 
 /**
  * export env variables
- * to add new env variables, add in app.config.ts first
+ * check all env variables in .env.production, .env.development, .env.test
  */
 export default {
   ENV: process.env.EXPO_PUBLIC_ENV,
