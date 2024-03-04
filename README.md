@@ -49,8 +49,8 @@ Dynamic navigation switching based on user status:
 ### Redux
 
 Redux Hooks are pre-configured for immediate use.
-  - Learn how to set up Redux Hooks by reviewing [app.slice.ts](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/src/modules/app/app.slice.ts).
-  - Discover the application of Redux Hooks in [Navigator.tsx](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/src/navigator/Navigator.tsx#L18).
+- Learn how to set up Redux Hooks by reviewing [app.slice.ts](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/src/modules/app/app.slice.ts).
+- Discover the application of Redux Hooks in [Navigator.tsx](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/src/navigator/Navigator.tsx#L18).
     
 Access all Redux modules within the [modules folder](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/src/modules).The boilerplate includes Redux Hooks integration for straightforward state management. For an illustration of module utilization, refer to [app.slice.ts](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/src/modules/app/app.slice.ts).
 - To create a new module, replicate [app.slice.ts](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/src/modules/app/app.slice.ts), rename it appropriately within the modules directory, and subsequently incorporate the module into the [store](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/src/utils/store.ts#L9). The process is designed to be straightforward and efficient.
