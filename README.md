@@ -24,7 +24,8 @@ Say goodbye to time-consuming setup tasks like restructuring files, installing l
 
 ## 🗒️ Requirements
 
-- Node: 20.x
+- [Node: 20.x](https://nodejs.org/en)
+- [Expo CLI](https://docs.expo.dev/more/expo-cli/)
 
 ## 🚀 Quick Start
 
