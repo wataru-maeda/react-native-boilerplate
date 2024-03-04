@@ -78,7 +78,7 @@ Environment variables can be defined within the respective files for different d
 2. Committing changes triggers a pre-commit script that meticulously checks, formats, and tests your code. This comprehensive review process ensures your contributions are both error-free and stylistically consistent.
 3. Successfully navigating through the stages of code verification, formatting, and testing empowers you to commit your changes with absolute confidence. You can rest assured knowing your code is not only efficient but also meets the highest standards of quality and reliability.
 
-### [CD] Create automatic previews release on Pull-Request
+### [CD] Release previews on Pull-Request
 
 - When you've completed your work and need to share a preview with the QA team, our boilerplate automates the distribution process for you. Here's how it works:
 1. Whenever you create a pull request (PR) or merge, it automatically generates a preview channel in your Expo account.
