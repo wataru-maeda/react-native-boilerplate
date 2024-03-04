@@ -3,6 +3,7 @@ import { Text, View, StyleSheet, StatusBar } from 'react-native';
 import Button from '@components/Button';
 import { StackProps } from '@navigator/stack';
 import { colors } from '@theme';
+import { windowWidth } from '@utils/deviceInfo';
 
 const styles = StyleSheet.create({
   root: {
@@ -24,8 +25,10 @@ const styles = StyleSheet.create({
   button: {
     paddingVertical: 8,
     paddingHorizontal: 16,
-    borderRadius: 5,
+    borderRadius: 22,
     backgroundColor: colors.lightPurple,
+    height: 44,
+    width: '50%',
   },
 });
 
@@ -38,9 +41,7 @@ export default function Home({ navigation }: StackProps) {
         title="Go to Details"
         titleStyle={styles.buttonTitle}
         style={styles.button}
-        onPress={() => {
-          navigation.navigate('DetailsStack', { from: 'Home' });
-        }}
+        onPress={() => navigation.navigate('DetailsStack', { from: 'Home' })}
       />
     </View>
   );

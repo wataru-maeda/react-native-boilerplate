@@ -24,7 +24,9 @@ const styles = StyleSheet.create({
   button: {
     paddingVertical: 8,
     paddingHorizontal: 16,
-    borderRadius: 5,
+    borderRadius: 22,
+    height: 44,
+    width: '50%',
     backgroundColor: colors.lightPurple,
   },
 });

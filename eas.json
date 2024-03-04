@@ -1,11 +1,7 @@
 {
-  "cli": {
-    "version": ">= 3.5.2",
-    "requireCommit": false
-  },
   "build": {
     "base": {
-      "node": "16.20.1",
+      "node": "20.9.0",
       "env": {
         "APP_ENV": "production"
       },

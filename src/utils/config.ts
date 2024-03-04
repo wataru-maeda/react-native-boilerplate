@@ -1,17 +1,13 @@
-import Constants from 'expo-constants';
-
-interface AppConfig {
-  env: string;
-  // add more
-}
+export type Config = {
+  ENV: string;
+  API_URL: string;
+};
 
 /**
  * export env variables
- * to add new env variables, add in app.config.ts first
+ * check all env variables in .env.production, .env.development, .env.test
  */
-const config: AppConfig = {
-  env: Constants.expoConfig?.extra?.env || 'prod',
-  // add more...
-} as AppConfig;
-
-export default config;
+export default {
+  ENV: process.env.EXPO_PUBLIC_ENV,
+  API_URL: process.env.EXPO_PUBLIC_API_URL,
+};

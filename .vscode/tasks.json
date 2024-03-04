@@ -1,0 +1,53 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "RUN-DEV",
+      "dependsOn": ["root", "app:test:watch", "app:run:dev"]
+    },
+    {
+      "label": "RUN-PROD",
+      "dependsOn": ["root", "app:test:watch", "app:run:prod"]
+    },
+    {
+      "type": "process",
+      "label": "root",
+      "command": "/bin/bash",
+      "args": ["-l"],
+      "problemMatcher": [],
+      "presentation": {
+        "echo": false,
+        "focus": true,
+        "group": "build",
+        "panel": "dedicated"
+      }
+    },
+    {
+      "label": "app:test:watch",
+      "type": "shell",
+      "command": "npm run test:watch",
+      "presentation": {
+        "reveal": "always",
+        "group": "app"
+      }
+    },
+    {
+      "label": "app:run:prod",
+      "type": "shell",
+      "command": "npm run start",
+      "presentation": {
+        "reveal": "always",
+        "group": "app"
+      }
+    },
+    {
+      "label": "app:run:dev",
+      "type": "shell",
+      "command": "npm run start:dev",
+      "presentation": {
+        "reveal": "always",
+        "group": "app"
+      }
+    }
+  ]
+}

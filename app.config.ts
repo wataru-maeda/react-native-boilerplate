@@ -1,51 +1,73 @@
 import { ExpoConfig, ConfigContext } from 'expo/config';
 
-export default ({ config }: ConfigContext): ExpoConfig => {
-  // switch app configuration based on environment
-  if (process.env.APP_ENV === 'dev') {
-    return {
-      ...config,
-      slug: `DEV - ${config.slug}`,
-      name: `DEV - ${config.name}`,
-      updates: {
-        url: 'https://u.expo.dev/YOUR-DEV-PROJECT-ID',
-      },
-      ios: {
-        ...config.ios,
-        bundleIdentifier: 'com.yourcompany.yourappname-dev',
-        buildNumber: '1.0.0',
-      },
-      android: {
-        ...config.android,
-        package: 'com.yourcompany.yourappname.dev',
-        versionCode: 1,
-      },
-      extra: {
-        ...config.extra,
-        eas: { projectId: 'YOUR-DEV-PROJECT-ID' },
-        env: process.env.APP_ENV,
-        // add more env variables...
-      },
+export default ({ config: expoConfig }: ConfigContext): ExpoConfig => {
+  let name = '';
+  let slug = '';
+  let projectId = '';
+  let ios = { bundleIdentifier: '', buildNumber: '' };
+  let android = { package: '', versionCode: 1 };
+
+  /**
+   * dev configuration
+   */
+  function setDevConfig() {
+    name = `DEV - ${expoConfig.name}`;
+    slug = 'react-native-boilerplate-dev';
+    projectId = '3a2f44a2-b2cb-4445-91e0-5e41dad0b0c4';
+    ios = {
+      bundleIdentifier: 'com.watarumaeda.react-native-boilerplate-dev',
+      buildNumber: '1.0.0',
+    };
+    android = {
+      package: 'com.watarumaeda.react_native_boilerplate.dev',
+      versionCode: 1,
     };
   }
 
-  return {
-    ...config,
-    slug: config.slug ?? '',
-    name: config.name ?? '',
-    ios: {
-      ...config.ios,
-      bundleIdentifier: 'com.yourcompany.yourappname',
+  /**
+   * prod configuration
+   */
+  function setProdConfig() {
+    name = expoConfig.name ?? '';
+    slug = 'react-native-boilerplate';
+    projectId = '18adc0d0-eb1d-11e9-8009-d524ed5cc4a7';
+    ios = {
+      bundleIdentifier: 'com.watarumaeda.react-native-boilerplate',
       buildNumber: '1.0.0',
+    };
+    android = {
+      package: 'com.watarumaeda.react_native_boilerplate',
+      versionCode: 1,
+    };
+  }
+
+  // switch expo configuration based on environment
+  const targetEnv = process.env.NODE_ENV;
+  if (targetEnv === 'production') setProdConfig();
+  else setDevConfig();
+
+  const envConfig: ExpoConfig = {
+    ...expoConfig,
+    name,
+    slug,
+    updates: {
+      url: `https://u.expo.dev/${projectId}`,
+    },
+    ios: {
+      ...expoConfig.ios,
+      ...ios,
     },
     android: {
-      ...config.android,
-      package: 'com.yourcompany.yourappname',
-      versionCode: 1,
+      ...expoConfig.android,
+      ...android,
     },
     extra: {
-      ...config.extra,
-      env: 'prod',
+      ...expoConfig.extra,
+      eas: { projectId },
     },
   };
+
+  // console.log('[##] your expo config', envConfig);
+
+  return envConfig;
 };
