@@ -51,6 +51,19 @@ jobs:
         id: branch-name
         uses: tj-actions/branch-names@v7
 
+      # set environment variables
+      - name: Load .env file
+        if: github.event_name == 'pull_request' && steps.branch-name.outputs.current_branch != 'main'
+        uses: xom9ikk/dotenv@v2
+        with:
+          mode: development
+
+      - name: Load .env file
+        if: github.event_name == 'pull_request' && steps.branch-name.outputs.current_branch == 'main'
+        uses: xom9ikk/dotenv@v2
+        with:
+          mode: production
+
       # eas update (PR)
       - name: EAS update
         if: github.event_name == 'pull_request' && steps.branch-name.outputs.current_branch != 'main'
