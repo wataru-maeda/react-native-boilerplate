@@ -138,7 +138,7 @@ To generate iOS and Android native code, you can run `npx expo prebuild` in the 
 
 ## 🥇 Libraries
 
-- [expo v50](https://docs.expo.dev/versions/v50.0.0)
+- [expo v51](https://docs.expo.dev/versions/v51.0.0)
 - [expo-asset](https://docs.expo.dev/versions/latest/sdk/asset/)
 - [expo-font](https://docs.expo.dev/versions/latest/sdk/font/)
 - [expo-image](https://docs.expo.dev/versions/latest/sdk/image/)
