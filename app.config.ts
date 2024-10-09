@@ -25,6 +25,5 @@ export default ({ config }: ConfigContext): ExpoConfig => {
       API_URL: process.env.EXPO_PUBLIC_API_URL,
     },
   };
-  console.log('[##] envConfig', envConfig);
   return envConfig;
 };
