@@ -17,7 +17,7 @@
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "test": "jest --verbose --passWithNoTests",
     "test:watch": "jest --verbose --passWithNoTests --watch",
-    "prepare": "husky install"
+    "prepare": "husky"
   },
   "dependencies": {
     "@gorhom/bottom-sheet": "^4",
