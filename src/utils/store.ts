@@ -8,7 +8,7 @@ const store = configureStore({
     // add more store ...
   },
   middleware: getDefaultMiddleware => getDefaultMiddleware(),
-  devTools: config.env === 'dev',
+  devTools: config.ENV === 'dev',
 });
 
 export type State = ReturnType<typeof store.getState>;
