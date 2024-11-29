@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { State, Dispatch } from '@utils/store';
+import { State, Dispatch } from '@/utils/store';
 import { IUser, IAppState } from './app.typeDefs';
 
 const initialState: IAppState = {

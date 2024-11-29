@@ -42,7 +42,7 @@ export function useDataPersist() {
   function removePersistData(key: DataPersistKeys): Promise<boolean> {
     return new Promise((resolve, reject) => {
       AsyncStorage.removeItem(key)
-        .catch(() => resolve(true))
+        .then(() => resolve(true))
         .catch(err => reject(err));
     });
   }

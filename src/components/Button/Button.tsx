@@ -11,8 +11,8 @@ import {
   TextStyle,
   StyleSheet,
 } from 'react-native';
+import { colors } from '@/theme';
 import Image from '../Image';
-import { colors } from '@theme';
 
 const styles = StyleSheet.create({
   root: {
@@ -23,19 +23,7 @@ const styles = StyleSheet.create({
   },
 });
 
-export interface ButtonProps
-  extends Omit<
-    PressableProps,
-    | 'title'
-    | 'image'
-    | 'imageStyle'
-    | 'titleStyle'
-    | 'onPress'
-    | 'onLongPress'
-    | 'isLoading'
-    | 'loaderColor'
-    | 'style'
-  > {
+export interface ButtonProps extends PressableProps {
   title?: string;
   image?: ImageSourcePropType;
   imageStyle?: StyleProp<ImageStyle>;

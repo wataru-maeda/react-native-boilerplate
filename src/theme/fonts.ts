@@ -14,10 +14,10 @@ export const fonts = {
 // preload fonts
 export const loadFonts = () =>
   loadAsync({
-    openSans_regular: require('@assets/fonts/OpenSans-Regular.ttf'),
-    openSans_regular_italic: require('@assets/fonts/OpenSans-Italic.ttf'),
-    openSans_semiBold: require('@assets/fonts/OpenSans-Semibold.ttf'),
-    openSans_semiBold_italic: require('@assets/fonts/OpenSans-SemiboldItalic.ttf'),
-    openSans_bold: require('@assets/fonts/OpenSans-Bold.ttf'),
-    openSans_bold_italic: require('@assets/fonts/OpenSans-BoldItalic.ttf'),
+    openSans_regular: require('@/assets/fonts/OpenSans-Regular.ttf'),
+    openSans_regular_italic: require('@/assets/fonts/OpenSans-Italic.ttf'),
+    openSans_semiBold: require('@/assets/fonts/OpenSans-Semibold.ttf'),
+    openSans_semiBold_italic: require('@/assets/fonts/OpenSans-SemiboldItalic.ttf'),
+    openSans_bold: require('@/assets/fonts/OpenSans-Bold.ttf'),
+    openSans_bold_italic: require('@/assets/fonts/OpenSans-BoldItalic.ttf'),
   });

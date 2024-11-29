@@ -1,9 +1,9 @@
 import React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
-import GradientButton from '@components/GradientButton';
-import { colors, fonts } from '@theme';
-import { windowWidth } from '@utils/deviceInfo';
-import config from '@utils/config';
+import GradientButton from '@/components/GradientButton';
+import { colors, fonts } from '@/theme';
+import { windowWidth } from '@/utils/deviceInfo';
+import config from '@/utils/config';
 
 const styles = StyleSheet.create({
   root: {

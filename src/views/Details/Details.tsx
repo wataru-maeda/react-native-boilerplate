@@ -1,7 +1,7 @@
 import { Text, View, StyleSheet, StatusBar } from 'react-native';
-import GradientButton from '@components/GradientButton';
-import { StackProps } from '@navigator/stack';
-import { colors } from '@theme';
+import GradientButton from '@/components/GradientButton';
+import { StackProps } from '@/navigator/stack';
+import { colors } from '@/theme';
 
 const styles = StyleSheet.create({
   root: {
