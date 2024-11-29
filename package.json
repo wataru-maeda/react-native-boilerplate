@@ -2,6 +2,7 @@
   "name": "react-native-boilerplate",
   "version": "2.3.0",
   "main": "node_modules/expo/AppEntry.js",
+  "private": true,
   "scripts": {
     "ci": "rm -rf node_modules && npm install",
     "start": "NODE_ENV=production npx expo start -c",
@@ -20,7 +21,7 @@
     "prepare": "husky"
   },
   "dependencies": {
-    "@gorhom/bottom-sheet": "^4",
+    "@gorhom/bottom-sheet": "^5",
     "@react-native-async-storage/async-storage": "1.23.1",
     "@react-navigation/bottom-tabs": "^6.5.20",
     "@react-navigation/drawer": "^6.6.15",
@@ -69,5 +70,11 @@
     "ts-node": "^10.9.2",
     "typescript": "~5.3.3"
   },
-  "private": true
+  "expo": {
+    "doctor": {
+      "reactNativeDirectoryCheck": {
+        "listUnknownPackages": false
+      }
+    }
+  }
 }
