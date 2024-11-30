@@ -1,12 +1,12 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
+import { render, screen } from '@testing-library/react-native';
 import GradientButton from './GradientButton';
 
-describe('GradientButton Component', () => {
-  it('renders correctly with a title and gradation colors', () => {
-    const { root } = renderer.create(
+describe('<GradientButton />', () => {
+  it('renders correctly with a title and gradation colors', async () => {
+    render(
       <GradientButton
-        title="Test button"
+        title="Click Me"
         gradientBackgroundProps={{
           colors: ['blue', 'red'],
           start: { x: 0, y: 1 },
@@ -14,6 +14,7 @@ describe('GradientButton Component', () => {
         }}
       />,
     );
-    expect(root).toBeTruthy();
+    const button = screen.getByText(/Click Me/i);
+    expect(button).not.toBeNull();
   });
 });

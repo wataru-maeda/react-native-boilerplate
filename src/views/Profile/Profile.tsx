@@ -1,8 +1,8 @@
 import React from 'react';
 import { Text, View, StyleSheet, StatusBar } from 'react-native';
-import Button from '@components/Button';
-import { StackProps } from '@navigator/stack';
-import { colors } from '@theme';
+import Button from '@/components/Button';
+import { StackProps } from '@/navigator/stack';
+import { colors } from '@/theme';
 
 const styles = StyleSheet.create({
   root: {

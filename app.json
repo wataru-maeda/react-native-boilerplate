@@ -3,14 +3,14 @@
     "name": "react-native-boilerplate",
     "slug": "react-native-boilerplate",
     "owner": "wataru",
-    "privacy": "unlisted",
+    "newArchEnabled": true,
     "version": "1.0.0",
     "platforms": ["ios", "android", "web"],
     "orientation": "portrait",
-    "icon": "./assets/images/logo-lg.png",
+    "icon": "src/assets/images/logo-lg.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/images/splash.png",
+      "image": "src/assets/images/splash.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -20,12 +20,12 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/logo-sm.png",
+        "foregroundImage": "src/assets/images/logo-sm.png",
         "backgroundColor": "#ffffff"
       }
     },
     "web": {
-      "favicon": "./assets/images/logo-sm.png"
+      "favicon": "src/assets/images/logo-sm.png"
     },
     "extra": {
       "eas": {

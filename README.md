@@ -82,7 +82,7 @@ To further optimize performance, asset preloading has been incorporated into the
 
 ####
 
-Navigating through complex project architectures with deeply nested folders often complicates the use of relative paths, potentially leading to errors. To alleviate this issue, our boilerplate simplifies the development process by facilitating the use of absolute paths. This means you can replace convoluted relative paths like `../../../components/Button` with straightforward references such as `components/Button` in your import statements.
+Navigating through complex project architectures with deeply nested folders often complicates the use of relative paths, potentially leading to errors. To alleviate this issue, our boilerplate simplifies the development process by facilitating the use of absolute paths. This means you can replace convoluted relative paths like `../../../components/Button` with straightforward references such as `@/components/Button` in your import statements.
 The implementation for this feature is configured within both the [babel.config.js](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/babel.config.js) and [tsconfig.json](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/tsconfig.json) files. These configurations ensure a hassle-free experience in utilizing absolute paths across your project, enhancing clarity and reducing the likelihood of path-related errors.
 
 
@@ -138,7 +138,7 @@ To generate iOS and Android native code, you can run `npx expo prebuild` in the 
 
 ## 🥇 Libraries
 
-- [expo v51](https://docs.expo.dev/versions/v51.0.0)
+- [expo v52](https://docs.expo.dev/versions/v51.0.0)
 - [expo-asset](https://docs.expo.dev/versions/latest/sdk/asset/)
 - [expo-font](https://docs.expo.dev/versions/latest/sdk/font/)
 - [expo-image](https://docs.expo.dev/versions/latest/sdk/image/)
@@ -159,7 +159,6 @@ To generate iOS and Android native code, you can run `npx expo prebuild` in the 
 Expo provides a popular set of vector icons. Please search icons from [here](https://icons.expo.fyi/)
 
 
-## 📓 Licence
+## 📓 License
 
 This project is available under the MIT license. See the [LICENSE](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/LICENSE) file for more info.
-

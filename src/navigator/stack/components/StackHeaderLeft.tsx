@@ -1,6 +1,6 @@
 import React from 'react';
 import { SimpleLineIcons } from '@expo/vector-icons';
-import { colors } from '@theme';
+import { colors } from '@/theme';
 
 export function StackHeaderLeft({ onPress }: { onPress: () => void }) {
   return (

@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
 import { Image } from 'expo-image';
-import { images } from '@theme';
+import { images } from '@/theme';
 
 const styles = StyleSheet.create({
   logo: {
