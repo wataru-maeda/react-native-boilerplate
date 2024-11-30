@@ -1,10 +1,11 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
+import { render, screen } from '@testing-library/react-native';
 import Image from './Image';
 
-describe('Image Component', () => {
+describe('<Image />', () => {
   it('renders correctly with a title', () => {
-    const { root } = renderer.create(<Image source={{ uri: 'https://via.placeholder.com/150' }} />);
-    expect(root).toBeTruthy();
+    render(<Image testID="image" source={{ uri: 'https://via.placeholder.com/150' }} />);
+    const image = screen.getByTestId(/image/i);
+    expect(image).not.toBeNull();
   });
 });
