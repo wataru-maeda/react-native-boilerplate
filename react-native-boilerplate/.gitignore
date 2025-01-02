@@ -35,4 +35,6 @@ yarn-error.*
 # typescript
 *.tsbuildinfo
 
+# coverage or example directories
+coverage/
 app-example
