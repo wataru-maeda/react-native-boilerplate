@@ -39,7 +39,7 @@ export default function Profile() {
         title="Go to Details"
         titleStyle={styles.buttonTitle}
         style={styles.button}
-        onPress={() => router.push({ pathname: '(main)/(tabs)/details', params: { from: 'Details' } })}
+        onPress={() => router.push({ pathname: '(main)/(tabs)/profile/details', params: { from: 'Details' } })}
       />
     </View>
   );

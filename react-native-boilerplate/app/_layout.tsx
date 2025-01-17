@@ -25,7 +25,7 @@ export default function Layout() {
 
   return (
     <Provider>
-      <StatusBar style="auto" />
+      <StatusBar style="light" />
       <Slot />
     </Provider>
   );
