@@ -8,6 +8,7 @@ export default function TabLayout() {
   console.log('[##] color schema', colorScheme)
   return (
     <Tabs
+      initialRouteName='home'
       screenOptions={{
         headerShown: false,
         tabBarInactiveTintColor: colors.gray,
@@ -17,6 +18,12 @@ export default function TabLayout() {
       }}>
       <Tabs.Screen
         name="index"
+        options={{
+          href: null,
+        }}
+      />
+      <Tabs.Screen
+        name="home"
         options={{
           title: 'Home',
           tabBarIcon: ({ color }) => <AntDesign name="home" size={24} color={color} />,
