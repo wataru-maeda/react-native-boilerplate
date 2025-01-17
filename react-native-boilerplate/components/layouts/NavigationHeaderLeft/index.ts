@@ -1,1 +1,1 @@
-export { default } from './NavigationHeaderTitle';
+export { default } from './NavigationHeaderLeft';

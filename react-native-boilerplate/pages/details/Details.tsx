@@ -1,6 +1,6 @@
-import { Text, View, StyleSheet, StatusBar } from 'react-native';
+import { Text, View, StyleSheet } from 'react-native';
 import GradientButton from '@/components/elements/GradientButton';
-import { router } from 'expo-router';
+import { useRouter, useLocalSearchParams } from 'expo-router';
 import { colors } from '@/theme';
 
 const styles = StyleSheet.create({
@@ -30,11 +30,10 @@ const styles = StyleSheet.create({
 });
 
 export default function Details() {
-  // const { from } = route.params;
-  const from = 'TODO'
+  const router = useRouter();
+  const { from } = useLocalSearchParams()
   return (
     <View style={styles.root}>
-      <StatusBar barStyle="light-content" />
       <Text style={styles.title}>{`Details (from ${from})`}</Text>
       <GradientButton
         title="Go back to Home"

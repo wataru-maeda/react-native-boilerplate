@@ -18,7 +18,7 @@ export default function Layout() {
     });
   }, []);
 
-  // navigate to main
+  // navigate to app
   useEffect(() => {
     router.push('/(main)');
   }, []);

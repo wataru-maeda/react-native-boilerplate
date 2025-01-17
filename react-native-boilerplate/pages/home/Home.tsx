@@ -1,6 +1,6 @@
-import { Text, View, StyleSheet, StatusBar } from 'react-native';
+import { Text, View, StyleSheet } from 'react-native';
 import Button from '@/components/elements/Button';
-import { router } from 'expo-router';
+import { useRouter } from 'expo-router';
 import { colors } from '@/theme';
 
 const styles = StyleSheet.create({
@@ -31,15 +31,15 @@ const styles = StyleSheet.create({
 });
 
 export default function Home() {
+  const router = useRouter();
   return (
     <View style={styles.root}>
-      <StatusBar barStyle="light-content" />
       <Text style={styles.title}>Home</Text>
       <Button
         title="Go to Details"
         titleStyle={styles.buttonTitle}
         style={styles.button}
-        onPress={() => router.push('DetailsStack')}
+        onPress={() => router.push({ pathname: '(main)/(tabs)/details', params: { from: 'Home' } })}
       />
     </View>
   );

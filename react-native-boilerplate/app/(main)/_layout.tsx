@@ -1,9 +1,9 @@
 import { Drawer } from 'expo-router/drawer';
 
-export default function Layout() {
+export default function DrawerWithTabsLayout() {
   return (
-    <Drawer>
-      <Drawer.Screen name="(drawer)" options={{ headerShown: false }} />
+    <Drawer screenOptions={{ headerShown: false }}>
+      <Drawer.Screen name="(tabs)" options={{ title: 'Tabs' }} />
     </Drawer>
   );
 }

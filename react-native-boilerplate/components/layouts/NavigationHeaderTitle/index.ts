@@ -1,1 +1,1 @@
-export { default } from './StackHeaderTitle';
+export { default } from './NavigationHeaderTitle';
