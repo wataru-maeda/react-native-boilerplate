@@ -4,8 +4,8 @@ import DrawerContents from '@/components/layouts/DrawerContents';
 export default function DrawerWithTabsLayout() {
   return (
     <Drawer
-    drawerContent={DrawerContents}
-     screenOptions={{ headerShown: false }}>
+      drawerContent={DrawerContents}
+      screenOptions={{ headerShown: false, drawerIcon: () => null }}>
       <Drawer.Screen name="(tabs)" options={{ title: 'Tabs' }} />
     </Drawer>
   );

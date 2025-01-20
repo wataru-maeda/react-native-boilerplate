@@ -1,8 +1,10 @@
-import { useEffect } from 'react';
-import { Slot, useRouter } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
-import { StatusBar } from 'expo-status-bar';
 import { loadImages, loadFonts } from '@/theme'
+import { Slot, useRouter } from 'expo-router';
+import { useState, useEffect } from 'react';
+import { StatusBar } from 'expo-status-bar';
+import BottomSheet from '@/components/elements/BottomSheet';
+import BottomSheetContents from '@/components/layouts/BottomSheetContents';
 import Provider from '@/providers'
 
 // keep the splash screen visible while complete fetching resources
@@ -10,6 +12,7 @@ SplashScreen.preventAutoHideAsync();
 
 export default function Layout() {
   const router = useRouter();
+  const [isOpen, setOpen] = useState(true)
 
   // load resources
   useEffect(() => {
@@ -25,8 +28,11 @@ export default function Layout() {
 
   return (
     <Provider>
-      <StatusBar style="light" />
       <Slot />
+      <StatusBar style="light" />
+      <BottomSheet isOpen={isOpen} initialOpen>
+        <BottomSheetContents onClose={() => setOpen(false)} />
+      </BottomSheet>
     </Provider>
   );
 }

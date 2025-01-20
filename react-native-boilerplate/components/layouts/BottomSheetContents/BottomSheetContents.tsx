@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
-import GradientButton from '@/components/GradientButton';
+import GradientButton from '@/components/elements/GradientButton';
 import { colors, fonts } from '@/theme';
 import { windowWidth } from '@/utils/deviceInfo';
 import config from '@/utils/config';
@@ -67,19 +67,19 @@ type WelcomeBottomSheetContentsProps = {
   onClose: () => void;
 };
 
-export function WelcomeBottomSheetContents({ onClose }: WelcomeBottomSheetContentsProps) {
+export default function BottomSheetContents({ onClose }: WelcomeBottomSheetContentsProps) {
   return (
     <View style={styles.root}>
       <Text style={styles.title}>🎉 Congratulations! </Text>
       <Text style={[styles.subtitle, { marginBottom: 32 }]}>
         You have successfully spin up the React Native Boilerplate project in the
-        <Text style={{ fontFamily: fonts.openSan.bold }}>{` ${config.ENV} `}</Text>environment 🚀
+        <Text style={{ fontFamily: fonts.openSan.bold }}>{` ${config.env} `}</Text>environment 🚀
       </Text>
       <Text style={[styles.subtitle, { marginBottom: 8 }]}>Injected Environmental Variables:</Text>
-      {Object.keys(config).map(key => (
+      {Object.entries(config).map(([key, value]) => (
         <View key={key} style={styles.envContainer}>
           <Text style={styles.envTitle}>{`✅ ${key}: `}</Text>
-          <Text style={styles.envValue}>{config[key] ?? ''}</Text>
+          <Text style={styles.envValue}>{value}</Text>
         </View>
       ))}
       <Text style={[styles.subtitle, { marginVertical: 32 }]}>

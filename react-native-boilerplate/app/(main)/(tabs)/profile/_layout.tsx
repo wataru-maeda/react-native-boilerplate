@@ -1,7 +1,8 @@
 import { Stack } from 'expo-router';
-import { DrawerToggleButton } from '@react-navigation/drawer';
+import { DrawerActions } from '@react-navigation/native';
 import NavigationHeaderLeft from '@/components/layouts/NavigationHeaderLeft'
 import NavigationHeaderTitle from '@/components/layouts/NavigationHeaderTitle'
+import { useNavigation } from 'expo-router'
 import { colors } from '@/theme';
 
 const screenOptions = {
@@ -11,15 +12,16 @@ const screenOptions = {
 };
 
 export default function ProfileStackLayout() {
+  const navigation = useNavigation()
+  const toggleDrawer = () => navigation.dispatch(DrawerActions.toggleDrawer());
   return (
     <Stack screenOptions={screenOptions}>
       <Stack.Screen
         name="index"
         options={{
-          // headerLeft: () => <DrawerToggleButton />, 
           title: 'Profile',
           headerTitle: () => <NavigationHeaderTitle />,
-          headerLeft: () => <NavigationHeaderLeft  onPress={() => {}} />,
+          headerLeft: () => <NavigationHeaderLeft  onPress={toggleDrawer} />,
           headerTitleAlign: 'center',
         }}
       />
