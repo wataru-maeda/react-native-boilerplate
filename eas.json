@@ -13,7 +13,7 @@
         }
       },
       "android": {
-        "image": "default",
+        "image": "latest",
         "env": {
           "PLATFORM": "android"
         }
@@ -25,7 +25,7 @@
       "channel": "development",
       "distribution": "internal",
       "env": {
-        "APP_ENV": "dev"
+        "APP_ENV": "development"
       },
       "android": {
         "gradleCommand": ":app:assembleDebug"
@@ -40,7 +40,7 @@
       "channel": "staging",
       "distribution": "internal",
       "env": {
-        "APP_ENV": "stg"
+        "APP_ENV": "staging"
       },
       "ios": {
         "enterpriseProvisioning": "universal"
@@ -50,7 +50,7 @@
       "extends": "base",
       "channel": "production",
       "env": {
-        "APP_ENV": "prod"
+        "APP_ENV": "production"
       }
     }
   },

@@ -1,44 +1,33 @@
 {
   "expo": {
+    "owner": "wataru",
     "name": "react-native-boilerplate",
     "slug": "react-native-boilerplate",
-    "owner": "wataru",
+    "version": "3.0.0",
     "newArchEnabled": true,
-    "version": "1.0.0",
     "platforms": ["ios", "android", "web"],
     "orientation": "portrait",
-    "icon": "assets/images/logo-lg.png",
+    "icon": "./assets/images/logo-lg.png",
     "userInterfaceStyle": "automatic",
     "splash": {
-      "image": "assets/images/splash.png",
-      "resizeMode": "contain",
       "backgroundColor": "#ffffff",
       "dark": {
-        "image": "assets/images/splash.png",
-        "resizeMode": "contain",
-        "backgroundColor": "#000000"
-      }
+        "backgroundColor": "#101212"
+      },
+      "image": "./assets/images/splash.png",
+      "resizeMode": "contain"
     },
-    "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "assets/images/logo-sm.png",
+        "foregroundImage": "./assets/images/logo-sm.png",
         "backgroundColor": "#ffffff"
       }
     },
     "web": {
-      "favicon": "assets/images/logo-sm.png"
-    },
-    "extra": {
-      "eas": {
-        "projectId": "18adc0d0-eb1d-11e9-8009-d524ed5cc4a7"
-      }
-    },
-    "updates": {
-      "url": "https://u.expo.dev/18adc0d0-eb1d-11e9-8009-d524ed5cc4a7"
+      "favicon": "./assets/images/logo-sm.png"
     },
     "runtimeVersion": {
       "policy": "sdkVersion"

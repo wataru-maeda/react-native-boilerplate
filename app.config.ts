@@ -1,7 +1,7 @@
 import { ExpoConfig, ConfigContext } from 'expo/config';
 
 export default ({ config }: ConfigContext): ExpoConfig => {
-  const envConfig: ExpoConfig = {
+  const expoConfig: ExpoConfig = {
     ...config,
     slug: process.env.EXPO_PUBLIC_SLUG ?? '',
     name: process.env.EXPO_PUBLIC_NAME ?? '',
@@ -15,6 +15,9 @@ export default ({ config }: ConfigContext): ExpoConfig => {
       package: process.env.EXPO_PUBLIC_IOS_ANDROID_PACKAGE,
       versionCode: 1,
     },
+    web: {
+      ...config.web,
+    },
     updates: {
       url: `https://u.expo.dev/${process.env.EXPO_PUBLIC_PROJECT_ID}`,
     },
@@ -24,7 +27,35 @@ export default ({ config }: ConfigContext): ExpoConfig => {
       env: process.env.EXPO_PUBLIC_ENV,
       apiUrl: process.env.EXPO_PUBLIC_API_URL,
     },
-    plugins: ['expo-router', 'expo-asset', 'expo-font'],
+    plugins: [
+      'expo-router',
+      'expo-asset',
+      [
+        'expo-splash-screen',
+        {
+          backgroundColor: '#ffffff',
+          dark: {
+            backgroundColor: '#101212',
+          },
+          image: './assets/images/splash.png',
+          resizeMode: 'contain',
+        },
+      ],
+      [
+        'expo-font',
+        {
+          fonts: [
+            './assets/fonts/OpenSans-Bold.ttf',
+            './assets/fonts/OpenSans-BoldItalic.ttf',
+            './assets/fonts/OpenSans-Italic.ttf',
+            './assets/fonts/OpenSans-Regular.ttf',
+            './assets/fonts/OpenSans-Semibold.ttf',
+            './assets/fonts/OpenSans-SemiboldItalic.ttf',
+          ],
+        },
+      ],
+    ],
   };
-  return envConfig;
+  // console.log('[##] expo config', expoConfig);
+  return expoConfig;
 };
