@@ -56,7 +56,6 @@
     "@testing-library/react-native": "^13.0.1",
     "@types/jest": "^29.5.12",
     "@types/react": "~18.3.12",
-    "@types/react-test-renderer": "^18.3.0",
     "@types/redux-logger": "^3.0.13",
     "eslint": "^8.57.0",
     "eslint-config-expo": "~8.0.1",
@@ -67,7 +66,6 @@
     "jest-expo": "~52.0.3",
     "lint-staged": "^15.4.1",
     "prettier": "^3.4.2",
-    "react-test-renderer": "18.3.1",
     "ts-node": "^10.9.2",
     "typescript": "^5.7.2"
   }
