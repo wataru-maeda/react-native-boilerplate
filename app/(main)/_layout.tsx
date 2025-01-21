@@ -5,7 +5,7 @@ export default function DrawerWithTabsLayout() {
   return (
     <Drawer
       drawerContent={DrawerContents}
-      screenOptions={{ headerShown: false, drawerIcon: () => null }}>
+      screenOptions={{ headerShown: false, drawerType: 'back' }}>
       <Drawer.Screen name="(tabs)" options={{ title: 'Tabs' }} />
     </Drawer>
   );

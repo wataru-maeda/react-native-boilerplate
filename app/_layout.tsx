@@ -25,53 +25,46 @@ function Router() {
   const [isOpen, setOpen] = useState(false);
 
   /**
-   * preload assets and user data
+   * preload assets and user info
    */
-  const preload = async () => {
-    try {
-      // preload assets
-      await Promise.all([loadImages(), loadFonts()]);
-
-      // fetch user data (fake promise function to simulate async function)
-      const user = await fetchUser();
-
-      // store user data to redux store
-      dispatch(setUser(user));
-      dispatch(setLoggedIn(!!user));
-
-      // store user data to persistent storage (async storage)
-      if (user) setPersistData<User>(DataPersistKeys.USER, user);
-
-      // hide splash screen
-      SplashScreen.hideAsync();
-
-      // show bottom sheet
-      setOpen(true);
-    } catch {
-      // if preload failed, try to get user data from persistent storage
-      getPersistData<User>(DataPersistKeys.USER)
-        .then(user => {
-          if (user) dispatch(setUser(user));
-          dispatch(setLoggedIn(!!user));
-        })
-        .finally(() => {
-          // hide splash screen
-          SplashScreen.hideAsync();
-
-          // show bottom sheet
-          setOpen(true);
-        });
-    }
-  };
-
   useEffect(() => {
+    async function preload() {
+      try {
+        // preload assets
+        await Promise.all([loadImages(), loadFonts()]);
+
+        // fetch & store user data to store (fake promise function to simulate async function)
+        const user = await fetchUser();
+        dispatch(setUser(user));
+        dispatch(setLoggedIn(!!user));
+        if (user) setPersistData<User>(DataPersistKeys.USER, user);
+
+        // hide splash screen
+        SplashScreen.hideAsync();
+        setOpen(true);
+      } catch {
+        // if preload failed, try to get user data from persistent storage
+        getPersistData<User>(DataPersistKeys.USER)
+          .then(user => {
+            if (user) dispatch(setUser(user));
+            dispatch(setLoggedIn(!!user));
+          })
+          .finally(() => {
+            // hide splash screen
+            SplashScreen.hideAsync();
+
+            // show bottom sheet
+            setOpen(true);
+          });
+      }
+    }
     preload();
   }, []);
 
   // navigate to app
   useEffect(() => {
-    router.push('/(main)');
-  }, []);
+    router.push('/(main)/home');
+  }, [router]);
 
   return (
     <Fragment>
