@@ -24,6 +24,7 @@ export default ({ config }: ConfigContext): ExpoConfig => {
       env: process.env.EXPO_PUBLIC_ENV,
       apiUrl: process.env.EXPO_PUBLIC_API_URL,
     },
+    plugins: ["expo-router", "expo-asset", "expo-font"]
   };
   return envConfig;
 };

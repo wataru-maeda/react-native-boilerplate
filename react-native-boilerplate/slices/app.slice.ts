@@ -1,9 +1,15 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { State, Dispatch } from '@/utils/store';
-import { IUser, IAppState } from './app.typeDefs';
+import { User } from '@/types'
 
-const initialState: IAppState = {
+export interface AppState {
+  checked: boolean;
+  loggedIn: boolean;
+  user?: User;
+}
+
+const initialState: AppState = {
   checked: false,
   loggedIn: false,
   user: undefined,
@@ -13,11 +19,11 @@ const slice = createSlice({
   name: 'app',
   initialState,
   reducers: {
-    setLoggedIn: (state: IAppState, { payload }: PayloadAction<boolean>) => {
+    setLoggedIn: (state: AppState, { payload }: PayloadAction<boolean>) => {
       state.checked = true;
       state.loggedIn = payload;
     },
-    setUser: (state: IAppState, { payload }: PayloadAction<IUser | undefined>) => {
+    setUser: (state: AppState, { payload }: PayloadAction<User | undefined>) => {
       state.user = payload;
     },
     reset: () => initialState,
