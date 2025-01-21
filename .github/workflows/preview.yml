@@ -1,0 +1,91 @@
+name: CI - APP Preview
+
+on:
+  pull_request:
+    branches: ['*']
+  push:
+    branches: ['dev', 'staging', 'main', 'release/**']
+
+jobs:
+  update:
+    name: Publish Preview Channel
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [20.x]
+    steps:
+      # Check for EXPO_TOKEN
+      - name: Check for EXPO_TOKEN
+        run: |
+          if [ -z "${{ secrets.EXPO_TOKEN }}" ]; then
+            echo "You must provide an EXPO_TOKEN secret linked to this project's Expo account in this repo's secrets."
+            exit 1
+          fi
+
+      # checkout the repository
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      # setup node
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          cache-dependency-path: package-lock.json
+          node-version: ${{ matrix.node-version }}
+          cache: npm
+
+      # setup expo
+      - name: Setup Expo
+        uses: expo/expo-github-action@v7
+        with:
+          expo-version: latest
+          eas-version: latest
+          token: ${{ secrets.EXPO_TOKEN }}
+
+      # install dependencies
+      - name: Install dependencies
+        run: npm ci
+
+      # get branch name
+      - name: Get branch name
+        id: branch-name
+        uses: tj-actions/branch-names@v7
+
+      # set environment variables
+      - name: Load .env file
+        if: steps.branch-name.outputs.current_branch != 'main'
+        uses: xom9ikk/dotenv@v2
+        with:
+          mode: development
+
+      - name: Load .env file
+        if: steps.branch-name.outputs.current_branch == 'main'
+        uses: xom9ikk/dotenv@v2
+        with:
+          mode: production
+
+      # eas update (PR)
+      - name: EAS update
+        if: github.event_name == 'pull_request' && steps.branch-name.outputs.current_branch != 'main'
+        run: eas update --branch ${{ steps.branch-name.outputs.current_branch }} --message "${{ github.event.pull_request.title }}"
+        env:
+          NODE_ENV: development
+
+      - name: EAS update
+        if: github.event_name == 'pull_request' && steps.branch-name.outputs.current_branch == 'main'
+        run: eas update --branch ${{ steps.branch-name.outputs.current_branch }} --message "${{ github.event.pull_request.title }}"
+        env:
+          NODE_ENV: production
+
+      # eas update (PUSH)
+      - name: EAS update
+        if: github.event_name == 'push' && steps.branch-name.outputs.current_branch != 'main'
+        run: eas update --branch ${{ steps.branch-name.outputs.current_branch }} --message "${{ github.event.head_commit.message }}"
+        env:
+          NODE_ENV: development
+
+      - name: EAS update
+        if: github.event_name == 'push' && steps.branch-name.outputs.current_branch == 'main'
+        run: eas update --branch ${{ steps.branch-name.outputs.current_branch }} --message "${{ github.event.head_commit.message }}"
+        env:
+          NODE_ENV: production

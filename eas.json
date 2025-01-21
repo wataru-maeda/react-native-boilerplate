@@ -1,0 +1,60 @@
+{
+  "build": {
+    "base": {
+      "node": "20.9.0",
+      "env": {
+        "APP_ENV": "production"
+      },
+      "ios": {
+        "image": "latest",
+        "resourceClass": "m1-medium",
+        "env": {
+          "PLATFORM": "ios"
+        }
+      },
+      "android": {
+        "image": "default",
+        "env": {
+          "PLATFORM": "android"
+        }
+      },
+      "channel": "base"
+    },
+    "development": {
+      "extends": "base",
+      "channel": "development",
+      "distribution": "internal",
+      "env": {
+        "APP_ENV": "dev"
+      },
+      "android": {
+        "gradleCommand": ":app:assembleDebug"
+      },
+      "ios": {
+        "simulator": true,
+        "buildConfiguration": "Debug"
+      }
+    },
+    "staging": {
+      "extends": "base",
+      "channel": "staging",
+      "distribution": "internal",
+      "env": {
+        "APP_ENV": "stg"
+      },
+      "ios": {
+        "enterpriseProvisioning": "universal"
+      }
+    },
+    "production": {
+      "extends": "base",
+      "channel": "production",
+      "env": {
+        "APP_ENV": "prod"
+      }
+    }
+  },
+  "submit": {
+    "production": {}
+  }
+}
