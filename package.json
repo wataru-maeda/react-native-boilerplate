@@ -8,7 +8,8 @@
     "dev:ios": "NODE_ENV=dev expo start --ios -c",
     "dev:android": "NODE_ENV=dev expo start --android -c",
     "dev:web": "NODE_ENV=dev expo start --web -c",
-    "dev:doctor": "NODE_ENV=dev npx expo-doctor",
+    "dev:doctor": "EXPO_NO_DOTENV=1 dotenv -e .env.dev -- npx expo-doctor",
+    "dev:secret": "dotenv -e .env.dev -- eas secret:push --scope project --env-file .env.dev --force",
     "lint": "expo lint",
     "lint:staged": "lint-staged",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
@@ -55,6 +56,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",
+    "@dotenvx/dotenvx": "^1.33.0",
     "@testing-library/react-native": "^13.0.1",
     "@types/jest": "^29.5.12",
     "@types/react": "~18.3.12",

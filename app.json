@@ -1,9 +1,9 @@
 {
   "expo": {
-    "owner": "wataru",
     "name": "react-native-boilerplate",
     "slug": "react-native-boilerplate",
     "version": "3.0.0",
+    "owner": "wataru",
     "newArchEnabled": true,
     "platforms": ["ios", "android", "web"],
     "orientation": "portrait",
