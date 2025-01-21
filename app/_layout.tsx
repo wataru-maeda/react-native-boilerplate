@@ -3,6 +3,7 @@ import * as SplashScreen from 'expo-splash-screen';
 import BottomSheetContents from '@/components/layouts/BottomSheetContents';
 import BottomSheet from '@/components/elements/BottomSheet';
 import { useDataPersist, DataPersistKeys } from '@/hooks';
+import useColorScheme from '@/hooks/useColorScheme';
 import { loadImages, loadFonts } from '@/theme';
 import { Slot, useRouter } from 'expo-router';
 import { useState, useEffect } from 'react';
@@ -10,6 +11,7 @@ import { StatusBar } from 'expo-status-bar';
 import { useAppSlice } from '@/slices';
 import { fetchUser } from '@/services';
 import Provider from '@/providers';
+import { colors } from '@/theme';
 import { User } from '@/types';
 
 // keep the splash screen visible while complete fetching resources
@@ -17,10 +19,10 @@ SplashScreen.preventAutoHideAsync();
 
 function Router() {
   const router = useRouter();
+  const { isDark } = useColorScheme();
   const { dispatch, setUser, setLoggedIn } = useAppSlice();
   const { setPersistData, getPersistData } = useDataPersist();
-
-  const [isOpen, setOpen] = useState(true);
+  const [isOpen, setOpen] = useState(false);
 
   /**
    * preload assets and user data
@@ -42,7 +44,10 @@ function Router() {
 
       // hide splash screen
       SplashScreen.hideAsync();
-    } catch (err) {
+
+      // show bottom sheet
+      setOpen(true);
+    } catch {
       // if preload failed, try to get user data from persistent storage
       getPersistData<User>(DataPersistKeys.USER)
         .then(user => {
@@ -52,6 +57,9 @@ function Router() {
         .finally(() => {
           // hide splash screen
           SplashScreen.hideAsync();
+
+          // show bottom sheet
+          setOpen(true);
         });
     }
   };
@@ -69,7 +77,10 @@ function Router() {
     <Fragment>
       <Slot />
       <StatusBar style="light" />
-      <BottomSheet isOpen={isOpen} initialOpen>
+      <BottomSheet
+        isOpen={isOpen}
+        initialOpen
+        backgroundStyle={isDark && { backgroundColor: colors.blackGray }}>
         <BottomSheetContents onClose={() => setOpen(false)} />
       </BottomSheet>
     </Fragment>

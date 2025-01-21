@@ -23,7 +23,12 @@ export interface BottomSheetProps extends RNBottomSheetProps {
   children: React.ReactNode;
 }
 
-const BottomSheet = memo(function ({ isOpen, initialOpen, children, ...others }: BottomSheetProps) {
+const BottomSheet = memo(function BottomSheet({
+  isOpen,
+  initialOpen,
+  children,
+  ...others
+}: BottomSheetProps) {
   const bottomSheetRef = useRef<RNBottomSheet>(null);
 
   useEffect(() => {

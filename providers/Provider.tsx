@@ -6,13 +6,11 @@ import store from '@/utils/store';
 import 'react-native-reanimated';
 
 export default function Provider({ children }: Readonly<{ children: React.ReactNode }>) {
-  const colorScheme = useColorScheme();
+  const { isDark } = useColorScheme();
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
       <ReduxProvider store={store}>
-        <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-          {children}
-        </ThemeProvider>
+        <ThemeProvider value={isDark ? DarkTheme : DefaultTheme}>{children}</ThemeProvider>
       </ReduxProvider>
     </GestureHandlerRootView>
   );

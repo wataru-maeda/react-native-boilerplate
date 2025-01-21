@@ -4,17 +4,15 @@ import { AntDesign } from '@expo/vector-icons';
 import { colors } from '@/theme';
 
 export default function TabLayout() {
-  const colorScheme = useColorScheme();
-  console.log('[##] color schema', colorScheme);
+  const { isDark } = useColorScheme();
   return (
     <Tabs
-      initialRouteName="home"
       screenOptions={{
         headerShown: false,
         tabBarInactiveTintColor: colors.gray,
-        tabBarInactiveBackgroundColor: colors.white,
+        tabBarInactiveBackgroundColor: isDark ? colors.blackGray : colors.white,
         tabBarActiveTintColor: colors.lightPurple,
-        tabBarActiveBackgroundColor: colors.white,
+        tabBarActiveBackgroundColor: isDark ? colors.blackGray : colors.white,
       }}>
       <Tabs.Screen
         name="index"

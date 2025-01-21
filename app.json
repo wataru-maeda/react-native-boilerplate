@@ -8,11 +8,16 @@
     "platforms": ["ios", "android", "web"],
     "orientation": "portrait",
     "icon": "assets/images/logo-lg.png",
-    "userInterfaceStyle": "light",
+    "userInterfaceStyle": "automatic",
     "splash": {
       "image": "assets/images/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#ffffff",
+      "dark": {
+        "image": "assets/images/splash.png",
+        "resizeMode": "contain",
+        "backgroundColor": "#000000"
+      }
     },
     "assetBundlePatterns": ["**/*"],
     "ios": {

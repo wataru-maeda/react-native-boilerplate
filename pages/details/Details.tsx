@@ -1,6 +1,7 @@
 import { Text, View, StyleSheet } from 'react-native';
 import GradientButton from '@/components/elements/GradientButton';
 import { useRouter, useLocalSearchParams } from 'expo-router';
+import useColorScheme from '@/hooks/useColorScheme';
 import { colors } from '@/theme';
 
 const styles = StyleSheet.create({
@@ -31,13 +32,15 @@ const styles = StyleSheet.create({
 
 export default function Details() {
   const router = useRouter();
+  const { isDark } = useColorScheme();
   const { from } = useLocalSearchParams();
   return (
-    <View style={styles.root}>
-      <Text style={styles.title}>{`Details (from ${from})`}</Text>
+    <View style={[styles.root, isDark && { backgroundColor: colors.blackGray }]}>
+      <Text
+        style={[styles.title, isDark && { color: colors.gray }]}>{`Details (from ${from})`}</Text>
       <GradientButton
         title="Go back to Home"
-        titleStyle={styles.buttonTitle}
+        titleStyle={[styles.buttonTitle, isDark && { color: colors.blackGray }]}
         style={styles.button}
         gradientBackgroundProps={{
           colors: [colors.purple, colors.pink],

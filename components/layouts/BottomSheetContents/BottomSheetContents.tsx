@@ -1,8 +1,8 @@
-import React from 'react';
-import { StyleSheet, View, Text } from 'react-native';
 import GradientButton from '@/components/elements/GradientButton';
-import { colors, fonts } from '@/theme';
+import { StyleSheet, View, Text } from 'react-native';
+import useColorScheme from '@/hooks/useColorScheme';
 import { windowWidth } from '@/utils/deviceInfo';
+import { colors, fonts } from '@/theme';
 import config from '@/utils/config';
 
 const styles = StyleSheet.create({
@@ -68,26 +68,29 @@ type WelcomeBottomSheetContentsProps = {
 };
 
 export default function BottomSheetContents({ onClose }: WelcomeBottomSheetContentsProps) {
+  const { isDark } = useColorScheme();
   return (
-    <View style={styles.root}>
-      <Text style={styles.title}>🎉 Congratulations! </Text>
-      <Text style={[styles.subtitle, { marginBottom: 32 }]}>
+    <View style={[styles.root, isDark && { backgroundColor: colors.blackGray }]}>
+      <Text style={[styles.title, isDark && { color: colors.gray }]}>🎉 Congratulations! </Text>
+      <Text style={[styles.subtitle, { marginBottom: 32 }, isDark && { color: colors.gray }]}>
         You have successfully spin up the React Native Boilerplate project in the
         <Text style={{ fontFamily: fonts.openSan.bold }}>{` ${config.env} `}</Text>environment 🚀
       </Text>
-      <Text style={[styles.subtitle, { marginBottom: 8 }]}>Injected Environmental Variables:</Text>
+      <Text style={[styles.subtitle, { marginBottom: 8 }, isDark && { color: colors.gray }]}>
+        Injected Environmental Variables:
+      </Text>
       {Object.entries(config).map(([key, value]) => (
         <View key={key} style={styles.envContainer}>
-          <Text style={styles.envTitle}>{`✅ ${key}: `}</Text>
-          <Text style={styles.envValue}>{value}</Text>
+          <Text style={[styles.envTitle, isDark && { color: colors.gray }]}>{`✅ ${key}: `}</Text>
+          <Text style={[styles.envValue, isDark && { color: colors.gray }]}>{value}</Text>
         </View>
       ))}
-      <Text style={[styles.subtitle, { marginVertical: 32 }]}>
+      <Text style={[styles.subtitle, { marginVertical: 32 }, isDark && { color: colors.gray }]}>
         {`Your foundational setup is now complete, paving the way for seamless development and innovation. \n\nHappy coding!`}
       </Text>
       <GradientButton
         title="OK"
-        titleStyle={styles.buttonTitle}
+        titleStyle={[styles.buttonTitle, isDark && { color: colors.blackGray }]}
         style={styles.button}
         gradientBackgroundProps={{
           colors: [colors.purple, colors.pink],

@@ -1,21 +1,33 @@
-import { isWeb } from '@/utils/deviceInfo';
+import { isMobile } from '@/utils/deviceInfo';
 import { useState, useEffect } from 'react';
-import { useColorScheme, ColorSchemeName } from 'react-native';
+import { useColorScheme as useRNColorScheme, ColorSchemeName } from 'react-native';
 
-/**
- * to support static rendering, this value needs to be re-calculated on the client side for web
- */
-function useColorSchemeForWeb(): ColorSchemeName {
+type ColorSchemeResult = {
+  colorScheme: ColorSchemeName;
+  isDark: boolean;
+  isLight: boolean;
+};
+
+function useColorSchemaForMobile(): ColorSchemeResult {
+  const colorScheme = useRNColorScheme();
+  const isDark = colorScheme === 'dark';
+  const isLight = colorScheme === 'light';
+  return { colorScheme, isDark, isLight };
+}
+
+function useColorSchemeForWeb(): ColorSchemeResult {
   const [isHydrated, setHydrated] = useState<boolean>(false);
 
   useEffect(() => {
     setHydrated(true);
   }, []);
 
-  const colorScheme = useColorScheme();
-  if (isHydrated) return colorScheme ?? 'light';
+  const colorScheme = useRNColorScheme();
+  const isDark = colorScheme === 'dark';
+  const isLight = colorScheme === 'light';
 
-  return 'light';
+  if (isHydrated) return { colorScheme: colorScheme ?? 'light', isDark, isLight };
+  return { colorScheme: 'light', isDark: false, isLight: true };
 }
 
-export default isWeb ? useColorSchemeForWeb : useColorScheme;
+export default isMobile ? useColorSchemaForMobile : useColorSchemeForWeb;
