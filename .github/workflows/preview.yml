@@ -24,11 +24,11 @@ jobs:
 
       # checkout the repository
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       # setup node
       - name: Setup Node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           cache-dependency-path: package-lock.json
           node-version: ${{ matrix.node-version }}
@@ -36,7 +36,7 @@ jobs:
 
       # setup expo
       - name: Setup Expo
-        uses: expo/expo-github-action@v7
+        uses: expo/expo-github-action@v8
         with:
           expo-version: latest
           eas-version: latest
@@ -49,20 +49,20 @@ jobs:
       # get branch name
       - name: Get branch name
         id: branch-name
-        uses: tj-actions/branch-names@v7
+        uses: tj-actions/branch-names@v8
 
       # set environment variables
       - name: Load .env file
         if: steps.branch-name.outputs.current_branch != 'main'
-        uses: xom9ikk/dotenv@v2
+        uses: xom9ikk/dotenv@v2.3.0
         with:
-          mode: development
+          mode: dev
 
       - name: Load .env file
         if: steps.branch-name.outputs.current_branch == 'main'
-        uses: xom9ikk/dotenv@v2
+        uses: xom9ikk/dotenv@v2.3.0
         with:
-          mode: production
+          mode: prod
 
       # eas update (PR)
       - name: EAS update
