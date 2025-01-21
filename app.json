@@ -7,10 +7,10 @@
     "version": "1.0.0",
     "platforms": ["ios", "android", "web"],
     "orientation": "portrait",
-    "icon": "src/assets/images/logo-lg.png",
+    "icon": "assets/images/logo-lg.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "src/assets/images/splash.png",
+      "image": "assets/images/splash.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -20,12 +20,12 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "src/assets/images/logo-sm.png",
+        "foregroundImage": "assets/images/logo-sm.png",
         "backgroundColor": "#ffffff"
       }
     },
     "web": {
-      "favicon": "src/assets/images/logo-sm.png"
+      "favicon": "assets/images/logo-sm.png"
     },
     "extra": {
       "eas": {
