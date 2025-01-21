@@ -1,15 +1,18 @@
-import React from 'react';
-import store from '@/utils/store';
+import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { Provider as ReduxProvider } from 'react-redux';
-import NavigationProvider from './NavigationProvider';
+import useColorScheme from '@/hooks/useColorScheme';
+import store from '@/utils/store';
 import 'react-native-reanimated';
 
 export default function Provider({ children }: Readonly<{ children: React.ReactNode }>) {
+  const colorScheme = useColorScheme();
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
       <ReduxProvider store={store}>
-        <NavigationProvider>{children}</NavigationProvider>
+        <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
+          {children}
+        </ThemeProvider>
       </ReduxProvider>
     </GestureHandlerRootView>
   );
