@@ -1,1 +1,1 @@
-export { default }  from './DrawerContents'
+export { default } from './DrawerContents';

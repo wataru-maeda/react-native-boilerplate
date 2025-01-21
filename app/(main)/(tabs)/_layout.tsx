@@ -5,10 +5,10 @@ import { colors } from '@/theme';
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
-  console.log('[##] color schema', colorScheme)
+  console.log('[##] color schema', colorScheme);
   return (
     <Tabs
-      initialRouteName='home'
+      initialRouteName="home"
       screenOptions={{
         headerShown: false,
         tabBarInactiveTintColor: colors.gray,

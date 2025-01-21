@@ -1,4 +1,3 @@
-
 export enum Env {
   dev = 'development',
   stg = 'staging',

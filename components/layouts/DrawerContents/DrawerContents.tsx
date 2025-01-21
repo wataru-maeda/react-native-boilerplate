@@ -1,4 +1,4 @@
-import { StyleSheet, SafeAreaView, View, Text } from 'react-native'
+import { StyleSheet, SafeAreaView, View, Text } from 'react-native';
 
 const styles = StyleSheet.create({
   root: {
@@ -13,9 +13,9 @@ const styles = StyleSheet.create({
 export default function DrawerContents() {
   return (
     <SafeAreaView>
-    <View style={styles.root}>
-      <Text>Side Menu Contents</Text>
-    </View>
-  </SafeAreaView>
-  )
+      <View style={styles.root}>
+        <Text>Side Menu Contents</Text>
+      </View>
+    </SafeAreaView>
+  );
 }

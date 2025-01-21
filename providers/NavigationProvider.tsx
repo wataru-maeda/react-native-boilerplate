@@ -8,5 +8,5 @@ export default function NavigationProvider({ children }: Readonly<{ children: Re
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
       {children}
     </ThemeProvider>
-  )
-} 
+  );
+}

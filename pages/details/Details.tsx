@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
 
 export default function Details() {
   const router = useRouter();
-  const { from } = useLocalSearchParams()
+  const { from } = useLocalSearchParams();
   return (
     <View style={styles.root}>
       <Text style={styles.title}>{`Details (from ${from})`}</Text>

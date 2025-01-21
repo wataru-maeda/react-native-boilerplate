@@ -1,4 +1,4 @@
-import { isWeb } from '@/utils/deviceInfo'
+import { isWeb } from '@/utils/deviceInfo';
 import { useState, useEffect } from 'react';
 import { useColorScheme, ColorSchemeName } from 'react-native';
 

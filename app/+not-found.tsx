@@ -1,6 +1,6 @@
 import { Link, Stack } from 'expo-router';
 import { StyleSheet, View, Text } from 'react-native';
-import { colors } from '@/theme'
+import { colors } from '@/theme';
 
 const styles = StyleSheet.create({
   root: {

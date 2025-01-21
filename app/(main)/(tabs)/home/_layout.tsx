@@ -1,8 +1,8 @@
 import { Stack } from 'expo-router';
 import { DrawerActions } from '@react-navigation/native';
-import NavigationHeaderLeft from '@/components/layouts/NavigationHeaderLeft'
-import NavigationHeaderTitle from '@/components/layouts/NavigationHeaderTitle'
-import { useNavigation } from 'expo-router'
+import NavigationHeaderLeft from '@/components/layouts/NavigationHeaderLeft';
+import NavigationHeaderTitle from '@/components/layouts/NavigationHeaderTitle';
+import { useNavigation } from 'expo-router';
 import { colors } from '@/theme';
 
 const screenOptions = {
@@ -12,7 +12,7 @@ const screenOptions = {
 };
 
 export default function HomeStackLayout() {
-  const navigation = useNavigation()
+  const navigation = useNavigation();
   const toggleDrawer = () => navigation.dispatch(DrawerActions.toggleDrawer());
   return (
     <Stack screenOptions={screenOptions}>
@@ -21,7 +21,7 @@ export default function HomeStackLayout() {
         options={{
           title: 'Home',
           headerTitle: () => <NavigationHeaderTitle />,
-          headerLeft: () => <NavigationHeaderLeft  onPress={toggleDrawer} />,
+          headerLeft: () => <NavigationHeaderLeft onPress={toggleDrawer} />,
           headerTitleAlign: 'center',
         }}
       />

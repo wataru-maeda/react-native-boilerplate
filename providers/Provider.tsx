@@ -1,4 +1,3 @@
-
 import React from 'react';
 import store from '@/utils/store';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
@@ -10,10 +9,8 @@ export default function Provider({ children }: Readonly<{ children: React.ReactN
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
       <ReduxProvider store={store}>
-        <NavigationProvider>
-          {children}
-        </NavigationProvider>
+        <NavigationProvider>{children}</NavigationProvider>
       </ReduxProvider>
     </GestureHandlerRootView>
-  )
+  );
 }
