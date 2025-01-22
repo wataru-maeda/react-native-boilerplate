@@ -64,27 +64,19 @@ Root (Drawer)
 
 ####
 
-# State Management with Redux Toolkit
-
 This project uses Redux Toolkit for global state management, pre-configured with Redux Hooks for immediate use. 
 
-## Getting Started
-1. Explore existing slices in the `/slices` directory
-2. See usage examples in `/app/_layout.tsx`
+#### Getting Started
+1. Explore existing slices in the [`/slices`](https://github.com/wataru-maeda/react-native-boilerplate/tree/feat/expo-router/slices) directory
+2. See usage examples in [`/app/_layout.tsx`](https://github.com/wataru-maeda/react-native-boilerplate/blob/feat/expo-router/app/_layout.tsx#L23)
 
-## Adding New State
-1. Copy `/slices/app.slice.ts`
+#### Adding New State
+1. Copy [`/slices/app.slice.ts`](https://github.com/wataru-maeda/react-native-boilerplate/blob/feat/expo-router/slices/app.slice.ts)
 2. Rename and modify for your needs
-3. Add your slice to `/utils/store.ts`
+3. Add your slice to [`/utils/store.ts`](https://github.com/wataru-maeda/react-native-boilerplate/blob/feat/expo-router/utils/store.ts#L10)
 
-## Development
-Redux logger is enabled by default. To disable, remove the logger from `/utils/store.ts`.
-
-Global state is quite important for app state management. The project uses Redux Toolkit for global state management. The project has pre-configured Redux Toolkit with Redux Hooks for immediate use. You can easily set up Redux Hooks by reviewing under [slices](https://github.com/wataru-maeda/react-native-boilerplate/tree/feat/expo-router/slices) directory. The application of Redux Hooks example (how to read and write) can be found in [root layout](https://github.com/wataru-maeda/react-native-boilerplate/blob/feat/expo-router/app/_layout.tsx#L23)
-
-To add a new slice, you can copy and past [app.slice.ts](https://github.com/wataru-maeda/react-native-boilerplate/blob/feat/expo-router/slices/app.slice.ts) under slices directory and rename it. Then you can add the slice to the [store](https://github.com/wataru-maeda/react-native-boilerplate/blob/feat/expo-router/utils/store.ts#L10)
-
-In development environment, redux logger is enabled by default. If you want to disable the feature, remove the logger from [store.ts](https://github.com/wataru-maeda/react-native-boilerplate/blob/feat/expo-router/utils/store.ts#L13)
+#### Development
+Redux logger is enabled by default. To disable, remove the logger from [`/utils/store.ts`](https://github.com/wataru-maeda/react-native-boilerplate/blob/feat/expo-router/utils/store.ts#L13).
 
 </details>
 
