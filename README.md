@@ -58,16 +58,7 @@ root (drawer navigation)
 </details>
 
 <details>
-  <summary><b>Color Theme</b></summary>
-  
-####
-
-The project initially setup with color schema hook which you can easily detect the current theme from the book. Switch color based on the theme. You can import [`useColorScheme`]() hook which adapt both mobile and web. The hook return the current color scheme name and flag (isDark, isLight). So it's easy to switch the color based on the theme.
-
-</details>
-
-<details>
-  <summary><b>Global State (Redux)</b></summary>
+  <summary><b>Global State</b></summary>
 
 ####
 
@@ -84,6 +75,8 @@ To add a new slice, you can copy and past [app.slice.ts](https://github.com/wata
 
 This project centralizes the management of assets, including images, icons, fonts, colors within the [theme directory](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/src/theme). For seamless integration of new assets, ensure their importation into the designated files where they will be utilized. This approach facilitates streamlined access to all assets via the theme structure.
 To further optimize performance, asset preloading has been incorporated into the boilerplate. This setup also supports the use of SVG files, offering extensive flexibility in managing visual resources. Assets are made effortlessly accessible for implementation across the project by importing them directly from the theme.
+
+Also, The project initially setup with color schema hook which you can easily detect the current theme from the book. Switch color based on the theme. You can import [`useColorScheme`]() hook which adapt both mobile and web. The hook return the current color scheme name and flag (isDark, isLight). So it's easy to switch the color based on the theme.
 
 </details>
 
@@ -163,6 +156,34 @@ The project supports web development through Expo Web, enabling you to build and
 </details>
 
 <details>
+  <summary><b>Scripts</b></summary>
+  
+####
+
+All `dev` commands load environment variables from **.env.dev**.
+
+- `dev`: Run the app on mobile and web.
+- `dev:ios`: Run the iOS app.
+- `dev:android`: Run the Android app.
+- `dev:web`: Run the Web app.
+- `dev:doctor`: Diagnose issues in your Expo project.
+- `dev:secret:push`: Push secrets to EAS servers. All secrets are read from .env.dev file and upload to EAS servers.
+- `dev:secret:list`: List all secrets uploaded to the EAS servers
+- `dev:build:mobile`: Build app distribution for iOS and Android.
+- `dev:build:web`: Build web locally.
+- `dev:deploy:web`: Build and deploy web build to [EAS Hosting](https://docs.expo.dev/eas/hosting/introduction/)
+- `dev:config:public`: Show the loaded environment variables in the console.
+- `lint`: Lint the codebase with ESLint.
+- `lint:staged`: Lint the staged files with ESLint.
+- `format`: Format the codebase with Prettier.
+- `test`: Run the test with Jest.
+- `test:watch`: Run the test with Jest in watch mode.
+
+For more details of those command, read the doc of [Expo CLI](https://docs.expo.dev/more/expo-cli/) and [EAS CLI](https://docs.expo.dev/eas/)
+
+</details>
+
+<details>
   <summary><b>[CI] Code formatting, linting and testing on pre-commit</b></summary>
 
 ####
@@ -196,27 +217,6 @@ To set up the CD workflow, follow these steps:
 ## 🧑‍💻 Need native code?
 
 To generate iOS and Android native code, you can run `npx expo prebuild` in the project's root directory. For more details and specific instructions, please refer to the [Expo documentation page](https://docs.expo.dev/workflow/prebuild/).
-
-## 🥇 Scripts
-
-- `npm run dev`: Run the app on mobile and web. Environment variables are loaded from .env.dev file.
-- `npm run dev:ios`: Run the iOS app . Environment variables are loaded from .env.dev file.
-- `npm run dev:android`: Run the Android app. Environment variables are loaded from .env.dev file.
-- `npm run dev:web`: Run the Web app. Environment variables are loaded from .env.dev file.
-- `npm run dev:doctor`: Diagnose issues in your Expo project. Environment variables are loaded from .env.dev file. See [doc](https://docs.expo.dev/develop/tools/#expo-doctor) for more details
-- `npm run dev:secret:push`: Push secrets to EAS servers. All secrets are read from .env.dev file and upload to EAS servers. See [doc](https://docs.expo.dev/eas/environment-variables/#visibility) for more details
-- `npm run dev:secret:list`: List all secrets uploaded to the EAS servers
-- `npm run dev:build:mobile`: Build app distribution for iOS and Android. Environment variables are loaded from .env.dev file.
-- `npm run dev:build:web`: Build web build locally. Environment variables are loaded from .env.dev file.
-- `npm run dev:deploy:web`: Build and deploy web build to [EAS Hosting](https://docs.expo.dev/eas/hosting/introduction/)
-- `npm run dev:config:public`: Show the loaded environment variables in the console. Environment variables are loaded from .env.dev file.
-- `npm run lint`: Lint the codebase with ESLint. See [doc](https://eslint.org/docs/user-guide/getting-started) for more details
-- `npm run lint:staged`: Lint the staged files with ESLint. See [doc](https://eslint.org/docs/user-guide/getting-started) for more details
-- `npm run format`: Format the codebase with Prettier. See [doc](https://prettier.io/docs/en/index.html) for more details
-- `npm run test`: Run the test with Jest. See [doc](https://jestjs.io/docs/getting-started) for more details
-- `npm run test:watch`: Run the test with Jest in watch mode. See [doc](https://jestjs.io/docs/getting-started) for more details
-
-For more details of those command, read the doc of [Expo CLI](https://docs.expo.dev/more/expo-cli/) and [EAS CLI](https://docs.expo.dev/eas/)
 
 ## 🥇 Libraries
 
