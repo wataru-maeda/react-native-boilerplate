@@ -10,8 +10,8 @@
 </p>
 
 <p align="center">
-  <img src='https://github.com/wataru-maeda/react-native-boilerplate/blob/feat/expo-router/__DELELE_ME__/demo-dark-theme.gif' width='150px'>
   <img src='https://github.com/wataru-maeda/react-native-boilerplate/blob/feat/expo-router/__DELELE_ME__/demo-light-theme.gif' width='150px'>
+  <img src='https://github.com/wataru-maeda/react-native-boilerplate/blob/feat/expo-router/__DELELE_ME__/demo-dark-theme.gif' width='150px'>
 </p>
 
 Say goodbye to time-consuming setup tasks like restructuring files, installing libraries, and crafting reusable components. Our project boilerplate is your solution to eliminate redundant work when starting from scratch. It includes only the most commonly-used libraries, so you can hit the ground running with a fully configured setup.
@@ -58,7 +58,7 @@ root (drawer navigation)
 </details>
 
 <details>
-  <summary><b>Global State</b></summary>
+  <summary><b>Global State Management</b></summary>
 
 ####
 
@@ -66,17 +66,19 @@ Global state is quite important for app state management. The project uses Redux
 
 To add a new slice, you can copy and past [app.slice.ts](https://github.com/wataru-maeda/react-native-boilerplate/blob/feat/expo-router/slices/app.slice.ts) under slices directory and rename it. Then you can add the slice to the [store](https://github.com/wataru-maeda/react-native-boilerplate/blob/feat/expo-router/utils/store.ts#L10)
 
+In development environment, redux logger is enabled by default. If you want to disable the feature, remove the logger from [store.ts](https://github.com/wataru-maeda/react-native-boilerplate/blob/feat/expo-router/utils/store.ts#L13)
+
 </details>
 
 <details>
-  <summary><b>Theme</b></summary>
+  <summary><b>Centralized Theme</b></summary>
 
 ####
 
-This project centralizes the management of assets, including images, icons, fonts, colors within the [theme directory](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/src/theme). For seamless integration of new assets, ensure their importation into the designated files where they will be utilized. This approach facilitates streamlined access to all assets via the theme structure.
+This project centralizes the management of theme, including images, icons, fonts, colors within the [theme directory](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/src/theme). For seamless integration of new assets, ensure their importation into the designated files where they will be utilized. This approach facilitates streamlined access to all assets via the theme structure.
 To further optimize performance, asset preloading has been incorporated into the boilerplate. This setup also supports the use of SVG files, offering extensive flexibility in managing visual resources. Assets are made effortlessly accessible for implementation across the project by importing them directly from the theme.
 
-Also, The project initially setup with color schema hook which you can easily detect the current theme from the book. Switch color based on the theme. You can import [`useColorScheme`]() hook which adapt both mobile and web. The hook return the current color scheme name and flag (isDark, isLight). So it's easy to switch the color based on the theme.
+Also, The project initially setup with color schema hook which you can easily detect the current theme from the book. Switch color based on the theme. You can import [`useColorScheme`](https://github.com/wataru-maeda/react-native-boilerplate/blob/feat/expo-router/hooks/useColorScheme.ts) hook which adapt both mobile and web. The hook return the current color scheme name and flag (isDark, isLight). So it's easy to switch the color based on the theme.
 
 </details>
 
@@ -196,7 +198,7 @@ For more details of those command, read the doc of [Expo CLI](https://docs.expo.
 </details>
 
 <details>
-  <summary><b>[CD] Release previews on Pull-Request</b></summary>
+  <summary><b>[CD] Release previews on Pull-Request (only mobile)</b></summary>
 
 ####
 
@@ -211,6 +213,24 @@ To set up the CD workflow, follow these steps:
 3. Update `name`, `slug`, `owner`, `projectId` and `url` in [app.json](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/app.json):
 4. Update in `name`, `slug`, `projectId`, `ios`, `android` in [app.config.ts](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/app.config.ts)
 6. After you push changes to the main branch, a new preview will be created automatically.
+
+</details>
+
+
+<details>
+  <summary><b>Mobile and Web Distribution</b></summary>
+
+####
+
+- The project is equipped with a streamlined distribution process for both mobile and web platforms. Here's how you can deploy your app to various platforms:
+
+1. **Mobile Distribution**
+- Run `npm run dev:build:mobile` to build the app distribution for iOS and Android.
+- The build process generates an APK file for Android and an IPA file for iOS, which can be used for further testing or deployment.
+
+2. **Web Distribution**
+- Run `npm run dev:deploy:web` to build and deploy the web application to [EAS Hosting](https://docs.expo.dev/eas/hosting/introduction/).
+- The deployment process is configured to leverage GitHub Pages, ensuring a seamless and efficient deployment experience.
 
 </details>
 
