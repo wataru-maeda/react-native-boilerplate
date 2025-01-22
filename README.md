@@ -64,7 +64,7 @@ Root (Drawer)
 
 ####
 
-This project uses Redux Toolkit for global state management, pre-configured with Redux Hooks for immediate use. 
+This project uses [**Redux Toolkit**](https://redux-toolkit.js.org/) for global state management, pre-configured with Redux Hooks for immediate use. 
 
 #### Getting Started
 1. Explore existing slices in the [`/slices`](https://github.com/wataru-maeda/react-native-boilerplate/tree/feat/expo-router/slices) directory
