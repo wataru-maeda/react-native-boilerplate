@@ -16,212 +16,142 @@
   <img src='https://github.com/wataru-maeda/react-native-boilerplate/blob/feat/expo-router/__DELELE_ME__/demo-dark-theme.gif' width='150px'>
 </p>
 
-Skip the tedious setup process and jump straight into development. This boilerplate eliminates common setup tasks by providing a pre-configured project with essential libraries and components. Start building your app immediately with battle-tested tools and practices.
+## Overview
 
-## 🗒️ Requirements
+A powerful React Native boilerplate built with Expo that eliminates setup hassles and gets you coding faster. This template comes pre-configured with essential features like:
 
-- [Node: 20.x](https://nodejs.org/en)
-- [Expo CLI](https://docs.expo.dev/more/expo-cli/)
+- 📱 File-based routing with Expo Router
+- 🎨 Light/Dark theme support out of the box
+- 🔄 Redux Toolkit for state management
+- 🚀 CI/CD workflows ready to go
+- 📦 Environment configuration for dev/prod
+- ✨ Code quality tools (ESLint, Prettier, Jest)
 
-## 🚀 Quick Start
+## Prerequisites
 
-1. Download zip or click "Use this template"
-2. Install packages with `npm install` or `yarn install`
-3. Spin up dev environment with `npm run start` or `yarn run start`
+Before you begin, ensure you have the following installed:
+- Node.js 20.x or later
+- npm or yarn package manager
+- Expo CLI: Install using `npm install -g expo-cli`
 
-## 🤖 What's included
+## Quick Start Guide
 
-<details>
-  <summary><b>File-based Router</b></summary>
-  
-####
+1. **Create Your Project**
+   ```bash
+   # Option 1: Use as template
+   Click the "Use this template" button on GitHub
 
-Experience seamless navigation with `expo-router`, which replaces the traditional react-navigation setup. The navigation structure features a drawer menu that contains two main tabs: home and profile. Each tab has its own stack navigation for smooth screen transitions.
+   # Option 2: Download ZIP
+   Download and extract the ZIP file
+   ```
 
-Navigation Hierarchy:
+2. **Install Dependencies**
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
+
+3. **Start Development Server**
+   ```bash
+   npm run start
+   # or
+   yarn start
+   ```
+
+## Core Features
+
+### 1. Navigation System
+The project uses Expo Router with a pre-configured navigation structure:
+
 ```
-root (drawer navigation)
-  └── tabs navigation
-        ├── home tab
-        │   └── stack navigation
-        │       ├── home screen
-        │       └── details screen
-        │
-        └── profile Tab
-            └── stack Navigation
-                ├── profile screen
-                └── settings screen
+Root (Drawer)
+├── Home Tab
+│   └── Stack
+│       ├── Home Screen
+│       └── Details Screen
+└── Profile Tab
+    └── Stack
+        ├── Profile Screen
+        └── Settings Screen
 ```
 
-The setup includes:
-- A [drawer](https://github.com/wataru-maeda/react-native-boilerplate/blob/feat/expo-router/app/(main)/(tabs)/home/_layout.tsx) for main navigation
-- [Home tab](https://github.com/wataru-maeda/react-native-boilerplate/blob/feat/expo-router/app/(main)/(tabs)/home/_layout.tsx) with detailed pages
-- [Profile tab](https://github.com/wataru-maeda/react-native-boilerplate/blob/feat/expo-router/app/(main)/(tabs)/profile/_layout.tsx) with settings
+### 2. Theme Management
+- Built-in support for light and dark modes
+- Centralized theme configuration in `/theme` directory
+- Easy color switching with `useColorScheme` hook
+- Asset preloading and SVG support included
 
-</details>
+### 3. State Management
+Redux Toolkit is pre-configured with:
+- Ready-to-use store setup
+- Example slices for common patterns
+- Redux logger enabled in development
+- Hooks-based state access
 
-<details>
-  <summary><b>Global State Management</b></summary>
+### 4. Environment Setup
+Multiple environment support with:
+```bash
+.env.dev    # Development settings
+.env.prod   # Production settings
+```
 
-####
+To add new environment variables:
+1. Add variables to both .env files
+2. Update `app.config.ts` extra section
+3. Add to `utils/config.ts`
 
-Manage your app's state effortlessly with Redux Toolkit. The setup is ready to use with Redux Hooks integration. 
+### 5. Development Tools
+Pre-configured development tools:
+- ESLint for code linting
+- Prettier for code formatting
+- Jest for testing
+- Pre-commit hooks for code quality
 
-Key features:
-- Pre-configured Redux setup in the [slices](https://github.com/wataru-maeda/react-native-boilerplate/tree/feat/expo-router/slices) directory
-- Working example in [root layout](https://github.com/wataru-maeda/react-native-boilerplate/blob/feat/expo-router/app/_layout.tsx#L23)
-- Development mode includes Redux logger for easy debugging
+## Deployment
 
-Adding a new state slice is simple:
-1. Copy [app.slice.ts](https://github.com/wataru-maeda/react-native-boilerplate/blob/feat/expo-router/slices/app.slice.ts)
-2. Add it to the [store](https://github.com/wataru-maeda/react-native-boilerplate/blob/feat/expo-router/utils/store.ts#L10)
+### Mobile Deployment
+```bash
+# Build for iOS/Android
+npm run dev:build:mobile
+```
 
-</details>
+### Web Deployment
+```bash
+# Deploy to EAS Hosting
+npm run dev:deploy:web
+```
 
-<details>
-  <summary><b>Centralized Theme</b></summary>
+## Available Scripts
 
-####
+Development:
+- `npm run dev` - Run on all platforms
+- `npm run dev:ios` - Run iOS only
+- `npm run dev:android` - Run Android only
+- `npm run dev:web` - Run web only
 
-Keep your app's look consistent with our centralized theme system in the [theme directory](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/src/theme). All assets, including images, icons, fonts, and colors, are managed in one place for easy updates and maintenance.
+Building:
+- `npm run dev:build:mobile` - Build mobile apps
+- `npm run dev:build:web` - Build web version
+- `npm run dev:deploy:web` - Deploy web version
 
-Features:
-- Built-in asset preloading for better performance
-- SVG support for scalable graphics
-- Easy theme switching with [`useColorScheme`](https://github.com/wataru-maeda/react-native-boilerplate/blob/feat/expo-router/hooks/useColorScheme.ts) hook
-- Automatic dark/light mode detection
+Testing:
+- `npm run lint` - Run ESLint
+- `npm run format` - Run Prettier
+- `npm run test` - Run Jest tests
 
-</details>
+## Adding Native Code
 
-<details>
-  <summary><b>Alias Paths</b></summary>
-
-####
-
-Say goodbye to messy relative imports like `../../../components/Button`. Use clean, absolute paths such as `@/components/elements/Button` instead. This feature is configured in [tsconfig.json](https://github.com/wataru-maeda/react-native-boilerplate/blob/feat/expo-router/tsconfig.json#L6-L8) and makes your imports more maintainable and error-resistant.
-
-</details>
-
-<details>
-  <summary><b>Environment Variables</b></summary>
-
-####
-
-Manage different environments seamlessly using [dotenvx](https://dotenvx.com/). This setup handles both Expo CLI and EAS CLI environments effectively.
-
-Quick setup:
-1. Change `.env.dev.example` to `.env.dev`
-2. Set your expo username as `owner` in [app.json](https://github.com/wataru-maeda/react-native-boilerplate/blob/feat/expo-router/app.json#L6)
-3. Update `EXPO_SLUG` and `EXPO_PROJECT_ID` in `.env.dev`
-
-Adding new environment variables:
-1. Add them to `.env.dev` and `.env.prod`
-2. Include in [`extra`](https://github.com/wataru-maeda/react-native-boilerplate/blob/feat/expo-router/app.config.ts#L27-L29) object
-3. Add to [config.ts](https://github.com/wataru-maeda/react-native-boilerplate/blob/feat/expo-router/utils/config.ts#L4-L10)
-
-Check your environment setup with `npm run dev:config:public`
-
-</details>
-
-<details>
-  <summary><b>Distribution</b></summary>
-
-####
-
-Deploy your app with confidence using our streamlined distribution process:
-
-Mobile Distribution:
-- Run `npm run dev:build:mobile` to create iOS and Android builds
-
-Web Distribution:
-- Use `npm run dev:deploy:web` to deploy to [EAS Hosting](https://docs.expo.dev/eas/hosting/introduction/)
-
-</details>
-
-<details>
-  <summary><b>[CI] Code formatting, linting and testing on pre-commit</b></summary>
-
-####
-
-Maintain code quality automatically with our integrated tools:
-
-1. Real-time code checking and formatting while you work
-2. Automatic pre-commit checks ensure code quality
-3. Comprehensive testing before each commit
-
-</details>
-
-<details>
-  <summary><b>[CD] Release previews on Pull-Request (only mobile)</b></summary>
-
-####
-
-Share your work easily with automated preview builds:
-
-1. Each pull request creates a preview in your Expo account
-2. No manual EAS commands needed
-3. Setup process:
-   - Get `EXPO_TOKEN` from [Expo Access Tokens](https://expo.dev/accounts/%5Baccount%5D/settings/access-tokens)
-   - Add token to GitHub repository secrets
-   - Update project details in [app.json](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/app.json) and [app.config.ts](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/app.config.ts)
-
-</details>
-
-## 🧑‍💻 Need native code?
-
-Generate native iOS and Android code easily:
+To include native code:
 ```bash
 npx expo prebuild
 ```
-See the [Expo documentation](https://docs.expo.dev/workflow/prebuild/) for detailed instructions.
+This generates iOS and Android native projects.
 
-## 🥇 Libraries
+## Contributing
 
-Core Libraries:
-- [expo v52](https://docs.expo.dev/versions/v52.0.0)
-- [expo-asset](https://docs.expo.dev/versions/latest/sdk/asset/)
-- [expo-font](https://docs.expo.dev/versions/latest/sdk/font/)
-- [expo-image](https://docs.expo.dev/versions/latest/sdk/image/)
-- [expo-splash-screen](https://docs.expo.dev/versions/latest/sdk/splash-screen/)
-- [expo-router](https://github.com/react-navigation/react-navigation)
-- [redux-toolkit](https://redux-toolkit.js.org/)
+We welcome contributions! Please feel free to submit a Pull Request.
 
-## 🥈 Libraries for development
+## License
 
-Developer Tools:
-- [eslint](https://github.com/eslint/eslint)
-- [prettier](https://github.com/prettier/prettier)
-- [jest](https://jestjs.io/)
-- [lint-staged](https://github.com/okonet/lint-staged)
-
-## ☀️ Icons
-
-Browse and use Expo's vector icons from the [Icon Directory](https://icons.expo.fyi/)
-
-## ⚙️ Scripts
-
-Development Commands:
-- `dev`: Run on all platforms
-- `dev:ios`: Launch iOS app
-- `dev:android`: Launch Android app
-- `dev:web`: Launch web app
-- `dev:doctor`: Check project health
-- `dev:secret:push`: Upload env variables to EAS
-- `dev:secret:list`: View EAS secrets
-- `dev:build:mobile`: Create mobile builds
-- `dev:build:web`: Create web build
-- `dev:deploy:web`: Deploy to EAS Hosting
-- `dev:config:public`: View loaded env variables
-
-Quality Assurance:
-- `lint`: Check code style
-- `lint:staged`: Check staged files
-- `format`: Fix code style
-- `test`: Run all tests
-- `test:watch`: Run tests continuously
-
-Note: Use `prod` instead of `dev` in commands to use production environment variables.
-
-## 📓 License
-
-This project is available under the MIT license. See the [LICENSE](LICENSE) file for more info.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
