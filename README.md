@@ -65,6 +65,7 @@ Root (Drawer)
 ####
 
 ### State Management with Redux Toolkit
+---
 
 This project uses [**Redux Toolkit**](https://redux-toolkit.js.org/) for global state management, pre-configured with Redux Hooks for immediate use. 
 
