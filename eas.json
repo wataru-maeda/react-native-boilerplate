@@ -21,6 +21,7 @@
       "channel": "base"
     },
     "development": {
+      "environment": "development",
       "extends": "base",
       "channel": "development",
       "distribution": "internal",
@@ -49,6 +50,7 @@
     "production": {
       "extends": "base",
       "channel": "production",
+      "environment": "production",
       "env": {
         "APP_ENV": "production"
       }

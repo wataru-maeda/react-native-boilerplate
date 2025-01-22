@@ -1,6 +1,7 @@
 import { ExpoConfig, ConfigContext } from 'expo/config';
 
 export default ({ config }: ConfigContext): ExpoConfig => {
+  const buildNumber = 1;
   const expoConfig: ExpoConfig = {
     ...config,
     slug: process.env.EXPO_SLUG ?? '',
@@ -8,12 +9,12 @@ export default ({ config }: ConfigContext): ExpoConfig => {
     ios: {
       ...config.ios,
       bundleIdentifier: process.env.EXPO_IOS_BUNDLE_IDENTIFIER,
-      buildNumber: '1',
+      buildNumber: buildNumber.toString(),
     },
     android: {
       ...config.android,
       package: process.env.EXPO_ANDROID_PACKAGE,
-      versionCode: 1,
+      versionCode: buildNumber,
     },
     web: {
       ...config.web,
