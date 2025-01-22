@@ -213,9 +213,11 @@ To generate iOS and Android native code, you can run `npx expo prebuild` in the 
 - [jest](https://jestjs.io/)
 - [lint-staged](https://github.com/okonet/lint-staged)
 
-## 🥈 Scripts
+## ☀️ Icons
 
-All `dev` commands load environment variables from **.env.dev**.
+Expo provides a popular set of vector icons. Please search icons from [here](https://icons.expo.fyi/)
+
+## 🥈 Scripts
 
 - `dev`: Run the app on mobile and web.
 - `dev:ios`: Run the iOS app.
@@ -234,12 +236,8 @@ All `dev` commands load environment variables from **.env.dev**.
 - `test`: Run the test with Jest.
 - `test:watch`: Run the test with Jest in watch mode.
 
+All `dev` commands load environment variables from **.env.dev**. If you want to load environment variables from **.env.prod**, you can replace `dev` with `prod` in the command.
 For more details of those command, read the doc of [Expo CLI](https://docs.expo.dev/more/expo-cli/) and [EAS CLI](https://docs.expo.dev/eas/)
-
-## ☀️ Icons
-
-Expo provides a popular set of vector icons. Please search icons from [here](https://icons.expo.fyi/)
-
 
 ## 📓 License
 
