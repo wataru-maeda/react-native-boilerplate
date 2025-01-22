@@ -27,6 +27,7 @@ export default ({ config }: ConfigContext): ExpoConfig => {
       eas: { projectId: process.env.EXPO_PROJECT_ID },
       env: process.env.ENV,
       apiUrl: process.env.API_URL,
+      // add more env variables here...
     },
     plugins: [
       'expo-router',
