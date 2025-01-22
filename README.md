@@ -83,7 +83,7 @@ Also, The project initially setup with color schema hook which you can easily de
 </details>
 
 <details>
-  <summary><b>Absolute Paths</b></summary>
+  <summary><b>Alias Paths</b></summary>
 
 ####
 
@@ -145,43 +145,19 @@ If you are not intend to use the pre-structured env variable flow, you can use `
 </details>
 
 <details>
-  <summary><b>Web Development</b></summary>
-  
+  <summary><b>Distribution</b></summary>
+
 ####
 
-The project supports web development through Expo Web, enabling you to build and deploy your React Native application for browsers.
-- Run `npm run web` or `yarn web` to start the development server for web.
-- Execute `npm run dev:deploy:web` to build and deploy your web application in one step.
-- Web-specific configurations can be adjusted in [app.config.ts](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/app.config.ts) under the `web` property.
-- The deployment process utilizes GitHub Pages, configured through the project's GitHub repository settings.
+- The project is equipped with a streamlined distribution process for both mobile and web platforms. Here's how you can deploy your app to various platforms:
 
-</details>
+1. **Mobile Distribution**
+- Run `npm run dev:build:mobile` to build the app distribution for iOS and Android.
+- The build process generates an APK file for Android and an IPA file for iOS, which can be used for further testing or deployment.
 
-<details>
-  <summary><b>Scripts</b></summary>
-  
-####
-
-All `dev` commands load environment variables from **.env.dev**.
-
-- `dev`: Run the app on mobile and web.
-- `dev:ios`: Run the iOS app.
-- `dev:android`: Run the Android app.
-- `dev:web`: Run the Web app.
-- `dev:doctor`: Diagnose issues in your Expo project.
-- `dev:secret:push`: Push secrets to EAS servers. All secrets are read from .env.dev file and upload to EAS servers.
-- `dev:secret:list`: List all secrets uploaded to the EAS servers
-- `dev:build:mobile`: Build app distribution for iOS and Android.
-- `dev:build:web`: Build web locally.
-- `dev:deploy:web`: Build and deploy web build to [EAS Hosting](https://docs.expo.dev/eas/hosting/introduction/)
-- `dev:config:public`: Show the loaded environment variables in the console.
-- `lint`: Lint the codebase with ESLint.
-- `lint:staged`: Lint the staged files with ESLint.
-- `format`: Format the codebase with Prettier.
-- `test`: Run the test with Jest.
-- `test:watch`: Run the test with Jest in watch mode.
-
-For more details of those command, read the doc of [Expo CLI](https://docs.expo.dev/more/expo-cli/) and [EAS CLI](https://docs.expo.dev/eas/)
+2. **Web Distribution**
+- Run `npm run dev:deploy:web` to build and deploy the web application to [EAS Hosting](https://docs.expo.dev/eas/hosting/introduction/).
+- The deployment process is configured to leverage GitHub Pages, ensuring a seamless and efficient deployment experience.
 
 </details>
 
@@ -216,24 +192,6 @@ To set up the CD workflow, follow these steps:
 
 </details>
 
-
-<details>
-  <summary><b>Mobile and Web Distribution</b></summary>
-
-####
-
-- The project is equipped with a streamlined distribution process for both mobile and web platforms. Here's how you can deploy your app to various platforms:
-
-1. **Mobile Distribution**
-- Run `npm run dev:build:mobile` to build the app distribution for iOS and Android.
-- The build process generates an APK file for Android and an IPA file for iOS, which can be used for further testing or deployment.
-
-2. **Web Distribution**
-- Run `npm run dev:deploy:web` to build and deploy the web application to [EAS Hosting](https://docs.expo.dev/eas/hosting/introduction/).
-- The deployment process is configured to leverage GitHub Pages, ensuring a seamless and efficient deployment experience.
-
-</details>
-
 ## 🧑‍💻 Need native code?
 
 To generate iOS and Android native code, you can run `npx expo prebuild` in the project's root directory. For more details and specific instructions, please refer to the [Expo documentation page](https://docs.expo.dev/workflow/prebuild/).
@@ -254,6 +212,29 @@ To generate iOS and Android native code, you can run `npx expo prebuild` in the 
 - [prettier](https://github.com/prettier/prettier)
 - [jest](https://jestjs.io/)
 - [lint-staged](https://github.com/okonet/lint-staged)
+
+## 🥈 Scripts
+
+All `dev` commands load environment variables from **.env.dev**.
+
+- `dev`: Run the app on mobile and web.
+- `dev:ios`: Run the iOS app.
+- `dev:android`: Run the Android app.
+- `dev:web`: Run the Web app.
+- `dev:doctor`: Diagnose issues in your Expo project.
+- `dev:secret:push`: Push secrets to EAS servers. All secrets are read from .env.dev file and upload to EAS servers.
+- `dev:secret:list`: List all secrets uploaded to the EAS servers
+- `dev:build:mobile`: Build app distribution for iOS and Android.
+- `dev:build:web`: Build web locally.
+- `dev:deploy:web`: Build and deploy web build to [EAS Hosting](https://docs.expo.dev/eas/hosting/introduction/)
+- `dev:config:public`: Show the loaded environment variables in the console.
+- `lint`: Lint the codebase with ESLint.
+- `lint:staged`: Lint the staged files with ESLint.
+- `format`: Format the codebase with Prettier.
+- `test`: Run the test with Jest.
+- `test:watch`: Run the test with Jest in watch mode.
+
+For more details of those command, read the doc of [Expo CLI](https://docs.expo.dev/more/expo-cli/) and [EAS CLI](https://docs.expo.dev/eas/)
 
 ## ☀️ Icons
 
