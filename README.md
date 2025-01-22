@@ -217,7 +217,7 @@ To generate iOS and Android native code, you can run `npx expo prebuild` in the 
 
 Expo provides a popular set of vector icons. Please search icons from [here](https://icons.expo.fyi/)
 
-## 🥈 Scripts
+## ⚙️ Scripts
 
 - `dev`: Run the app on mobile and web.
 - `dev:ios`: Run the iOS app.
