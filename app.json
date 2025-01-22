@@ -14,7 +14,8 @@
       "dark": {
         "backgroundColor": "#101212"
       },
-      "image": "./assets/images/splash.png",
+      "image": "./assets/images/logo-sm.png",
+      "imageWidth": 200,
       "resizeMode": "contain"
     },
     "ios": {

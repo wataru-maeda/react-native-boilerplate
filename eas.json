@@ -5,9 +5,6 @@
   "build": {
     "base": {
       "node": "20.9.0",
-      "env": {
-        "APP_ENV": "production"
-      },
       "ios": {
         "image": "auto",
         "resourceClass": "m-medium"
@@ -28,7 +25,7 @@
       },
       "android": {
         "buildType": "app-bundle",
-        "gradleCommand": ":app:bundleRelease"
+        "gradleCommand": ":app:assembleDebug"
       }
     },
     "production": {

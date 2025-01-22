@@ -1,7 +1,6 @@
 import { ExpoConfig, ConfigContext } from 'expo/config';
 
 export default ({ config }: ConfigContext): ExpoConfig => {
-  const buildNumber = 1;
   const expoConfig: ExpoConfig = {
     ...config,
     slug: process.env.EXPO_SLUG ?? '',
@@ -9,12 +8,10 @@ export default ({ config }: ConfigContext): ExpoConfig => {
     ios: {
       ...config.ios,
       bundleIdentifier: process.env.EXPO_IOS_BUNDLE_IDENTIFIER,
-      buildNumber: buildNumber.toString(),
     },
     android: {
       ...config.android,
       package: process.env.EXPO_ANDROID_PACKAGE,
-      versionCode: buildNumber,
     },
     web: {
       ...config.web,
@@ -39,7 +36,8 @@ export default ({ config }: ConfigContext): ExpoConfig => {
           dark: {
             backgroundColor: '#101212',
           },
-          image: './assets/images/splash.png',
+          image: './assets/images/logo-sm.png',
+          imageWidth: 200,
           resizeMode: 'contain',
         },
       ],
