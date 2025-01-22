@@ -14,7 +14,6 @@
   <img src='https://github.com/wataru-maeda/react-native-boilerplate/blob/feat/expo-router/__DELELE_ME__/demo-light-theme.gif' width='150px'>
 </p>
 
-
 Say goodbye to time-consuming setup tasks like restructuring files, installing libraries, and crafting reusable components. Our project boilerplate is your solution to eliminate redundant work when starting from scratch. It includes only the most commonly-used libraries, so you can hit the ground running with a fully configured setup.
 
 ## 🗒️ Requirements
@@ -35,15 +34,37 @@ Say goodbye to time-consuming setup tasks like restructuring files, installing l
   <summary><b>Navigation</b></summary>
   
 ####
-Utilizes `react-navigation v6` for stack, tab, and drawer navigation configurations as the default setup.
-Flexibility in modifying navigation styles. For adjustments to the navigation style, refer to the implementation details in [Stack.tsx](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/src/navigator/stack/Stack.tsx), [Drawer.tsx](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/src/navigator/drawer/Drawer.tsx), and [Tab.tsx](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/src/navigator/tab/Tab.tsx).
 
-#### Simplified navigation structure customization:
-- To omit a navigation type, such as drawer navigation, simply remove the corresponding drawer file. Alterations to the navigation type can be effortlessly made by substituting the navigation configuration in [Navigator.tsx](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/src/navigator/Navigator.tsx#L5) with your preferred choice between tab or stack navigation.
+The project has updated from react-navigation to `expo-router`, utilizing it for stack, tab, and drawer navigation configurations. The navigation structure consists of a [Drawer](https://github.com/wataru-maeda/react-native-boilerplate/blob/feat/expo-router/app/(main)/(tabs)/home/_layout.tsx) that wraps two Tabs ([Home](https://github.com/wataru-maeda/react-native-boilerplate/blob/feat/expo-router/app/(main)/(tabs)/home/_layout.tsx) and [Profile](https://github.com/wataru-maeda/react-native-boilerplate/blob/feat/expo-router/app/(main)/(tabs)/profile/_layout.tsx)). The Home tab contains [Stack navigation](https://github.com/wataru-maeda/react-native-boilerplate/blob/feat/expo-router/app/(main)/(tabs)/home/_layout.tsx) for moving between home and details pages, while the Profile tab has Stack navigation for accessing profile and settings pages. This navigation system is designed to be both intuitive and highly customizable to suit specific requirements.
 
-#### Dynamic navigation switching based on user status:
-  - Integration of login and signup functionality is crucial for apps requiring user authentication. The navigation scheme should adapt according to the user's authentication status.
-  - The [navigator](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/src/navigator/Navigator.tsx#L17-L22) allows for the configuration of distinct navigation paths contingent on whether the user is logged in or not.
+Navigation Hierarchy
+
+```
+Root (Drawer Navigation)
+  └── Tabs Navigation
+        ├── Home Tab
+        │   └── Stack Navigation
+        │       ├── Home Screen
+        │       └── Details Screen
+        │
+        └── Profile Tab
+            └── Stack Navigation
+                ├── Profile Screen
+                └── Settings Screen
+```
+
+</details>
+
+<details>
+  <summary><b>Web Development</b></summary>
+  
+####
+
+The project supports web development through Expo Web, enabling you to build and deploy your React Native application for browsers.
+- Run `npm run web` or `yarn web` to start the development server for web.
+- Execute `npm run dev:deploy:web` to build and deploy your web application in one step.
+- Web-specific configurations can be adjusted in [app.config.ts](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/app.config.ts) under the `web` property.
+- The deployment process utilizes GitHub Pages, configured through the project's GitHub repository settings.
 
 </details>
 
@@ -104,7 +125,6 @@ Environment variables can be defined within the respective files for different d
 2. Committing changes triggers a pre-commit script that meticulously checks, formats, and tests your code. This comprehensive review process ensures your contributions are both error-free and stylistically consistent.
 3. Successfully navigating through the stages of code verification, formatting, and testing empowers you to commit your changes with absolute confidence. You can rest assured knowing your code is not only efficient but also meets the highest standards of quality and reliability.
 
-
 </details>
 
 <details>
@@ -133,13 +153,12 @@ To generate iOS and Android native code, you can run `npx expo prebuild` in the 
 
 ## 🥇 Libraries
 
-- [expo v52](https://docs.expo.dev/versions/v51.0.0)
+- [expo v52](https://docs.expo.dev/versions/v52.0.0)
 - [expo-asset](https://docs.expo.dev/versions/latest/sdk/asset/)
 - [expo-font](https://docs.expo.dev/versions/latest/sdk/font/)
 - [expo-image](https://docs.expo.dev/versions/latest/sdk/image/)
 - [expo-splash-screen](https://docs.expo.dev/versions/latest/sdk/splash-screen/)
-- [expo-status-bar](https://docs.expo.dev/versions/latest/sdk/status-bar/)
-- [react-navigation 6.x](https://github.com/react-navigation/react-navigation)
+- [expo-router](https://github.com/react-navigation/react-navigation)
 - [redux-toolkit](https://redux-toolkit.js.org/)
 
 ## 🥈 Libraries for development
