@@ -97,9 +97,7 @@ The project simplifies asset and theme management through a centralized [`/theme
 
 ####
 
-Navigating through complex project architectures with deeply nested folders often complicates the use of relative paths, potentially leading to errors. To alleviate this issue, our boilerplate simplifies the development process by facilitating the use of absolute paths. This means you can replace convoluted relative paths like `../../../components/Button` with straightforward references such as `@/components/elements/Button` in your import statements.
-The implementation for this feature is configured within [tsconfig.json](https://github.com/wataru-maeda/react-native-boilerplate/blob/feat/expo-router/tsconfig.json#L6-L8) files. These configurations ensure a hassle-free experience in utilizing absolute paths across your project, enhancing clarity and reducing the likelihood of path-related errors.
-
+The project uses absolute imports to simplify development by replacing complex relative paths (like `../../../components/Button`) with cleaner paths (like `@/components/elements/Button`), configured in [`tsconfig.json`](https://github.com/wataru-maeda/react-native-boilerplate/blob/feat/expo-router/tsconfig.json#L6-L8) for hassle-free navigation through deeply nested project structures.
 
 </details>
 
@@ -108,49 +106,43 @@ The implementation for this feature is configured within [tsconfig.json](https:/
 
 ####
 
-The project use [dotenvx](https://dotenvx.com/) to load environment variables into the project. Currently Expo and EAS CLI has different behavior when it comes to environment variables. Expo CLI loads `.env` file but EAS CLI doesn't load `.env` file. So we decided to use external env variable library like `dotenvx` to adjust both cases.
+### Environment Variables Management
 
-The project has pre-configured environment variables for development, and production environments which you can find in [.env.dev.example](https://github.com/wataru-maeda/react-native-boilerplate/blob/feat/expo-router/.env.dev.example) and [.env.production.example](https://github.com/wataru-maeda/react-native-boilerplate/blob/feat/expo-router/.env.prod.example). The configuration allows you to have separate expo project accounts for development and production environments.
+The project uses [`dotenvx`](https://dotenvx.com/) to handle environment variables across both Expo CLI and EAS CLI builds. Here's how it works:
 
-To use your own expo project account in development environment for example,
-1. Rename .env.dev.example to .env.dev
-2. Update `owner` in [app.json](https://github.com/wataru-maeda/react-native-boilerplate/blob/feat/expo-router/app.json#L6) to your expo user name
-3. Update `EXPO_SLUG` and `EXPO_PROJECT_ID` in .env.dev file at least
+#### Setup Structure
+- `.env.dev.example` - Development environment template
+- `.env.prod.example` - Production environment template
+- Configuration in [`app.config.ts`](https://github.com/wataru-maeda/react-native-boilerplate/blob/feat/expo-router/app.config.ts) and [`utils/config.ts`](https://github.com/wataru-maeda/react-native-boilerplate/blob/feat/expo-router/utils/config.ts)
 
-Now all ready to use your own expo project account in development environment.
+#### Getting Started with Your Expo Account
+1. Copy `.env.dev.example` to `.env.dev`
+2. Update `owner` in [`app.json`](https://github.com/wataru-maeda/react-native-boilerplate/blob/feat/expo-router/app.json#L6) with your Expo username
+3. Set your `EXPO_SLUG` and `EXPO_PROJECT_ID` in `.env.dev`
 
-To add new environment variables to use in your app, you can take 3 steps
-1. Add new env variables to the `.env.dev` and `.env.prod` files
-2. Load the new env variables in the app.config.ts file, Add them in the [`extra`](https://github.com/wataru-maeda/react-native-boilerplate/blob/feat/expo-router/app.config.ts#L27-L29) object
-3. Add new env variables in [config.ts](https://github.com/wataru-maeda/react-native-boilerplate/blob/feat/expo-router/utils/config.ts#L4-L10)
+#### Adding New Environment Variables
+1. Add variables to both `.env.dev` and `.env.prod`
+2. Include them in `app.config.ts` under the [`extra`](https://github.com/wataru-maeda/react-native-boilerplate/blob/feat/expo-router/app.config.ts#L29) object
+3. Define them in [`utils/config.ts`](https://github.com/wataru-maeda/react-native-boilerplate/blob/feat/expo-router/utils/config.ts#L6)
 
-Once you successfully added the new environments, you'll see at the [bottom sheet](https://github.com/wataru-maeda/react-native-boilerplate/blob/feat/expo-router/components/layouts/BottomSheetContents/BottomSheetContents.tsx#L82-L86) of the app. 
+#### Verify Configuration
+- Check variables in the app's bottom sheet OR...
+- Run `npm run dev:config:public` to view loaded variables in console
 
-Or check by the command `npm run dev:config:public`. You can see the loaded environment variables in the console.
+### Environment Variables & Security
 
-example:
-```
-{
-...
-  extra: {
-    env: 'development',
-    apiUrl: 'https://example.com',
-    eas: {
-      projectId: '18adc0d0-eb1d-11e9-8009-d524ed5cc4a7'
-    },
-    router: {
-      origin: false
-    }
-  },
-  androidStatusBar: {
-    backgroundColor: '#ffffff'
-  }
-}
-```
+The project intentionally avoids using `EXPO_PUBLIC_` prefix for environment variables, instead utilizing EAS secrets for enhanced security. Here's why:
 
-Some may consider the project is not using `EXPO_PUBLIC_` prefix for environment variables which is one of the way to access the env variable in client from process.env property. This is because we use .env files to upload the env variables to EAS servers as [`secret`](https://docs.expo.dev/eas/environment-variables/#visibility). Secret cannot include `EXPO_PUBLIC_` prefix. Once you upload the variables to EAS server, those are only readable in EAS servers which mean you can securely read the variables in [EAS build](https://docs.expo.dev/build/introduction/) and [EAS submit](https://docs.expo.dev/submit/introduction/). You can upload the variables to EAS servers from .env.dev and .env.prod files to EAS servers by running `npm run dev:secret:push` so that you do not need to manually upload the variables to EAS servers.
+#### Current Approach
+- Variables are uploaded to EAS servers as `secrets`
+- Securely accessible only during EAS build and submit processes
+- Use `npm run dev:secret:push` to automatically upload variables from `.env.dev` and `.env.prod`
 
-If you are not intend to use the pre-structured env variable flow, you can use `EXPO_PUBLIC_` prefix to easily access env variables from process.env property. But please do not store any sensitive information with the prefix. Otherwise it will be exposed to client. For comprehensive guidelines on securely managing sensitive data, refer to the recommendations provided in [storing sensitive info](https://reactnative.dev/docs/security#storing-sensitive-info).
+#### Alternative Approach
+If you prefer direct access via `process.env`:
+- Use `EXPO_PUBLIC_` prefix for non-sensitive data
+- **Warning**: Never store sensitive information with `EXPO_PUBLIC_` prefix as it exposes data to clients
+- For sensitive data handling, follow [React Native's security guidelines](https://reactnative.dev/docs/security#storing-sensitive-info) for storing sensitive information
 
 </details>
 
