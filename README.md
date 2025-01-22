@@ -56,19 +56,6 @@ Root (Drawer Navigation)
 </details>
 
 <details>
-  <summary><b>Web Development</b></summary>
-  
-####
-
-The project supports web development through Expo Web, enabling you to build and deploy your React Native application for browsers.
-- Run `npm run web` or `yarn web` to start the development server for web.
-- Execute `npm run dev:deploy:web` to build and deploy your web application in one step.
-- Web-specific configurations can be adjusted in [app.config.ts](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/app.config.ts) under the `web` property.
-- The deployment process utilizes GitHub Pages, configured through the project's GitHub repository settings.
-
-</details>
-
-<details>
   <summary><b>Redux</b></summary>
 
 ####
@@ -112,6 +99,19 @@ The implementation for this feature is configured within both the [babel.config.
 Environment variables can be defined within the respective files for different deployment stages: [.env.development](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/.env.development) for development, [.env.production](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/.env.production) for production, and [.env.test](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/.env.test) for test.
 - To spinup the project in a ***development*** environment, execute `npm run start:dev`. Conversely, for launching the project in a ***production***, use `npm run start`.
 - It is imperative to avoid storing sensitive information, such as private keys, within variables prefixed by `EXPO_PUBLIC_`. For comprehensive guidelines on securely managing sensitive data, refer to the recommendations provided in [storing sensitive info](https://reactnative.dev/docs/security#storing-sensitive-info).
+
+</details>
+
+<details>
+  <summary><b>Web Development</b></summary>
+  
+####
+
+The project supports web development through Expo Web, enabling you to build and deploy your React Native application for browsers.
+- Run `npm run web` or `yarn web` to start the development server for web.
+- Execute `npm run dev:deploy:web` to build and deploy your web application in one step.
+- Web-specific configurations can be adjusted in [app.config.ts](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/app.config.ts) under the `web` property.
+- The deployment process utilizes GitHub Pages, configured through the project's GitHub repository settings.
 
 </details>
 
