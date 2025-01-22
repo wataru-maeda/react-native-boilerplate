@@ -3,29 +3,29 @@ import { ExpoConfig, ConfigContext } from 'expo/config';
 export default ({ config }: ConfigContext): ExpoConfig => {
   const expoConfig: ExpoConfig = {
     ...config,
-    slug: process.env.EXPO_PUBLIC_SLUG ?? '',
-    name: process.env.EXPO_PUBLIC_NAME ?? '',
+    slug: process.env.EXPO_SLUG ?? '',
+    name: process.env.EXPO_NAME ?? '',
     ios: {
       ...config.ios,
-      bundleIdentifier: process.env.EXPO_PUBLIC_IOS_BUNDLE_IDENTIFIER,
+      bundleIdentifier: process.env.EXPO_IOS_BUNDLE_IDENTIFIER,
       buildNumber: '1',
     },
     android: {
       ...config.android,
-      package: process.env.EXPO_PUBLIC_IOS_ANDROID_PACKAGE,
+      package: process.env.EXPO_ANDROID_PACKAGE,
       versionCode: 1,
     },
     web: {
       ...config.web,
     },
     updates: {
-      url: `https://u.expo.dev/${process.env.EXPO_PUBLIC_PROJECT_ID}`,
+      url: `https://u.expo.dev/${process.env.EXPO_PROJECT_ID}`,
     },
     extra: {
       ...config.extra,
-      eas: { projectId: process.env.EXPO_PUBLIC_PROJECT_ID },
-      env: process.env.EXPO_PUBLIC_ENV,
-      apiUrl: process.env.EXPO_PUBLIC_API_URL,
+      eas: { projectId: process.env.EXPO_PROJECT_ID },
+      env: process.env.ENV,
+      apiUrl: process.env.API_URL,
     },
     plugins: [
       'expo-router',
