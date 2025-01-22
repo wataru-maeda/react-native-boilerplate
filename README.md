@@ -24,59 +24,66 @@ Say goodbye to time-consuming setup tasks like restructuring files, installing l
 ## 🚀 Quick Start
 
 1. Download zip or click "Use this template"
-1. Install packages with `npm install` or `yarn install`
-1. Spin up dev environment with `npm run start` or `yarn run start`
+2. Install packages with `npm install` or `yarn install`
+3. Spin up dev environment with `npm run start` or `yarn run start`
 
 ## 🤖 What's included
 
 
 <details>
-  <summary><b>Navigation</b></summary>
+  <summary><b>File-based Router</b></summary>
   
 ####
 
-The project has updated from react-navigation to `expo-router`, utilizing it for stack, tab, and drawer navigation configurations. The navigation structure consists of a [Drawer](https://github.com/wataru-maeda/react-native-boilerplate/blob/feat/expo-router/app/(main)/(tabs)/home/_layout.tsx) that wraps two Tabs ([Home](https://github.com/wataru-maeda/react-native-boilerplate/blob/feat/expo-router/app/(main)/(tabs)/home/_layout.tsx) and [Profile](https://github.com/wataru-maeda/react-native-boilerplate/blob/feat/expo-router/app/(main)/(tabs)/profile/_layout.tsx)). The Home tab contains [Stack navigation](https://github.com/wataru-maeda/react-native-boilerplate/blob/feat/expo-router/app/(main)/(tabs)/home/_layout.tsx) for moving between home and details pages, while the Profile tab has Stack navigation for accessing profile and settings pages. This navigation system is designed to be both intuitive and highly customizable to suit specific requirements.
+The project has updated from react-navigation to `expo-router`, utilizing it for stack, tab, and drawer navigation configurations. 
+
+The navigation structure consists of a [drawer](https://github.com/wataru-maeda/react-native-boilerplate/blob/feat/expo-router/app/(main)/(tabs)/home/_layout.tsx) that wraps two Tabs ([home tab](https://github.com/wataru-maeda/react-native-boilerplate/blob/feat/expo-router/app/(main)/(tabs)/home/_layout.tsx) and [profile tab](https://github.com/wataru-maeda/react-native-boilerplate/blob/feat/expo-router/app/(main)/(tabs)/profile/_layout.tsx)). The Home tab contains [stack](https://github.com/wataru-maeda/react-native-boilerplate/blob/feat/expo-router/app/(main)/(tabs)/home/_layout.tsx) navigation for moving between home and details pages, while the Profile tab has Stack navigation for accessing profile and settings pages. This navigation system is designed to be both intuitive and highly customizable to suit specific requirements.
 
 Navigation Hierarchy
 
 ```
-Root (Drawer Navigation)
-  └── Tabs Navigation
-        ├── Home Tab
-        │   └── Stack Navigation
-        │       ├── Home Screen
-        │       └── Details Screen
+root (drawer navigation)
+  └── tabs navigation
+        ├── home tab
+        │   └── stack navigation
+        │       ├── home screen
+        │       └── details screen
         │
-        └── Profile Tab
-            └── Stack Navigation
-                ├── Profile Screen
-                └── Settings Screen
+        └── profile Tab
+            └── stack Navigation
+                ├── profile screen
+                └── settings screen
 ```
 
 </details>
 
 <details>
-  <summary><b>Redux</b></summary>
-
+  <summary><b>Color Theme</b></summary>
+  
 ####
 
-Redux Hooks are pre-configured for immediate use.
-- Learn how to set up Redux Hooks by reviewing [app.slice.ts](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/src/modules/app/app.slice.ts).
-- Discover the application of Redux Hooks in [Navigator.tsx](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/src/navigator/Navigator.tsx#L18).
-    
-Access all Redux modules within the [modules folder](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/src/modules).The boilerplate includes Redux Hooks integration for straightforward state management. For an illustration of module utilization, refer to [app.slice.ts](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/src/modules/app/app.slice.ts).
-- To create a new module, replicate [app.slice.ts](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/src/modules/app/app.slice.ts), rename it appropriately within the modules directory, and subsequently incorporate the module into the [store](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/src/utils/store.ts#L9). The process is designed to be straightforward and efficient.
+The project initially setup with color schema hook which you can easily detect the current theme from the book. Switch color based on the theme. You can import [`useColorScheme`]() hook which adapt both mobile and web. The hook return the current color scheme name and flag (isDark, isLight). So it's easy to switch the color based on the theme.
 
 </details>
 
 <details>
-  <summary><b>Assets</b></summary>
+  <summary><b>Global State (Redux)</b></summary>
 
 ####
 
-This project centralizes the management of assets, including images, icons, and fonts, within the [theme directory](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/src/theme). For seamless integration of new assets, ensure their importation into the designated files where they will be utilized. This approach facilitates streamlined access to all assets via the theme structure.
-To further optimize performance, asset preloading has been incorporated into the boilerplate. This setup also supports the use of SVG files, offering extensive flexibility in managing visual resources. Assets are made effortlessly accessible for implementation across the project by importing them directly from the theme.
+Global state is quite important for app state management. The project uses Redux Toolkit for global state management. The project has pre-configured Redux Toolkit with Redux Hooks for immediate use. You can easily set up Redux Hooks by reviewing under [slices](https://github.com/wataru-maeda/react-native-boilerplate/tree/feat/expo-router/slices) directory. The application of Redux Hooks example (how to read and write) can be found in [root layout](https://github.com/wataru-maeda/react-native-boilerplate/blob/feat/expo-router/app/_layout.tsx#L23)
 
+To add a new slice, you can copy and past [app.slice.ts](https://github.com/wataru-maeda/react-native-boilerplate/blob/feat/expo-router/slices/app.slice.ts) under slices directory and rename it. Then you can add the slice to the [store](https://github.com/wataru-maeda/react-native-boilerplate/blob/feat/expo-router/utils/store.ts#L10)
+
+</details>
+
+<details>
+  <summary><b>Theme</b></summary>
+
+####
+
+This project centralizes the management of assets, including images, icons, fonts, colors within the [theme directory](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/src/theme). For seamless integration of new assets, ensure their importation into the designated files where they will be utilized. This approach facilitates streamlined access to all assets via the theme structure.
+To further optimize performance, asset preloading has been incorporated into the boilerplate. This setup also supports the use of SVG files, offering extensive flexibility in managing visual resources. Assets are made effortlessly accessible for implementation across the project by importing them directly from the theme.
 
 </details>
 
@@ -85,8 +92,8 @@ To further optimize performance, asset preloading has been incorporated into the
 
 ####
 
-Navigating through complex project architectures with deeply nested folders often complicates the use of relative paths, potentially leading to errors. To alleviate this issue, our boilerplate simplifies the development process by facilitating the use of absolute paths. This means you can replace convoluted relative paths like `../../../components/Button` with straightforward references such as `@/components/Button` in your import statements.
-The implementation for this feature is configured within both the [babel.config.js](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/babel.config.js) and [tsconfig.json](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/tsconfig.json) files. These configurations ensure a hassle-free experience in utilizing absolute paths across your project, enhancing clarity and reducing the likelihood of path-related errors.
+Navigating through complex project architectures with deeply nested folders often complicates the use of relative paths, potentially leading to errors. To alleviate this issue, our boilerplate simplifies the development process by facilitating the use of absolute paths. This means you can replace convoluted relative paths like `../../../components/Button` with straightforward references such as `@/components/elements/Button` in your import statements.
+The implementation for this feature is configured within [tsconfig.json](https://github.com/wataru-maeda/react-native-boilerplate/blob/feat/expo-router/tsconfig.json#L6-L8) files. These configurations ensure a hassle-free experience in utilizing absolute paths across your project, enhancing clarity and reducing the likelihood of path-related errors.
 
 
 </details>
@@ -95,6 +102,109 @@ The implementation for this feature is configured within both the [babel.config.
   <summary><b>Environment Variables</b></summary>
 
 ####
+
+The project use [dotenvx](https://dotenvx.com/) to load environment variables into the project. Currently Expo CLI and EAS CLI has different environment variable management. Expo CLI supports `.env` file but EAS CLI doesn't support `.env` file. So we need to use external env variable library like `dotenvx` to load environment variables to adjust both cases.
+
+The project has pre-configured environment variables for development, and production environments which you can find in [.env.dev.example](https://github.com/wataru-maeda/react-native-boilerplate/blob/feat/expo-router/.env.dev.example) and [.env.production.example](https://github.com/wataru-maeda/react-native-boilerplate/blob/feat/expo-router/.env.prod.example). The configuration allows you to have separate expo project accounts for development and production environments.
+
+To use your own expo project account in development environment for example,
+1. Rename .env.dev.example to .env.dev
+2. Update `owner` in [app.json](https://github.com/wataru-maeda/react-native-boilerplate/blob/feat/expo-router/app.json#L6) to your expo user name
+3. Update `EXPO_SLUG` and `EXPO_PROJECT_ID` in .env.dev file at least
+Now all ready to use your own expo project account in development environment.
+
+To check if environment variables are propery loaded by command `npm run dev:config:public`. You can see the loaded environment variables in the console.
+
+example:
+```
+{
+  name: 'React Native Boilerplate',
+  slug: 'react-native-boilerplate',
+  version: '3.0.0',
+  owner: 'wataru',
+  newArchEnabled: true,
+  platforms: [
+    'ios',
+    'android',
+    'web'
+  ],
+  orientation: 'portrait',
+  icon: './assets/images/logo-lg.png',
+  userInterfaceStyle: 'automatic',
+  description: undefined,
+  sdkVersion: '52.0.0',
+  plugins: [
+    'expo-router',
+    'expo-asset',
+    [
+      'expo-splash-screen',
+      {
+        backgroundColor: '#ffffff',
+        image: './assets/images/logo-lg.png',
+        imageWidth: 200,
+        resizeMode: 'contain',
+        dark: {
+          backgroundColor: '#101212'
+        }
+      }
+    ],
+    [
+      'expo-font',
+      {
+        fonts: [
+          './assets/fonts/OpenSans-Bold.ttf',
+          './assets/fonts/OpenSans-BoldItalic.ttf',
+          './assets/fonts/OpenSans-Italic.ttf',
+          './assets/fonts/OpenSans-Regular.ttf',
+          './assets/fonts/OpenSans-Semibold.ttf',
+          './assets/fonts/OpenSans-SemiboldItalic.ttf'
+        ]
+      }
+    ]
+  ],
+  splash: {
+    backgroundColor: '#ffffff',
+    image: './assets/images/logo-lg.png',
+    resizeMode: 'contain',
+    dark: {
+      backgroundColor: '#101212'
+    }
+  },
+  ios: {
+    supportsTablet: true,
+    bundleIdentifier: 'com.watarumaeda.react-native-boilerplate'
+  },
+  android: {
+    package: 'com.watarumaeda.react_native_boilerplate',
+    adaptiveIcon: {
+      foregroundImage: './assets/images/logo-sm.png',
+      backgroundColor: '#ffffff'
+    }
+  },
+  web: {
+    favicon: './assets/images/logo-sm.png'
+  },
+  runtimeVersion: {
+    policy: 'sdkVersion'
+  },
+  updates: {
+    url: 'https://u.expo.dev/18adc0d0-eb1d-11e9-8009-d524ed5cc4a7'
+  },
+  extra: {
+    env: 'development',
+    apiUrl: 'https://example.com',
+    eas: {
+      projectId: '18adc0d0-eb1d-11e9-8009-d524ed5cc4a7'
+    },
+    router: {
+      origin: false
+    }
+  },
+  androidStatusBar: {
+    backgroundColor: '#ffffff'
+  }
+}
+```
 
 Environment variables can be defined within the respective files for different deployment stages: [.env.development](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/.env.development) for development, [.env.production](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/.env.production) for production, and [.env.test](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/.env.test) for test.
 - To spinup the project in a ***development*** environment, execute `npm run start:dev`. Conversely, for launching the project in a ***production***, use `npm run start`.
