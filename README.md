@@ -103,7 +103,7 @@ The implementation for this feature is configured within [tsconfig.json](https:/
 
 ####
 
-The project use [dotenvx](https://dotenvx.com/) to load environment variables into the project. Currently Expo CLI and EAS CLI has different environment variable management. Expo CLI supports `.env` file but EAS CLI doesn't support `.env` file. So we need to use external env variable library like `dotenvx` to load environment variables to adjust both cases.
+The project use [dotenvx](https://dotenvx.com/) to load environment variables into the project. Currently Expo and EAS CLI has different behavior when it comes to environment variables. Expo CLI loads `.env` file but EAS CLI doesn't load `.env` file. So we decided to use external env variable library like `dotenvx` to adjust both cases.
 
 The project has pre-configured environment variables for development, and production environments which you can find in [.env.dev.example](https://github.com/wataru-maeda/react-native-boilerplate/blob/feat/expo-router/.env.dev.example) and [.env.production.example](https://github.com/wataru-maeda/react-native-boilerplate/blob/feat/expo-router/.env.prod.example). The configuration allows you to have separate expo project accounts for development and production environments.
 
@@ -111,6 +111,7 @@ To use your own expo project account in development environment for example,
 1. Rename .env.dev.example to .env.dev
 2. Update `owner` in [app.json](https://github.com/wataru-maeda/react-native-boilerplate/blob/feat/expo-router/app.json#L6) to your expo user name
 3. Update `EXPO_SLUG` and `EXPO_PROJECT_ID` in .env.dev file at least
+
 Now all ready to use your own expo project account in development environment.
 
 To add new environment variables to use in your app, you can take 3 steps
@@ -120,87 +121,12 @@ To add new environment variables to use in your app, you can take 3 steps
 
 Once you successfully added the new environments, you'll see at the [bottom sheet](https://github.com/wataru-maeda/react-native-boilerplate/blob/feat/expo-router/components/layouts/BottomSheetContents/BottomSheetContents.tsx#L82-L86) of the app. 
 
-Some may consider the project is not using `EXPO_PUBLIC_` prefix for environment variables which is one of the way to access the env variable in client from process.env property. This is because we use .env files to upload the env variables to EAS servers as [`secret`](https://docs.expo.dev/eas/environment-variables/#visibility). Secret cannot include `EXPO_PUBLIC_` prefix. Once you upload the variables to EAS server, those are only readable in EAS servers which mean you can securely read the variables in [EAS build](https://docs.expo.dev/build/introduction/) and EAS submit. You can upload the variables to EAS servers from .env.dev and .env.prod files to EAS servers by running `npm run dev:secret:push` which you do not need to manually upload the variables to EAS servers.
-
-It is imperative to avoid storing sensitive information, such as private keys, within variables prefixed by `EXPO_PUBLIC_`. For comprehensive guidelines on securely managing sensitive data, refer to the recommendations provided in [storing sensitive info](https://reactnative.dev/docs/security#storing-sensitive-info).
-
-To check if environment variables are properly loaded by command `npm run dev:config:public`. You can see the loaded environment variables in the console.
+Or check by the command `npm run dev:config:public`. You can see the loaded environment variables in the console.
 
 example:
 ```
 {
-  name: 'React Native Boilerplate',
-  slug: 'react-native-boilerplate',
-  version: '3.0.0',
-  owner: 'wataru',
-  newArchEnabled: true,
-  platforms: [
-    'ios',
-    'android',
-    'web'
-  ],
-  orientation: 'portrait',
-  icon: './assets/images/logo-lg.png',
-  userInterfaceStyle: 'automatic',
-  description: undefined,
-  sdkVersion: '52.0.0',
-  plugins: [
-    'expo-router',
-    'expo-asset',
-    [
-      'expo-splash-screen',
-      {
-        backgroundColor: '#ffffff',
-        image: './assets/images/logo-lg.png',
-        imageWidth: 200,
-        resizeMode: 'contain',
-        dark: {
-          backgroundColor: '#101212'
-        }
-      }
-    ],
-    [
-      'expo-font',
-      {
-        fonts: [
-          './assets/fonts/OpenSans-Bold.ttf',
-          './assets/fonts/OpenSans-BoldItalic.ttf',
-          './assets/fonts/OpenSans-Italic.ttf',
-          './assets/fonts/OpenSans-Regular.ttf',
-          './assets/fonts/OpenSans-Semibold.ttf',
-          './assets/fonts/OpenSans-SemiboldItalic.ttf'
-        ]
-      }
-    ]
-  ],
-  splash: {
-    backgroundColor: '#ffffff',
-    image: './assets/images/logo-lg.png',
-    resizeMode: 'contain',
-    dark: {
-      backgroundColor: '#101212'
-    }
-  },
-  ios: {
-    supportsTablet: true,
-    bundleIdentifier: 'com.watarumaeda.react-native-boilerplate'
-  },
-  android: {
-    package: 'com.watarumaeda.react_native_boilerplate',
-    adaptiveIcon: {
-      foregroundImage: './assets/images/logo-sm.png',
-      backgroundColor: '#ffffff'
-    }
-  },
-  web: {
-    favicon: './assets/images/logo-sm.png'
-  },
-  runtimeVersion: {
-    policy: 'sdkVersion'
-  },
-  updates: {
-    url: 'https://u.expo.dev/18adc0d0-eb1d-11e9-8009-d524ed5cc4a7'
-  },
+...
   extra: {
     env: 'development',
     apiUrl: 'https://example.com',
@@ -216,6 +142,10 @@ example:
   }
 }
 ```
+
+Some may consider the project is not using `EXPO_PUBLIC_` prefix for environment variables which is one of the way to access the env variable in client from process.env property. This is because we use .env files to upload the env variables to EAS servers as [`secret`](https://docs.expo.dev/eas/environment-variables/#visibility). Secret cannot include `EXPO_PUBLIC_` prefix. Once you upload the variables to EAS server, those are only readable in EAS servers which mean you can securely read the variables in [EAS build](https://docs.expo.dev/build/introduction/) and [EAS submit](https://docs.expo.dev/submit/introduction/). You can upload the variables to EAS servers from .env.dev and .env.prod files to EAS servers by running `npm run dev:secret:push` so that you do not need to manually upload the variables to EAS servers.
+
+If you are not intend to use the pre-structured env variable flow, you can use `EXPO_PUBLIC_` prefix to easily access env variables from process.env property. But please do not store any sensitive information with the prefix. Otherwise it will be exposed to client. For comprehensive guidelines on securely managing sensitive data, refer to the recommendations provided in [storing sensitive info](https://reactnative.dev/docs/security#storing-sensitive-info).
 
 </details>
 
@@ -261,12 +191,32 @@ To set up the CD workflow, follow these steps:
 4. Update in `name`, `slug`, `projectId`, `ios`, `android` in [app.config.ts](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/app.config.ts)
 6. After you push changes to the main branch, a new preview will be created automatically.
 
-
 </details>
 
 ## 🧑‍💻 Need native code?
 
 To generate iOS and Android native code, you can run `npx expo prebuild` in the project's root directory. For more details and specific instructions, please refer to the [Expo documentation page](https://docs.expo.dev/workflow/prebuild/).
+
+## 🥇 Scripts
+
+- `npm run dev`: Run the app on mobile and web. Environment variables are loaded from .env.dev file.
+- `npm run dev:ios`: Run the iOS app . Environment variables are loaded from .env.dev file.
+- `npm run dev:android`: Run the Android app. Environment variables are loaded from .env.dev file.
+- `npm run dev:web`: Run the Web app. Environment variables are loaded from .env.dev file.
+- `npm run dev:doctor`: Diagnose issues in your Expo project. Environment variables are loaded from .env.dev file. See [doc](https://docs.expo.dev/develop/tools/#expo-doctor) for more details
+- `npm run dev:secret:push`: Push secrets to EAS servers. All secrets are read from .env.dev file and upload to EAS servers. See [doc](https://docs.expo.dev/eas/environment-variables/#visibility) for more details
+- `npm run dev:secret:list`: List all secrets uploaded to the EAS servers
+- `npm run dev:build:mobile`: Build app distribution for iOS and Android. Environment variables are loaded from .env.dev file.
+- `npm run dev:build:web`: Build web build locally. Environment variables are loaded from .env.dev file.
+- `npm run dev:deploy:web`: Build and deploy web build to [EAS Hosting](https://docs.expo.dev/eas/hosting/introduction/)
+- `npm run dev:config:public`: Show the loaded environment variables in the console. Environment variables are loaded from .env.dev file.
+- `npm run lint`: Lint the codebase with ESLint. See [doc](https://eslint.org/docs/user-guide/getting-started) for more details
+- `npm run lint:staged`: Lint the staged files with ESLint. See [doc](https://eslint.org/docs/user-guide/getting-started) for more details
+- `npm run format`: Format the codebase with Prettier. See [doc](https://prettier.io/docs/en/index.html) for more details
+- `npm run test`: Run the test with Jest. See [doc](https://jestjs.io/docs/getting-started) for more details
+- `npm run test:watch`: Run the test with Jest in watch mode. See [doc](https://jestjs.io/docs/getting-started) for more details
+
+For more details of those command, read the doc of [Expo CLI](https://docs.expo.dev/more/expo-cli/) and [EAS CLI](https://docs.expo.dev/eas/)
 
 ## 🥇 Libraries
 
