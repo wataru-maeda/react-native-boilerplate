@@ -1,3 +1,5 @@
+# React Native Boilerplate
+
 <h1 align="center">
   <img src='https://github.com/wataru-maeda/react-native-boilerplate/blob/main/__DELELE_ME__/banner.png' width='600'>
 </h1>
@@ -14,7 +16,7 @@
   <img src='https://github.com/wataru-maeda/react-native-boilerplate/blob/feat/expo-router/__DELELE_ME__/demo-dark-theme.gif' width='150px'>
 </p>
 
-Say goodbye to time-consuming setup tasks like restructuring files, installing libraries, and crafting reusable components. Our project boilerplate is your solution to eliminate redundant work when starting from scratch. It includes only the most commonly-used libraries, so you can hit the ground running with a fully configured setup.
+Skip the tedious setup process and jump straight into development. This boilerplate eliminates common setup tasks by providing a pre-configured project with essential libraries and components. Start building your app immediately with battle-tested tools and practices.
 
 ## 🗒️ Requirements
 
@@ -29,18 +31,14 @@ Say goodbye to time-consuming setup tasks like restructuring files, installing l
 
 ## 🤖 What's included
 
-
 <details>
   <summary><b>File-based Router</b></summary>
   
 ####
 
-The project has updated from react-navigation to `expo-router`, utilizing it for stack, tab, and drawer navigation configurations. 
+Experience seamless navigation with `expo-router`, which replaces the traditional react-navigation setup. The navigation structure features a drawer menu that contains two main tabs: home and profile. Each tab has its own stack navigation for smooth screen transitions.
 
-The navigation structure consists of a [drawer](https://github.com/wataru-maeda/react-native-boilerplate/blob/feat/expo-router/app/(main)/(tabs)/home/_layout.tsx) that wraps two Tabs ([home tab](https://github.com/wataru-maeda/react-native-boilerplate/blob/feat/expo-router/app/(main)/(tabs)/home/_layout.tsx) and [profile tab](https://github.com/wataru-maeda/react-native-boilerplate/blob/feat/expo-router/app/(main)/(tabs)/profile/_layout.tsx)). The Home tab contains [stack](https://github.com/wataru-maeda/react-native-boilerplate/blob/feat/expo-router/app/(main)/(tabs)/home/_layout.tsx) navigation for moving between home and details pages, while the Profile tab has Stack navigation for accessing profile and settings pages. This navigation system is designed to be both intuitive and highly customizable to suit specific requirements.
-
-Navigation Hierarchy
-
+Navigation Hierarchy:
 ```
 root (drawer navigation)
   └── tabs navigation
@@ -55,6 +53,11 @@ root (drawer navigation)
                 └── settings screen
 ```
 
+The setup includes:
+- A [drawer](https://github.com/wataru-maeda/react-native-boilerplate/blob/feat/expo-router/app/(main)/(tabs)/home/_layout.tsx) for main navigation
+- [Home tab](https://github.com/wataru-maeda/react-native-boilerplate/blob/feat/expo-router/app/(main)/(tabs)/home/_layout.tsx) with detailed pages
+- [Profile tab](https://github.com/wataru-maeda/react-native-boilerplate/blob/feat/expo-router/app/(main)/(tabs)/profile/_layout.tsx) with settings
+
 </details>
 
 <details>
@@ -62,11 +65,16 @@ root (drawer navigation)
 
 ####
 
-Global state is quite important for app state management. The project uses Redux Toolkit for global state management. The project has pre-configured Redux Toolkit with Redux Hooks for immediate use. You can easily set up Redux Hooks by reviewing under [slices](https://github.com/wataru-maeda/react-native-boilerplate/tree/feat/expo-router/slices) directory. The application of Redux Hooks example (how to read and write) can be found in [root layout](https://github.com/wataru-maeda/react-native-boilerplate/blob/feat/expo-router/app/_layout.tsx#L23)
+Manage your app's state effortlessly with Redux Toolkit. The setup is ready to use with Redux Hooks integration. 
 
-To add a new slice, you can copy and past [app.slice.ts](https://github.com/wataru-maeda/react-native-boilerplate/blob/feat/expo-router/slices/app.slice.ts) under slices directory and rename it. Then you can add the slice to the [store](https://github.com/wataru-maeda/react-native-boilerplate/blob/feat/expo-router/utils/store.ts#L10)
+Key features:
+- Pre-configured Redux setup in the [slices](https://github.com/wataru-maeda/react-native-boilerplate/tree/feat/expo-router/slices) directory
+- Working example in [root layout](https://github.com/wataru-maeda/react-native-boilerplate/blob/feat/expo-router/app/_layout.tsx#L23)
+- Development mode includes Redux logger for easy debugging
 
-In development environment, redux logger is enabled by default. If you want to disable the feature, remove the logger from [store.ts](https://github.com/wataru-maeda/react-native-boilerplate/blob/feat/expo-router/utils/store.ts#L13)
+Adding a new state slice is simple:
+1. Copy [app.slice.ts](https://github.com/wataru-maeda/react-native-boilerplate/blob/feat/expo-router/slices/app.slice.ts)
+2. Add it to the [store](https://github.com/wataru-maeda/react-native-boilerplate/blob/feat/expo-router/utils/store.ts#L10)
 
 </details>
 
@@ -75,10 +83,13 @@ In development environment, redux logger is enabled by default. If you want to d
 
 ####
 
-This project centralizes the management of theme, including images, icons, fonts, colors within the [theme directory](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/src/theme). For seamless integration of new assets, ensure their importation into the designated files where they will be utilized. This approach facilitates streamlined access to all assets via the theme structure.
-To further optimize performance, asset preloading has been incorporated into the boilerplate. This setup also supports the use of SVG files, offering extensive flexibility in managing visual resources. Assets are made effortlessly accessible for implementation across the project by importing them directly from the theme.
+Keep your app's look consistent with our centralized theme system in the [theme directory](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/src/theme). All assets, including images, icons, fonts, and colors, are managed in one place for easy updates and maintenance.
 
-Also, The project initially setup with color schema hook which you can easily detect the current theme from the book. Switch color based on the theme. You can import [`useColorScheme`](https://github.com/wataru-maeda/react-native-boilerplate/blob/feat/expo-router/hooks/useColorScheme.ts) hook which adapt both mobile and web. The hook return the current color scheme name and flag (isDark, isLight). So it's easy to switch the color based on the theme.
+Features:
+- Built-in asset preloading for better performance
+- SVG support for scalable graphics
+- Easy theme switching with [`useColorScheme`](https://github.com/wataru-maeda/react-native-boilerplate/blob/feat/expo-router/hooks/useColorScheme.ts) hook
+- Automatic dark/light mode detection
 
 </details>
 
@@ -87,9 +98,7 @@ Also, The project initially setup with color schema hook which you can easily de
 
 ####
 
-Navigating through complex project architectures with deeply nested folders often complicates the use of relative paths, potentially leading to errors. To alleviate this issue, our boilerplate simplifies the development process by facilitating the use of absolute paths. This means you can replace convoluted relative paths like `../../../components/Button` with straightforward references such as `@/components/elements/Button` in your import statements.
-The implementation for this feature is configured within [tsconfig.json](https://github.com/wataru-maeda/react-native-boilerplate/blob/feat/expo-router/tsconfig.json#L6-L8) files. These configurations ensure a hassle-free experience in utilizing absolute paths across your project, enhancing clarity and reducing the likelihood of path-related errors.
-
+Say goodbye to messy relative imports like `../../../components/Button`. Use clean, absolute paths such as `@/components/elements/Button` instead. This feature is configured in [tsconfig.json](https://github.com/wataru-maeda/react-native-boilerplate/blob/feat/expo-router/tsconfig.json#L6-L8) and makes your imports more maintainable and error-resistant.
 
 </details>
 
@@ -98,49 +107,19 @@ The implementation for this feature is configured within [tsconfig.json](https:/
 
 ####
 
-The project use [dotenvx](https://dotenvx.com/) to load environment variables into the project. Currently Expo and EAS CLI has different behavior when it comes to environment variables. Expo CLI loads `.env` file but EAS CLI doesn't load `.env` file. So we decided to use external env variable library like `dotenvx` to adjust both cases.
+Manage different environments seamlessly using [dotenvx](https://dotenvx.com/). This setup handles both Expo CLI and EAS CLI environments effectively.
 
-The project has pre-configured environment variables for development, and production environments which you can find in [.env.dev.example](https://github.com/wataru-maeda/react-native-boilerplate/blob/feat/expo-router/.env.dev.example) and [.env.production.example](https://github.com/wataru-maeda/react-native-boilerplate/blob/feat/expo-router/.env.prod.example). The configuration allows you to have separate expo project accounts for development and production environments.
+Quick setup:
+1. Change `.env.dev.example` to `.env.dev`
+2. Set your expo username as `owner` in [app.json](https://github.com/wataru-maeda/react-native-boilerplate/blob/feat/expo-router/app.json#L6)
+3. Update `EXPO_SLUG` and `EXPO_PROJECT_ID` in `.env.dev`
 
-To use your own expo project account in development environment for example,
-1. Rename .env.dev.example to .env.dev
-2. Update `owner` in [app.json](https://github.com/wataru-maeda/react-native-boilerplate/blob/feat/expo-router/app.json#L6) to your expo user name
-3. Update `EXPO_SLUG` and `EXPO_PROJECT_ID` in .env.dev file at least
+Adding new environment variables:
+1. Add them to `.env.dev` and `.env.prod`
+2. Include in [`extra`](https://github.com/wataru-maeda/react-native-boilerplate/blob/feat/expo-router/app.config.ts#L27-L29) object
+3. Add to [config.ts](https://github.com/wataru-maeda/react-native-boilerplate/blob/feat/expo-router/utils/config.ts#L4-L10)
 
-Now all ready to use your own expo project account in development environment.
-
-To add new environment variables to use in your app, you can take 3 steps
-1. Add new env variables to the `.env.dev` and `.env.prod` files
-2. Load the new env variables in the app.config.ts file, Add them in the [`extra`](https://github.com/wataru-maeda/react-native-boilerplate/blob/feat/expo-router/app.config.ts#L27-L29) object
-3. Add new env variables in [config.ts](https://github.com/wataru-maeda/react-native-boilerplate/blob/feat/expo-router/utils/config.ts#L4-L10)
-
-Once you successfully added the new environments, you'll see at the [bottom sheet](https://github.com/wataru-maeda/react-native-boilerplate/blob/feat/expo-router/components/layouts/BottomSheetContents/BottomSheetContents.tsx#L82-L86) of the app. 
-
-Or check by the command `npm run dev:config:public`. You can see the loaded environment variables in the console.
-
-example:
-```
-{
-...
-  extra: {
-    env: 'development',
-    apiUrl: 'https://example.com',
-    eas: {
-      projectId: '18adc0d0-eb1d-11e9-8009-d524ed5cc4a7'
-    },
-    router: {
-      origin: false
-    }
-  },
-  androidStatusBar: {
-    backgroundColor: '#ffffff'
-  }
-}
-```
-
-Some may consider the project is not using `EXPO_PUBLIC_` prefix for environment variables which is one of the way to access the env variable in client from process.env property. This is because we use .env files to upload the env variables to EAS servers as [`secret`](https://docs.expo.dev/eas/environment-variables/#visibility). Secret cannot include `EXPO_PUBLIC_` prefix. Once you upload the variables to EAS server, those are only readable in EAS servers which mean you can securely read the variables in [EAS build](https://docs.expo.dev/build/introduction/) and [EAS submit](https://docs.expo.dev/submit/introduction/). You can upload the variables to EAS servers from .env.dev and .env.prod files to EAS servers by running `npm run dev:secret:push` so that you do not need to manually upload the variables to EAS servers.
-
-If you are not intend to use the pre-structured env variable flow, you can use `EXPO_PUBLIC_` prefix to easily access env variables from process.env property. But please do not store any sensitive information with the prefix. Otherwise it will be exposed to client. For comprehensive guidelines on securely managing sensitive data, refer to the recommendations provided in [storing sensitive info](https://reactnative.dev/docs/security#storing-sensitive-info).
+Check your environment setup with `npm run dev:config:public`
 
 </details>
 
@@ -149,15 +128,13 @@ If you are not intend to use the pre-structured env variable flow, you can use `
 
 ####
 
-- The project is equipped with a streamlined distribution process for both mobile and web platforms. Here's how you can deploy your app to various platforms:
+Deploy your app with confidence using our streamlined distribution process:
 
-1. **Mobile Distribution**
-- Run `npm run dev:build:mobile` to build the app distribution for iOS and Android.
-- The build process generates an APK file for Android and an IPA file for iOS, which can be used for further testing or deployment.
+Mobile Distribution:
+- Run `npm run dev:build:mobile` to create iOS and Android builds
 
-2. **Web Distribution**
-- Run `npm run dev:deploy:web` to build and deploy the web application to [EAS Hosting](https://docs.expo.dev/eas/hosting/introduction/).
-- The deployment process is configured to leverage GitHub Pages, ensuring a seamless and efficient deployment experience.
+Web Distribution:
+- Use `npm run dev:deploy:web` to deploy to [EAS Hosting](https://docs.expo.dev/eas/hosting/introduction/)
 
 </details>
 
@@ -166,10 +143,11 @@ If you are not intend to use the pre-structured env variable flow, you can use `
 
 ####
 
-- Configurations for Eslint, Prettier, and Jest have been meticulously established to ensure your code remains clean and adheres to best practices. Here's a breakdown of how these tools enhance your development workflow:
-1. Throughout the coding process, these integrated tools proactively scan and refine your code. Activating the 'Format on Save' feature further streamlines this process, automatically tidying your code with each save.
-2. Committing changes triggers a pre-commit script that meticulously checks, formats, and tests your code. This comprehensive review process ensures your contributions are both error-free and stylistically consistent.
-3. Successfully navigating through the stages of code verification, formatting, and testing empowers you to commit your changes with absolute confidence. You can rest assured knowing your code is not only efficient but also meets the highest standards of quality and reliability.
+Maintain code quality automatically with our integrated tools:
+
+1. Real-time code checking and formatting while you work
+2. Automatic pre-commit checks ensure code quality
+3. Comprehensive testing before each commit
 
 </details>
 
@@ -178,26 +156,28 @@ If you are not intend to use the pre-structured env variable flow, you can use `
 
 ####
 
-- When you've completed your work and need to share a preview with the QA team, our boilerplate automates the distribution process for you. Here's how it works:
-1. Whenever you create a pull request (PR) or merge, it automatically generates a preview channel in your Expo account.
-2. You don't need to run 'eas' commands every time you create a PR; the process is streamlined for you.
-3. The continuous delivery (CD) process is managed through the [preview.yml](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/.github/workflows/preview.yml) configuration file, which utilizes [expo-github-action](https://github.com/expo/expo-github-action).
+Share your work easily with automated preview builds:
 
-To set up the CD workflow, follow these steps:
-1. Create an `EXPO_TOKEN` in your Expo account. You can do this by visiting [this link](https://expo.dev/accounts/%5Baccount%5D/settings/access-tokens).
-2. In your GitHub repository, go to **Settings**, then navigate to **Secrets and variables** -> **Actions** -> **Add new repository secret**. Make sure to name the secret as `EXPO_TOKEN`.
-3. Update `name`, `slug`, `owner`, `projectId` and `url` in [app.json](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/app.json):
-4. Update in `name`, `slug`, `projectId`, `ios`, `android` in [app.config.ts](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/app.config.ts)
-6. After you push changes to the main branch, a new preview will be created automatically.
+1. Each pull request creates a preview in your Expo account
+2. No manual EAS commands needed
+3. Setup process:
+   - Get `EXPO_TOKEN` from [Expo Access Tokens](https://expo.dev/accounts/%5Baccount%5D/settings/access-tokens)
+   - Add token to GitHub repository secrets
+   - Update project details in [app.json](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/app.json) and [app.config.ts](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/app.config.ts)
 
 </details>
 
 ## 🧑‍💻 Need native code?
 
-To generate iOS and Android native code, you can run `npx expo prebuild` in the project's root directory. For more details and specific instructions, please refer to the [Expo documentation page](https://docs.expo.dev/workflow/prebuild/).
+Generate native iOS and Android code easily:
+```bash
+npx expo prebuild
+```
+See the [Expo documentation](https://docs.expo.dev/workflow/prebuild/) for detailed instructions.
 
 ## 🥇 Libraries
 
+Core Libraries:
 - [expo v52](https://docs.expo.dev/versions/v52.0.0)
 - [expo-asset](https://docs.expo.dev/versions/latest/sdk/asset/)
 - [expo-font](https://docs.expo.dev/versions/latest/sdk/font/)
@@ -208,6 +188,7 @@ To generate iOS and Android native code, you can run `npx expo prebuild` in the 
 
 ## 🥈 Libraries for development
 
+Developer Tools:
 - [eslint](https://github.com/eslint/eslint)
 - [prettier](https://github.com/prettier/prettier)
 - [jest](https://jestjs.io/)
@@ -215,30 +196,32 @@ To generate iOS and Android native code, you can run `npx expo prebuild` in the 
 
 ## ☀️ Icons
 
-Expo provides a popular set of vector icons. Please search icons from [here](https://icons.expo.fyi/)
+Browse and use Expo's vector icons from the [Icon Directory](https://icons.expo.fyi/)
 
 ## ⚙️ Scripts
 
-- `dev`: Run the app on mobile and web.
-- `dev:ios`: Run the iOS app.
-- `dev:android`: Run the Android app.
-- `dev:web`: Run the Web app.
-- `dev:doctor`: Diagnose issues in your Expo project.
-- `dev:secret:push`: Push secrets to EAS servers. All secrets are read from .env.dev file and upload to EAS servers.
-- `dev:secret:list`: List all secrets uploaded to the EAS servers
-- `dev:build:mobile`: Build app distribution for iOS and Android.
-- `dev:build:web`: Build web locally.
-- `dev:deploy:web`: Build and deploy web build to [EAS Hosting](https://docs.expo.dev/eas/hosting/introduction/)
-- `dev:config:public`: Show the loaded environment variables in the console.
-- `lint`: Lint the codebase with ESLint.
-- `lint:staged`: Lint the staged files with ESLint.
-- `format`: Format the codebase with Prettier.
-- `test`: Run the test with Jest.
-- `test:watch`: Run the test with Jest in watch mode.
+Development Commands:
+- `dev`: Run on all platforms
+- `dev:ios`: Launch iOS app
+- `dev:android`: Launch Android app
+- `dev:web`: Launch web app
+- `dev:doctor`: Check project health
+- `dev:secret:push`: Upload env variables to EAS
+- `dev:secret:list`: View EAS secrets
+- `dev:build:mobile`: Create mobile builds
+- `dev:build:web`: Create web build
+- `dev:deploy:web`: Deploy to EAS Hosting
+- `dev:config:public`: View loaded env variables
 
-All `dev` commands load environment variables from **.env.dev**. If you want to load environment variables from **.env.prod**, you can replace `dev` with `prod` in the command.
-For more details of those command, read the doc of [Expo CLI](https://docs.expo.dev/more/expo-cli/) and [EAS CLI](https://docs.expo.dev/eas/)
+Quality Assurance:
+- `lint`: Check code style
+- `lint:staged`: Check staged files
+- `format`: Fix code style
+- `test`: Run all tests
+- `test:watch`: Run tests continuously
+
+Note: Use `prod` instead of `dev` in commands to use production environment variables.
 
 ## 📓 License
 
-This project is available under the MIT license. See the [LICENSE](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/LICENSE) file for more info.
+This project is available under the MIT license. See the [LICENSE](LICENSE) file for more info.
