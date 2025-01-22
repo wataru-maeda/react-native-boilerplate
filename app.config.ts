@@ -1,27 +1,29 @@
 import { ExpoConfig, ConfigContext } from 'expo/config';
 
 export default ({ config }: ConfigContext): ExpoConfig => {
+  const expoProjectId = process.env.EXPO_PROJECT_ID ?? '18adc0d0-eb1d-11e9-8009-d524ed5cc4a7';
   const expoConfig: ExpoConfig = {
     ...config,
-    slug: process.env.EXPO_SLUG ?? '',
-    name: process.env.EXPO_NAME ?? '',
+    slug: process.env.EXPO_SLUG ?? 'react-native-boilerplate',
+    name: process.env.EXPO_NAME ?? 'React Native Boilerplate',
     ios: {
       ...config.ios,
-      bundleIdentifier: process.env.EXPO_IOS_BUNDLE_IDENTIFIER,
+      bundleIdentifier:
+        process.env.EXPO_IOS_BUNDLE_IDENTIFIER ?? 'com.watarumaeda.react-native-boilerplate',
     },
     android: {
       ...config.android,
-      package: process.env.EXPO_ANDROID_PACKAGE,
+      package: process.env.EXPO_ANDROID_PACKAGE ?? 'com.watarumaeda.react_native_boilerplate',
     },
     web: {
       ...config.web,
     },
     updates: {
-      url: `https://u.expo.dev/${process.env.EXPO_PROJECT_ID}`,
+      url: `https://u.expo.dev/${expoProjectId}`,
     },
     extra: {
       ...config.extra,
-      eas: { projectId: process.env.EXPO_PROJECT_ID },
+      eas: { projectId: expoProjectId },
       env: process.env.ENV,
       apiUrl: process.env.API_URL,
       // add more env variables here...
@@ -36,7 +38,7 @@ export default ({ config }: ConfigContext): ExpoConfig => {
           dark: {
             backgroundColor: '#101212',
           },
-          image: './assets/images/logo-sm.png',
+          image: './assets/images/logo-lg.png',
           imageWidth: 200,
           resizeMode: 'contain',
         },
