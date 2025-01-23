@@ -94,15 +94,6 @@ The project simplifies asset and theme management through a centralized [`/theme
 </details>
 
 <details>
-  <summary><b>Alias Paths</b></summary>
-
-####
-
-The project uses absolute imports to simplify development by replacing complex relative paths (like `../../../components/Button`) with cleaner paths (like `@/components/elements/Button`), configured in [`tsconfig.json`](https://github.com/wataru-maeda/react-native-boilerplate/blob/feat/expo-router/tsconfig.json#L6-L8) for hassle-free navigation through deeply nested project structures.
-
-</details>
-
-<details>
   <summary><b>Environment Variables</b></summary>
 
 ####
