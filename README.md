@@ -108,6 +108,7 @@ The project uses absolute imports to simplify development by replacing complex r
 ####
 
 ### Environment Variables Management
+---
 
 The project uses [`dotenvx`](https://dotenvx.com/) to handle environment variables across both Expo CLI and EAS CLI builds. Here's how it works:
 
@@ -131,6 +132,7 @@ The project uses [`dotenvx`](https://dotenvx.com/) to handle environment variabl
 - Run `npm run dev:config:public` to view loaded variables in console
 
 ### Environment Variables & Security
+---
 
 The project intentionally avoids using `EXPO_PUBLIC_` prefix for environment variables, instead utilizing EAS secrets for enhanced security. Here's why:
 
