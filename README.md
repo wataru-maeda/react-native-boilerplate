@@ -37,7 +37,7 @@ A React Native boilerplate built with Expo that eliminates setup hassles and get
 2. Install packages with `npm install` or `yarn install`
 3. Spin up dev environment with `npm run dev` or `yarn run dev`
 
-## Core Features
+## 💎 Core Features
 
 <details>
   <summary><b>File-based Router</b></summary>
@@ -184,7 +184,7 @@ To set up the CD workflow, follow these steps:
 
 </details>
 
-## Available Scripts
+## ⚡ Available Scripts
 
 Development:
 - `npm run dev` - Run on all platforms
