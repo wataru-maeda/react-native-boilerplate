@@ -202,6 +202,10 @@ Testing:
 - `npm run format` - Run Prettier
 - `npm run test` - Run Jest tests
 
+## ☀️ Available Icons
+
+Expo provides a popular set of vector icons. Please search icons from [here](https://icons.expo.fyi/)
+
 ## 🧑‍💻 Need native code?
 
 To generate iOS and Android native code, you can run `npx expo prebuild` in the project's root directory. For more details and specific instructions, please refer to the [Expo documentation page](https://docs.expo.dev/workflow/prebuild/).
