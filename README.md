@@ -35,7 +35,7 @@ Say goodbye to time-consuming setup tasks like restructuring files, installing l
 2. Install packages with `npm install` or `yarn install`
 3. Spin up dev environment with `npm run dev` or `yarn run dev`
 
-## 💎 Core Features
+## 🤖 What's included
 
 <details>
   <summary><b>File-based Router</b></summary>
