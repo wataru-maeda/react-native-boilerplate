@@ -173,7 +173,7 @@ The project streamlines deployment with simple commands - use `npm run dev:build
 </details>
 
 <details>
-  <summary><b>[CI] Code formatting, linting and testing on pre-commit</b></summary>
+  <summary><b>Code formatting, linting and testing on pre-commit</b></summary>
 
 ####
 
@@ -182,7 +182,7 @@ The project maintains code quality through integrated Eslint, Prettier, and Jest
 </details>
 
 <details>
-  <summary><b>[CD] Release previews on Pull-Request (only mobile)</b></summary>
+  <summary><b>Release preview channel on Pull-Request (only mobile)</b></summary>
 
 ####
 
