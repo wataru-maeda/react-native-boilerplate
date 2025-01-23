@@ -200,7 +200,7 @@ To set up the CD workflow, follow these steps:
 
 </details>
 
-## ☀️ Available Icons
+## ☀️ Icons
 
 Expo provides a popular set of vector icons. Please search icons from [here](https://icons.expo.fyi/)
 
