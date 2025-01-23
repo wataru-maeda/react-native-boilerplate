@@ -14,7 +14,7 @@
   <img src='https://github.com/wataru-maeda/react-native-boilerplate/blob/feat/expo-router/__DELELE_ME__/demo-dark-theme.gif' width='150px'>
 </p>
 
-A React Native boilerplate built with Expo that eliminates setup hassles and gets you coding faster. This template comes pre-configured with essential features like:
+Say goodbye to time-consuming setup tasks like restructuring files, installing libraries, and crafting reusable components. Our project boilerplate is your solution to eliminate redundant work when starting from scratch. It includes only the most commonly-used libraries, so you can hit the ground running with a fully configured setup. This template comes pre-configured with essential features like:
 
 - 📱 File-based routing with Expo Router
 - 🎨 Light/Dark theme support out of the box
