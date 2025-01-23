@@ -148,6 +148,29 @@ The project streamlines deployment with simple commands - use `npm run dev:build
 </details>
 
 <details>
+  <summary><b>Scripts</b></summary>
+
+####
+
+#### Development:
+- `npm run dev` - Run on all platforms
+- `npm run dev:ios` - Run iOS only
+- `npm run dev:android` - Run Android only
+- `npm run dev:web` - Run web only
+
+#### Building:
+- `npm run dev:build:mobile` - Build mobile apps
+- `npm run dev:build:web` - Build web app
+- `npm run dev:deploy:web` - Deploy web app to [EAS Hosting](https://docs.expo.dev/eas/hosting/introduction/)
+
+#### Testing:
+- `npm run lint` - Run ESLint
+- `npm run format` - Run Prettier
+- `npm run test` - Run Jest tests
+
+</details>
+
+<details>
   <summary><b>[CI] Code formatting, linting and testing on pre-commit</b></summary>
 
 ####
@@ -182,24 +205,6 @@ Expo provides a popular set of vector icons. Please search icons from [here](htt
 ## 🧑‍💻 Need native code?
 
 To generate iOS and Android native code, you can run `npx expo prebuild` in the project's root directory. For more details and specific instructions, please refer to the [Expo documentation page](https://docs.expo.dev/workflow/prebuild/).
-
-## ⚡ Available Scripts
-
-Development:
-- `npm run dev` - Run on all platforms
-- `npm run dev:ios` - Run iOS only
-- `npm run dev:android` - Run Android only
-- `npm run dev:web` - Run web only
-
-Building:
-- `npm run dev:build:mobile` - Build mobile apps
-- `npm run dev:build:web` - Build web app
-- `npm run dev:deploy:web` - Deploy web app to [EAS Hosting](https://docs.expo.dev/eas/hosting/introduction/)
-
-Testing:
-- `npm run lint` - Run ESLint
-- `npm run format` - Run Prettier
-- `npm run test` - Run Jest tests
 
 ## 📓 License
 
