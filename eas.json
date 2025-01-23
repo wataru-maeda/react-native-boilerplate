@@ -1,56 +1,44 @@
 {
+  "cli": {
+    "appVersionSource": "remote"
+  },
   "build": {
     "base": {
       "node": "20.9.0",
-      "env": {
-        "APP_ENV": "production"
-      },
       "ios": {
-        "image": "latest",
-        "resourceClass": "m1-medium",
-        "env": {
-          "PLATFORM": "ios"
-        }
+        "image": "auto",
+        "resourceClass": "m-medium"
       },
       "android": {
-        "image": "default",
-        "env": {
-          "PLATFORM": "android"
-        }
+        "image": "auto"
       },
       "channel": "base"
     },
     "development": {
+      "environment": "development",
       "extends": "base",
       "channel": "development",
       "distribution": "internal",
-      "env": {
-        "APP_ENV": "dev"
-      },
-      "android": {
-        "gradleCommand": ":app:assembleDebug"
-      },
       "ios": {
         "simulator": true,
         "buildConfiguration": "Debug"
-      }
-    },
-    "staging": {
-      "extends": "base",
-      "channel": "staging",
-      "distribution": "internal",
-      "env": {
-        "APP_ENV": "stg"
       },
-      "ios": {
-        "enterpriseProvisioning": "universal"
+      "android": {
+        "buildType": "app-bundle",
+        "gradleCommand": ":app:assembleDebug"
       }
     },
     "production": {
       "extends": "base",
       "channel": "production",
-      "env": {
-        "APP_ENV": "prod"
+      "environment": "production",
+      "ios": {
+        "simulator": true,
+        "buildConfiguration": "Release"
+      },
+      "android": {
+        "buildType": "app-bundle",
+        "gradleCommand": ":app:bundleRelease"
       }
     }
   },
