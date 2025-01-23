@@ -139,7 +139,7 @@ If you prefer direct access via `process.env`:
 </details>
 
 <details>
-  <summary><b>Distribution</b></summary>
+  <summary><b>Simplified Distribution</b></summary>
 
 ####
 
@@ -148,7 +148,7 @@ The project streamlines deployment with simple commands - use `npm run dev:build
 </details>
 
 <details>
-  <summary><b>Scripts</b></summary>
+  <summary><b>List-up Scripts</b></summary>
 
 ####
 
