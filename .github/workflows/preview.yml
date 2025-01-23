@@ -1,4 +1,4 @@
-name: CI - APP Preview
+name: Preview Channel CI
 
 on:
   pull_request:
@@ -8,7 +8,7 @@ on:
 
 jobs:
   update:
-    name: Publish Preview Channel
+    name: Publish Preview Channel on Push / Pull-Request
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -53,8 +53,10 @@ jobs:
 
       # eas update (PR)
       - name: EAS update
+        if: github.event_name == 'pull_request'
         run: eas update --branch ${{ steps.branch-name.outputs.current_branch }} --message "${{ github.event.pull_request.title }}"
 
       # eas update (PUSH)
       - name: EAS update
+        if: github.event_name == 'push'
         run: eas update --branch ${{ steps.branch-name.outputs.current_branch }} --message "${{ github.event.head_commit.message }}"
