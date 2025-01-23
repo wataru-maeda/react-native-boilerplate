@@ -148,7 +148,7 @@ The project streamlines deployment with simple commands - use `npm run dev:build
 </details>
 
 <details>
-  <summary><b>List-up Scripts</b></summary>
+  <summary><b>Development and Build Scripts</b></summary>
 
 ####
 
