@@ -116,7 +116,7 @@ The project uses [`dotenvx`](https://dotenvx.com/) to handle environment variabl
 - Configuration in [`app.config.ts`](https://github.com/wataru-maeda/react-native-boilerplate/blob/feat/expo-router/app.config.ts) and [`utils/config.ts`](https://github.com/wataru-maeda/react-native-boilerplate/blob/feat/expo-router/utils/config.ts)
 
 #### Getting Started with Your Expo Account
-1. Copy `.env.dev.example` to `.env.dev`
+1. Rename `.env.dev.example` to `.env.dev`
 2. Update `owner` in [`app.json`](https://github.com/wataru-maeda/react-native-boilerplate/blob/feat/expo-router/app.json#L6) with your Expo username
 3. Set your `EXPO_SLUG` and `EXPO_PROJECT_ID` in `.env.dev`
 
@@ -151,15 +151,7 @@ If you prefer direct access via `process.env`:
 
 ####
 
-- The project is equipped with a streamlined distribution process for both mobile and web platforms. Here's how you can deploy your app to various platforms:
-
-1. **Mobile Distribution**
-- Run `npm run dev:build:mobile` to build the app distribution for iOS and Android.
-- The build process generates an APK file for Android and an IPA file for iOS, which can be used for further testing or deployment.
-
-2. **Web Distribution**
-- Run `npm run dev:deploy:web` to build and deploy the web application to [EAS Hosting](https://docs.expo.dev/eas/hosting/introduction/).
-- The deployment process is configured to leverage GitHub Pages, ensuring a seamless and efficient deployment experience.
+The project streamlines deployment with simple commands - use `npm run dev:build:mobile` to generate iOS (IPA) and Android (APK) distributions, and `npm run dev:deploy:web` to deploy the web version to EAS Hosting.
 
 </details>
 
@@ -168,10 +160,7 @@ If you prefer direct access via `process.env`:
 
 ####
 
-- Configurations for Eslint, Prettier, and Jest have been meticulously established to ensure your code remains clean and adheres to best practices. Here's a breakdown of how these tools enhance your development workflow:
-1. Throughout the coding process, these integrated tools proactively scan and refine your code. Activating the 'Format on Save' feature further streamlines this process, automatically tidying your code with each save.
-2. Committing changes triggers a pre-commit script that meticulously checks, formats, and tests your code. This comprehensive review process ensures your contributions are both error-free and stylistically consistent.
-3. Successfully navigating through the stages of code verification, formatting, and testing empowers you to commit your changes with absolute confidence. You can rest assured knowing your code is not only efficient but also meets the highest standards of quality and reliability.
+The project maintains code quality through integrated Eslint, Prettier, and Jest configurations - code is automatically scanned and formatted during development (especially with 'Format on Save' enabled), while pre-commit hooks verify, format, and test your code to ensure all commits meet quality standards.
 
 </details>
 
