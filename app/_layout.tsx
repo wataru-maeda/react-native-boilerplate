@@ -1,17 +1,15 @@
-import { Fragment } from 'react';
+import { Fragment, useState, useEffect } from 'react';
 import * as SplashScreen from 'expo-splash-screen';
 import BottomSheetContents from '@/components/layouts/BottomSheetContents';
 import BottomSheet from '@/components/elements/BottomSheet';
 import { useDataPersist, DataPersistKeys } from '@/hooks';
 import useColorScheme from '@/hooks/useColorScheme';
-import { loadImages, loadFonts } from '@/theme';
+import { loadImages, loadFonts, colors } from '@/theme';
 import { Slot } from 'expo-router';
-import { useState, useEffect } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { useAppSlice } from '@/slices';
 import { getUserAsync } from '@/services';
 import Provider from '@/providers';
-import { colors } from '@/theme';
 import { User } from '@/types';
 
 // keep the splash screen visible while complete fetching resources
@@ -57,7 +55,7 @@ function Router() {
           });
       }
     })();
-  }, []);
+  }, [dispatch, setUser, setLoggedIn, setPersistData, getPersistData]);
 
   return (
     <Fragment>
