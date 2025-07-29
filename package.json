@@ -1,7 +1,7 @@
 {
   "name": "react-native-boilerplate",
   "main": "expo-router/entry",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "private": true,
   "scripts": {
     "dev": "EXPO_NO_DOTENV=1 dotenvx run -f .env.dev -- expo start -c",
@@ -13,6 +13,7 @@
     "dev:secret:list": "dotenvx run -f .env.dev -- eas env:list",
     "dev:build:mobile": "npm run dev:secret:push && EXPO_NO_DOTENV=1 dotenv -e .env.dev -- npx eas build --profile development",
     "dev:build:web": "dotenvx run -f .env.dev -- npx expo export --platform web",
+    "dev:serve:web": "dotenvx run -f .env.dev -- npx expo serve",
     "dev:deploy:web": "npm run dev:build:web && dotenvx run -f .env.dev -- eas deploy --environment development",
     "dev:config:public": "dotenvx run -f .env.dev -- npx expo config --type public",
     "lint": "expo lint",
