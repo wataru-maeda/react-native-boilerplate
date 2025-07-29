@@ -206,14 +206,6 @@ To set up the CD workflow, follow these steps:
 
 </details>
 
-## ☀️ Icons
-
-Expo provides a popular set of vector icons. Please search icons from [here](https://icons.expo.fyi/)
-
-## 🧑‍💻 Need native code?
-
-To generate iOS and Android native code, you can run `npx expo prebuild` in the project's root directory. For more details and specific instructions, please refer to the [Expo documentation page](https://docs.expo.dev/workflow/prebuild/).
-
 ## 🔧 Available Scripts
 
 The project includes comprehensive development, building, testing, and deployment scripts to streamline your workflow.
@@ -295,6 +287,13 @@ npm run test                 # Run tests
 
 </details>
 
+## ☀️ Icons
+
+Expo provides a popular set of vector icons. Please search icons from [here](https://icons.expo.fyi/)
+
+## 🧑‍💻 Need native code?
+
+To generate iOS and Android native code, you can run `npx expo prebuild` in the project's root directory. For more details and specific instructions, please refer to the [Expo documentation page](https://docs.expo.dev/workflow/prebuild/).
 
 ## 📓 License
 
