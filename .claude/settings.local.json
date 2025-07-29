@@ -1,6 +1,11 @@
 {
   "permissions": {
-    "allow": ["Bash(npx expo:*)"],
+    "allow": [
+      "Bash(npx expo:*)",
+      "Bash(npm run test:*)",
+      "Bash(npm run format:*)",
+      "Bash(npm run lint:*)"
+    ],
     "deny": []
   }
 }

@@ -27,7 +27,7 @@ function Router() {
    * preload assets and user info
    */
   useEffect(() => {
-    async function preload() {
+    (async () => {
       try {
         // preload assets
         await Promise.all([loadImages(), loadFonts()]);
@@ -56,8 +56,7 @@ function Router() {
             setOpen(true);
           });
       }
-    }
-    preload();
+    })();
   }, []);
 
   return (
