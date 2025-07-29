@@ -9,7 +9,7 @@ import { Slot } from 'expo-router';
 import { useState, useEffect } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { useAppSlice } from '@/slices';
-import { fetchUser } from '@/services';
+import { getUserAsync } from '@/services';
 import Provider from '@/providers';
 import { colors } from '@/theme';
 import { User } from '@/types';
@@ -33,7 +33,7 @@ function Router() {
         await Promise.all([loadImages(), loadFonts()]);
 
         // fetch & store user data to store (fake promise function to simulate async function)
-        const user = await fetchUser();
+        const user = await getUserAsync();
         dispatch(setUser(user));
         dispatch(setLoggedIn(!!user));
         if (user) setPersistData<User>(DataPersistKeys.USER, user);
