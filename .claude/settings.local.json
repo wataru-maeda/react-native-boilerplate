@@ -1,6 +1,11 @@
 {
   "permissions": {
     "allow": [
+      "Bash(mkdir:*)",
+      "Bash(find:*)",
+      "Bash(mv:*)",
+      "Bash(mv:*)",
+      "Bash(rg:*)",
       "Bash(npx expo:*)",
       "Bash(npm run test:*)",
       "Bash(npm run format:*)",
