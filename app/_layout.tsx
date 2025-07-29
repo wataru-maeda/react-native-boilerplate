@@ -5,7 +5,7 @@ import BottomSheet from '@/components/elements/BottomSheet';
 import { useDataPersist, DataPersistKeys } from '@/hooks';
 import useColorScheme from '@/hooks/useColorScheme';
 import { loadImages, loadFonts } from '@/theme';
-import { Slot, useRouter } from 'expo-router';
+import { Slot } from 'expo-router';
 import { useState, useEffect } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { useAppSlice } from '@/slices';
@@ -18,7 +18,6 @@ import { User } from '@/types';
 SplashScreen.preventAutoHideAsync();
 
 function Router() {
-  const router = useRouter();
   const { isDark } = useColorScheme();
   const { dispatch, setUser, setLoggedIn } = useAppSlice();
   const { setPersistData, getPersistData } = useDataPersist();
@@ -60,11 +59,6 @@ function Router() {
     }
     preload();
   }, []);
-
-  // navigate to app
-  useEffect(() => {
-    router.push('/(main)/home');
-  }, [router]);
 
   return (
     <Fragment>
