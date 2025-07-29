@@ -14,28 +14,86 @@
   <img src='https://github.com/wataru-maeda/react-native-boilerplate/blob/main/__DELELE_ME__/demo-dark-theme.gif' width='150px'>
 </p>
 
-Say goodbye to time-consuming setup tasks like restructuring files, installing libraries, and crafting reusable components. Our project boilerplate is your solution to eliminate redundant work when starting from scratch. It includes only the most commonly-used libraries, so you can hit the ground running with a fully configured setup.
+Say goodbye to time-consuming setup tasks like restructuring files, installing libraries, and crafting reusable components. Our project boilerplate is your solution to eliminate redundant work when starting from scratch. Built with the latest Expo SDK 53, React 19, and modern development practices, it includes only the most commonly-used libraries, so you can hit the ground running with a fully configured setup.
 
 ## 🎯 Pre-configured Features
 
-- 📱 File-based routing with Expo Router
-- 🎨 Light/Dark theme support out of the box
-- 🔄 Redux Toolkit for state management
-- 📦 Environment configuration for dev/prod
-- 🚀 CI/CD workflows ready to go
-- 🛠️ Code quality tools (ESLint, Prettier, Jest)
-- 🌐 Distribution for mobile and web
+- 📱 **Expo SDK 53** with React 19 and React Native 0.79.5
+- 🏗️ **New Architecture** enabled by default for optimal performance
+- 🧭 **Expo Router v5** with flat config for file-based routing
+- 🎨 **Light/Dark theme** support with automatic detection
+- 🔄 **Redux Toolkit** for predictable state management
+- 📦 **Environment configuration** with dotenvx for dev/staging/prod
+- 🚀 **CI/CD workflows** with EAS Build and Preview channels
+- 🛠️ **Modern tooling**: ESLint 9 (flat config), Prettier, Jest
+- 🌐 **Multi-platform**: iOS, Android, and Web distribution
+- 📝 **AI-friendly**: Claude.md and Cursor rules for AI development
+- 🧪 **Testing ready**: React Native Testing Library setup
+- 🔒 **Type-safe**: Strict TypeScript configuration
 
 ## 🗒️ Requirements
 
-- [Node: 20.x](https://nodejs.org/en)
+- [Node: 20.x or higher](https://nodejs.org/en)
 - [Expo CLI](https://docs.expo.dev/more/expo-cli/)
+- [EAS CLI](https://docs.expo.dev/build/setup/) (for builds and deployment)
 
 ## 🚀 Quick Start
 
 1. Download zip or click "Use this template"
 2. Install packages with `npm install` or `yarn install`
 3. Spin up dev environment with `npm run dev` or `yarn run dev`
+
+## 🔧 Available Scripts
+
+### Development Commands:
+- `npm run dev` - Start Expo development server for all platforms with cache cleared
+- `npm run dev:ios` - Start development server for iOS simulator only
+- `npm run dev:android` - Start development server for Android emulator only  
+- `npm run dev:web` - Start development server for web browser only
+- `npm run dev:doctor` - Run Expo diagnostics to check project health
+
+### Building & Deployment:
+- `npm run dev:build:mobile` - Build iOS (IPA) and Android (APK) using EAS Build for development
+- `npm run dev:build:web` - Export static web application to `dist/` directory
+- `npm run dev:serve:web` - Serve the built web app locally (run after `dev:build:web`)
+- `npm run dev:deploy:web` - Build and deploy web app to [EAS Hosting](https://docs.expo.dev/eas/hosting/introduction/)
+
+### Environment & Configuration:
+- `npm run dev:secret:push` - Upload environment variables from `.env.dev` to EAS secrets
+- `npm run dev:secret:list` - List all environment variables stored in EAS
+- `npm run dev:config:public` - Display current Expo configuration for debugging
+
+### Code Quality & Testing:
+- `npm run lint` - Run ESLint to check code quality and style
+- `npm run lint:staged` - Run linting only on staged Git files (used in pre-commit)
+- `npm run format` - Format code using Prettier
+- `npm run test` - Run Jest unit tests
+- `npm run test:watch` - Run Jest tests in watch mode for development
+
+### Git Hooks:
+- `npm run prepare` - Set up Husky Git hooks for pre-commit quality checks
+
+### Usage Examples:
+
+**Start development:**
+```bash
+npm run dev                    # All platforms
+npm run dev:web               # Web only
+```
+
+**Build and deploy web:**
+```bash
+npm run dev:build:web         # Build static files
+npm run dev:serve:web         # Test locally
+npm run dev:deploy:web        # Deploy to EAS Hosting
+```
+
+**Code quality:**
+```bash
+npm run lint                  # Check code
+npm run format               # Format code
+npm run test                 # Run tests
+```
 
 ## 🤖 What's included
 

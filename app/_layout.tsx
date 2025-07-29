@@ -1,24 +1,21 @@
-import { Fragment } from 'react';
+import { Fragment, useState, useEffect } from 'react';
 import * as SplashScreen from 'expo-splash-screen';
 import BottomSheetContents from '@/components/layouts/BottomSheetContents';
 import BottomSheet from '@/components/elements/BottomSheet';
 import { useDataPersist, DataPersistKeys } from '@/hooks';
 import useColorScheme from '@/hooks/useColorScheme';
-import { loadImages, loadFonts } from '@/theme';
-import { Slot, useRouter } from 'expo-router';
-import { useState, useEffect } from 'react';
+import { loadImages, loadFonts, colors } from '@/theme';
+import { Slot } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import { useAppSlice } from '@/slices';
-import { fetchUser } from '@/services';
+import { getUserAsync } from '@/services';
 import Provider from '@/providers';
-import { colors } from '@/theme';
 import { User } from '@/types';
 
 // keep the splash screen visible while complete fetching resources
 SplashScreen.preventAutoHideAsync();
 
 function Router() {
-  const router = useRouter();
   const { isDark } = useColorScheme();
   const { dispatch, setUser, setLoggedIn } = useAppSlice();
   const { setPersistData, getPersistData } = useDataPersist();
@@ -28,13 +25,13 @@ function Router() {
    * preload assets and user info
    */
   useEffect(() => {
-    async function preload() {
+    (async () => {
       try {
         // preload assets
         await Promise.all([loadImages(), loadFonts()]);
 
         // fetch & store user data to store (fake promise function to simulate async function)
-        const user = await fetchUser();
+        const user = await getUserAsync();
         dispatch(setUser(user));
         dispatch(setLoggedIn(!!user));
         if (user) setPersistData<User>(DataPersistKeys.USER, user);
@@ -57,14 +54,8 @@ function Router() {
             setOpen(true);
           });
       }
-    }
-    preload();
+    })();
   }, []);
-
-  // navigate to app
-  useEffect(() => {
-    router.push('/(main)/home');
-  }, [router]);
 
   return (
     <Fragment>

@@ -17,6 +17,9 @@ export default ({ config }: ConfigContext): ExpoConfig => {
     },
     web: {
       ...config.web,
+      bundler: 'metro',
+      output: 'static',
+      favicon: './assets/images/logo-sm.png',
     },
     updates: {
       url: `https://u.expo.dev/${expoProjectId}`,

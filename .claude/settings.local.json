@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir:*)",
+      "Bash(find:*)",
+      "Bash(mv:*)",
+      "Bash(rg:*)",
+      "Bash(npx expo:*)",
+      "Bash(npm run test:*)",
+      "Bash(npm run format:*)",
+      "Bash(npm run lint:*)",
+      "Bash(rm:*)",
+      "Bash(npm run dev:build:web:*)",
+      "Bash(npm run dev:deploy:web:*)"
+    ],
+    "deny": []
+  }
+}

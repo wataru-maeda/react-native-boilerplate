@@ -1,11 +1,12 @@
 import React, { useRef, memo, useEffect } from 'react';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, View, ScrollView } from 'react-native';
 import RNBottomSheet, {
   BottomSheetProps as RNBottomSheetProps,
   BottomSheetBackdrop,
   BottomSheetScrollView,
   BottomSheetBackdropProps,
 } from '@gorhom/bottom-sheet';
+import { isWeb } from '@/utils/deviceInfo';
 
 const styles = StyleSheet.create({
   root: {
@@ -14,6 +15,26 @@ const styles = StyleSheet.create({
   },
   container: {
     width: '100%',
+  },
+  webContainer: {
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
+    backgroundColor: 'white',
+    borderTopLeftRadius: 16,
+    borderTopRightRadius: 16,
+    maxHeight: '80%',
+    zIndex: 1000,
+  },
+  webBackdrop: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    zIndex: 999,
   },
 });
 
@@ -32,14 +53,32 @@ const BottomSheet = memo(function BottomSheet({
   const bottomSheetRef = useRef<RNBottomSheet>(null);
 
   useEffect(() => {
-    if (isOpen) bottomSheetRef.current?.snapToIndex(0);
-    else bottomSheetRef.current?.close();
+    if (!isWeb) {
+      if (isOpen) bottomSheetRef.current?.snapToIndex(0);
+      else bottomSheetRef.current?.close();
+    }
   }, [isOpen]);
 
   const renderBackdropComponent = (backdropProps: BottomSheetBackdropProps) => (
     <BottomSheetBackdrop {...backdropProps} disappearsOnIndex={-1} />
   );
 
+  // Web fallback implementation
+  if (isWeb) {
+    if (!isOpen) return null;
+    return (
+      <>
+        <View style={styles.webBackdrop} />
+        <View style={styles.webContainer}>
+          <ScrollView contentContainerStyle={styles.container} style={styles.root}>
+            {children}
+          </ScrollView>
+        </View>
+      </>
+    );
+  }
+
+  // Native implementation
   return (
     <RNBottomSheet
       ref={bottomSheetRef}

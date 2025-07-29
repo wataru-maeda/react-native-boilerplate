@@ -3,7 +3,7 @@ import { User } from '@/types';
 /**
  * fake promise function
  */
-export async function fetchUser(): Promise<User> {
+export async function getUserAsync(): Promise<User> {
   try {
     await new Promise(resolve => setTimeout(resolve, 500));
     return { name: 'test user', email: 'testuser@test.com' };
