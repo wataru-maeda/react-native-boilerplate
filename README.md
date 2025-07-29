@@ -14,22 +14,28 @@
   <img src='https://github.com/wataru-maeda/react-native-boilerplate/blob/main/__DELELE_ME__/demo-dark-theme.gif' width='150px'>
 </p>
 
-Say goodbye to time-consuming setup tasks like restructuring files, installing libraries, and crafting reusable components. Our project boilerplate is your solution to eliminate redundant work when starting from scratch. It includes only the most commonly-used libraries, so you can hit the ground running with a fully configured setup.
+Say goodbye to time-consuming setup tasks like restructuring files, installing libraries, and crafting reusable components. Our project boilerplate is your solution to eliminate redundant work when starting from scratch. Built with the latest Expo SDK 53, React 19, and modern development practices, it includes only the most commonly-used libraries, so you can hit the ground running with a fully configured setup.
 
 ## 🎯 Pre-configured Features
 
-- 📱 File-based routing with Expo Router
-- 🎨 Light/Dark theme support out of the box
-- 🔄 Redux Toolkit for state management
-- 📦 Environment configuration for dev/prod
-- 🚀 CI/CD workflows ready to go
-- 🛠️ Code quality tools (ESLint, Prettier, Jest)
-- 🌐 Distribution for mobile and web
+- 📱 **Expo SDK 53** with React 19 and React Native 0.79.5
+- 🏗️ **New Architecture** enabled by default for optimal performance
+- 🧭 **Expo Router v5** with flat config for file-based routing
+- 🎨 **Light/Dark theme** support with automatic detection
+- 🔄 **Redux Toolkit** for predictable state management
+- 📦 **Environment configuration** with dotenvx for dev/staging/prod
+- 🚀 **CI/CD workflows** with EAS Build and Preview channels
+- 🛠️ **Modern tooling**: ESLint 9 (flat config), Prettier, Jest
+- 🌐 **Multi-platform**: iOS, Android, and Web distribution
+- 📝 **AI-friendly**: Claude.md and Cursor rules for AI development
+- 🧪 **Testing ready**: React Native Testing Library setup
+- 🔒 **Type-safe**: Strict TypeScript configuration
 
 ## 🗒️ Requirements
 
-- [Node: 20.x](https://nodejs.org/en)
+- [Node: 20.x or higher](https://nodejs.org/en)
 - [Expo CLI](https://docs.expo.dev/more/expo-cli/)
+- [EAS CLI](https://docs.expo.dev/build/setup/) (for builds and deployment)
 
 ## 🚀 Quick Start
 
