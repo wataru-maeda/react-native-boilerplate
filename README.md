@@ -216,35 +216,62 @@ To generate iOS and Android native code, you can run `npx expo prebuild` in the 
 
 ## 🔧 Available Scripts
 
-### Development Commands:
+The project includes comprehensive development, building, testing, and deployment scripts to streamline your workflow.
+
+<details>
+  <summary><b>Development Commands</b></summary>
+
+####
+
 - `npm run dev` - Start Expo development server for all platforms with cache cleared
 - `npm run dev:ios` - Start development server for iOS simulator only
 - `npm run dev:android` - Start development server for Android emulator only  
 - `npm run dev:web` - Start development server for web browser only
 - `npm run dev:doctor` - Run Expo diagnostics to check project health
 
-### Building & Deployment:
+</details>
+
+<details>
+  <summary><b>Building & Deployment</b></summary>
+
+####
+
 - `npm run dev:build:mobile` - Build iOS (IPA) and Android (APK) using EAS Build for development
 - `npm run dev:build:web` - Export static web application to `dist/` directory
 - `npm run dev:serve:web` - Serve the built web app locally (run after `dev:build:web`)
 - `npm run dev:deploy:web` - Build and deploy web app to [EAS Hosting](https://docs.expo.dev/eas/hosting/introduction/)
 
-### Environment & Configuration:
+</details>
+
+<details>
+  <summary><b>Environment & Configuration</b></summary>
+
+####
+
 - `npm run dev:secret:push` - Upload environment variables from `.env.dev` to EAS secrets
 - `npm run dev:secret:list` - List all environment variables stored in EAS
 - `npm run dev:config:public` - Display current Expo configuration for debugging
 
-### Code Quality & Testing:
+</details>
+
+<details>
+  <summary><b>Code Quality & Testing</b></summary>
+
+####
+
 - `npm run lint` - Run ESLint to check code quality and style
 - `npm run lint:staged` - Run linting only on staged Git files (used in pre-commit)
 - `npm run format` - Format code using Prettier
 - `npm run test` - Run Jest unit tests
 - `npm run test:watch` - Run Jest tests in watch mode for development
-
-### Git Hooks:
 - `npm run prepare` - Set up Husky Git hooks for pre-commit quality checks
 
-### Usage Examples:
+</details>
+
+<details>
+  <summary><b>Common Usage Examples</b></summary>
+
+####
 
 **Start development:**
 ```bash
@@ -265,6 +292,8 @@ npm run lint                  # Check code
 npm run format               # Format code
 npm run test                 # Run tests
 ```
+
+</details>
 
 
 ## 📓 License
