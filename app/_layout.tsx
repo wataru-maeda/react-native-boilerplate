@@ -55,7 +55,7 @@ function Router() {
           });
       }
     })();
-  }, [dispatch, setUser, setLoggedIn, setPersistData, getPersistData]);
+  }, []);
 
   return (
     <Fragment>
