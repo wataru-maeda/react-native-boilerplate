@@ -7,7 +7,7 @@ alwaysApply: true
 
 ## Project Overview
 
-React Native Expo SDK 53 project with TypeScript, Expo Router v5, Redux Toolkit, and modern development practices.
+React Native Expo SDK 54 project with TypeScript, Expo Router v6, Redux Toolkit, and modern development practices.
 
 ## Built-in Features to Always Use
 
@@ -96,6 +96,16 @@ React Native Expo SDK 53 project with TypeScript, Expo Router v5, Redux Toolkit,
 - Use descriptive test names
 - Mock external dependencies
 
+### SafeAreaView Usage
+
+- **Import from `react-native-safe-area-context`**, not React Native
+- React Native's SafeAreaView is deprecated as of SDK 54
+
+### Required Peer Dependencies
+
+- **@expo/metro-runtime** - Required for Expo Router
+- **react-native-worklets** - Required for React Native Reanimated
+
 ## Built-in Architecture Patterns
 
 ### Navigation (Expo Router v5)
@@ -170,10 +180,10 @@ React Native Expo SDK 53 project with TypeScript, Expo Router v5, Redux Toolkit,
 
 ## Migration and Updates
 
-- Currently on Expo SDK 53 with React 19
+- Currently on Expo SDK 54 with React 19.1
 - ESLint 9 with flat config
-- Modern React Native 0.79.5
-- TypeScript strict mode enabled
+- Modern React Native 0.81.4
+- TypeScript strict mode enabled (v5.9.2)
 
 ## Key Principles
 

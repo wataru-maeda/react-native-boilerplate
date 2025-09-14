@@ -14,13 +14,13 @@
   <img src='https://github.com/wataru-maeda/react-native-boilerplate/blob/main/__DELELE_ME__/demo-dark-theme.gif' width='150px'>
 </p>
 
-Say goodbye to time-consuming setup tasks like restructuring files, installing libraries, and crafting reusable components. Our project boilerplate is your solution to eliminate redundant work when starting from scratch. Built with the latest Expo SDK 53, React 19, and modern development practices, it includes only the most commonly-used libraries, so you can hit the ground running with a fully configured setup.
+Say goodbye to time-consuming setup tasks like restructuring files, installing libraries, and crafting reusable components. Our project boilerplate is your solution to eliminate redundant work when starting from scratch. Built with the latest Expo SDK 54, React 19.1, and modern development practices, it includes only the most commonly-used libraries, so you can hit the ground running with a fully configured setup.
 
 ## 🎯 Pre-configured Features
 
-- 📱 **Expo SDK 53** with React 19 and React Native 0.79.5
+- 📱 **Expo SDK 54** with React 19.1 and React Native 0.81.4
 - 🏗️ **New Architecture** enabled by default for optimal performance
-- 🧭 **Expo Router v5** with flat config for file-based routing
+- 🧭 **Expo Router v6** with flat config for file-based routing
 - 🎨 **Light/Dark theme** support with automatic detection
 - 🔄 **Redux Toolkit** for predictable state management
 - 📦 **Environment configuration** with dotenvx for dev/staging/prod
