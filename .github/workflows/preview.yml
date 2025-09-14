@@ -46,6 +46,10 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      # install platform-specific lightningcss binary for Linux
+      - name: Install lightningcss Linux binary
+        run: npm install lightningcss-linux-x64-gnu --save-optional
+
       # get branch name
       - name: Get branch name
         id: branch-name
