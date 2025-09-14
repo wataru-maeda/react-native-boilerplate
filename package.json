@@ -1,7 +1,7 @@
 {
   "name": "react-native-boilerplate",
   "main": "expo-router/entry",
-  "version": "4.0.0",
+  "version": "5.0.0",
   "private": true,
   "scripts": {
     "dev": "EXPO_NO_DOTENV=1 dotenvx run -f .env.dev -- expo start -c",
