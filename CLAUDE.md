@@ -6,12 +6,12 @@ This React Native Expo project follows specific patterns and uses built-in featu
 
 **Technology Stack:**
 
-- React Native with Expo SDK 53
+- React Native with Expo SDK 54
 - TypeScript (strict mode)
-- Expo Router v5 (flat config)
+- Expo Router v6 (flat config)
 - Redux Toolkit for state management
 - ESLint 9 with flat config
-- React 19 and React Native 0.79.5
+- React 19.1 and React Native 0.81.4
 
 ## Always Use These Built-in Features
 
@@ -183,12 +183,14 @@ import { useDataPersist } from '@/hooks';
 
 ## Architecture Notes
 
-- Project recently upgraded to Expo SDK 53
-- Using modern React 19 features
+- Project upgraded to Expo SDK 54
+- Using React 19.1 with React Native 0.81.4
 - ESLint 9 with flat config
 - Directory "pages" was renamed to "scenes"
-- TypeScript strict mode enabled
+- TypeScript strict mode enabled (v5.9.2)
 - Custom theme system with dark/light support
+- SafeAreaView imported from react-native-safe-area-context (not React Native)
+- Required peer dependencies: @expo/metro-runtime, react-native-worklets
 
 ## Available Scripts
 
