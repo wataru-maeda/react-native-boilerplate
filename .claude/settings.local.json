@@ -11,7 +11,10 @@
       "Bash(npm run lint:*)",
       "Bash(rm:*)",
       "Bash(npm run dev:build:web:*)",
-      "Bash(npm run dev:deploy:web:*)"
+      "Bash(npm run dev:deploy:web:*)",
+      "Bash(npm test:*)",
+      "Bash(npx expo-doctor:*)",
+      "Bash(npm install:*)"
     ],
     "deny": []
   }
