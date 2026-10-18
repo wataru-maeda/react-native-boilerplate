@@ -28,6 +28,19 @@
         "gradleCommand": ":app:assembleDebug"
       }
     },
+    "staging": {
+      "extends": "base",
+      "channel": "staging",
+      "environment": "preview",
+      "distribution": "internal",
+      "ios": {
+        "buildConfiguration": "Release"
+      },
+      "android": {
+        "buildType": "apk",
+        "gradleCommand": ":app:assembleRelease"
+      }
+    },
     "production": {
       "extends": "base",
       "channel": "production",

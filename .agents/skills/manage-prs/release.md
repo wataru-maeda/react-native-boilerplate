@@ -1,13 +1,13 @@
 # Create Release
 
 Follow [Git rules](../../../AGENTS.md#git).
-Use the `version` in `package.json` on `main`. Never bump versions in this skill.
+Release after [promote.md](promote.md) has merged `stg` into `main`. Use the `version` in `package.json` on `main`. Never bump versions in this skill.
 For notes-only requests, stop after drafting notes.
 
 ## Inspect
 
 - Check the working tree and the exact target commit on `main`.
-- Verify required PRs, including the version bump, have merged into `main`.
+- Verify the version bump merged into `dev` and the promotion PR merged into `main`.
 - Check reviews, relevant tests, lint, and types. Report missing or failed evidence.
 - Inspect existing local and remote tags and GitHub releases.
 - Read commits and changes since the previous release.

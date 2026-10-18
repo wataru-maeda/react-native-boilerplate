@@ -15,7 +15,7 @@ Replace the boilerplate's names with the approved names, then remove approved sa
    - `package.json` name.
    - `app.json` name, slug, scheme, and owner.
    - Fallback values in `app.config.ts`: project ID, slug, name, bundle ID, and package.
-   - `EXPO_SLUG`, `EXPO_NAME`, `EXPO_IOS_BUNDLE_IDENTIFIER`, and `EXPO_ANDROID_PACKAGE` in `.env.dev.example` and `.env.prod.example`.
+   - `EXPO_SLUG`, `EXPO_NAME`, `EXPO_IOS_BUNDLE_IDENTIFIER`, and `EXPO_ANDROID_PACKAGE` in `.env.dev.example`, `.env.stg.example`, and `.env.prod.example`.
    - The `AGENTS.md` title and the README title. Use `manage-docs`.
 4. Clear `EXPO_PROJECT_ID` values and the `app.config.ts` fallback. [services.md](services.md) sets them.
 5. Run `npm install` so `package-lock.json` picks up the new name.

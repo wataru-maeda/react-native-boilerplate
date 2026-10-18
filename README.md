@@ -23,7 +23,8 @@ Say goodbye to time-consuming setup tasks like restructuring files, installing l
 - 🧭 **Expo Router** for file-based routing, with drawer, tabs, and stacks
 - 🎨 **Light/Dark theme** support with automatic detection
 - 🔄 **Redux Toolkit** for predictable state management
-- 📦 **Environment configuration** with dotenvx for dev/staging/prod
+- 📦 **Environment configuration** with dotenvx for dev, stg, and prod
+- 🌿 **Branch flow**: `dev` → `stg` → `main`, with agent skills to promote and release
 - 🚀 **CI/CD workflows** with EAS Build and Preview channels
 - 🛠️ **Modern tooling**: ESLint 9 (flat config), Prettier, Jest 30, TypeScript 6
 - 🌐 **Multi-platform**: iOS, Android, and Web distribution
@@ -109,8 +110,11 @@ The project simplifies asset and theme management through a centralized [`src/th
 The project uses [`dotenvx`](https://dotenvx.com/) to handle environment variables across both Expo CLI and EAS CLI builds. Here's how it works:
 
 #### Setup Structure
-- `.env.dev.example` - Development environment template
-- `.env.prod.example` - Production environment template
+- `.env.dev.example` - Development environment template (`ENV=dev`, `dev:*` scripts)
+- `.env.stg.example` - Staging environment template (`ENV=stg`, `stg:*` scripts)
+- `.env.prod.example` - Production environment template (`ENV=prod`, `prod:*` scripts)
+
+Each environment uses its own EAS project through `EXPO_PROJECT_ID`. Every `dev:*` script has `stg:*` and `prod:*` versions.
 - Configuration in [`app.config.ts`](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/app.config.ts) and [`src/utils/config.ts`](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/src/utils/config.ts)
 
 #### Getting Started with Your Expo Account
@@ -119,7 +123,7 @@ The project uses [`dotenvx`](https://dotenvx.com/) to handle environment variabl
 3. Set your `EXPO_SLUG` and `EXPO_PROJECT_ID` in `.env.dev`
 
 #### Adding New Environment Variables
-1. Add variables to both `.env.dev` and `.env.prod`
+1. Add variables to `.env.dev`, `.env.stg`, and `.env.prod` (and their `.example` files)
 2. Include them in `app.config.ts` under the [`extra`](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/app.config.ts) object
 3. Define them in [`src/utils/config.ts`](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/src/utils/config.ts)
 
@@ -135,7 +139,7 @@ The project intentionally avoids using `EXPO_PUBLIC_` prefix for environment var
 #### Current Approach
 - Variables are uploaded to EAS servers as `secrets`
 - Securely accessible only during EAS build and submit processes
-- Use `npm run dev:secret:push` to automatically upload variables from `.env.dev` and `.env.prod`
+- Use `npm run dev:secret:push`, `stg:secret:push`, or `prod:secret:push` to upload variables from `.env.dev`, `.env.stg`, or `.env.prod` to that environment's EAS project
 
 #### Alternative Approach
 If you prefer direct access via `process.env`:
@@ -210,6 +214,7 @@ The project maintains code quality through integrated Eslint, Prettier, and Jest
 
 ####
 
+- Branches: work branches merge into `dev`. Promote `dev` → `stg` for staging tests, then `stg` → `main` for production. Releases are tagged on `main`.
 - When you've completed your work and need to share a preview with the QA team, our boilerplate automates the distribution process for you. Here's how it works:
 1. Whenever you create a pull request (PR) or merge, it automatically generates a preview channel in your Expo account.
 2. You don't need to run 'eas' commands every time you create a PR; the process is streamlined for you.
@@ -220,7 +225,7 @@ To set up the CD workflow, follow these steps:
 2. In your GitHub repository, go to **Settings**, then navigate to **Secrets and variables** -> **Actions** -> **Add new repository secret**. Make sure to name the secret as `EXPO_TOKEN`.
 3. Update `name`, `slug`, `owner`, `projectId` and `url` in [app.json](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/app.json):
 4. Update in `name`, `slug`, `projectId`, `ios`, `android` in [app.config.ts](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/app.config.ts)
-6. After you push changes to the main branch, a new preview will be created automatically.
+5. After you push changes to `dev`, `stg`, or `main`, a new update is published to the EAS branch with the same name.
 
 </details>
 
@@ -240,6 +245,8 @@ The project includes comprehensive development, building, testing, and deploymen
 - `npm run dev:doctor` - Run Expo diagnostics to check project health
 - `npm run dev:run:ios` - Build and run the native iOS app locally
 - `npm run dev:run:android` - Build and run the native Android app locally
+
+Replace `dev` with `stg` or `prod` to use `.env.stg` or `.env.prod`.
 
 </details>
 

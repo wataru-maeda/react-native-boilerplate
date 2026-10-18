@@ -5,7 +5,7 @@ Link the app to EAS, create the env files, and run checks.
 ## EAS
 
 1. Check the login. Ask the user to run `! npx eas login` when it fails.
-2. Create or link the dev and prod projects with the approved slugs. Check whether each exists before creating it.
+2. Create or link the dev, stg, and prod projects with the approved slugs. Check whether each exists before creating it.
 3. Write each project ID to `EXPO_PROJECT_ID` in its `.env.*.example`. Set the `app.config.ts` fallback to the prod ID.
 
 ```bash
@@ -16,9 +16,14 @@ npx eas project:info
 
 ## Env Files
 
-- Copy `.env.dev.example` to `.env.dev` and `.env.prod.example` to `.env.prod`. Both are ignored by git.
+- Copy each `.env.<env>.example` to `.env.<env>` for `dev`, `stg`, and `prod`. They are ignored by git.
 - Add each new variable to the examples, `extra` in `app.config.ts`, and `src/utils/config.ts`.
-- Ask the user to fill secret values. Never upload secrets with `dev:secret:push` without approval.
+- Ask the user to fill secret values. Never upload secrets with `<env>:secret:push` without approval.
+
+## Branches
+
+- Check that `dev`, `stg`, and `main` exist on the remote. Ask before creating missing ones.
+- Ask the user to set `dev` as the default branch in GitHub settings.
 
 ## CI
 
