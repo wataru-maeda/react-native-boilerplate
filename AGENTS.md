@@ -71,6 +71,8 @@ Use Node ≥24 and npm ≥11.
 - Watch tests: `npm run test:watch`.
 - Run E2E flows: `npm run e2e`. Build and install the app on a simulator first with `npm run dev:run:ios`.
 
+`ios/` and `android/` are generated and ignored by git. Delete them before `dev:run:*` after changing `.env.dev` or `app.config.ts`.
+
 ## Git
 
 - Never commit directly to `main`.

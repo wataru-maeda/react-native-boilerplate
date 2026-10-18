@@ -11,7 +11,7 @@
     "dev:doctor": "EXPO_NO_DOTENV=1 dotenvx run -f .env.dev -- npx expo-doctor",
     "dev:secret:push": "dotenvx run -f .env.dev -- eas secret:push --scope project --env-file .env.dev --force",
     "dev:secret:list": "dotenvx run -f .env.dev -- eas env:list",
-    "dev:build:mobile": "npm run dev:secret:push && EXPO_NO_DOTENV=1 dotenv -e .env.dev -- npx eas build --profile development",
+    "dev:build:mobile": "npm run dev:secret:push && EXPO_NO_DOTENV=1 dotenvx run -f .env.dev -- npx eas build --profile development",
     "dev:build:web": "dotenvx run -f .env.dev -- npx expo export --platform web",
     "dev:serve:web": "dotenvx run -f .env.dev -- npx expo serve",
     "dev:deploy:web": "npm run dev:build:web && dotenvx run -f .env.dev -- eas deploy --environment development",

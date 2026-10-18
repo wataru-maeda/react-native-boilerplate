@@ -192,6 +192,8 @@ The project streamlines deployment with simple commands - use `npm run dev:build
 
 The scripts read the app ID from `EXPO_IOS_BUNDLE_IDENTIFIER` or `EXPO_ANDROID_PACKAGE` in `.env.dev`. Target elements by `testID` when you add flows.
 
+`dev:run:ios` and `dev:run:android` reuse existing `ios/` and `android/` folders. Delete them after changing `.env.dev` or `app.config.ts`, or the app keeps the old bundle ID and the flows cannot find it.
+
 </details>
 
 <details>
