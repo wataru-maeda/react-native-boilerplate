@@ -10,6 +10,11 @@ export default ({ config }: ConfigContext): ExpoConfig => {
       ...config.ios,
       bundleIdentifier:
         process.env.EXPO_IOS_BUNDLE_IDENTIFIER ?? 'com.watarumaeda.react-native-boilerplate',
+      infoPlist: {
+        ...config.ios?.infoPlist,
+        // opt out of iOS 26 Liquid Glass so header buttons keep a plain background
+        UIDesignRequiresCompatibility: true,
+      },
     },
     android: {
       ...config.android,
@@ -19,7 +24,7 @@ export default ({ config }: ConfigContext): ExpoConfig => {
       ...config.web,
       bundler: 'metro',
       output: 'static',
-      favicon: './assets/images/logo-sm.png',
+      favicon: './src/assets/images/logo-sm.png',
     },
     updates: {
       url: `https://u.expo.dev/${expoProjectId}`,
@@ -41,7 +46,7 @@ export default ({ config }: ConfigContext): ExpoConfig => {
           dark: {
             backgroundColor: '#101212',
           },
-          image: './assets/images/logo-lg.png',
+          image: './src/assets/images/logo-lg.png',
           imageWidth: 200,
           resizeMode: 'contain',
         },
@@ -50,12 +55,12 @@ export default ({ config }: ConfigContext): ExpoConfig => {
         'expo-font',
         {
           fonts: [
-            './assets/fonts/OpenSans-Bold.ttf',
-            './assets/fonts/OpenSans-BoldItalic.ttf',
-            './assets/fonts/OpenSans-Italic.ttf',
-            './assets/fonts/OpenSans-Regular.ttf',
-            './assets/fonts/OpenSans-Semibold.ttf',
-            './assets/fonts/OpenSans-SemiboldItalic.ttf',
+            './src/assets/fonts/OpenSans-Bold.ttf',
+            './src/assets/fonts/OpenSans-BoldItalic.ttf',
+            './src/assets/fonts/OpenSans-Italic.ttf',
+            './src/assets/fonts/OpenSans-Regular.ttf',
+            './src/assets/fonts/OpenSans-Semibold.ttf',
+            './src/assets/fonts/OpenSans-SemiboldItalic.ttf',
           ],
         },
       ],

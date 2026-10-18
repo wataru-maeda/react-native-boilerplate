@@ -1,0 +1,9 @@
+appId: ${APP_ID}
+name: Menu button opens the drawer
+---
+- runFlow: subflows/launch.yaml
+- tapOn:
+    id: drawer-menu-button
+- assertVisible:
+    id: drawer-contents
+- assertVisible: Side Menu Contents

@@ -1,0 +1,13 @@
+appId: ${APP_ID}
+name: Home opens details and goes back
+---
+- runFlow: subflows/launch.yaml
+- tapOn:
+    id: home-details-button
+- assertVisible:
+    id: details-screen
+- assertVisible: Details (from Home)
+- tapOn:
+    id: details-back-button
+- assertVisible:
+    id: home-screen
