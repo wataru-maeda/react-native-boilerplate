@@ -60,16 +60,25 @@ Use Node ≥24 and npm ≥11.
 
 ## Commands
 
-Run from the repository root. `dev` commands load `.env.dev`. Copy `.env.dev.example` to create it.
+Run from the repository root. Each environment has its own env file and script prefix:
+
+| Environment | Env file    | Prefix | `ENV`  | EAS build profile |
+| ----------- | ----------- | ------ | ------ | ----------------- |
+| Development | `.env.dev`  | `dev`  | `dev`  | `development`     |
+| Staging     | `.env.stg`  | `stg`  | `stg`  | `staging`         |
+| Production  | `.env.prod` | `prod` | `prod` | `production`      |
+
+Copy `.env.<env>.example` to create each file. Each environment uses its own EAS project through `EXPO_PROJECT_ID`.
+The commands below use `dev`. Replace it with `stg` or `prod` for the other environments.
 
 - Start: `npm run dev`. Use `dev:ios`, `dev:android`, or `dev:web` for one platform.
 - Check Expo setup: `npm run dev:doctor`.
 - Show loaded config: `npm run dev:config:public`.
 - Build and run native apps locally: `npm run dev:run:ios` or `npm run dev:run:android`.
-- Build with EAS: `npm run dev:build:mobile`. It uploads `.env.dev` to EAS first.
-- Build and deploy web: `npm run dev:deploy:web`.
+- Build with EAS: `npm run dev:build:mobile`. It uploads `.env.dev` to the EAS project first.
+- Build and deploy web: `npm run dev:deploy:web`. `prod:deploy:web` deploys to the production alias.
 
-`ios/` and `android/` are generated and ignored by git. Delete them before `dev:run:*` after changing `.env.dev` or `app.config.ts`.
+`ios/` and `android/` are generated and ignored by git. Delete them before `<env>:run:*` after changing env files or `app.config.ts`.
 
 ### Checks
 
@@ -77,26 +86,29 @@ Run from the repository root. `dev` commands load `.env.dev`. Copy `.env.dev.exa
 - Lint: `npm run lint`.
 - Rewrite formatting: `npm run format`.
 - Test: `npm run test`. Watch: `npm run test:watch`.
-- Run E2E flows: `npm run e2e` or `npm run e2e:android`. Install the app with `dev:run:*` first and keep Metro running.
+- Run E2E flows: `npm run e2e` or `npm run e2e:android`. They use `.env.dev`. Install the app with `dev:run:*` first and keep Metro running.
 
 ## Git
 
 - Run only requested Git operations.
-- Never commit directly to `main`.
+- Never commit directly to `dev`, `stg`, or `main`.
 - Keep each branch and commit focused.
 - Submit changes through a PR. Use `manage-prs`.
 
 ### Branches
 
-Use `main` as the only long-lived branch.
+Use `dev` for development, `stg` for staging, and `main` for production. `dev` is the default branch.
 
-| Change            | Branch            | Start from | Merge into |
-| ----------------- | ----------------- | ---------- | ---------- |
-| Feature           | `feat/<name>`     | `main`     | `main`     |
-| Fix               | `fix/<name>`      | `main`     | `main`     |
-| Refactor          | `refactor/<name>` | `main`     | `main`     |
-| Dependencies, SDK | `chore/<name>`    | `main`     | `main`     |
-| Docs              | `docs/<name>`     | `main`     | `main`     |
+| Change            | Branch            | Start from | Merge into                   |
+| ----------------- | ----------------- | ---------- | ---------------------------- |
+| Feature           | `feat/<name>`     | `dev`      | `dev`                        |
+| Fix               | `fix/<name>`      | `dev`      | `dev`                        |
+| Refactor          | `refactor/<name>` | `dev`      | `dev`                        |
+| Dependencies, SDK | `chore/<name>`    | `dev`      | `dev`                        |
+| Docs              | `docs/<name>`     | `dev`      | `dev`                        |
+| Staging           | `dev`             | —          | `stg`                        |
+| Release           | `stg`             | —          | `main`                       |
+| Production fix    | `hotfix/<name>`   | `main`     | `main`, then `stg` and `dev` |
 
 ### Commits
 
@@ -108,7 +120,9 @@ Use `type(scope): description`.
 
 ### Merge and Version
 
-- Squash merge PRs into `main`.
+- Squash merge work branches into `dev`.
+- Promote with merge commits: open a PR from `dev` to `stg`, test the staging build, then open a PR from `stg` to `main`.
+- After a hotfix reaches `main`, merge `main` back into `stg` and `dev` with merge commits.
+- Bump `version` in `package.json` on `dev` before promoting a release.
 - Tag releases as `vMAJOR.MINOR.PATCH` on `main`. Use `manage-prs` to publish them.
 - Increment major for Expo SDK upgrades and breaking changes, minor for features, and patch for fixes.
-- Bump `version` in `package.json` in the PR that leads to the release.

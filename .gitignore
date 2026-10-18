@@ -32,6 +32,7 @@ yarn-error.*
 # local env files
 .env*
 !.env.dev.example
+!.env.stg.example
 !.env.prod.example
 
 # typescript

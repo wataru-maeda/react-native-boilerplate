@@ -25,12 +25,12 @@ Change nothing in this step. Show one plan with these items:
 | Item         | Contains                                                                    |
 | ------------ | --------------------------------------------------------------------------- |
 | Names        | App name, `package.json` name, slug, URL scheme                             |
-| IDs          | iOS bundle IDs and Android packages for dev and prod                        |
+| IDs          | iOS bundle IDs and Android packages for dev, stg, and prod                  |
 | Expo account | `owner` in `app.json`, and whether to create new EAS projects or reuse ones |
 | Samples      | Files to remove or keep: `__DELELE_ME__/`, README banner, welcome sheet     |
 | Open         | Anything the user has not decided                                           |
 
-Propose IDs in reverse-domain form, such as `com.<company>.<app>` and `com.<company>.<app>.dev`.
+Propose IDs in reverse-domain form, such as `com.<company>.<app>`, `com.<company>.<app>.stg`, and `com.<company>.<app>.dev`.
 End the turn after the plan. Resolve Open items one at a time.
 
 ## Rules

@@ -32,7 +32,7 @@ export default ({ config }: ConfigContext): ExpoConfig => {
     extra: {
       ...config.extra,
       eas: { projectId: expoProjectId },
-      env: process.env.ENV ?? 'development',
+      env: process.env.ENV ?? 'dev',
       apiUrl: process.env.API_URL ?? 'https://example.com',
       // add more env variables here...
     },

@@ -5,7 +5,7 @@ description: Create, review, and merge GitHub pull requests and publish releases
 
 # Manage PRs
 
-Follow [Git rules](../../../AGENTS.md#git). Each PR targets `main`.
+Follow [Git rules](../../../AGENTS.md#git). Work branches target `dev`. Promotion PRs go from `dev` to `stg` and from `stg` to `main`.
 
 ## Actions
 
@@ -13,6 +13,7 @@ Follow [Git rules](../../../AGENTS.md#git). Each PR targets `main`.
 | -------------------------------- | ------------------------ |
 | Open a PR for the current branch | [create.md](create.md)   |
 | Review one or more PRs           | [review.md](review.md)   |
+| Promote `dev` → `stg` → `main`   | [promote.md](promote.md) |
 | Tag and publish a release        | [release.md](release.md) |
 
 ## PR Rules
@@ -21,6 +22,7 @@ Follow [Git rules](../../../AGENTS.md#git). Each PR targets `main`.
 
 - Write `type(scope): description`, at most 70 characters. Use the types and scopes in [Commits](../../../AGENTS.md#commits).
 - Squash merges use the title as the commit message.
+- Title promotion PRs `chore: promote dev to stg` or `chore: release v<version>` for `stg` to `main`.
 
 ### Body
 
@@ -33,10 +35,12 @@ Follow [Git rules](../../../AGENTS.md#git). Each PR targets `main`.
 ### Merge
 
 - Merge only when asked and after required checks pass.
-- Squash merge. Never pass `--subject`. GitHub titles the commit `<PR title> (#<N>)`, which links it back to the PR.
-- Keep the branch. Delete it only when cleanup is requested.
+- Squash merge work branches into `dev`. Use merge commits for promotion and hotfix merge-back PRs ([Merge and Version](../../../AGENTS.md#merge-and-version)).
+- Never pass `--subject`. GitHub titles the commit `<PR title> (#<N>)`, which links it back to the PR.
+- Keep work branches. Delete them only when cleanup is requested. Never delete `dev`, `stg`, or `main`.
 
 ```bash
 gh pr checks <N> --watch
-gh pr merge <N> --squash
+gh pr merge <N> --squash                   # work branches into dev
+gh pr merge <N> --merge                    # dev → stg, stg → main, hotfix merge-back
 ```
