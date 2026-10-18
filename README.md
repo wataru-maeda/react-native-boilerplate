@@ -87,9 +87,6 @@ This project uses [**Redux Toolkit**](https://redux-toolkit.js.org/) for global 
 2. Rename and modify for your needs
 3. Add your slice to [`src/utils/store.ts`](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/src/utils/store.ts)
 
-#### Development
-Redux logger is enabled by default. To disable, remove the logger from [`src/utils/store.ts`](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/src/utils/store.ts).
-
 </details>
 
 <details>
