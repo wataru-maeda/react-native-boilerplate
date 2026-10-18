@@ -27,7 +27,7 @@ Say goodbye to time-consuming setup tasks like restructuring files, installing l
 - 🚀 **CI/CD workflows** with EAS Build and Preview channels
 - 🛠️ **Modern tooling**: ESLint 9 (flat config), Prettier, Jest 30, TypeScript 6
 - 🌐 **Multi-platform**: iOS, Android, and Web distribution
-- 📝 **AI-friendly**: `AGENTS.md` rules read by Claude Code, Cursor, Codex, and other coding agents
+- 📝 **AI-friendly**: `AGENTS.md` rules and `.agents/skills` (docs, code review, PRs and releases, project init) shared by Claude Code, Codex, Cursor, and other coding agents
 - 🧪 **Testing ready**: React Native Testing Library for unit tests and [Maestro](https://maestro.dev/) for E2E tests
 - 🔒 **Type-safe**: Strict TypeScript configuration
 
