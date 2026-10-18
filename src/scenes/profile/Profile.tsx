@@ -35,14 +35,17 @@ export default function Profile() {
   const router = useRouter();
   const { isDark } = useColorScheme();
   return (
-    <View style={[styles.root, isDark && { backgroundColor: colors.blackGray }]}>
+    <View
+      testID="profile-screen"
+      style={[styles.root, isDark && { backgroundColor: colors.blackGray }]}>
       <Text style={[styles.title, isDark && { color: colors.gray }]}>Profile</Text>
       <Button
+        testID="profile-details-button"
         title="Go to Details"
         titleStyle={[styles.buttonTitle, isDark && { color: colors.blackGray }]}
         style={styles.button}
         onPress={() =>
-          router.push({ pathname: '(main)/(tabs)/profile/details', params: { from: 'Details' } })
+          router.push({ pathname: '(main)/(tabs)/profile/details', params: { from: 'Profile' } })
         }
       />
     </View>

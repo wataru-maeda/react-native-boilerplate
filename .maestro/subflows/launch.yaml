@@ -1,0 +1,17 @@
+# Launch with a clean state and close the welcome bottom sheet.
+# Elements inside the sheet are not exposed to Maestro on iOS,
+# so close it by tapping the backdrop above the sheet.
+appId: ${APP_ID}
+---
+- launchApp:
+    clearState: true
+- extendedWaitUntil:
+    visible: Bottom sheet backdrop
+    timeout: 60000
+- waitForAnimationToEnd
+- tapOn:
+    point: 50%,25%
+- waitForAnimationToEnd
+- assertVisible:
+    id: home-screen
+- assertNotVisible: Bottom sheet backdrop

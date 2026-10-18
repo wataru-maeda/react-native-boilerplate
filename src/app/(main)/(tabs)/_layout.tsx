@@ -24,6 +24,7 @@ export default function TabLayout() {
         name="home"
         options={{
           title: 'Home',
+          tabBarButtonTestID: 'home-tab',
           tabBarIcon: ({ color }) => <AntDesign name="home" size={24} color={color as string} />,
         }}
       />
@@ -31,6 +32,7 @@ export default function TabLayout() {
         name="profile"
         options={{
           title: 'Profile',
+          tabBarButtonTestID: 'profile-tab',
           tabBarIcon: ({ color }) => <AntDesign name="profile" size={24} color={color as string} />,
         }}
       />

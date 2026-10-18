@@ -1,0 +1,3 @@
+# Runs every flow in .maestro/ (subflows/ holds shared steps and is not run directly)
+flows:
+  - '*'

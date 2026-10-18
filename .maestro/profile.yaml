@@ -1,0 +1,21 @@
+appId: ${APP_ID}
+name: Profile tab opens details and goes back
+---
+- runFlow: subflows/launch.yaml
+- tapOn:
+    id: profile-tab
+- assertVisible:
+    id: profile-screen
+- tapOn:
+    id: profile-details-button
+- assertVisible:
+    id: details-screen
+- assertVisible: Details (from Profile)
+- tapOn:
+    id: details-back-button
+- assertVisible:
+    id: profile-screen
+- tapOn:
+    id: home-tab
+- assertVisible:
+    id: home-screen

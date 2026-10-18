@@ -35,9 +35,12 @@ export default function Home() {
   const router = useRouter();
   const { isDark } = useColorScheme();
   return (
-    <View style={[styles.root, isDark && { backgroundColor: colors.blackGray }]}>
+    <View
+      testID="home-screen"
+      style={[styles.root, isDark && { backgroundColor: colors.blackGray }]}>
       <Text style={[styles.title, isDark && { color: colors.gray }]}>Home</Text>
       <Button
+        testID="home-details-button"
         title="Go to Details"
         titleStyle={[styles.buttonTitle, isDark && { color: colors.blackGray }]}
         style={styles.button}

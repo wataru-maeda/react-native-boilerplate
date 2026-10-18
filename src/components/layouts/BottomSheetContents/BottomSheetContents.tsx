@@ -89,6 +89,7 @@ export default function BottomSheetContents({ onClose }: WelcomeBottomSheetConte
         {`Your foundational setup is now complete, paving the way for seamless development and innovation. \n\nHappy coding!`}
       </Text>
       <GradientButton
+        testID="welcome-ok-button"
         title="OK"
         titleStyle={[styles.buttonTitle, isDark && { color: colors.blackGray }]}
         style={styles.button}

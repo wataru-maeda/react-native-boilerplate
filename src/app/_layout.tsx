@@ -1,4 +1,5 @@
 import { Fragment, useState, useEffect } from 'react';
+import { LogBox } from 'react-native';
 import * as SplashScreen from 'expo-splash-screen';
 import BottomSheetContents from '@/components/layouts/BottomSheetContents';
 import BottomSheet from '@/components/elements/BottomSheet';
@@ -11,6 +12,9 @@ import { useAppSlice } from '@/slices';
 import { getUserAsync } from '@/services';
 import Provider from '@/providers';
 import { User } from '@/types';
+
+// @gorhom/bottom-sheet passes dependency arrays that Reanimated 4.7 ignores on native
+LogBox.ignoreLogs(['[Reanimated] Dependencies should only be used on the web']);
 
 // keep the splash screen visible while complete fetching resources
 SplashScreen.preventAutoHideAsync();

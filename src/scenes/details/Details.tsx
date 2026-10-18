@@ -35,11 +35,14 @@ export default function Details() {
   const { isDark } = useColorScheme();
   const { from } = useLocalSearchParams();
   return (
-    <View style={[styles.root, isDark && { backgroundColor: colors.blackGray }]}>
+    <View
+      testID="details-screen"
+      style={[styles.root, isDark && { backgroundColor: colors.blackGray }]}>
       <Text
         style={[styles.title, isDark && { color: colors.gray }]}>{`Details (from ${from})`}</Text>
       <GradientButton
-        title="Go back to Home"
+        testID="details-back-button"
+        title="Go back"
         titleStyle={[styles.buttonTitle, isDark && { color: colors.blackGray }]}
         style={styles.button}
         gradientBackgroundProps={{
