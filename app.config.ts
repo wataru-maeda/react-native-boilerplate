@@ -10,6 +10,11 @@ export default ({ config }: ConfigContext): ExpoConfig => {
       ...config.ios,
       bundleIdentifier:
         process.env.EXPO_IOS_BUNDLE_IDENTIFIER ?? 'com.watarumaeda.react-native-boilerplate',
+      infoPlist: {
+        ...config.ios?.infoPlist,
+        // opt out of iOS 26 Liquid Glass so header buttons keep a plain background
+        UIDesignRequiresCompatibility: true,
+      },
     },
     android: {
       ...config.android,
