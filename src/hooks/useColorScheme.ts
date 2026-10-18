@@ -1,5 +1,5 @@
 import { isMobile } from '@/utils/deviceInfo';
-import { useState, useEffect } from 'react';
+import { useSyncExternalStore } from 'react';
 import { useColorScheme as useRNColorScheme, ColorSchemeName } from 'react-native';
 
 type ColorSchemeResult = {
@@ -9,18 +9,21 @@ type ColorSchemeResult = {
 };
 
 function useColorSchemaForMobile(): ColorSchemeResult {
-  const colorScheme = useRNColorScheme();
+  const colorScheme = useRNColorScheme() ?? 'light';
   const isDark = colorScheme === 'dark';
   const isLight = colorScheme === 'light';
   return { colorScheme, isDark, isLight };
 }
 
-function useColorSchemeForWeb(): ColorSchemeResult {
-  const [isHydrated, setHydrated] = useState<boolean>(false);
+// false during static rendering and hydration, true after the client takes over
+const subscribeNoop = () => () => {};
 
-  useEffect(() => {
-    setHydrated(true);
-  }, []);
+function useColorSchemeForWeb(): ColorSchemeResult {
+  const isHydrated = useSyncExternalStore(
+    subscribeNoop,
+    () => true,
+    () => false,
+  );
 
   const colorScheme = useRNColorScheme();
   const isDark = colorScheme === 'dark';

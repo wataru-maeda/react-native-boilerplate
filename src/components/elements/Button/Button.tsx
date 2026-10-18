@@ -4,7 +4,6 @@ import {
   Text,
   ActivityIndicator,
   GestureResponderEvent,
-  ImageSourcePropType,
   StyleProp,
   ViewStyle,
   ImageStyle,
@@ -12,7 +11,7 @@ import {
   StyleSheet,
 } from 'react-native';
 import { colors } from '@/theme';
-import Image from '../Image';
+import Image, { ImageProps } from '../Image';
 
 const styles = StyleSheet.create({
   root: {
@@ -25,7 +24,7 @@ const styles = StyleSheet.create({
 
 export interface ButtonProps extends PressableProps {
   title?: string;
-  image?: ImageSourcePropType;
+  image?: ImageProps['source'];
   imageStyle?: StyleProp<ImageStyle>;
   titleStyle?: StyleProp<TextStyle>;
   onPress?: (event: GestureResponderEvent) => void;

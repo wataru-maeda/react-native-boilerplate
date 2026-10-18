@@ -4,7 +4,7 @@ import GradientButton from './GradientButton';
 
 describe('<GradientButton />', () => {
   it('renders correctly with a title and gradation colors', async () => {
-    render(
+    await render(
       <GradientButton
         title="Click Me"
         gradientBackgroundProps={{

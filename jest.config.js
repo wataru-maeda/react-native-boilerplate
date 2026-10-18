@@ -1,8 +1,8 @@
-const glob = require('glob');
+const { globSync } = require('glob');
 
 // find all source files that have tests
 const findSourceFilesWithTests = () => {
-  const testFiles = glob.sync('**/*.test.{js,jsx,ts,tsx}');
+  const testFiles = globSync('src/**/*.test.{js,jsx,ts,tsx}');
   const sourceFiles = testFiles.map(testFile => {
     return testFile.replace('.test', '').replace(/__tests__\//, '');
   });
@@ -12,6 +12,9 @@ const findSourceFilesWithTests = () => {
 /** @type {import('jest').Config} */
 module.exports = {
   preset: 'jest-expo',
+  moduleNameMapper: {
+    '^@/(.*)$': '<rootDir>/src/$1',
+  },
   transformIgnorePatterns: [
     'node_modules/(?!((jest-)?react-native|@react-native(-community)?)|expo(nent)?|@expo(nent)?/.*|@expo-google-fonts/.*|react-navigation|@react-navigation/.*|@sentry/react-native|native-base|react-native-svg)',
   ],

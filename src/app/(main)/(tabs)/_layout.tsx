@@ -24,14 +24,14 @@ export default function TabLayout() {
         name="home"
         options={{
           title: 'Home',
-          tabBarIcon: ({ color }) => <AntDesign name="home" size={24} color={color} />,
+          tabBarIcon: ({ color }) => <AntDesign name="home" size={24} color={color as string} />,
         }}
       />
       <Tabs.Screen
         name="profile"
         options={{
           title: 'Profile',
-          tabBarIcon: ({ color }) => <AntDesign name="profile" size={24} color={color} />,
+          tabBarIcon: ({ color }) => <AntDesign name="profile" size={24} color={color as string} />,
         }}
       />
     </Tabs>
