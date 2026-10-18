@@ -14,34 +14,36 @@
   <img src='https://github.com/wataru-maeda/react-native-boilerplate/blob/main/__DELELE_ME__/demo-dark-theme.gif' width='150px'>
 </p>
 
-Say goodbye to time-consuming setup tasks like restructuring files, installing libraries, and crafting reusable components. Our project boilerplate is your solution to eliminate redundant work when starting from scratch. Built with the latest Expo SDK 54, React 19.1, and modern development practices, it includes only the most commonly-used libraries, so you can hit the ground running with a fully configured setup.
+Say goodbye to time-consuming setup tasks like restructuring files, installing libraries, and crafting reusable components. Our project boilerplate is your solution to eliminate redundant work when starting from scratch. Built with the latest Expo SDK 58, React 19.3, and modern development practices, it includes only the most commonly-used libraries, so you can hit the ground running with a fully configured setup.
 
 ## 🎯 Pre-configured Features
 
-- 📱 **Expo SDK 54** with React 19.1 and React Native 0.81.4
-- 🏗️ **New Architecture** enabled by default for optimal performance
-- 🧭 **Expo Router v6** with flat config for file-based routing
+- 📱 **Expo SDK 58** with React 19.3 and React Native 0.88
+- 🏗️ **New Architecture** for optimal performance
+- 🧭 **Expo Router** for file-based routing, with drawer, tabs, and stacks
 - 🎨 **Light/Dark theme** support with automatic detection
 - 🔄 **Redux Toolkit** for predictable state management
 - 📦 **Environment configuration** with dotenvx for dev/staging/prod
 - 🚀 **CI/CD workflows** with EAS Build and Preview channels
-- 🛠️ **Modern tooling**: ESLint 9 (flat config), Prettier, Jest
+- 🛠️ **Modern tooling**: ESLint 9 (flat config), Prettier, Jest 30, TypeScript 6
 - 🌐 **Multi-platform**: iOS, Android, and Web distribution
-- 📝 **AI-friendly**: Claude.md and Cursor rules for AI development
-- 🧪 **Testing ready**: React Native Testing Library setup
+- 📝 **AI-friendly**: `AGENTS.md` rules read by Claude Code, Cursor, Codex, and other coding agents
+- 🧪 **Testing ready**: React Native Testing Library for unit tests and [Maestro](https://maestro.dev/) for E2E tests
 - 🔒 **Type-safe**: Strict TypeScript configuration
 
 ## 🗒️ Requirements
 
-- [Node: 20.x or higher](https://nodejs.org/en)
+- [Node: 24.x or higher](https://nodejs.org/en) and npm 11 or higher
 - [Expo CLI](https://docs.expo.dev/more/expo-cli/)
 - [EAS CLI](https://docs.expo.dev/build/setup/) (for builds and deployment)
+- [Maestro CLI](https://docs.maestro.dev/getting-started/installing-maestro) and Xcode or Android Studio (for E2E tests)
 
 ## 🚀 Quick Start
 
 1. Download zip or click "Use this template"
-2. Install packages with `npm install` or `yarn install`
-3. Spin up dev environment with `npm run dev` or `yarn run dev`
+2. Install packages with `npm install`
+3. Copy `.env.dev.example` to `.env.dev`
+4. Spin up dev environment with `npm run dev`
 
 ## 🤖 What's included
 
@@ -77,16 +79,16 @@ Root (Drawer)
 This project uses [**Redux Toolkit**](https://redux-toolkit.js.org/) for global state management, pre-configured with Redux Hooks for immediate use. 
 
 #### Getting Started
-1. Explore existing slices in the [`/slices`](https://github.com/wataru-maeda/react-native-boilerplate/tree/main/slices) directory
-2. See usage examples in [`/app/_layout.tsx`](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/app/_layout.tsx#L23)
+1. Explore existing slices in the [`src/slices`](https://github.com/wataru-maeda/react-native-boilerplate/tree/main/src/slices) directory
+2. See usage examples in [`src/app/_layout.tsx`](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/src/app/_layout.tsx)
 
 #### Adding New State
-1. Copy [`/slices/app.slice.ts`](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/slices/app.slice.ts)
+1. Copy [`src/slices/app.slice.ts`](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/src/slices/app.slice.ts)
 2. Rename and modify for your needs
-3. Add your slice to [`/utils/store.ts`](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/utils/store.ts#L10)
+3. Add your slice to [`src/utils/store.ts`](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/src/utils/store.ts)
 
 #### Development
-Redux logger is enabled by default. To disable, remove the logger from [`/utils/store.ts`](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/utils/store.ts#L13).
+Redux logger is enabled by default. To disable, remove the logger from [`src/utils/store.ts`](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/src/utils/store.ts).
 
 </details>
 
@@ -95,7 +97,7 @@ Redux logger is enabled by default. To disable, remove the logger from [`/utils/
 
 ####
 
-The project simplifies asset and theme management through a centralized [`/theme`](https://github.com/wataru-maeda/react-native-boilerplate/tree/main/theme) directory that handles images, icons, fonts, and colors, with built-in asset preloading and SVG support for optimal performance, while also providing a custom `useColorScheme` hook (located in [`/hooks/useColorScheme.ts`](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/hooks/useColorScheme.ts)) that automatically detects and adapts colors based on the current theme across both mobile and web platforms - making it easy to implement dynamic theming by returning the current color scheme name and flags (isDark, isLight) for conditional styling.
+The project simplifies asset and theme management through a centralized [`src/theme`](https://github.com/wataru-maeda/react-native-boilerplate/tree/main/src/theme) directory that handles images, icons, fonts, and colors, with built-in asset preloading and SVG support for optimal performance, while also providing a custom `useColorScheme` hook (located in [`src/hooks/useColorScheme.ts`](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/src/hooks/useColorScheme.ts)) that automatically detects and adapts colors based on the current theme across both mobile and web platforms - making it easy to implement dynamic theming by returning the current color scheme name and flags (isDark, isLight) for conditional styling.
 
 </details>
 
@@ -112,17 +114,17 @@ The project uses [`dotenvx`](https://dotenvx.com/) to handle environment variabl
 #### Setup Structure
 - `.env.dev.example` - Development environment template
 - `.env.prod.example` - Production environment template
-- Configuration in [`app.config.ts`](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/app.config.ts) and [`utils/config.ts`](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/utils/config.ts)
+- Configuration in [`app.config.ts`](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/app.config.ts) and [`src/utils/config.ts`](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/src/utils/config.ts)
 
 #### Getting Started with Your Expo Account
 1. Rename `.env.dev.example` to `.env.dev`
-2. Update `owner` in [`app.json`](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/app.json#L6) with your Expo username
+2. Update `owner` in [`app.json`](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/app.json) with your Expo username
 3. Set your `EXPO_SLUG` and `EXPO_PROJECT_ID` in `.env.dev`
 
 #### Adding New Environment Variables
 1. Add variables to both `.env.dev` and `.env.prod`
-2. Include them in `app.config.ts` under the [`extra`](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/app.config.ts#L29) object
-3. Define them in [`utils/config.ts`](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/utils/config.ts#L6)
+2. Include them in `app.config.ts` under the [`extra`](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/app.config.ts) object
+3. Define them in [`src/utils/config.ts`](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/src/utils/config.ts)
 
 #### Verify Configuration
 - Check variables in the app's bottom sheet OR...
@@ -172,9 +174,26 @@ The project streamlines deployment with simple commands - use `npm run dev:build
 - `npm run dev:deploy:web` - Deploy web app to [EAS Hosting](https://docs.expo.dev/eas/hosting/introduction/)
 
 #### Testing:
+- `npm run check-types` - Check types
 - `npm run lint` - Run ESLint
 - `npm run format` - Run Prettier
 - `npm run test` - Run Jest tests
+- `npm run e2e` - Run Maestro E2E flows
+
+</details>
+
+<details>
+  <summary><b>E2E testing with Maestro</b></summary>
+
+####
+
+[Maestro](https://maestro.dev/) flows live in [`.maestro`](https://github.com/wataru-maeda/react-native-boilerplate/tree/main/.maestro). They cover the welcome sheet, the Home and Profile tabs, the Details screen, and the drawer. Each flow starts from [`subflows/launch.yaml`](https://github.com/wataru-maeda/react-native-boilerplate/blob/main/.maestro/subflows/launch.yaml), which launches the app with a clean state and closes the welcome sheet.
+
+1. Install the [Maestro CLI](https://docs.maestro.dev/getting-started/installing-maestro)
+2. Build and install the app on a simulator with `npm run dev:run:ios` (or `npm run dev:run:android`). Keep the Metro server it starts running
+3. Run the flows with `npm run e2e` (or `npm run e2e:android`)
+
+The scripts read the app ID from `EXPO_IOS_BUNDLE_IDENTIFIER` or `EXPO_ANDROID_PACKAGE` in `.env.dev`. Target elements by `testID` when you add flows.
 
 </details>
 
@@ -220,6 +239,8 @@ The project includes comprehensive development, building, testing, and deploymen
 - `npm run dev:android` - Start development server for Android emulator only  
 - `npm run dev:web` - Start development server for web browser only
 - `npm run dev:doctor` - Run Expo diagnostics to check project health
+- `npm run dev:run:ios` - Build and run the native iOS app locally
+- `npm run dev:run:android` - Build and run the native Android app locally
 
 </details>
 
@@ -251,11 +272,14 @@ The project includes comprehensive development, building, testing, and deploymen
 
 ####
 
+- `npm run check-types` - Check types with TypeScript
 - `npm run lint` - Run ESLint to check code quality and style
 - `npm run lint:staged` - Run linting only on staged Git files (used in pre-commit)
 - `npm run format` - Format code using Prettier
 - `npm run test` - Run Jest unit tests
 - `npm run test:watch` - Run Jest tests in watch mode for development
+- `npm run e2e` - Run Maestro E2E flows on the iOS simulator
+- `npm run e2e:android` - Run Maestro E2E flows on the Android emulator
 - `npm run prepare` - Set up Husky Git hooks for pre-commit quality checks
 
 </details>
@@ -283,6 +307,7 @@ npm run dev:deploy:web        # Deploy to EAS Hosting
 npm run lint                  # Check code
 npm run format               # Format code
 npm run test                 # Run tests
+npm run e2e                  # Run E2E flows
 ```
 
 </details>
